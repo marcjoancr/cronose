@@ -42,8 +42,8 @@
       </select>
   </form>
   <script>
-      const selector = document.getElementById('language_selector');
-      selector.value = "<?= $_SESSION['lang'] ?>";
+    const selector = document.getElementById('language_selector');
+    selector.value = "<?= isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
   </script>
   <h1><?=$lang[$displayLang]['welcome'];?></h1>
 </body>
