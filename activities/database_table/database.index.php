@@ -2,26 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="../../cronose-front/assets/plugin/bootstrap.min.css">
   <title></title>
-  <style>
-    #a{
-      background-color: #ec7241;
-      border: 1px solid black;
-    }
-    table, td, th {
-       border: 1px solid black;
-    }
-    th{
-       padding-top: 6px;
-       padding-right: 6px;
-       padding-bottom: 6px;
-       padding-left: 6px;
-    }
-  </style>
 </head>
 <body>
   <h1>SERVICES</h1>
-  <table>
+  <table class="table table-bordered table-responsive">
     <tr id='a'>
       <th>ID</th>
       <th>NAME</th>
