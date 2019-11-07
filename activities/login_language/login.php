@@ -10,12 +10,9 @@
 
     session_start();
 
-    require 'Authenticator.php';
-
-    Authenticator::redirect();
     $langAvailable = ['en','es','ca'];
     
-    if (isset($_POST['lang']) && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
+    if ($_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
 
     $clientLang = $_SESSION['lang'] ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
     $defaultLang = 'es';
