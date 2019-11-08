@@ -11,7 +11,7 @@
     session_start();
 
     $langAvailable = ['en','es','ca'];
-    
+
     if ($_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
 
     $clientLang = $_SESSION['lang'] ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
@@ -39,20 +39,36 @@
             'submit' => 'ENVIAR'
             ]
         ];
-    
+
     function changeLanguage($lang) {
         $_SESSION['lang'] = $lang;
     }
 
 ?>
 
-<h1><?=$lang[$displayLang]['logIn'];?></h1>
-
-<form action="validator.php" method="post" target="_self">
-    <?=$lang[$displayLang]['name'];?>: <input type="text" name="name"><br>
-    <?=$lang[$displayLang]['password'];?>: <input type="password" name="password"><br>
-    <input type="submit" value="<?=$lang[$displayLang]['submit'];?>">
-</form>
+<div class="container">
+  <div class="row">
+    <div class=" col-4 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center"><?=$lang[$displayLang]['logIn'];?></h5>
+          <form action="validator.php" method="post" target="_self" class="form-signin">
+            <div class="form-label-group">
+              <input type="text" name="name" class="form-control" placeholder="<?=$lang[$displayLang]['name'];?>" required autofocus>
+              <br>
+            </div>
+            <div class="form-label-group">
+              <input type="password" name="password" class="form-control" placeholder="<?=$lang[$displayLang]['password'];?>" required>
+              <br>
+            </div>
+            <input class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="<?=$lang[$displayLang]['submit'];?>">
+            <!--<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="<?=$lang[$displayLang]['submit'];?>"><?=$lang[$displayLang]['submit'];?></button>-->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
 <form action="" method="post" target="_self" name="lang_change">
     <select id="language_selector" name="lang" onchange="lang_change.submit();">
@@ -68,4 +84,3 @@
 
 </body>
 </html>
-
