@@ -18,6 +18,7 @@
 
     session_start();
 
+
     $langAvailable = ['en','es','ca'];
 
     if ($_POST && $_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
@@ -62,11 +63,11 @@
           <h5 class="card-title text-center"><?=$lang[$displayLang]['logIn'];?></h5>
           <form id="login-form" method="post" target="_self" class="form-signin">
             <div class="form-label-group">
-              <input type="text" name="username" class="form-control" placeholder="<?=$lang[$displayLang]['name'];?>" required autofocus>
+              <input id="username" type="text" name="username" class="form-control" placeholder="<?=$lang[$displayLang]['name'];?>" required autofocus>
               <br>
             </div>
             <div class="form-label-group">
-              <input type="password" name="password" class="form-control" placeholder="<?=$lang[$displayLang]['password'];?>" required>
+              <input id="password" type="password" name="password" class="form-control" placeholder="<?=$lang[$displayLang]['password'];?>" required>
               <br>
             </div>
             <input id="login-btn" class="btn btn-lg btn-primary btn-block text-uppercase" type="button" value="<?=$lang[$displayLang]['submit'];?>">
@@ -99,18 +100,27 @@
 
     function login() {
       const url = '../assets/php/Login.php';
-      const parameters = $('#login-form').serialize();
-
+      var username = $("#username").val();
+      var password = $("#password").val();;
       $.ajax({
         type: 'POST',
         url: url,
-        data: parameters,
-        dataType: 'json',
-        success: response => {
+        data: { username: username, password: password },
+        success: function(response) {
           console.log(response);
-          console.log('Success!');
         }
       });
+
+      // $.ajax({
+      //   type: 'POST',
+      //   url: url,
+      //   data: parameters,
+      //   dataType: 'json',
+      //   success: function(data){
+      //     console.log('Success!');
+      //     console.log(response);
+      //   }
+      // });
     }
 
     // Si la resposta és success, guardar l'objecte 'User' a la sessió i que està autentificat

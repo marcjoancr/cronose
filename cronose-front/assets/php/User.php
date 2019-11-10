@@ -8,7 +8,7 @@ class User {
     private $password;
     private $valid = false;
 
-    public function __constructor($username, $password) {
+    public function __construct($username, $password) {
         $this->username = $username;
         $this->password = $password;
     }
@@ -18,7 +18,7 @@ class User {
     }
 
     public function getUsername() {
-        return $this->username; 
+        return $this->username;
     }
     public function getPassword() {
         return $this->password;
