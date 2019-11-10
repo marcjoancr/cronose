@@ -22,8 +22,6 @@
     if ($_SESSION['user']->isValid()) header('Location: index.php');
   }
 
-  var_dump($_SESSION['user']);
-
   $langAvailable = ['en','es','ca'];
 
   if ($_POST && $_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
@@ -105,12 +103,13 @@
 
     function login() {
       const url = '../assets/php/Login.php';
-      var username = $("#username").val();
-      var password = $("#password").val();;
+      const username = $("#username").val();
+      const password = $("#password").val();;
+      
       $.ajax({
         type: 'POST',
         url: url,
-        data: { username: username, password: password },
+        data: { username, password },
         success: function(response) {
           console.log(response);
         }

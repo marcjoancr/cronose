@@ -2,11 +2,14 @@
 
 require 'Connection.php';
 
-class DB {
+include __DIR__.'/../../config.inc.php';
 
-  public static function selectUser($user) {
-    $connection = Connection::make();
-    $statement = $connection->prepare("select userName,paswd from User where userName = '$user'");
+class DB {
+  
+  public static function selectUserByUsername($username) {
+    global $config;
+    $connection = Connection::make($config);
+    $statement = $connection->prepare("select username, password from User where username = '$username'");
     $statement->execute();
     return $statement->fetchAll();
   }
