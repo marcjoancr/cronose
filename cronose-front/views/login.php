@@ -14,45 +14,32 @@
 <body>
 <?php
 
-  require '../assets/php/User.php';
+require '../assets/php/User.php';
+require 'header.php';
 
-  session_start();
+session_start();
 
-  if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: index.php');
 
-  $langAvailable = ['en','es','ca'];
-
-  if ($_POST && $_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
-
-  $clientLang = $_SESSION['lang'] ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-  $defaultLang = 'es';
-
-  in_array($clientLang, $langAvailable) ? $displayLang = $clientLang : $displayLang = $defaultLang;
-
-  $lang = [
-      'en' => [
-          'logIn' => 'Log In',
-          'name' => 'Name',
-          'password' => 'Password',
-          'submit' => 'SEND'
-          ],
-      'es' => [
-          'logIn' => 'Inicia Sesión',
-          'name' => 'Nombre',
-          'password' => 'Contraseña',
-          'submit' => 'ENVIAR'
-          ],
-      'ca' => [
-          'logIn' => 'Inicia Sessió',
-          'name' => 'Nom',
-          'password' => 'Contrasenya',
-          'submit' => 'ENVIAR'
-          ]
-      ];
-
-  function changeLanguage($lang) {
-      $_SESSION['lang'] = $lang;
-  }
+$lang = [
+    'en' => [
+        'logIn' => 'Log In',
+        'name' => 'Name',
+        'password' => 'Password',
+        'submit' => 'SEND'
+    ],
+    'es' => [
+        'logIn' => 'Inicia Sesión',
+        'name' => 'Nombre',
+        'password' => 'Contraseña',
+        'submit' => 'ENVIAR'
+    ],
+    'ca' => [
+        'logIn' => 'Inicia Sessió',
+        'name' => 'Nom',
+        'password' => 'Contrasenya',
+        'submit' => 'ENVIAR'
+    ]
+];
 
 ?>
 
