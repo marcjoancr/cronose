@@ -14,44 +14,49 @@
 <body>
 <?php
 
-    require '../assets/php/User.php';
+  require '../assets/php/User.php';
 
-    session_start();
+  session_start();
 
+  if(isset($_SESSION['user'])) {
+    if ($_SESSION['user']->isValid()) header('Location: index.php');
+  }
 
-    $langAvailable = ['en','es','ca'];
+  var_dump($_SESSION['user']);
 
-    if ($_POST && $_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
+  $langAvailable = ['en','es','ca'];
 
-    $clientLang = $_SESSION['lang'] ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-    $defaultLang = 'es';
+  if ($_POST && $_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
 
-    in_array($clientLang, $langAvailable) ? $displayLang = $clientLang : $displayLang = $defaultLang;
+  $clientLang = $_SESSION['lang'] ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+  $defaultLang = 'es';
 
-    $lang = [
-        'en' => [
-            'logIn' => 'Log In',
-            'name' => 'Name',
-            'password' => 'Password',
-            'submit' => 'SEND'
-            ],
-        'es' => [
-            'logIn' => 'Inicia Sesión',
-            'name' => 'Nombre',
-            'password' => 'Contraseña',
-            'submit' => 'ENVIAR'
-            ],
-        'ca' => [
-            'logIn' => 'Inicia Sessió',
-            'name' => 'Nom',
-            'password' => 'Contrasenya',
-            'submit' => 'ENVIAR'
-            ]
-        ];
+  in_array($clientLang, $langAvailable) ? $displayLang = $clientLang : $displayLang = $defaultLang;
 
-    function changeLanguage($lang) {
-        $_SESSION['lang'] = $lang;
-    }
+  $lang = [
+      'en' => [
+          'logIn' => 'Log In',
+          'name' => 'Name',
+          'password' => 'Password',
+          'submit' => 'SEND'
+          ],
+      'es' => [
+          'logIn' => 'Inicia Sesión',
+          'name' => 'Nombre',
+          'password' => 'Contraseña',
+          'submit' => 'ENVIAR'
+          ],
+      'ca' => [
+          'logIn' => 'Inicia Sessió',
+          'name' => 'Nom',
+          'password' => 'Contrasenya',
+          'submit' => 'ENVIAR'
+          ]
+      ];
+
+  function changeLanguage($lang) {
+      $_SESSION['lang'] = $lang;
+  }
 
 ?>
 

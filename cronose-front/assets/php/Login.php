@@ -1,14 +1,15 @@
 <?php
 
+session_start();
+
 require 'User.php';
 
-$user = new User($_POST['username'], $_POST['password']);
+$_SESSION['user'] = new User($_POST['username'], $_POST['password']);
 
-$user->validate();
+$_SESSION['user']->validate();
 
-if ($user->isValid()) {
-  // $_SESSION('user') = $user;
-    echo 'Valid!';
+if ($_SESSION['user']->isValid()) {
+    var_dump($_SESSION['user']);
 } else {
     echo 'Ups!';
 }
