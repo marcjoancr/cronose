@@ -11,7 +11,7 @@ class User {
     public function __construct($username, $password) {
         $this->username = $username;
         $this->password = $password;
-        $this->valid = $this->validate();
+        $this->valid = Validator::isValid($this);
     }
 
     public function isValid() {
@@ -23,10 +23,6 @@ class User {
     }
     public function getPassword() {
         return $this->password;
-    }
-
-    public function validate() {
-        if (Validator::isValid($this)) $this->valid = true;
     }
 
 }

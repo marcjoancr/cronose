@@ -6,10 +6,21 @@ require 'User.php';
 
 $user = new User($_POST['username'], $_POST['password']);
 
+header('Content-Type: application/json');
 if ($user->isValid()) {
-    echo 'Valid!';
+    $_SESSION['user'] = $user;
+    $response = [
+        'status' => 'success',
+        'message' => 'Successfully connected'
+    ];
+    echo json_encode($response);
 } else {
-    echo 'Ups!';
+    $response = [
+        'status' => 'error',
+        'error' => '404',
+        'message' => 'Incorrect username or password'
+    ];
+    echo json_encode($response);
 }
 
 ?>

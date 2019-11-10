@@ -14,4 +14,12 @@ class DB {
     return $statement->fetchAll();
   }
 
+  public static function registerUser($user) {
+    global $config;
+    $connection = Connection::make($config);
+    $statement = $connection->prepare(""); // Insert into database
+    $statement->execute();
+    return $statement->fetchAll();
+  }
+
 }

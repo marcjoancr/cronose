@@ -18,9 +18,7 @@
 
   session_start();
 
-  if(isset($_SESSION['user'])) {
-    if ($_SESSION['user']->isValid()) header('Location: index.php');
-  }
+  if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: index.php');
 
   $langAvailable = ['en','es','ca'];
 
@@ -88,47 +86,37 @@
         <option value="ca">CA</option>
     </select>
 </form>
+<script src="../assets/plugin/jquery.md5.min.js"></script>
 <script>
     const selector = document.getElementById('language_selector');
     selector.value = "<?= isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
 
     // Validate form
-    // JS validator
-
-    // Send form via ajax request to Login.php
-
     $('#login-btn').click(() => {
+      // JS validator
       login();
     });
 
+    // Send form via ajax request to Login.php
     function login() {
       const url = '../assets/php/Login.php';
       const username = $("#username").val();
-      const password = $("#password").val();;
+      const password = $.md5($("#password").val());
       
       $.ajax({
         type: 'POST',
         url: url,
         data: { username, password },
         success: function(response) {
-          console.log(response);
+          if (response.status == 'success') {
+            console.log(response);
+            window.location.replace('index.php');
+          } else if (response.status == 'error') {
+            console.log(response);
+          }
         }
       });
-
-      // $.ajax({
-      //   type: 'POST',
-      //   url: url,
-      //   data: parameters,
-      //   dataType: 'json',
-      //   success: function(data){
-      //     console.log('Success!');
-      //     console.log(response);
-      //   }
-      // });
     }
-
-    // Si la resposta és success, guardar l'objecte 'User' a la sessió i que està autentificat
-    // Si la resposta no és success, guardar a la sessió que no està autentificat
 
 </script>
 
