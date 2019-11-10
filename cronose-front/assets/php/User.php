@@ -9,23 +9,23 @@ class User {
     private $valid = false;
 
     public function __constructor($username, $password) {
-        self::$username = $username;
-        self::$password = $password;
+        $this->username = $username;
+        $this->password = $password;
     }
 
     public function isValid() {
-        return self::$valid;
+        return $this->valid;
     }
 
     public function getUsername() {
-        return self::$username;
+        return $this->username; 
     }
     public function getPassword() {
-        return self::$password;
+        return $this->password;
     }
 
     public function validate() {
-        if (Validator::isValid(self)) self::$valid = true;
+        if (Validator::isValid($this)) $this->valid = true;
     }
 
 }
