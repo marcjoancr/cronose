@@ -2,7 +2,7 @@
 
 session_start();
 
-require $_SERVER['DOCUMENT_ROOT'].'User.php';
+require $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
 
 $user = new User($_POST['username'], $_POST['password']);
 

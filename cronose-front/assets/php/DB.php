@@ -1,8 +1,8 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'].'Connection.php';
+require $_SERVER['DOCUMENT_ROOT'].'/assets/php/Connection.php';
 
-require $_SERVER['DOCUMENT_ROOT'].'/../../config.inc.php';
+require $_SERVER['DOCUMENT_ROOT'].'/config.inc.php';
 
 class DB {
   
