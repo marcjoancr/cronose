@@ -3,7 +3,7 @@
 <head>
   <link rel="shortcut icon" href="favicon.ico"/>
   <meta charset="utf-8">
-  <title>Login</title>
+  <title>Cronose</title>
   <link rel="stylesheet" href="/assets/plugin/bootstrap/bootstrap.min.css">
   <script src="/assets/plugin/jquery/jquery-3.4.1.min.js"></script>
   <script src="/assets/plugin/js/popper.min.js"></script>

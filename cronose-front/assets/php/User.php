@@ -1,6 +1,6 @@
 <?php
 
-require 'Validator.php';
+require $_SERVER['DOCUMENT_ROOT'].'Validator.php';
 
 class User {
 

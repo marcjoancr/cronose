@@ -1,6 +1,6 @@
 <?php
 
-require 'DB.php';
+require $_SERVER['DOCUMENT_ROOT'].'DB.php';
 
 class Validator {
 
