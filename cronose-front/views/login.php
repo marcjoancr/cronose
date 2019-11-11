@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <link rel="shortcut icon" href="favicon.ico"/>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="../assets/plugin/bootstrap/bootstrap.min.css">
-    <script src="../assets/plugin/jquery/jquery-3.4.1.min.js"></script>
-    <script src="../assets/plugin/js/popper.min.js"></script>
-    <script src="../assets/plugin/bootstrap/bootstrap.min.js"></script>
 
-</head>
-<body>
 <?php
-
-  require '../assets/php/User.php';
-  require 'header.php';
+  require __DIR__.'/../assets/php/User.php';
+  require 'layouts/head.php';
 
   if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: index.php');
 
@@ -64,7 +51,7 @@
       const url = '../assets/php/Login.php';
       const username = $("#username").val();
       const password = $.md5($("#password").val());
-      
+
       $.ajax({
         type: 'POST',
         url: url,
@@ -82,5 +69,4 @@
 
 </script>
 
-</body>
-</html>
+<?php require 'layouts/footer.php';?>
