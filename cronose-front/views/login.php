@@ -30,13 +30,13 @@
   </div>
 </div>
 <br>
-<form action="" method="post" target="_self" name="lang_change">
+<!--<form action="" method="post" target="_self" name="lang_change">
     <select id="language_selector" name="lang" onchange="lang_change.submit();">
         <option value="es">ES</option>
         <option value="en">EN</option>
         <option value="ca">CA</option>
     </select>
-</form>
+</form>-->
 <script src="../assets/plugin/jquery/jquery.md5.min.js"></script>
 <script>
 
