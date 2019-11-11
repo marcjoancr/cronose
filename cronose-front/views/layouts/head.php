@@ -19,7 +19,7 @@
 
   if ($_POST && $_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
 
-  $clientLang = $_SESSION['lang'] ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+  $clientLang = isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
   $defaultLang = 'es';
 
   in_array($clientLang, $langAvailable) ? $displayLang = $clientLang : $displayLang = $defaultLang;
