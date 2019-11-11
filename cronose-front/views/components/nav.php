@@ -4,10 +4,10 @@
   <div class="collapse navbar-collapse" id="language">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <button class="btn" href="database.php"><i class="fa fa-database"></i> SERVICES</button>
+            <a class="btn" href="http://act.cronose.org/database_table/database.index.php"><i class="fa fa-database"></i> SERVICES</a>
         </li>
         <li class="nav-item active">
-            <button class="btn" href="aboutUs.php"><i class="fa fa-address-card"></i> ABOUT US</button>
+            <a class="btn" href="/views/about-us.php"><i class="fa fa-address-card"></i> ABOUT US</a>
         </li>
     </ul>
     <ul class="navbar-nav mr-auto" id="language_selector" name="lang" target="_self">

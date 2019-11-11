@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../../cronose-front/assets/plugin/bootstrap.min.css">
-  <title></title>
-</head>
-<body>
+<?php require 'http://www.cronose.org/views/layouts/head.php'; ?>
   <h1>SERVICES</h1>
   <table class="table table-bordered table-responsive">
     <tr id='a'>
@@ -23,5 +16,4 @@
    </tr>
    <?php endforeach; ?>
   </table>
-</body>
-</html>
+  <?php require 'http://www.cronose.org/views/layouts/footer.php';?>
