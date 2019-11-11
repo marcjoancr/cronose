@@ -59,7 +59,7 @@
         success: function(response) {
           if (response.status == 'success') {
             console.log(response);
-            window.location.replace('index.php');
+            window.location.replace('/');
           } else if (response.status == 'error') {
             console.log(response);
           }
@@ -69,4 +69,4 @@
 
 </script>
 
-<?php require 'layouts/footer.php';?>
+<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
