@@ -1,6 +1,6 @@
 <?php
-  require '../assets/php/User.php';
-  require '../views/layouts/head.php';
+  require $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
+  require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/head.php';
 
   session_start();
 
@@ -20,4 +20,4 @@
 <body>
   <h1>Cronose</h1>
 
-<?php require'../views/layouts/footer.php';?>
+<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
