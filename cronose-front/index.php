@@ -2,9 +2,7 @@
 
   require $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
   require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/head.php';
-
-  session_start();
-
+  
   if (!$_SESSION['user']) header('Location: views/login.php');
 ?>
 
