@@ -56,7 +56,7 @@
   </div>
 </div>
 
-<script src="../assets/plugin/bootstrap/bootstrap-validate.js"></script>
+<script src="/assets/plugin//bootstrap/bootstrap-validate.js"></script>
 
 <script>
   bootstrapValidate('#myEmail','email:<?=$lang[$displayLang]['validEmail'];?>');

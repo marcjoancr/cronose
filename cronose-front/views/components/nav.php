@@ -23,10 +23,10 @@
     </ul>
 
     <?php if(!isset($_SESSION['user'])) : ?>
-      <a href="../../views/login.php"><button type="button" class="btn btn-dark btn-lg login">LOG IN</button></a>
-      <a href="../../views/register.php"><button type="button" class="btn btn-secondary btn-lg register">REGISTER</button></a>
+      <a href="/views/login.php"><button type="button" class="btn btn-dark btn-lg login">LOG IN</button></a>
+      <a href="/views/register.php"><button type="button" class="btn btn-secondary btn-lg register">REGISTER</button></a>
     <?php else : ?>
-      <a href="../../assets/php/Logout.php"><button type="button" class="btn btn-secondary btn-lg">LOG OUT</button></a>
+      <a href="/assets/php/Logout.php"><button type="button" class="btn btn-secondary btn-lg">LOG OUT</button></a>
     <?php endif ?>
 
   </div>
@@ -38,11 +38,5 @@
       const selector = $(this).val;
       selector.value = "<?= isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
     });
-    // $(".login").click(function(){
-    //   location.href = "login.php";
-    // });
-    // $(".register").click(function(){
-    //   location.href = "register.php";
-    // });
   });
 </script>
