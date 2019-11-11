@@ -3,17 +3,9 @@
   require '../assets/php/User.php';
   require '../views/layouts/head.php';
 
-  if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: index.php');
+  if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: ../index.php');
 
 ?>
-
-<form action="" method="post" target="_self" name="lang_change">
-  <select id="language_selector" name="lang" onchange="lang_change.submit();">
-    <option value="es">ES</option>
-    <option value="en">EN</option>
-    <option value="ca">CA</option>
-  </select>
-</form>
 
 <div class="container h-100 mt-4">
   <div class="row justify-content-md-center h-100">
@@ -23,16 +15,16 @@
           <h4 class="card-title"><?=$lang[$displayLang]['register'];?></h4>
           <form method="POST" class="my-login-validation" id="register">
             <div class="form-group">
-              <label for="name"><?=$lang[$displayLang]['name'];?></label>
-              <input id="name" type="text" class="form-control" name="name" required autofocus>
+              <label for="username"><?=$lang[$displayLang]['name'];?></label>
+              <input id="username" type="text" class="form-control" name="username" required autofocus>
             </div>
             <div class="form-group">
               <label for="email"><?=$lang[$displayLang]['email'];?></label>
-              <input id="myEmail" type="text" class="form-control" name="email" required>
+              <input id="email" type="text" class="form-control" name="email" required>
             </div>
             <div class="form-group">
-              <label for="myPassword"><?=$lang[$displayLang]['password'];?></label>
-              <input id="myPassword" type="password" class="form-control" name="password" required>
+              <label for="password"><?=$lang[$displayLang]['password'];?></label>
+              <input id="password" type="password" class="form-control" name="password" required>
             </div>
             <div class="form-group">
               <label for="myPasswordConfirm"><?=$lang[$displayLang]['repeatPassword'];?></label>
@@ -40,14 +32,12 @@
             </div>
             <div class="form-group">
               <div class="custom-checkbox custom-control">
-                <input id="agree" type="checkbox" name="agree" class="custom-control-input" required="">
+                <input id="agree" type="checkbox" name="agree" class="custom-control-input" required>
                 <label for="agree" class="custom-control-label"><?=$lang[$displayLang]['agree'];?> <a href="#"><?=$lang[$displayLang]['terms'];?></a></label>
               </div>
             </div>
             <div class="form-group m-0">
-              <button id="btnSubmit" type="submit" class="btn btn-primary btn-block text-uppercase">
-                <?=$lang[$displayLang]['register'];?>
-              </button>
+              <input id="btnSubmit" type="button" class="btn btn-primary btn-block text-uppercase" value="<?=$lang[$displayLang]['register'];?>"/>
             </div>
           </form>
         </div>
@@ -56,12 +46,36 @@
   </div>
 </div>
 
-<script src="/assets/plugin//bootstrap/bootstrap-validate.js"></script>
+<script src="/assets/plugin/bootstrap/bootstrap-validate.js"></script>
 
 <script>
-  bootstrapValidate('#myEmail','email:<?=$lang[$displayLang]['validEmail'];?>');
-  bootstrapValidate('#myPassword', 'min:5:<?=$lang[$displayLang]['min5characters'];?>');
-  bootstrapValidate('#myPasswordConfirm','matches:#myPassword:<?=$lang[$displayLang]['passError'];?>');
+
+// Validate form
+$('#btnSubmit').click(() => {
+  register();
+});
+
+// Send form via ajax request to Login.php
+function register() {
+  const url = '../assets/php/Register.php';
+  const username = $("#username").val();
+  const password = $.md5($("#password").val());
+  const email = $("#email").val();
+  
+  $.ajax({
+    type: 'POST',
+    url: url,
+    data: { username, password, email },
+    success: function(response) {
+      if (response.status == 'success') {
+        console.log(response);
+        window.location.replace('/');
+      } else if (response.status == 'error') {
+        console.log(response);
+      }
+    }
+  });
+}
 </script>
 
-<?php require'../views/layouts/footer.php';?>
+<?php require '../views/layouts/footer.php';?>

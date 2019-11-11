@@ -26,8 +26,15 @@
       <a href="/views/login.php"><button type="button" class="btn btn-dark btn-lg login">LOG IN</button></a>
       <a href="/views/register.php"><button type="button" class="btn btn-secondary btn-lg register">REGISTER</button></a>
     <?php else : ?>
-      <a href="/assets/php/Logout.php"><button type="button" class="btn btn-secondary btn-lg">LOG OUT</button></a>
+      <a href="?logout=true"><button id="btn-logout" type="button" class="btn btn-secondary btn-lg">LOG OUT</button></a>
     <?php endif ?>
+
+    <?php 
+      if (isset($_GET['logout']) && $_GET['logout']) {
+        session_destroy();
+        header('Location: /');
+      }
+    ?>
 
   </div>
 </nav>

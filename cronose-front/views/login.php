@@ -3,7 +3,7 @@
   require __DIR__.'/../assets/php/User.php';
   require 'layouts/head.php';
 
-  if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: index.php');
+  if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: ../index.php');
 
 ?>
 
@@ -30,7 +30,6 @@
   </div>
 </div>
 <br>
-<script src="../assets/plugin/jquery/jquery.md5.min.js"></script>
 <script>
 
     // Validate form

@@ -8,6 +8,7 @@
   <script src="/assets/plugin/jquery/jquery-3.4.1.min.js"></script>
   <script src="/assets/plugin/js/popper.min.js"></script>
   <script src="/assets/plugin/bootstrap/bootstrap.min.js"></script>
+  <script src="/assets/plugin/jquery/jquery.md5.min.js"></script>
 </head>
 <body>
 

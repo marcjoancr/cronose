@@ -7,6 +7,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
 $user = new User($_POST['username'], $_POST['password']);
 
 header('Content-Type: application/json');
+
 if ($user->isValid()) {
     $_SESSION['user'] = $user;
     $response = [
