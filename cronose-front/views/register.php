@@ -56,9 +56,6 @@
 <br>
 
 <script>
-    const selector = document.getElementById('language_selector');
-    selector.value = "<?= isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
-
     //JQUERY
   $(document).ready(function() {
     $('#password2').on("focusout",function () {
