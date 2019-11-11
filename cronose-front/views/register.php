@@ -27,21 +27,25 @@
               <input id="name" type="text" class="form-control" name="name" required autofocus>
             </div>
             <div class="form-group">
-              <label for="password"><?=$lang[$displayLang]['password'];?></label>
-              <input id="password" type="password" class="form-control" name="password" required>
+              <label for="email"><?=$lang[$displayLang]['email'];?></label>
+              <input id="myEmail" type="text" class="form-control" name="email" required>
             </div>
             <div class="form-group">
-              <label for="password2"><?=$lang[$displayLang]['repeatPassword'];?></label>
-              <input id="password2" type="password" class="form-control" name="password2" required>
+              <label for="myPassword"><?=$lang[$displayLang]['password'];?></label>
+              <input id="myPassword" type="password" class="form-control" name="password" required>
+            </div>
+            <div class="form-group">
+              <label for="myPasswordConfirm"><?=$lang[$displayLang]['repeatPassword'];?></label>
+              <input id="myPasswordConfirm" type="password" class="form-control" name="password2" required>
             </div>
             <div class="form-group">
               <div class="custom-checkbox custom-control">
-                <input type="checkbox" name="agree" id="agree" class="custom-control-input" required="">
+                <input id="agree" type="checkbox" name="agree" class="custom-control-input" required="">
                 <label for="agree" class="custom-control-label"><?=$lang[$displayLang]['agree'];?> <a href="#"><?=$lang[$displayLang]['terms'];?></a></label>
               </div>
             </div>
             <div class="form-group m-0">
-              <button id="btnSubmit" type="submit" class="btn btn-primary btn-block text-uppercase" disabled="">
+              <button id="btnSubmit" type="submit" class="btn btn-primary btn-block text-uppercase">
                 <?=$lang[$displayLang]['register'];?>
               </button>
             </div>
@@ -52,19 +56,12 @@
   </div>
 </div>
 
-
-<br>
+<script src="../assets/plugin/bootstrap/bootstrap-validate.js"></script>
 
 <script>
-    //JQUERY
-  $(document).ready(function() {
-    $('#password2').on("focusout",function () {
-      if ($('#password').val() == $('#password2').val()) {
-        $('#btnSubmit').removeAttr("disabled");
-      };
-    });
-  });
-
+  bootstrapValidate('#myEmail','email:<?=$lang[$displayLang]['validEmail'];?>');
+  bootstrapValidate('#myPassword', 'min:5:<?=$lang[$displayLang]['min5characters'];?>');
+  bootstrapValidate('#myPasswordConfirm','matches:#myPassword:<?=$lang[$displayLang]['passError'];?>');
 </script>
 
 <?php require'../views/layouts/footer.php';?>
