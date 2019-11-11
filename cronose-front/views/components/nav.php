@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">CRONOSE</a>
+  <a class="navbar-brand" href="/">CRONOSE</a>
 
   <div class="collapse navbar-collapse" id="language">
     <ul class="navbar-nav mr-auto">
@@ -29,7 +29,7 @@
       <a href="?logout=true"><button id="btn-logout" type="button" class="btn btn-secondary btn-lg">LOG OUT</button></a>
     <?php endif ?>
 
-    <?php 
+    <?php
       if (isset($_GET['logout']) && $_GET['logout']) {
         session_destroy();
         header('Location: /');

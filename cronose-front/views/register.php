@@ -30,14 +30,14 @@
               <label for="myPasswordConfirm"><?=$lang[$displayLang]['repeatPassword'];?></label>
               <input id="myPasswordConfirm" type="password" class="form-control" name="password2" required>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <div class="custom-checkbox custom-control">
                 <input id="agree" type="checkbox" name="agree" class="custom-control-input" required>
                 <label for="agree" class="custom-control-label"><?=$lang[$displayLang]['agree'];?> <a href="#"><?=$lang[$displayLang]['terms'];?></a></label>
               </div>
-            </div>
+            </div> -->
             <div class="form-group m-0">
-              <input id="btnSubmit" type="button" class="btn btn-primary btn-block text-uppercase" value="<?=$lang[$displayLang]['register'];?>"/>
+              <input id="btnSubmit" type="button" class="btn btn-primary btn-block text-uppercase" value="<?=$lang[$displayLang]['register'];?>" disabled/>
             </div>
           </form>
         </div>
@@ -50,6 +50,20 @@
 
 <script>
 
+  bootstrapValidate('#username', 'min:4:<?=$lang[$displayLang]['min4characters'];?>',function (validName){
+    if (validName) bootstrapValidate('#email','email:<?=$lang[$displayLang]['validEmail'];?>',function (validEmail) {
+      if (validEmail) bootstrapValidate('#password', 'min:5:<?=$lang[$displayLang]['min5characters'];?>', function (validPass) {
+        if (validPass) bootstrapValidate('#myPasswordConfirm','matches:#password:<?=$lang[$displayLang]['passError'];?>', function (validPass2){
+          if (validPass2) {
+            $('#btnSubmit').prop("disabled", false);
+          } else {
+            $('#btnSubmit').prop("disabled", true);
+          };
+        });
+      });
+    });
+  });
+
 // Validate form
 $('#btnSubmit').click(() => {
   register();
@@ -61,7 +75,7 @@ function register() {
   const username = $("#username").val();
   const password = $.md5($("#password").val());
   const email = $("#email").val();
-  
+
   $.ajax({
     type: 'POST',
     url: url,
