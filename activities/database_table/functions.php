@@ -9,7 +9,7 @@
   }
 
   function fecthAllTasks($pdo){
-    $statement = $pdo -> prepare('select*from services');
+    $statement = $pdo -> prepare('select * from services');
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS,'services');
   }
