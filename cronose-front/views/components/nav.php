@@ -4,7 +4,7 @@
   <div class="collapse navbar-collapse" id="language">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="btn" href="http://act.cronose.org/database_table/database.index.php"><i class="fa fa-database"></i> SERVICES</a>
+        <!-- <a class="btn" href="http://act.cronose.org/database_table/database.index.php"><i class="fa fa-database"></i> SERVICES</a> -->
       </li>
       <li class="nav-item">
         <a class="btn" href="/views/about-us.php"><i class="fa fa-address-card"></i> ABOUT US</a>
