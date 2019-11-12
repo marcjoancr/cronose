@@ -43,7 +43,7 @@
   $(document).ready(function(){
     $('#language_selector .nav-item').each(function(index) {
       const target = $(this);
-      if (target.attr('value') == '<?= $_SESSION['lang'] ?>') {
+      if (target.attr('value') == '<?= $_SESSION['lang'] ?? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) ?>') {
         target.addClass('active');
       }
     });
