@@ -17,9 +17,14 @@ class DB {
     $statement->execute($execute);
     return $statement;
   }
+
+  public static function getUserByID($id) {
+    $statement = self::query("select username, email, password from User where id = '$id'");
+    return $statement->fetchAll();
+  }
   
   public static function getUserByUsername($username) {
-    $statement = self::query("select username, password from User where username = '$username'");
+    $statement = self::query("select username, email, password from User where username = '$username'");
     return $statement->fetchAll();
   }
 
