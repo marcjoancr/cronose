@@ -1,0 +1,30 @@
+.nav-item {
+    position: relative;
+    cursor: pointer;
+}
+
+#language_selector {
+    margin-right: 40px;
+}
+
+#language_selector .nav-item::after {
+    content: " |";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: rgba(255,255,255,.5);
+    transform: translateY(-55%);
+}
+
+#language_selector .nav-item:last-child::after {
+    content: "";
+}
+
+.login-btn {
+    margin-right: 15px;
+    color: rgba(255,255,255,.7);
+    transition: all 150ms ease-in-out;
+}
+.login-btn:hover {
+    color: white;
+}
