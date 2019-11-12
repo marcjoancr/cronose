@@ -6,27 +6,29 @@ require $_SERVER['DOCUMENT_ROOT'].'/config.inc.php';
 
 class DB {
 
-  private static function connect() {
+  public static function connect() {
     global $config;
     return Connection::make($config);
   }
+
+  public static function query($sql, $execute = []) {
+    $connection = self::connect();
+    $statement = $connection->prepare($sql);
+    $statement->execute($execute);
+    return $statement;
+  }
   
   public static function getUserByUsername($username) {
-    $connection = self::connect();
-    $statement = $connection->prepare("select username, password from User where username = '$username'");
-    $statement->execute();
+    $statement = self::query("select username, password from User where username = '$username'");
     return $statement->fetchAll();
   }
 
   public static function getEmailByUsername($username) {
-    $connection = self::connect();
-    $statement = $connection->prepare("select email from User where username = '$username'");
-    $statement->execute();
+    $statement = self::query("select email from User where username = '$username'");
     return $statement->fetchAll();
   }
 
   public static function registerUser($user) {
-    $connection = self::connect();
     $username = $user->getUsername();
     if (self::getUserByUsername($username)) return [
         'status' => 'error',
@@ -39,9 +41,8 @@ class DB {
         'message' => 'Email already registered'
       ];
     $sql = "INSERT INTO User(username, email, password) VALUES (?, ?, ?)";
-    $statement = $connection->prepare($sql); // Insert into database
-    $statement->execute([$username, $user->getEmail(), $user->getPassword()]);
-    $statement->fetchAll();
+    $execute = [$username, $user->getEmail(), $user->getPassword()];
+    self::query($sql, $execute);
     if (!self::getUserByUsername($username)) return [
         'status' => 'error',
         'code' => '500',
