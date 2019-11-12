@@ -23,10 +23,10 @@
     </ul>
 
     <?php if(!isset($_SESSION['user'])) : ?>
-      <a class="login-btn" href="/views/login.php">Log In</a>
-      <a href="/views/register.php"><button type="button" class="btn btn-secondary btn-lg register">Register</button></a>
+      <a class="login-btn" href="/views/login.php"><?=$lang[$displayLang]['logIn'];?></a>
+      <a href="/views/register.php"><button type="button" class="btn btn-secondary btn-lg register"><?=$lang[$displayLang]['register'];?></button></a>
     <?php else : ?>
-      <a href="?logout=true"><button id="btn-logout" type="button" class="btn btn-secondary btn-lg">Log Out</button></a>
+      <a href="?logout=true"><button id="btn-logout" type="button" class="btn btn-secondary btn-lg"><?=$lang[$displayLang]['logOut'];?></button></a>
     <?php endif ?>
 
     <?php
