@@ -3,22 +3,22 @@
 
   <div class="collapse navbar-collapse" id="language">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="btn" href="http://act.cronose.org/database_table/database.index.php"><i class="fa fa-database"></i> SERVICES</a>
+        <li class="nav-item">
+          <a class="btn" href="http://act.cronose.org/database_table/database.index.php"><i class="fa fa-database"></i> SERVICES</a>
         </li>
-        <li class="nav-item active">
-            <a class="btn" href="/views/about-us.php"><i class="fa fa-address-card"></i> ABOUT US</a>
+        <li class="nav-item">
+          <a class="btn" href="/views/about-us.php"><i class="fa fa-address-card"></i> ABOUT US</a>
         </li>
     </ul>
-    <ul class="navbar-nav mr-auto" id="language_selector" name="lang" target="_self">
-      <li class="nav-item active">
-        <a class="nav-link border rounded text-dark language" value="es"><strong>ESPAÑOL</strong><span class="sr-only">(Current)</span></a>
+    <ul class="navbar-nav mr-auto" id="language_selector" name="lang">
+      <li class="nav-item" value="es">
+        <a href="?lang=es" class="nav-link">ES <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link border rounded text-dark language" value="ca"><strong>CATALÀ</strong></a>
+      <li class="nav-item" value="ca">
+        <a href="?lang=ca" class="nav-link">CA</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link border rounded text-dark language" value="en"><strong>ENGLISH</strong></a>
+      <li class="nav-item" value="en">
+        <a href="?lang=en" class="nav-link">EN</a>
       </li>
     </ul>
 
@@ -41,9 +41,11 @@
 
 <script>
   $(document).ready(function(){
-    $("a.language").click(function() {
-      const selector = $(this).val;
-      selector.value = "<?= isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
+    $('#language_selector .nav-item').each(function(index) {
+      const target = $(this);
+      if (target.attr('value') == '<?= $_SESSION['lang'] ?>') {
+        target.addClass('active');
+      }
     });
   });
 </script>

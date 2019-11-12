@@ -4,7 +4,10 @@
   <link rel="shortcut icon" href="favicon.ico"/>
   <meta charset="utf-8">
   <title>Cronose</title>
+  <!-- CSS -->
   <link rel="stylesheet" href="/assets/plugin/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/stylesheet/css/main.css">
+  <!-- SCRIPTS -->
   <script src="/assets/plugin/jquery/jquery-3.4.1.min.js"></script>
   <script src="/assets/plugin/js/popper.min.js"></script>
   <script src="/assets/plugin/bootstrap/bootstrap.min.js"></script>
@@ -19,13 +22,13 @@
   session_start();
 
   $langAvailable = ['en','es','ca'];
-
-  if ($_POST && $_POST['lang'] && in_array($_POST['lang'], $langAvailable)) changeLanguage($_POST['lang']);
-
-  $clientLang = isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
   $defaultLang = 'es';
 
-  in_array($clientLang, $langAvailable) ? $displayLang = $clientLang : $displayLang = $defaultLang;
+  if (isset($_GET['lang']) && in_array($_GET['lang'], $langAvailable)) changeLanguage($_GET['lang']);
+
+  $clientLang = $_SESSION['lang'] ?? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+  $displayLang = in_array($clientLang, $langAvailable) ? $clientLang : $defaultLang;
 
   function changeLanguage($lang) {
     $_SESSION['lang'] = $lang;
