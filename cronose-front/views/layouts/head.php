@@ -37,3 +37,5 @@
 ?>
 
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/components/nav.php' ?>
+
+  <div class="container">

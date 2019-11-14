@@ -15,7 +15,8 @@ $lang = [
         'max10characters' => 'Enter no more than 10 Characters',
         'agree' => 'I agree to the',
         'terms' => 'Terms and Conditions',
-        'submit' => 'Send'
+        'submit' => 'Send',
+        'aboutUs' => 'Cronose is a project designed by four students of the IES Manacor Institute, Mallorca. <br> This project is part of the final validation of the top module of Web Application Development (DAW) as a fundamental piece in obtaining the necessary skills.'
     ],
     'es' => [
         'logIn' => 'Inicia Sesión',
@@ -32,7 +33,8 @@ $lang = [
         'max10characters' => 'Ingrese menos de 10 caracteres',
         'agree' => 'Estoy de acuerdo con los',
         'terms' => 'términos y condiciones',
-        'submit' => 'Enviar'
+        'submit' => 'Enviar',
+        'aboutUs' => 'Cronose es un proyecto diseñado por cuatro estudiantes del instituto IES Manacor, Mallorca. <br>Dicho proyecto forma parte de la validación final del módulo superior de Desarrollo de Aplicaciones Web (DAW) como pieza fundamental en la obtención de las aptitudes necesarias.'
     ],
     'ca' => [
         'logIn' => 'Inicia Sessió',
@@ -49,6 +51,7 @@ $lang = [
         'max10characters' => 'Introduïu menys de 10 caràcters',
         'agree' => "Estic d'acord amb els",
         'terms' => 'Termes i Condicions',
-        'submit' => 'Enviar'
+        'submit' => 'Enviar',
+        'aboutUs' => 'Cronose és un projecte dissenyat per quatre estudiants de l\'institut IES Manacor, Mallorca. <br> Dit projecte forma part de la validació final de la lliçó superior de Desenvolupament d\'Aplicacions Web (DAW) com a peça fonamental en l\'obtenció de les aptituds necessàries.'
     ]
 ];
