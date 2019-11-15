@@ -1,7 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/">CRONOSE</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <a class="navbar-brand order-0 order-md-0" href="/"><strong>CRONOSE</strong></a>
 
-  <div class="collapse navbar-collapse" id="language">
+  <button class="order-2 order-md-3 navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse order-3 order-md-1" id="language">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <!-- <a class="btn" href="http://act.cronose.org/database_table/database.index.php"><i class="fa fa-database"></i> SERVICES</a> -->
@@ -10,6 +14,7 @@
         <a class="btn" href="/views/about-us.php"><i class="fa fa-address-card"></i> ABOUT US</a>
       </li>
     </ul>
+    <div class="dropdown-divider"></div>
     <ul class="navbar-nav" id="language_selector" name="lang">
       <li class="nav-item" value="es">
         <a href="?lang=es" class="nav-link">ES <span class="sr-only">(current)</span></a>
@@ -21,6 +26,8 @@
         <a href="?lang=en" class="nav-link">EN</a>
       </li>
     </ul>
+  </div>
+  <div class="order-1 order-md-2">
 
     <?php if(!isset($_SESSION['user'])) : ?>
       <a class="login-btn" href="/views/login.php"><?=$lang[$displayLang]['logIn'];?></a>
@@ -29,13 +36,14 @@
       <a href="?logout=true"><button id="btn-logout" type="button" class="btn btn-secondary btn-lg"><?=$lang[$displayLang]['logOut'];?></button></a>
     <?php endif ?>
 
+    
+
     <?php
       if (isset($_GET['logout']) && $_GET['logout']) {
         session_destroy();
         header('Location: /');
       }
     ?>
-
   </div>
 </nav>
 
