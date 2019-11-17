@@ -17,8 +17,12 @@
 <body>
 
 <?php
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
 
   require $_SERVER['DOCUMENT_ROOT'].'/views/components/language.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
 
   session_start();
 

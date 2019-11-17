@@ -8,11 +8,13 @@
   <div class="collapse navbar-collapse order-3 order-md-1" id="language">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <!-- <a class="btn" href="http://act.cronose.org/database_table/database.index.php"><i class="fa fa-database"></i> SERVICES</a> -->
-      </li>
-      <li class="nav-item">
         <a class="btn" href="/views/about-us.php"><i class="fa fa-address-card"></i> ABOUT US</a>
       </li>
+      <?php if (isset($_SESSION['user'])):?>
+        <li class="nav-item">
+          <a class="btn" href="/views/tableOffer.php"><i class="fas fa-database"></i> MY OFFERS</a>
+        </li>
+      <?php endif; ?>
     </ul>
     <div class="dropdown-divider"></div>
     <ul class="navbar-nav" id="language_selector" name="lang">
@@ -36,7 +38,7 @@
       <a href="?logout=true"><button id="btn-logout" type="button" class="btn btn-secondary btn-lg"><?=$lang[$displayLang]['logOut'];?></button></a>
     <?php endif ?>
 
-    
+
 
     <?php
       if (isset($_GET['logout']) && $_GET['logout']) {

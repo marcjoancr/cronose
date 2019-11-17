@@ -22,7 +22,7 @@ class DB {
     $statement = self::query("select username, email, password from User where id = '$id'");
     return $statement->fetchAll();
   }
-  
+
   public static function getUserByUsername($username) {
     $statement = self::query("select username, email, password from User where username = '$username'");
     return $statement->fetchAll();
@@ -33,16 +33,22 @@ class DB {
     return $statement->fetchAll();
   }
 
+  public static function getOffersByUsername($username) {
+    $id = self::getIDByUsername($username)[0]['id'];
+    $statement = self::query("select * from offer where User_Id = $id");
+    return $statement->fetchAll();
+  }
+
   public static function registerUser($user) {
     $username = $user->getUsername();
     if (self::getUserByUsername($username)) return [
         'status' => 'error',
-        'error' => '404', 
+        'error' => '404',
         'message' => 'User already exists'
       ];
     if (self::getEmailByUsername($username)) return [
         'status' => 'error',
-        'code' => '404', 
+        'code' => '404',
         'message' => 'Email already registered'
       ];
     $sql = "INSERT INTO User(username, email, password) VALUES (?, ?, ?)";
@@ -54,7 +60,7 @@ class DB {
         'message' => 'Server Error: Something went wrong'
       ];
     return [
-      'status' => 'success', 
+      'status' => 'success',
       'message' => 'User registered'
     ];
   }

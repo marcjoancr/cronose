@@ -17,6 +17,7 @@ $lang = [
         'terms' => 'Terms and Conditions',
         'submit' => 'Send',
         'aboutUs' => 'Cronose is a project designed by four students of the IES Manacor Institute, Mallorca. <br><br> This project is part of the final validation of the top module of Web Application Development (DAW) as a fundamental piece in obtaining the necessary skills. <br><br>Cronose starts from the idea of creating an online time bank, a tool capable of connecting registered users on the platform to exchange favors or jobs with each other without paying for these services. Each user contributes their skills or knowledge to the rest of the community and to the same extent can use those offered by other users.'
+        'myOffers' => 'My Offers'
     ],
     'es' => [
         'logIn' => 'Inicia Sesión',
@@ -35,6 +36,7 @@ $lang = [
         'terms' => 'términos y condiciones',
         'submit' => 'Enviar',
         'aboutUs' => 'Cronose es un proyecto diseñado por cuatro estudiantes del instituto IES Manacor, Mallorca. <br><br> Dicho proyecto forma parte de la validación final del módulo superior de Desarrollo de Aplicaciones Web (DAW) como pieza fundamental en la obtención de las aptitudes necesarias. <br><br> Cronose parte de la idea de crear un banco de tiempo online, una herramienta capaz de conectar a usuarios registrados en la plataforma para intercambiar favores o trabajos entre ellos sin necesidad de pagar por estos servicios. Cada usuario aporta sus habilidades o conocimientos al resto de comunidad y en la misma medida puede utilizar los que el resto de usuarios le ofrecen.'
+        'myOffers' => 'Mis Ofertas'
     ],
     'ca' => [
         'logIn' => 'Inicia Sessió',
@@ -53,5 +55,6 @@ $lang = [
         'terms' => 'Termes i Condicions',
         'submit' => 'Enviar',
         'aboutUs' => 'Cronose és un projecte dissenyat per quatre estudiants de l\'institut IES Manacor, Mallorca. <br><br> Dit projecte forma part de la validació final del mòdul superior de Desenvolupament d\'Aplicacions Web (DAW) com a peça fonamental en l\'obtenció de les aptituds necessàries.<br><br> Cronose parteix de la idea de crear un banc de temps en línia, una eina capaç de connectar a usuaris registrats a la plataforma per intercanviar favors o treballs entre ells sense necessitat de pagar per aquests serveis. Cada usuari aporta les seves habilitats o coneixements a la resta de comunitat i en la mateixa mesura pot utilitzar els que la resta d\'usuaris li ofereixen.'
+        'myOffers' => 'Les meves Ofertes'
     ]
 ];
