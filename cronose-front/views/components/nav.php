@@ -12,9 +12,12 @@
       </li>
       <?php if (isset($_SESSION['user'])):?>
         <li class="nav-item">
-          <a class="btn" href="/views/tableOffer.php"><i class="fas fa-database"></i> MY OFFERS</a>
+          <a class="btn" href="/views/myWorks.php"><i class="fas fa-database"></i> MY OFFERS</a>
         </li>
       <?php endif; ?>
+      <li class="nav-item">
+        <a class="btn" href="/views/market.php"><i class="fas fa-search-dollar"></i> MARKET</a>
+      </li>
     </ul>
     <div class="dropdown-divider"></div>
     <ul class="navbar-nav" id="language_selector" name="lang">

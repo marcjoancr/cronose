@@ -39,6 +39,12 @@ class DB {
     return $statement->fetchAll();
   }
 
+  public static function getAllOffers($username) {
+    $id = self::getIDByUsername($username)[0]['id'];
+    $statement = self::query("select * from offer where User_Id != $id");
+    return $statement->fetchAll();
+  }
+
   public static function registerUser($user) {
     $username = $user->getUsername();
     if (self::getUserByUsername($username)) return [
