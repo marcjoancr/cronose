@@ -18,7 +18,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-				<?php $res = DB::getAllOffers($_SESSION['user']->getUsername());?>
+				<?php $res = DB::getAllOffers();?>
 				<?php foreach ($res as $valor): ?>
 					<tr>
 						<th><?php echo $valor[0]; ?></th>

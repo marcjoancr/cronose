@@ -16,7 +16,7 @@
         </li>
       <?php endif; ?>
       <li class="nav-item">
-        <a class="btn" href="/views/market.php"><i class="fas fa-search-dollar"></i> MARKET</a>
+        <a class="btn" href="/views/market.php"><i class="fas fa-map-pin"></i> MARKET</a>
       </li>
     </ul>
     <div class="dropdown-divider"></div>

@@ -23,6 +23,11 @@ class DB {
     return $statement->fetchAll();
   }
 
+  public static function getIDByUsername($username) {
+    $statement = self::query("select id from User where username = '$username'");
+    return $statement->fetchAll();
+  }
+
   public static function getUserByUsername($username) {
     $statement = self::query("select username, email, password from User where username = '$username'");
     return $statement->fetchAll();
@@ -39,9 +44,8 @@ class DB {
     return $statement->fetchAll();
   }
 
-  public static function getAllOffers($username) {
-    $id = self::getIDByUsername($username)[0]['id'];
-    $statement = self::query("select * from offer where User_Id != $id");
+  public static function getAllOffers() {
+    $statement = self::query("select * from offer");
     return $statement->fetchAll();
   }
 
