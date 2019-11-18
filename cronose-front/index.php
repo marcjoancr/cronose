@@ -8,5 +8,6 @@
 ?>
 
   <h1>Cronose</h1>
+  <img src="/assets/img/profile.jpeg" width="200">
 
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
