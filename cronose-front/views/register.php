@@ -49,20 +49,32 @@
 <script src="/assets/plugin/bootstrap/bootstrap-validate.js"></script>
 
 <script>
+  let vName,vEmail,vPass,vPass2;
 
   bootstrapValidate('#username', 'min:4:<?=$lang[$displayLang]['min4characters'];?>',function (validName){
-    if (validName) bootstrapValidate('#email','email:<?=$lang[$displayLang]['validEmail'];?>',function (validEmail) {
-      if (validEmail) bootstrapValidate('#password', 'min:5:<?=$lang[$displayLang]['min5characters'];?>', function (validPass) {
-        if (validPass) bootstrapValidate('#myPasswordConfirm','matches:#password:<?=$lang[$displayLang]['passError'];?>', function (validPass2){
-          if (validPass2) {
-            $('#btnSubmit').prop("disabled", false);
-          } else {
-            $('#btnSubmit').prop("disabled", true);
-          };
-        });
-      });
-    });
+    vName = (validName) ?  true : false;
+    valid();
   });
+  bootstrapValidate('#email','email:<?=$lang[$displayLang]['validEmail'];?>',function (validEmail) {
+    vEmail = (validEmail) ?  true : false;
+    valid();
+  });
+  bootstrapValidate('#password', 'min:5:<?=$lang[$displayLang]['min5characters'];?>', function (validPass) {
+    vPass = (validPass) ? true : false;
+    valid();
+  });
+  bootstrapValidate('#myPasswordConfirm','matches:#password:<?=$lang[$displayLang]['passError'];?>', function (validPass2){
+    vPass2 = (validPass2) ? true : false;
+    valid();
+  });
+
+function validate() {
+  if (vName && vEmail && vPass && vPass2) {
+    $('#btnSubmit').prop("disabled", false);
+  } else {
+    $('#btnSubmit').prop("disabled", true);
+  };
+};
 
 // Validate form
 $('#btnSubmit').click(() => {
