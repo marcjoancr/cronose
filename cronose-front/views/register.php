@@ -53,19 +53,19 @@
 
   bootstrapValidate('#username', 'min:4:<?=$lang[$displayLang]['min4characters'];?>',function (validName){
     vName = (validName) ?  true : false;
-    valid();
+    validate();
   });
   bootstrapValidate('#email','email:<?=$lang[$displayLang]['validEmail'];?>',function (validEmail) {
     vEmail = (validEmail) ?  true : false;
-    valid();
+    validate();
   });
   bootstrapValidate('#password', 'min:5:<?=$lang[$displayLang]['min5characters'];?>', function (validPass) {
     vPass = (validPass) ? true : false;
-    valid();
+    validate();
   });
   bootstrapValidate('#myPasswordConfirm','matches:#password:<?=$lang[$displayLang]['passError'];?>', function (validPass2){
     vPass2 = (validPass2) ? true : false;
-    valid();
+    validate();
   });
 
 function validate() {
