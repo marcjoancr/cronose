@@ -1,3 +1,4 @@
+<?php if (!isset($_SESSION['user'])) header('Location: ../index.php'); ?>
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/head.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/DB.php'; ?>
 <!-- REPASAR require_once NO FUNCINA SINO -->
