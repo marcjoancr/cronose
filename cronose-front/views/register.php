@@ -6,7 +6,12 @@
   if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: ../index.php');
 
 ?>
-
+<div id="errorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <span id="errorAlertMessage"></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <div class="container h-100 mt-4">
   <div class="row justify-content-md-center h-100">
     <div class="card-wrapper">
@@ -49,59 +54,67 @@
 <script src="/assets/plugin/bootstrap/bootstrap-validate.js"></script>
 
 <script>
-  let vName,vEmail,vPass,vPass2;
 
-  bootstrapValidate('#username', 'min:4:<?=$lang[$displayLang]['min4characters'];?>',function (validName){
-    vName = (validName) ?  true : false;
-    validate();
-  });
-  bootstrapValidate('#email','email:<?=$lang[$displayLang]['validEmail'];?>',function (validEmail) {
-    vEmail = (validEmail) ?  true : false;
-    validate();
-  });
-  bootstrapValidate('#password', 'min:5:<?=$lang[$displayLang]['min5characters'];?>', function (validPass) {
-    vPass = (validPass) ? true : false;
-    validate();
-  });
-  bootstrapValidate('#myPasswordConfirm','matches:#password:<?=$lang[$displayLang]['passError'];?>', function (validPass2){
-    vPass2 = (validPass2) ? true : false;
-    validate();
-  });
+  $(document).ready(function(){
+    $('#errorAlert').hide();
 
-function validate() {
-  if (vName && vEmail && vPass && vPass2) {
-    $('#btnSubmit').prop("disabled", false);
-  } else {
-    $('#btnSubmit').prop("disabled", true);
-  };
-};
+    //Validate
+    let vName,vEmail,vPass,vPass2;
+    bootstrapValidate('#username', 'min:4:<?=$lang[$displayLang]['min4characters'];?>',function (validName){
+      vName = (validName) ?  true : false;
+      validate();
+    });
+    bootstrapValidate('#email','email:<?=$lang[$displayLang]['validEmail'];?>',function (validEmail) {
+      vEmail = (validEmail) ?  true : false;
+      validate();
+    });
+    bootstrapValidate('#password', 'min:5:<?=$lang[$displayLang]['min5characters'];?>', function (validPass) {
+      vPass = (validPass) ? true : false;
+      validate();
+    });
+    bootstrapValidate('#myPasswordConfirm','matches:#password:<?=$lang[$displayLang]['passError'];?>', function (validPass2){
+      vPass2 = (validPass2) ? true : false;
+      validate();
+    });
 
-// Validate form
-$('#btnSubmit').click(() => {
-  register();
-});
+    function validate() {
+      if (vName && vEmail && vPass && vPass2) {
+        $('#btnSubmit').prop("disabled", false);
+      } else {
+        $('#btnSubmit').prop("disabled", true);
+      };
+    };
 
-// Send form via ajax request to Login.php
-function register() {
-  const url = '../assets/php/Register.php';
-  const username = $("#username").val();
-  const password = $.md5($("#password").val());
-  const email = $("#email").val();
+    // Validate form
+    $('#btnSubmit').click(() => {
+      register();
+    });
 
-  $.ajax({
-    type: 'POST',
-    url: url,
-    data: { username, password, email },
-    success: function(response) {
-      if (response.status == 'success') {
-        console.log(response);
-        window.location.replace('/');
-      } else if (response.status == 'error') {
-        console.log(response);
-      }
+    // Send form via ajax request to Login.php
+    function register() {
+      const url = '../assets/php/Register.php';
+      const username = $("#username").val();
+      const password = $.md5($("#password").val());
+      const email = $("#email").val();
+
+      $.ajax({
+        type: 'POST',
+        url: url,
+        data: { username, password, email },
+        success: function(response) {
+          if (response.status == 'success') {
+            console.log(response);
+            window.location.replace('/');
+          } else if (response.status == 'error') {
+            $("#errorAlertMessage").html( response.message );
+            $("#errorAlert").show();
+            console.log(response);
+          };
+        }
+      });
     }
   });
-}
+
 </script>
 
 <?php require '../views/layouts/footer.php';?>
