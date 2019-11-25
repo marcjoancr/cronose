@@ -8,15 +8,15 @@
   <div class="collapse navbar-collapse order-3 order-md-1" id="language">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="btn" href="/views/about-us.php"><i class="fa fa-address-card"></i> ABOUT US</a>
+        <a class="btn" href="/views/about-us"><i class="fa fa-address-card"></i> ABOUT US</a>
       </li>
       <?php if (isset($_SESSION['user'])):?>
         <li class="nav-item">
-          <a class="btn" href="/views/myWorks.php"><i class="fas fa-database"></i> MY OFFERS</a>
+          <a class="btn" href="/views/myWorks"><i class="fas fa-database"></i> MY OFFERS</a>
         </li>
       <?php endif; ?>
       <li class="nav-item">
-        <a class="btn" href="/views/market.php"><i class="fas fa-map-pin"></i> MARKET</a>
+        <a class="btn" href="/views/market"><i class="fas fa-map-pin"></i> MARKET</a>
       </li>
     </ul>
     <div class="dropdown-divider"></div>
@@ -35,8 +35,8 @@
   <div class="order-1 order-md-2">
 
     <?php if(!isset($_SESSION['user'])) : ?>
-      <a class="login-btn" href="/views/login.php"><?=$lang[$displayLang]['logIn'];?></a>
-      <a href="/views/register.php"><button type="button" class="btn btn-secondary btn-lg register"><?=$lang[$displayLang]['register'];?></button></a>
+      <a class="login-btn" href="/views/login"><?=$lang[$displayLang]['logIn'];?></a>
+      <a href="/views/register"><button type="button" class="btn btn-secondary btn-lg register"><?=$lang[$displayLang]['register'];?></button></a>
     <?php else : ?>
       <a href="?logout=true"><button id="btn-logout" type="button" class="btn btn-secondary btn-lg"><?=$lang[$displayLang]['logOut'];?></button></a>
     <?php endif ?>
