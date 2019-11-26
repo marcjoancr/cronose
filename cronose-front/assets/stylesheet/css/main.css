@@ -28,3 +28,24 @@
 .login-btn:hover {
     color: white;
 }
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #242633;
+}
+
+.vertical-nav {
+  background-color: #242633;
+}
+
+
+#logo {
+  width: 100px;
+  height: auto;
+  margin: 0;
+}
+#logo svg {
+  width: 100%;
+}
