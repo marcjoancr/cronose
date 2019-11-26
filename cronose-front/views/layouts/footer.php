@@ -1,7 +1,63 @@
-  </div>
+</div>
   <script>
     const selector = document.getElementById('language_selector');
     selector.value = "<?= isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
   </script>
+
+  <?php if (isset($_SESSION['user'])):?>
+
+  <footer class="py-4 text-white-50">
+    <div class="container text-center text-md-left mt-3">
+      <div class="container text-center">
+        <div class="col-2"></div>
+        <div class="row  ">
+            <div class="col-xs-6 col-sm-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold" >ABOUT US</h6>
+              <p>
+                <a href="#!">History</a>
+              </p>
+              <p>
+                <a href="/views/about-us.php">Project Info</a>
+              </p>
+              <p>
+                <a href="#!">Team</a>
+              </p>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">HOW IT WORKS</h6>
+              <p>
+                <a href="#!">What is a time bank</a>
+              </p>
+              <p>
+                <a href="#!">How it work</a>
+              </p>
+              <p>
+                <a href="#!">Diference</a>
+              </p>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">CONTACT</h6>
+              <p>
+                <a href="#!">How to</a>
+              </p>
+              <p>
+                <a href="#!">Form</a>
+              </p>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">FAQ</h6>
+              <p>
+                <a href="#!">FAQ</a>
+              </p>
+            </div>
+          </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+  <?php endif; ?>
+
 </body>
 </html>

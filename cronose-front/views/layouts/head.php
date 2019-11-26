@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <link rel="shortcut icon" href="/assets/img/favicon.ico">
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Cronose</title>
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/plugin/bootstrap/bootstrap.min.css">
@@ -42,4 +42,10 @@
 
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/components/nav.php' ?>
 
-  <div class="container">
+<?php if (isset($_SESSION['user'])):?>
+  <div  class="col-10 p-0">
+    <div  class="container">
+<?php else :?>
+  <div  class="col-12">
+  <div  class="container">
+<?php endif ?>
