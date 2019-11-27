@@ -1,4 +1,4 @@
-<div class="row ">
+<div class="row " style="margin-left: 0; margin-right: 0">
 
 <?php if (isset($_SESSION['user'])):?>
 
