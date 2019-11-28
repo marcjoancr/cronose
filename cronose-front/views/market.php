@@ -21,16 +21,16 @@
 				<?php $res = DB::getAllOffers();?>
 				<?php foreach ($res as $valor): ?>
 					<tr>
-						<th><?php echo $valor[0]; ?></th>
-						<th><?php echo $valor[1]; ?></th>
-						<th><?php echo $valor[2]; ?></th>
-						<th><?php echo $valor[3]; ?></th>
-						<th><?php echo $valor[4]; ?></th>
-						<th><?php echo $valor[5]; ?></th>
-						<th><?php echo $valor[6]; ?></th>
-						<th><?php echo $valor[7]; ?></th>
+						<th><?= $valor[0]; ?></th>
+						<th><?= $valor[1]; ?></th>
+						<th><?= $valor[2]; ?></th>
+						<th><?= $valor[3]; ?></th>
+						<th><?= $valor[4]; ?></th>
+						<th><?= $valor[5]; ?></th>
+						<th><?= $valor[6]; ?></th>
+						<th><?= $valor[7]; ?></th>
 					</tr>
-				<?php endforeach; ?>
+				<?php endforeach ?>
 		  </tbody>
 		</table>
 
