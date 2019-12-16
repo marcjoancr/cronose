@@ -51,7 +51,7 @@
         success: function(response) {
           if (response.status == 'success') {
             console.log(response);
-            window.location.replace('/');
+            window.location.replace('/market');
           } else if (response.status == 'error') {
             console.log(response);
           }

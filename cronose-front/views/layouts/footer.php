@@ -14,40 +14,40 @@
             <div class="col-xs-6 col-sm-3">
               <h6 class="text-uppercase mb-4 font-weight-bold" >ABOUT US</h6>
               <p>
-                <a href="#!">History</a>
+                <a href="/home">History</a>
               </p>
               <p>
-                <a href="/views/about-us.php">Project Info</a>
+                <a href="/about-us">Project Info</a>
               </p>
               <p>
-                <a href="#!">Team</a>
+                <a href="/home">Team</a>
               </p>
             </div>
             <div class="col-xs-6 col-sm-3">
               <h6 class="text-uppercase mb-4 font-weight-bold">HOW IT WORKS</h6>
               <p>
-                <a href="#!">What is a time bank</a>
+                <a href="/home">What is a time bank</a>
               </p>
               <p>
-                <a href="#!">How it work</a>
+                <a href="/home">How it work</a>
               </p>
               <p>
-                <a href="#!">Diference</a>
+                <a href="/home">Diference</a>
               </p>
             </div>
             <div class="col-xs-6 col-sm-3">
               <h6 class="text-uppercase mb-4 font-weight-bold">CONTACT</h6>
               <p>
-                <a href="#!">How to</a>
+                <a href="/home">How to</a>
               </p>
               <p>
-                <a href="#!">Form</a>
+                <a href="/home">Form</a>
               </p>
             </div>
             <div class="col-xs-6 col-sm-3">
               <h6 class="text-uppercase mb-4 font-weight-bold">FAQ</h6>
               <p>
-                <a href="#!">FAQ</a>
+                <a href="/home">FAQ</a>
               </p>
             </div>
           </div>

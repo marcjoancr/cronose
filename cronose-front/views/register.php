@@ -1,7 +1,7 @@
 <?php
 
-  require '../assets/php/User.php';
-  require '../views/layouts/head.php';
+  require __DIR__.'/../assets/php/User.php';
+  require 'layouts/head.php';
 
   if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: ../index.php');
 
@@ -117,4 +117,8 @@
 
 </script>
 
-<?php require '../views/layouts/footer.php';?>
+<?php
+
+require 'layouts/footer.php';
+
+?>

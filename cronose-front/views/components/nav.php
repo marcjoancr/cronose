@@ -32,22 +32,22 @@
     <div class="container">
       <ul class="nav  flex-column mb-0">
         <li class="nav-item pt-3">
-            <a class="btn text-white" href=""><i class="fab fa-google-wallet pl-4 pr-2"></i> WALLET</a>
+            <a class="btn text-white" href="/wallet"><i class="fab fa-google-wallet pl-4 pr-2"></i> WALLET</a>
         </li>
         <li class="nav-item pt-3">
-          <a class="btn text-white" href=""><i class="far fa-address-card pl-4 pr-2"></i> PROFILE</a>
+          <a class="btn text-white" href="/profile"><i class="far fa-address-card pl-4 pr-2"></i> PROFILE</a>
         </li>
         <li class="nav-item pt-3">
-          <a class="btn text-white" href=""><i class="far fa-comments pl-4 pr-2"></i> CHAT</a>
+          <a class="btn text-white" href="/chat"><i class="far fa-comments pl-4 pr-2"></i> CHAT</a>
         </li>
         <li class="nav-item pt-3">
-            <a class="btn text-white" href="/views/market.php"><i class="fas fa-map-pin pl-4 pr-2"></i> MARKET</a>
+            <a class="btn text-white" href="/market"><i class="fas fa-map-pin pl-4 pr-2"></i> MARKET</a>
         </li>
         <li class="nav-item pt-3">
-            <a class="btn text-white" href="/views/myWorks.php"><i class="fas fa-database pl-4 pr-2"></i> MY OFFERS</a>
+            <a class="btn text-white" href="/my-works"><i class="fas fa-database pl-4 pr-2"></i> MY OFFERS</a>
         </li>
         <li class="nav-item pt-3 pl-4">
-            <a href="?logout=true"><button type="btn" class="btn btn-danger ml-4  pt-2 pb-2 pr-4 pl-4">LOG OUT</button></a>
+            <a href="/logout"><button type="btn" class="btn btn-danger ml-4  pt-2 pb-2 pr-4 pl-4">LOG OUT</button></a>
         </li>
       </ul>
     </div>
@@ -67,10 +67,10 @@
     <div class="collapse navbar-collapse order-3 order-md-1" id="language">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="btn" href="/views/about-us.php"><i class="fa fa-address-card"></i> ABOUT US</a>
+          <a class="btn" href="/about-us"><i class="fa fa-address-card"></i> ABOUT US</a>
         </li>
         <li class="nav-item">
-          <a class="btn" href="/views/market.php"><i class="fas fa-map-pin"></i> MARKET</a>
+          <a class="btn" href="/market"><i class="fas fa-map-pin"></i> MARKET</a>
         </li>
       </ul>
       <div class="dropdown-divider"></div>
@@ -87,8 +87,8 @@
       </ul>
     </div>
     <div class="order-1 order-md-2">
-      <a class="login-btn" href="/views/login.php"><?=$lang[$displayLang]['logIn'];?></a>
-      <a href="/views/register.php"><button type="button" class="btn btn-secondary btn-lg register"><?=$lang[$displayLang]['register'];?></button></a>
+      <a class="login-btn" href="/login"><?=$lang[$displayLang]['logIn'];?></a>
+      <a href="/register"><button type="button" class="btn btn-secondary btn-lg register"><?=$lang[$displayLang]['register'];?></button></a>
 
     </div>
   </nav>

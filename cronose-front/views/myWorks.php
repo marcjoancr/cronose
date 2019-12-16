@@ -37,4 +37,7 @@
 
 	</div>
 
+	<a href="/new-work" style="display: block;">Nova publicació</a>
+	<a href="/work">Edita publicació</a>
+
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>

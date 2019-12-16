@@ -34,7 +34,7 @@
 		  </tbody>
 		</table>
 
-
 	</div>
+	<a href="/work">Publicació</a>
 
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
