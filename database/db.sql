@@ -20,12 +20,13 @@ create table if not exists Province (
 );
 
 create table if not exists City (
-    id int auto_increment primary key not null,
+    cp int not null unique,
     province_id int not null,
     name varchar(25) not null,
     longitude double(13,3) not null,
     latitude double(13,3) not null,
-    foreign key (province_id) references Province(id)
+    foreign key (province_id) references Province(id),
+    primary key(cp, province_id)
 );
 
 create table if not exists Company (
@@ -118,11 +119,11 @@ create table if not exists User (
     registration_date date not null,
     points int default 0 not null,
     private boolean default false not null,
-    city_id int not null,
+    city_cp int not null,
     province_id int not null,
     avatar_id int,
     dni_photo_id int not null,
-    foreign key (city_id) references City(id),
+    foreign key (city_cp) references City(cp),
     foreign key (province_id) references Province(id),
     foreign key (avatar_id) references Media(id),
     foreign key (dni_photo_id) references DNI_Photo(id)
@@ -184,13 +185,14 @@ create table if not exists Published (
 );
 
 create table if not exists Published_In_City (
-    city_id int not null,
+    city_cp int not null,
     starting_date timestamp not null unique,
     company_id int not null,
     specialization_id int not null,
     foreign key (company_id) references Company(id),
     foreign key (specialization_id) references Specialization(id),
-    primary key (city_id, starting_date, company_id, specialization_id)
+    foreign key (city_cp) references City(cp),
+    primary key (city_cp, starting_date, company_id, specialization_id)
 );
 
 create table if not exists Illustrates (
