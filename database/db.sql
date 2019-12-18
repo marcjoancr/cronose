@@ -23,6 +23,8 @@ create table if not exists City (
     id int auto_increment primary key not null,
     province_id int not null,
     name varchar(25) not null,
+    longitude double(13,3) not null,
+    latitude double(13,3) not null,
     foreign key (province_id) references Province(id)
 );
 
