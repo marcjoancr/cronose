@@ -70,6 +70,15 @@
           <a class="btn" href="/about-us"><i class="fa fa-address-card"></i> ABOUT US</a>
         </li>
         <li class="nav-item">
+          <a class="btn" href="/home"><i class="fas fa-map-pin"></i> HOW IT WORKS</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn" href="/home"><i class="fas fa-map-pin"></i> CONTACT</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn" href="/home"><i class="fas fa-map-pin"></i> FAQ</a>
+        </li>
+        <li class="nav-item">
           <a class="btn" href="/market"><i class="fas fa-map-pin"></i> MARKET</a>
         </li>
       </ul>

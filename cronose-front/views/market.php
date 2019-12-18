@@ -35,6 +35,8 @@
 		</table>
 
 	</div>
+	 <?php if (isset($_SESSION['user'])):?>
 	<a href="/work">Publicació</a>
+	<?php endif; ?>
 
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
