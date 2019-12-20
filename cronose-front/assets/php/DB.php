@@ -44,6 +44,12 @@ class DB {
     return $statement->fetchAll();
   }
 
+  public static function getBasicInfoOffersByUsername($username) {
+    $id = self::getIDByUsername($username)[0]['id'];
+    $statement = self::query("select User_Id, Title, Description, img from offer where User_Id = $id");
+    return $statement->fetchAll();
+  }
+
   public static function getAllOffers() {
     $statement = self::query("select * from offer");
     return $statement->fetchAll();
