@@ -19,22 +19,22 @@ class DB {
   }
 
   public static function getUserByID($id) {
-    $statement = self::query("select username, email, password from User where id = '$id'");
+    $statement = self::query("select name, email, password from User where id = '$id'");
     return $statement->fetchAll();
   }
 
   public static function getIDByUsername($username) {
-    $statement = self::query("select id from User where username = '$username'");
+    $statement = self::query("select id from User where name = '$username'");
     return $statement->fetchAll();
   }
 
   public static function getUserByUsername($username) {
-    $statement = self::query("select username, email, password from User where username = '$username'");
+    $statement = self::query("select name, email, password from User where name = '$username'");
     return $statement->fetchAll();
   }
 
   public static function getEmailByUsername($username) {
-    $statement = self::query("select email from User where username = '$username'");
+    $statement = self::query("select email from User where name = '$username'");
     return $statement->fetchAll();
   }
 
