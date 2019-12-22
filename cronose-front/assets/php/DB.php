@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <?php
 
 require $_SERVER['DOCUMENT_ROOT'].'/assets/php/Connection.php';
@@ -40,18 +41,24 @@ class DB {
 
   public static function getOffersByUsername($username) {
     $id = self::getIDByUsername($username)[0]['id'];
-    $statement = self::query("select * from offer where User_Id = $id");
+    $statement = self::query("select * from Offer where User_Id = $id");
     return $statement->fetchAll();
   }
 
   public static function getBasicInfoOffersByUsername($username) {
-    $id = self::getIDByUsername($username)[0]['id'];
-    $statement = self::query("select User_Id, Title, Description, img from offer where User_Id = $id");
+    $id = self::getIDByUsername($username);
+    $statement = self::query("select Language_Translation.translation,User.name,Offer_Language.title,Offer_Language.description,concat(Media.url,Media.extension) as media
+from Offer,Offer_Language,User,Language,Language_Translation,Media,Load_Media
+where User.dni = Offer.user_dni and Offer.user_dni = Offer_Language.user_dni and Language.id = Offer_Language.language_id
+and Offer.specialization_id = Offer_Language.specialization_id and Offer.user_dni = Offer_Language.user_dni
+and Language_Translation.language_id = Language.id and Language_Translation.translation = 'Spanish'
+and Media.id = Load_Media.media_id and Load_Media.user_dni = Offer.user_dni and Load_Media.specialization_id = Offer.specialization_id
+and User.name = '$username'");
     return $statement->fetchAll();
   }
 
   public static function getAllOffers() {
-    $statement = self::query("select * from offer");
+    $statement = self::query("select Language_Translation.translation as lang,User.name as name,Offer_Language.title as title, Offer_Language.description as description,Offer.valoration_avg as val,Offer.personal_valoration as personal_val, Offer.coin_price as price from Language,Language_Translation,Offer,Offer_Language, User where Language.id = Language_Translation.language_id and Language_Translation.translation='Spanish';");
     return $statement->fetchAll();
   }
 

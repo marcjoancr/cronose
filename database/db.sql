@@ -2,8 +2,8 @@ create database if not exists `Cronose`;
 use `Cronose`;
 set sql_mode = 'allow_invalid_dates';
 
-create table if not exists Language (
-    id int auto_increment primary key not null
+CREATE TABLE IF NOT EXISTS Language (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL
 );
 
 create table if not exists Language_Translation (
@@ -39,7 +39,7 @@ create table if not exists Company (
 
 create table if not exists Category (
     id int auto_increment primary key not null,
-    coin_price int not null
+    coin_price double(2,1) not null
 );
 
 create table if not exists Category_Language (
@@ -256,9 +256,9 @@ create table if not exists Change_Veteranity (
 create table if not exists Offer (
     user_dni varchar(9) not null,
     specialization_id int not null,
-    valoration_avg double(2,2) default 0 not null,
-    personal_valoration double(2,2) default 0 not null,
-    coin_price double(2,2) not null,
+    valoration_avg int(3) default 0 not null,
+    personal_valoration int(3) default 0 not null,
+    coin_price double(2,1) not null,
     offered_at date not null,
     visibility boolean default true not null,
     foreign key (user_dni) references User(dni),
@@ -339,9 +339,9 @@ create table if not exists Auction (
     user_dni varchar(9) not null,
     specialization_id int not null,
     auctioned_at timestamp not null unique,
-    valoration_avg double(2,2) default 0 not null,
-    personal_valoration double(2,2) default 0 not null,
-    start_coin_price double(2,2) not null,
+    valoration_avg int default 0 not null,
+    personal_valoration int default 0 not null,
+    start_coin_price double(2,1) not null,
     work_date date not null,
     cancelation_policy_id int not null,
     card_id int not null,
@@ -427,3 +427,5 @@ create table if not exists Client_Valoration (
     foreign key (comment_id) references Comment(id),
     primary key (valoration_id,card_id)
 );
+
+
