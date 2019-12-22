@@ -7,14 +7,13 @@
 		<table class="table align-items-center mt-4 table-bordered">
 		  <thead class="thead-dark">
 		    <tr>
-		      <th scope="col">User Id</th>
-		      <th scope="col">Specialization ID</th>
+		      <th scope="col">Lang</th>
+		      <th scope="col">User</th>
 		      <th scope="col">Title</th>
-		      <th scope="col">Valoration Average</th>
+		      <th scope="col">Description</th>
 					<th scope="col">Personal Valoration</th>
+					<th scope="col">Valoration</th>
 					<th scope="col">Coin Price</th>
-					<th scope="col">Description</th>
-					<th scope="col">Keywords</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -28,7 +27,6 @@
 						<th><?= $valor[4]; ?></th>
 						<th><?= $valor[5]; ?></th>
 						<th><?= $valor[6]; ?></th>
-						<th><?= $valor[7]; ?></th>
 					</tr>
 				<?php endforeach ?>
 		  </tbody>
