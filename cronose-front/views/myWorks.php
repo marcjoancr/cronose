@@ -1,10 +1,11 @@
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/head.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/DB.php'; ?>
 <!-- REPASAR require_once NO FUNCINA SINO -->
-
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<div class="container wrap row justify-content-center mt-4">
 		<h1><?= $lang[$displayLang]['myOffers'];?></h1>
 		<?php $res = DB::getBasicInfoOffersByUsername($_SESSION['user']->getUsername());?>
+    <!-- <?php var_dump($res) ?> -->
     <div class="container">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -15,11 +16,11 @@
         <div class="carousel-inner">
           <?php foreach ($res as $key => $value): ?>
             <div class="carousel-item <?php if ($key == 0) echo "active" ?>">
-              <img class="d-block w-100" src="../assets/img/<?php echo $value["img"] ?>" class="active" <?php if ($key == 0) echo 'class="active"' ?>>
+              <img class="d-block w-100" src="../assets/img/<?php echo $value["media"] ?>" class="active" <?php if ($key == 0) echo 'class="active"' ?>>
               <div class="carousel-caption d-none d-md-block">
                 <div style="background-color: rgba(255, 255, 255, 0.8)">
-                <h5 class="text-dark"><?php echo $value["Title"] ?><h5>
-                <p class="text-dark"><?php echo $value["Description"] ?></p>
+                <h5 class="text-dark"><?php echo $value["title"] ?><h5>
+                <p class="text-dark"><?php echo $value["description"] ?></p>
                 </div>
               </div>
             </div>
