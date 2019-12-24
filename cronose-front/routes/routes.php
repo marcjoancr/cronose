@@ -1,8 +1,10 @@
 <?php
 
+  require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Works.controller.php';
+
   Router::get('/home', 'home');
 
-  Router::get('/market', 'market');
+  Router::get('/market', 'market', 'WorkController::getAll()');
 
   Router::get('/login', 'login');
 
