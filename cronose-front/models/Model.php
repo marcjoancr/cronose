@@ -1,5 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'].'/config.inc.php';
+header("Content-Type: text/html;charset=utf-8");
 
 class Model
 {
@@ -7,7 +8,7 @@ class Model
   public static function make($config) {
     try {
       return new PDO('mysql:dbname='. $config['database']['name']
-                    .';host='.$config['database']['host'],
+                    .';host='.$config['database']['host'].';charset=utf8',
                     $config['database']['username'],
                     $config['database']['password']
                   );

@@ -1,6 +1,7 @@
 <?php
 
   require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Works.controller.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Language.controller.php';
 
   Router::get('/home', 'home');
 
@@ -33,6 +34,8 @@
   Router::get('/preview-work', 'previewWork');
 
   Router::get('/published', 'published');
+
+  Router::get('/language/:lang', 'language', 'LanguageController::getLang($lang)');
 
 
 

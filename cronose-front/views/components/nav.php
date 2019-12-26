@@ -5,19 +5,16 @@
 <div class="col-2 p-0">
   <div class="vertical-nav min-vh-100">
     <div class="btn-group pl-3">
-      <button type="button" class="btn bg-white dropdown-toggle ml-1 mt-1 pt-1 pb-1 pl-1 pr-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <!-- <button type="button" class="btn bg-white dropdown-toggle ml-1 mt-1 pt-1 pb-1 pl-1 pr-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          <?= $_SESSION['lang'] ?? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) ?>
-      </button>
-      <div class="dropdown-menu">
-        <li class="nav-item" value="es">
-          <a href="?lang=es" class="nav-link">ES</a>
-        </li>
-        <li class="nav-item" value="ca">
-          <a href="?lang=ca" class="nav-link">CA</a>
-        </li>
-        <li class="nav-item" value="en">
-          <a href="?lang=en" class="nav-link">EN</a>
-        </li>
+      </button> -->
+      <div class="form-group">
+        <label for="language_selector">Language</label>
+        <select class="form-control" id="language_selector">
+          <option value="es">ES</option>
+          <option value="ca">CA</option>
+          <option value="en">EN</option>
+        </select>
       </div>
     </div>
     <div class="container ">
@@ -84,14 +81,14 @@
       </ul>
       <div class="dropdown-divider"></div>
       <ul class="navbar-nav" id="language_selector" name="lang">
-        <li class="nav-item" value="es">
-          <a href="?lang=es" class="nav-link">ES <span class="sr-only">(current)</span></a>
+        <li class="nav-item" value="es" id="es">
+          <a class="nav-link">ES <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item" value="ca">
-          <a href="?lang=ca" class="nav-link">CA</a>
+        <li class="nav-item" value="ca" id="ca">
+          <a class="nav-link">CA</a>
         </li>
-        <li class="nav-item" value="en">
-          <a href="?lang=en" class="nav-link">EN</a>
+        <li class="nav-item" value="en" id="en">
+          <a class="nav-link">EN</a>
         </li>
       </ul>
     </div>

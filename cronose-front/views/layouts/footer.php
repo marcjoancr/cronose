@@ -2,6 +2,37 @@
   <script>
     const selector = document.getElementById('language_selector');
     selector.value = "<?= isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
+
+    $(document).ready(function(){
+
+
+      $("#language_selector").change(function(){
+        let lang = $("#language_selector").val();
+        changeLang(lang);
+      });
+
+
+      $('#es').click(function(){
+        changeLang('es')
+      });
+      $('#ca').click(function(){
+        changeLang('ca')
+      });
+      $('#en').click(function(){
+        changeLang('en')
+      });
+    });
+
+
+    function changeLang(lang) {
+      $.ajax({
+        url: "/language/"+lang,
+      })
+        .done(function( msg ) {
+          location.reload();
+        });
+    }
+
   </script>
 
   <?php if (isset($_SESSION['user'])):?>
