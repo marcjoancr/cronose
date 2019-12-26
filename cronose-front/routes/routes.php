@@ -13,7 +13,7 @@
 
   Router::get('/about-us', 'about-us');
 
-  Router::get('/my-works', 'myWorks');
+  Router::get('/my-works', 'myWorks', 'WorkController::getMyOffers');
 
   Router::get('/logout', 'logout');
 
