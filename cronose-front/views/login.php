@@ -1,6 +1,5 @@
-
 <?php
-  require __DIR__.'/../assets/php/User.php';
+
   require 'layouts/head.php';
 
   if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: ../home');

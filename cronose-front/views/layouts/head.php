@@ -24,7 +24,9 @@
   require $_SERVER['DOCUMENT_ROOT'].'/views/components/language.php';
   require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
 
-  session_start();
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
 
   $langAvailable = ['en','es','ca'];
   $defaultLang = 'es';
