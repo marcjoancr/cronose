@@ -2,6 +2,7 @@
 
   require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Works.controller.php';
   require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Language.controller.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Profile.controller.php';
 
   Router::get('/home', 'home');
 
@@ -21,7 +22,7 @@
 
   Router::get('/wallet', 'wallet');
 
-  Router::get('/profile', 'profile');
+  Router::get('/profile/:user', 'profile', 'ProfileController::getProfile($user)');
 
   Router::get('/card', 'card');
 

@@ -4,36 +4,79 @@
 
 <div class="container wrap row justify-content-center mt-4">
 	<h1><?= $lang[$displayLang]['market'];?></h1>
-	<table class="table align-items-center mt-4 table-bordered">
-		  <thead class="thead-dark">
-		    <tr>
-		      <th scope="col">Lang</th>
-		      <th scope="col">User</th>
-		      <th scope="col">Title</th>
-		      <th scope="col">Description</th>
-          <th scope="col">Personal Valoration</th>
-          <th scope="col">Valoration</th>
-          <th scope="col">Coin Price</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-				<?php foreach ($data['offers'] as $key => $value) : ?>
-					<tr>
-						<th><?= $value['translation']; ?></th>
-						<th><?= $value['name']; ?></th>
-						<th><?= $value['title']; ?></th>
-						<th><?= $value['description']; ?></th>
-						<th><?= $value['personal_valoration']; ?></th>
-						<th><?= $value['valoration_avg']; ?></th>
-						<th><?= $value['coin_price']; ?></th>
-					</tr>
-				<?php endforeach ?>
-	  </tbody>
-	</table>
-</div>
 
-<?php if (isset($_SESSION['user'])):?>
-<a href="/work">Publicació</a>
-<?php endif; ?>
+	<div class="container">
+		<div class="row p-2">
+			<div class="card-deck">
+				<?php foreach ($data['offers'] as $key => $value) : ?>
+					<div class="row">
+						<a href="/work/" style="text-decoration: none; color: black">
+							<div class="card m-2">
+								<div class="card-body d-flex flex-column justify-content-center">
+									<div class="row mx-auto">
+										<h4 class="card-title"><?= $value['title']; ?></h5>
+									</div>
+									<div class="row p-4">
+										<div class="col">
+											<div class="row">
+												<p><strong>IDIOMA</strong></p>
+											</div>
+											<div class="row">
+												<p class="card-text"><?= $value['translation']; ?></p>
+											</div>
+										</div>
+										<div class="col">
+											<div class="row">
+												<p><strong>NOMBRE</strong></p>
+											</div>
+											<div class="row">
+												<p class="card-text"><?= $value['name']; ?></p>
+											</div>
+										</div>
+										<div class="col">
+											<div class="row">
+												<p><strong>DESCRIPCIÓN</strong></p>
+											</div>
+											<div class="row">
+												<p class="card-text"><?= $value['description']; ?></p>
+											</div>
+										</div>
+										<div class="col">
+											<div class="row">
+												<p><strong>VALORACIÓN PERSONAL</strong></p>
+											</div>
+											<div class="row">
+												<p class="card-text"><?= $value['personal_valoration']; ?></p>
+											</div>
+										</div>
+										<div class="col">
+											<div class="row">
+												<p><strong>VALORACIÓN GENERAL</strong></p>
+											</div>
+											<div class="row">
+												<p class="card-text"><?= $value['valoration_avg']; ?></p>
+											</div>
+										</div>
+										<div class="col">
+											<div class="row">
+												<p><strong>PRECIO</strong></p>
+											</div>
+											<div class="row">
+												<p class="card-text"><?= $value['coin_price']; ?></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+	</div>
+			
+
+
+</div>
 
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
