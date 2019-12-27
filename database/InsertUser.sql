@@ -18,11 +18,12 @@ insert into User values ('12345678A','Admin','Cronose','Cronose','admin@cronose.
 select * from Category_Language;
 
 insert into Category(coin_price) values (1.2),(1);
-insert into Category_Language values (1,1,'Educación'),(2,1,'Educació'),(3,1,'Education'),(1,2,'Mantenimiento'),(2,2,'Manteniment'),(3,2,'Maintenance');
+insert into Category_Language values ('es',1,'Educación'),('ca',1,'Educació'),('en',1,'Education'),('es',2,'Mantenimiento'),('ca',2,'Manteniment'),('en',2,'Maintenance');
 insert into Specialization(category_id) values (1),(2);
 insert into Specialization_Language 
-values (1,1,'Profesor Programación'),(2,1,'Professor Programació'),(3,1,'Programming Professor'),
-(1,2,'Fontanero'),(2,2,'Lampista'),(3,2,'Plumber');
+values ('es',1,'Profesor Programación'),('ca',1,'Professor Programació'),('en',1,'Programming Professor'),
+('es',2,'Fontanero'),('ca',2,'Lampista'),('en',2,'Plumber');
+select * from Category_Language;
 
 select * from Specialization_Language;
 
@@ -30,11 +31,11 @@ INSERT INTO Offer(user_dni, specialization_id, valoration_avg, personal_valorati
 ('12345678A', '1', '90', '70', '1.2', '2019-12-21', '1'),
 ('12345678A', '2', '50', '50', '1', '2019-12-22', '1');
 INSERT INTO Offer_Language (language_id, user_dni, specialization_id, title, description) 
-VALUES ('1', '12345678A', '1', 'Profesor de programación', 'Programación básica de c++, Programación avanzada de Java, '),
-('2', '12345678A', '1', 'Professor de programació', 'Programació básica de c++, Programació avançada de Java, '),
-('3', '12345678A', '1', 'Programming Professor', 'Basic programming of c++, Advanced programming of Java, ');
+VALUES ('es', '12345678A', '1', 'Profesor de programación', 'Programación básica de c++, Programación avanzada de Java, '),
+('ca', '12345678A', '1', 'Professor de programació', 'Programació básica de c++, Programació avançada de Java, '),
+('en', '12345678A', '1', 'Programming Professor', 'Basic programming of c++, Advanced programming of Java, ');
 INSERT INTO Offer_Language (language_id, user_dni, specialization_id, title, description) 
-VALUES ('1', '12345678A', '2', 'Fontanero', 'No hay ni uno igual ');
+VALUES ('es', '12345678A', '2', 'Fontanero', 'No hay ni uno igual ');
 
 select * from Offer_Language;
 select * from Offer;
