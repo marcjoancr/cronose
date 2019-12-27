@@ -43,7 +43,7 @@
         <div class="col-2"></div>
         <div class="row  ">
             <div class="col-xs-6 col-sm-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold" >ABOUT US</h6>
+              <h6 class="text-uppercase mb-4 font-weight-bold" ><?= $lang[$displayLang]['aboutUs'];?></h6>
               <p>
                 <a href="/home">History</a>
               </p>
@@ -55,7 +55,7 @@
               </p>
             </div>
             <div class="col-xs-6 col-sm-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">HOW IT WORKS</h6>
+              <h6 class="text-uppercase mb-4 font-weight-bold"><?= $lang[$displayLang]['howWorks'];?></h6>
               <p>
                 <a href="/home">What is a time bank</a>
               </p>
@@ -67,7 +67,7 @@
               </p>
             </div>
             <div class="col-xs-6 col-sm-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">CONTACT</h6>
+              <h6 class="text-uppercase mb-4 font-weight-bold"><?= $lang[$displayLang]['contact'];?></h6>
               <p>
                 <a href="/home">How to</a>
               </p>
