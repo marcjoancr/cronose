@@ -1,9 +1,9 @@
 use Cronose;
 
-insert into Language values (),(),();
-insert into Language_Translation values (1,1,'Español'),(1,2,'Espanyol'),(1,3,'Spanish');
-insert into Language_Translation values (2,1,'Catalán'),(2,2,'Català'),(2,3,'Catalan');
-insert into Language_Translation values (3,1,'Inglés'),(3,2,'Anglès'),(3,3,'English');
+insert into Language values ('es'),('ca'),('en');
+insert into Language_Translation values ('es','es','Español'),('es','ca','Espanyol'),('es','en','Spanish');
+insert into Language_Translation values ('ca','es','Catalán'),('ca','ca','Català'),('ca','en','Catalan');
+insert into Language_Translation values ('en','es','Inglés'),('en','ca','Anglès'),('en','en','English');
 select * from Language;
 select * from Language_Translation;
 select Language_Translation.translation from Language_Translation,Language where Language_Translation.language_id = Language.id and Language_Translation.translation = 'Espanyol';
