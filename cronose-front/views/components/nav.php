@@ -29,22 +29,22 @@
     <div class="container">
       <ul class="nav  flex-column mb-0">
         <li class="nav-item pt-3">
-            <a class="btn text-white" href="/wallet"><i class="fab fa-google-wallet pl-4 pr-2"></i> WALLET</a>
+            <a class="btn text-white" href="/wallet"><i class="fab fa-google-wallet pl-4 pr-2"></i> <?=$lang[$displayLang]['wallet'];?></a>
         </li>
         <li class="nav-item pt-3">
-          <a class="btn text-white" href="/profile"><i class="far fa-address-card pl-4 pr-2"></i> PROFILE</a>
+          <a class="btn text-white" href="/profile"><i class="far fa-address-card pl-4 pr-2"></i> <?=$lang[$displayLang]['profile'];?></a>
         </li>
         <li class="nav-item pt-3">
-          <a class="btn text-white" href="/chat"><i class="far fa-comments pl-4 pr-2"></i> CHAT</a>
+          <a class="btn text-white" href="/chat"><i class="far fa-comments pl-4 pr-2"></i> <?=$lang[$displayLang]['chat'];?></a>
         </li>
         <li class="nav-item pt-3">
-            <a class="btn text-white" href="/market"><i class="fas fa-map-pin pl-4 pr-2"></i> MARKET</a>
+            <a class="btn text-white" href="/market"><i class="fas fa-map-pin pl-4 pr-2"></i> <?=$lang[$displayLang]['market'];?></a>
         </li>
         <li class="nav-item pt-3">
-            <a class="btn text-white" href="/my-works"><i class="fas fa-database pl-4 pr-2"></i> MY OFFERS</a>
+            <a class="btn text-white" href="/my-works"><i class="fas fa-database pl-4 pr-2"></i> <?=$lang[$displayLang]['myOffers'];?></a>
         </li>
         <li class="nav-item pt-3 pl-4">
-            <a href="/logout"><button type="btn" class="btn btn-danger ml-4  pt-2 pb-2 pr-4 pl-4">LOG OUT</button></a>
+            <a href="/logout"><button type="btn" class="btn btn-danger ml-4  pt-2 pb-2 pr-4 pl-4"><?=$lang[$displayLang]['logOut'];?></button></a>
         </li>
       </ul>
     </div>
@@ -64,19 +64,19 @@
     <div class="collapse navbar-collapse order-3 order-md-1" id="language">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="btn" href="/about-us"><i class="fa fa-address-card"></i> ABOUT US</a>
+          <a class="btn" href="/about-us"><i class="fa fa-address-card"></i> <?=$lang[$displayLang]['aboutUs'];?></a>
         </li>
         <li class="nav-item">
-          <a class="btn" href="/home"><i class="fas fa-map-pin"></i> HOW IT WORKS</a>
+          <a class="btn" href="/home"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['howWorks'];?></a>
         </li>
         <li class="nav-item">
-          <a class="btn" href="/home"><i class="fas fa-map-pin"></i> CONTACT</a>
+          <a class="btn" href="/home"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['contact'];?></a>
         </li>
         <li class="nav-item">
           <a class="btn" href="/home"><i class="fas fa-map-pin"></i> FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="btn" href="/market"><i class="fas fa-map-pin"></i> MARKET</a>
+          <a class="btn" href="/market"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['market'];?></a>
         </li>
       </ul>
       <div class="dropdown-divider"></div>
