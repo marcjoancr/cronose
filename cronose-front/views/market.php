@@ -19,7 +19,7 @@
 									<div class="row p-4">
 										<div class="col">
 											<div class="row">
-												<p><strong>IDIOMA</strong></p>
+												<p><strong><?= $lang[$displayLang]['language'];?></strong></p>
 											</div>
 											<div class="row">
 												<p class="card-text"><?= $value['translation']; ?></p>
@@ -27,7 +27,7 @@
 										</div>
 										<div class="col">
 											<div class="row">
-												<p><strong>NOMBRE</strong></p>
+												<p><strong><?= $lang[$displayLang]['name'];?></strong></p>
 											</div>
 											<div class="row">
 												<p class="card-text"><?= $value['name']; ?></p>
@@ -35,7 +35,7 @@
 										</div>
 										<div class="col">
 											<div class="row">
-												<p><strong>DESCRIPCIÓN</strong></p>
+												<p><strong><?= $lang[$displayLang]['description'];?></strong></p>
 											</div>
 											<div class="row">
 												<p class="card-text"><?= $value['description']; ?></p>
@@ -43,7 +43,7 @@
 										</div>
 										<div class="col">
 											<div class="row">
-												<p><strong>VALORACIÓN PERSONAL</strong></p>
+												<p><strong><?= $lang[$displayLang]['personalVal'];?></strong></p>
 											</div>
 											<div class="row">
 												<p class="card-text"><?= $value['personal_valoration']; ?></p>
@@ -51,7 +51,7 @@
 										</div>
 										<div class="col">
 											<div class="row">
-												<p><strong>VALORACIÓN GENERAL</strong></p>
+												<p><strong><?= $lang[$displayLang]['generalVal'];?></strong></p>
 											</div>
 											<div class="row">
 												<p class="card-text"><?= $value['valoration_avg']; ?></p>
@@ -59,7 +59,7 @@
 										</div>
 										<div class="col">
 											<div class="row">
-												<p><strong>PRECIO</strong></p>
+												<p><strong><?= $lang[$displayLang]['price'];?></strong></p>
 											</div>
 											<div class="row">
 												<p class="card-text"><?= $value['coin_price']; ?></p>
