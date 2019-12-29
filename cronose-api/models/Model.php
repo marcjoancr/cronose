@@ -1,31 +1,32 @@
 <?php
 
-require_once '/cronose-api/utilities/DB.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/utilities/DB.php';
 
 class Model {
 
   protected $model;
   protected $schema;
-  private $DB;
+  private static $DB;
 
   public function __construct() {
-    $this->model = str_replace('Model', '', get_class($this));
-    $this->$DB = DB::connect();
+    $this->model = str_replace('Model', '', get_called_class());
+    self::$DB = DB::connect();
   }
 
-  public function getAll() {
-    $statement = $DB->prepare('select * from '.$model);
+  public static function getAll() {
+    $sql = 'select * from '.str_replace('Model', '', get_called_class());
+    $statement = self::$DB->prepare($sql);
     $statement->execute();
-    return $statement;
+    return $statement->fetchAll();
   }
 
-  public function create($body) {
-    $body = json_decode($body, true);
-    $keys = implode(", ", array_keys($body));
-    $values = implode(", ", $body);
-    $sql = "INSERT INTO".$model."(".$keys.") VALUES (".$values.")";
-    $statement = $DB->prepare($sql);
+  public function save() {
+    $keys = implode(", ", array_keys($this->schema));
+    $values = implode("', '", $this->schema);
+    $sql = "INSERT INTO ".$this->model."(".$keys.") VALUES ('".$values."')";
+    $statement = self::$DB->prepare($sql);
     $statement->execute();
+    echo $sql;
     return $statement;
   }
 

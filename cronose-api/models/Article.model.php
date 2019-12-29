@@ -11,6 +11,7 @@ class ArticleModel extends Model {
       'author' => $author,
       'published' => $published
     );
+    parent::__construct();
   }
 
 }

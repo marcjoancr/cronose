@@ -1,7 +1,7 @@
 <?php
 
-require_once '/cronose-api/utilities/Connection.php';
-require_once '/cronose-api/utilities/config.inc.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/utilities/Connection.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/utilities/config.inc.php';
 
 class DB {
   public static function connect() {
