@@ -9,9 +9,8 @@
 		<div class="row p-2">
 			<div class="card-deck">
 				<?php foreach ($data['offers'] as $key => $value) : ?>
-					<div class="row">
-						<a href="/work/" style="text-decoration: none; color: black">
-							<div class="card m-2">
+					<div class="row w-100">
+						<a class="card m-2" href="/work/" style="text-decoration: none; color: black">
 								<div class="card-body d-flex flex-column justify-content-center">
 									<div class="row mx-auto">
 										<h4 class="card-title"><?= $value['title']; ?></h5>
@@ -67,7 +66,6 @@
 										</div>
 									</div>
 								</div>
-							</div>
 						</a>
 					</div>
 				<?php endforeach ?>
