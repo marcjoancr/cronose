@@ -33,11 +33,43 @@ class Model {
   }
 
   public function getById($id) {
-
+    $sql = "SELECT FROM " . $this->model . " WHERE id = " . $id . ";";
+    $statement = self::$DB->prepare($sql);
+    $statement->execute();
+    return $statement;
   }
 
   public function updateById($id, $body) {
+    $body = json_decode($body, true);
+    
+    if ( !self::getById($id) ) return Logger::log("ERROR", "No " . $this->model . " with id = " . $id);
 
+    $updatedSchema = array_merge($this->schema, $body);
+
+    $sql = "UPDATE " . $this->model . " SET ";
+    $lastKey = array_key_last ($updatedSchema);
+
+    foreach ($updatedSchema as $key => $value) {
+      $sql = $sql . $key . " = '" . $value . "'";
+
+      if( $lastKey !== $key ) $sql = $sql . ",";
+
+    }
+
+    $sql = $sql . " WHERE id = " . $id . ";";
+
+    echo $sql;
+
+    $statement = self::$DB->prepare($sql);
+    $statement->execute();
+    if($statement->fetch(PDO::FETCH_ASSOC) < 0){
+        Logger::log("INFO", "Updated " . $this->model . " with id = " . $id);
+        return $statement;
+      } else {
+        Logger::log("ERROR", "This " . $this->model . " already exists.");
+        return null;
+      }
+    return $statement;
   }
 
   public function deleteById($id) {
