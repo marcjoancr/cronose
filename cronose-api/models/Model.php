@@ -27,9 +27,15 @@ class Model {
     $values = implode("', '", $this->schema);
     $sql = "INSERT INTO " . $this->model . "(" . $keys . ") VALUES ('" . $values . "')";
     $statement = self::$DB->prepare($sql);
-    $statement->execute();
-    Logger::log("INFO", "New " . $this->model . " saved.");
-    return $statement;
+    try {
+      $statement->execute();
+      if ($statement->fetch(PDO::FETCH_ASSOC) > 0) return Logger::log("ERROR", "This " . $this->model . " already exists.");
+      Logger::log("INFO", "New " . $this->model . " saved.");
+      return $statement;
+    } catch (PDOException $e) {
+      Logger::log("ERROR", $e->getMessage());
+      return null;
+    }
   }
 
   public function getById($id) {
@@ -41,43 +47,37 @@ class Model {
 
   public function updateById($id, $body) {
     $body = json_decode($body, true);
-    
     if ( !self::getById($id) ) return Logger::log("ERROR", "No " . $this->model . " with id = " . $id);
-
     $updatedSchema = array_merge($this->schema, $body);
-
-    $sql = "UPDATE " . $this->model . " SET ";
     $lastKey = array_key_last ($updatedSchema);
 
+    $sql = "UPDATE " . $this->model . " SET ";
     foreach ($updatedSchema as $key => $value) {
       $sql = $sql . $key . " = '" . $value . "'";
-
       if( $lastKey !== $key ) $sql = $sql . ",";
-
     }
-
     $sql = $sql . " WHERE id = " . $id . ";";
-
-    echo $sql;
 
     $statement = self::$DB->prepare($sql);
     $statement->execute();
-    if($statement->fetch(PDO::FETCH_ASSOC) < 0){
-        Logger::log("INFO", "Updated " . $this->model . " with id = " . $id);
-        return $statement;
-      } else {
-        Logger::log("ERROR", "This " . $this->model . " already exists.");
-        return null;
-      }
+    if($statement->fetch(PDO::FETCH_ASSOC) > 0) return Logger::log("ERROR", "This " . $this->model . " already exists.");
+    Logger::log("INFO", "Updated " . $this->model . " with id = " . $id);
     return $statement;
   }
 
-  public function deleteById($id) {
-    $sql = "DELETE FROM " . $this->model . " WHERE id = " . $id . ";";
+  public static function deleteById($id) {
+    $model = str_replace('Model', '', get_called_class());
+    $sql = "DELETE FROM " . $model . " WHERE id = " . $id . ";";
     $statement = self::$DB->prepare($sql);
-    $statement->execute();
-    Logger::log("WARNING", "Deleted " . $this->model . " with id = " . $id);
-    return $statement;
+    if (!self::getById($id)) return Logger::log("ERROR", "No " . $model . " with id = " . $id);
+    try {
+      $statement->execute();
+      Logger::log("WARNING", "Deleted " . $model . " with id = " . $id);
+      return $statement;
+    } catch (PDOException $e) {
+      Logger::log("ERROR", $e->getMessage());
+      return null;
+    }
   }
 
 }
