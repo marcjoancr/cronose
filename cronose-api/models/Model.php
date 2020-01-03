@@ -26,7 +26,6 @@ class Model {
     $sql = "INSERT INTO ".$this->model."(".$keys.") VALUES ('".$values."')";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
-    echo $sql;
     return $statement;
   }
 
@@ -39,7 +38,10 @@ class Model {
   }
 
   public function deleteById($id) {
-
+    $sql = 'delete from ' . str_replace('Model', '', get_called_class()) . ' where id = '.$id.';';
+    $statement = self::$DB->prepare($sql);
+    $statement->execute();
+    return $statement;
   }
 
 }
