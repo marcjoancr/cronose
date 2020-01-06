@@ -11,12 +11,16 @@ session_start();
   $displayLang = $langController['data']['language'];
 
   if ( !LanguageController::langExist($uri[0]) ){
-  	array_unshift($uri, $langController['data']['language']);
+  	array_unshift($uri, $displayLang);
   	$uriString = implode("/", $uri);
   	header('Location: ' . $uriString);
   }else{
   	$displayLang = $uri[0];
   }
+
+  $auxUri = $uri;
+  array_splice($auxUri, 0, 1);
+  $auxUriString = implode("/", $auxUri);
 
 
   switch ($uri[1]){

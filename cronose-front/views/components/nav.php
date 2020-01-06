@@ -84,13 +84,13 @@
       <div class="dropdown-divider"></div>
       <ul class="navbar-nav" id="language_selector" name="lang">
         <li class="nav-item" value="es" id="es">
-          <a class="nav-link">ES <span class="sr-only">(current)</span></a>
+          <a href="/es/<?= $auxUriString; ?>" class="nav-link">ES <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" value="ca" id="ca">
-          <a class="nav-link">CA</a>
+          <a href="/ca/<?= $auxUriString; ?>" class="nav-link">CA</a>
         </li>
         <li class="nav-item" value="en" id="en">
-          <a class="nav-link">EN</a>
+          <a href="/en/<?= $auxUriString; ?>" class="nav-link">EN</a>
         </li>
       </ul>
     </div>
@@ -114,7 +114,7 @@
   $(document).ready(function(){
     $('#language_selector .nav-item').each(function(index) {
       const target = $(this);
-      if (target.attr('value') == '<?= $_SESSION['lang'] ?? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) ?>') {
+      if (target.attr('value') == '<?= $displayLang ?? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) ?>') {
         target.addClass('active');
       }
     });
