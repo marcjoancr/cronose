@@ -2,6 +2,8 @@
 
 <?php if (isset($_SESSION['user'])):?>
 
+
+
 <div class="col-2 p-0">
   <div class="vertical-nav min-vh-100">
     <div class="btn-group pl-3">
@@ -64,10 +66,10 @@
     <div class="collapse navbar-collapse order-3 order-md-1" id="language">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="btn" href="/about-us"><i class="fa fa-address-card"></i> <?=$lang[$displayLang]['aboutUs'];?></a>
+          <a class="btn" href="<?=$displayLang;?>/about-us"><i class="fa fa-address-card"></i> <?=$lang[$displayLang]['aboutUs'];?></a>
         </li>
         <li class="nav-item">
-          <a class="btn" href="/home"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['howWorks'];?></a>
+          <a class="btn" href="<?=$displayLang;?>/home"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['howWorks'];?></a>
         </li>
         <li class="nav-item">
           <a class="btn" href="/home"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['contact'];?></a>

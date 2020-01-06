@@ -28,18 +28,11 @@
     session_start();
   }
 
-  $langAvailable = ['en','es','ca'];
-  $defaultLang = 'es';
-
   if (isset($_GET['lang']) && in_array($_GET['lang'], $langAvailable)) changeLanguage($_GET['lang']);
 
-  $clientLang = $_SESSION['lang'] ?? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-  $displayLang = in_array($clientLang, $langAvailable) ? $clientLang : $defaultLang;
-
-  function changeLanguage($lang) {
+  /*function changeLanguage($lang) {
     $_SESSION['lang'] = $lang;
-  }
+  }*/
 ?>
 
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/components/nav.php' ?>
