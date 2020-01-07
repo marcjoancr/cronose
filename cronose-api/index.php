@@ -108,6 +108,12 @@ switch ($uri[1]){
     if ($uri[2] == 'userTable') {
       include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/userTable.php';
     }
+    if ($uri[2] == 'company') {
+      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/company.php';
+    }
+    if ($uri[2] == 'companyTable') {
+      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/companyTable.php';
+    }
     // switch ($uri[2]) {
     //   case 'user':
     //   echo "hola";
