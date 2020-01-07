@@ -3,6 +3,10 @@
 // require_once $_SERVER['DOCUMENT_ROOT'].'/utilities/Logger.php';
 // require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/*.controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Language.controller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Offer.controller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Profile.controller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/Model.php';
+new Model();
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
@@ -14,13 +18,13 @@ $uri = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
 $langController = LanguageController::getLang();
 $displayLang = $langController['data']['language'];
 
-if (!LanguageController::langExist($uri[0])) {
-  array_unshift($uri, $displayLang);
-  $uriString = implode("/", $uri);
-  header('Location: ' . $uriString);
-} else {
-  $displayLang = $uri[0];
-}
+// if (!LanguageController::langExist($uri[0])) {
+//   array_unshift($uri, $displayLang);
+//   $uriString = implode("/", $uri);
+//   header('Location: ' . $uriString);
+// } else {
+//   $displayLang = $uri[0];
+// }
 
 $auxUri = $uri;
 array_splice($auxUri, 0, 1);
@@ -35,7 +39,7 @@ switch ($uri[1]){
     break;
 
   case 'market':
-    // $dataController = WorkController::getAll();
+    $offers = OfferController::getAllOffers();
     include $_SERVER['DOCUMENT_ROOT'] . '/views/market.php';
     break;
 

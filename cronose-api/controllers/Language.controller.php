@@ -2,6 +2,10 @@
 
 class LanguageController {
 
+  public static function getAllLangs() {
+    return LanguageModel::getAll();
+  }
+
   static $langAvailable = ['en','es','ca'];
   static $defaultLang = 'es';
 

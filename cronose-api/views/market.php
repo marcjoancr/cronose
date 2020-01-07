@@ -1,5 +1,4 @@
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/head.php'; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/DB.php'; ?>
 <!-- REPASAR require_once NO FUNCINA SINO -->
 
 <div class="container wrap row justify-content-center mt-4">
@@ -8,7 +7,7 @@
 	<div class="container">
 		<div class="row p-2">
 			<div class="card-deck">
-				<?php foreach ($dataController['offers'] as $key => $value) : ?>
+				<?php foreach ($offers as $key => $value) : ?>
 					<div class="row w-100">
 						<a class="card m-2" href="/<?=$displayLang;?>/work/" style="text-decoration: none; color: black">
 								<div class="card-body d-flex flex-column justify-content-center">
@@ -21,7 +20,7 @@
 												<p><strong><?= $lang[$displayLang]['language'];?></strong></p>
 											</div>
 											<div class="row">
-												<p class="card-text"><?= $value['translation']; ?></p>
+												<p class="card-text"><?= $value['language_id']; ?></p>
 											</div>
 										</div>
 										<div class="col">
@@ -29,7 +28,7 @@
 												<p><strong><?= $lang[$displayLang]['name'];?></strong></p>
 											</div>
 											<div class="row">
-												<p class="card-text"><?= $value['name']; ?></p>
+												<p class="card-text"><?= $value['user']['name']; ?></p>
 											</div>
 										</div>
 										<div class="col">

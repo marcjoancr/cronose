@@ -29,4 +29,11 @@ class UserModel extends Model {
     return true;
   }
 
+  public function getUsernameByDNI($dni) {
+    $sql = "SELECT name FROM " . str_replace('Model', '', get_called_class()) . " WHERE dni = '" . $dni . "';";
+    $statement = self::$DB->prepare($sql);
+    $statement->execute();
+    return $statement->fetchAll()[0];
+  }
+
 }

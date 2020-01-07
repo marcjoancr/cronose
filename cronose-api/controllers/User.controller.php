@@ -7,7 +7,7 @@ class UserController {
   public static function getAllUsers() {
     return UserModel::getAll();
   }
-  
+
   public static function create($body) {
     if (!UserModel::UserValidation($body)) return null;
     $body = json_decode($body);
@@ -26,6 +26,10 @@ class UserController {
 
   public static function deleteUserById($id) {
     return UserModel::deleteById($id);
+  }
+
+  public static function getUsernameByDNI($dni) {
+    return UserModel::getUsernameByDNI($dni);
   }
 
 }
