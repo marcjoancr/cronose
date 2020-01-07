@@ -40,20 +40,21 @@ class Model {
     }
   }
 
-  public function getById($id) {
+  public static function getById($id) {
     $sql = "SELECT * FROM " . str_replace('Model', '', get_called_class()) . " WHERE id = '" . $id . "';";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
     return $statement->fetchAll()[0];
   }
 
-  public function updateById($id, $body) {
+  public static function updateById($id, $body) {
     $body = json_decode($body, true);
-    if ( !self::getById($id) ) return Logger::log("ERROR", "No " . $this->model . " with id = " . $id);
+    $model = str_replace('Model', '', get_called_class());
+    if ( !self::getById($id) ) return Logger::log("ERROR", "No " . $model . " with id = " . $id);
     $updatedSchema = array_merge($this->schema, $body);
     $lastKey = array_key_last ($updatedSchema);
 
-    $sql = "UPDATE " . $this->model . " SET ";
+    $sql = "UPDATE " . $model . " SET ";
     foreach ($updatedSchema as $key => $value) {
       $sql = $sql . $key . " = '" . $value . "'";
       if( $lastKey !== $key ) $sql = $sql . ",";
@@ -62,8 +63,8 @@ class Model {
 
     $statement = self::$DB->prepare($sql);
     $statement->execute();
-    if($statement->fetch(PDO::FETCH_ASSOC) > 0) return Logger::log("ERROR", "This " . $this->model . " already exists.");
-    Logger::log("INFO", "Updated " . $this->model . " with id = " . $id);
+    if($statement->fetch(PDO::FETCH_ASSOC) > 0) return Logger::log("ERROR", "This " . $model . " already exists.");
+    Logger::log("INFO", "Updated " . $model . " with id = " . $id);
     return $statement;
   }
 
