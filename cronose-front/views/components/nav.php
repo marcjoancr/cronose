@@ -57,7 +57,7 @@
 
 <div class="col-12 p-0">
   <nav id ="horizontalMenu" class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand order-0 order-md-0" href="/"><strong>CRONOSE</strong></a>
+    <a class="navbar-brand order-0 order-md-0" href="/<?=$displayLang;?>/home"><strong>CRONOSE</strong></a>
 
     <button class="order-2 order-md-3 navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
