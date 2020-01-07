@@ -1,10 +1,7 @@
 <?php
 
-// require_once $_SERVER['DOCUMENT_ROOT'].'/utilities/Logger.php';
-// require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/*.controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Language.controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Offer.controller.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Profile.controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/models/Model.php';
 new Model();
 

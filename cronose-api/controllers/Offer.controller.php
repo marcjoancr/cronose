@@ -10,6 +10,7 @@ class OfferController {
   public static function getAllOffers() {
     $offers = OfferModel::getAll();
     $offersLanguages = Offer_LanguageController::getAllOffers();
+    $result = [];
     foreach ($offers as $offer) {
       foreach ($offersLanguages as $offerLanguage) {
         if ($offer['user_dni'] == $offerLanguage['user_dni'] && $offer['specialization_id'] == $offerLanguage['specialization_id']) {

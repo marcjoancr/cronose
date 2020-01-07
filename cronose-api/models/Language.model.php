@@ -11,7 +11,8 @@ class LanguageModel extends Model
     );
     parent::__construct();
   }
-  public function modelValidation($body) {
+
+  public static function modelValidation($body) {
     $body = json_decode($body);
     return true;
   }

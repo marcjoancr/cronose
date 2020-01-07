@@ -12,10 +12,10 @@
   <script>
     $.ajax({
       type: "GET",
-      url: "<?= $config['api']['api_url'] ?>" + window.location.pathname,
+      url: "<?= $config['api']['api_url'] ?>" + window.location.pathname.substr(1),
       dataType: "html"
     }).done((data) => {
-      $('#app').html(data);
+      document.write(data);
     });
   </script>
 </head>
