@@ -184,13 +184,14 @@
       $('#websiteEdit').val(data['website']);
 
       $('#update').click(function(){
+        const id = $('#idCompany').val();
         const name = $('#nameEdit').val();
         const email = $('#emailEdit').val();
         const phone = $('#phoneEdit').val();
         const website = $('#websiteEdit').val();
         $.ajax({
           type: 'POST',
-          data: { name, email, phone, website },
+          data: { id, name, email, phone, website },
           url: 'http://api.local.cronose/ca/datatable/companyTable',
         });
       });
