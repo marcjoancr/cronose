@@ -16,8 +16,6 @@
       dataType: "html"
     }).done((data) => {
       $('#app').html(data);
-      console.log(data);
-
     });
   </script>
 </head>
