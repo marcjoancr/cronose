@@ -6,9 +6,8 @@ class ProfileController
   public function getProfile($user) {
     $profile = UserModel::getUserProfile($user);
     return array(
-      'data' => [
-        'user' => $profile
-      ]
+      'user' => $profile
+      
     );
   }
 

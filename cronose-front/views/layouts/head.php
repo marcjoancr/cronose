@@ -22,7 +22,7 @@
   error_reporting(E_ALL);
 
   require $_SERVER['DOCUMENT_ROOT'].'/views/components/language.php';
-  require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
+  //require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
 
   if (session_status() == PHP_SESSION_NONE) {
     session_start();

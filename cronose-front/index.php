@@ -2,7 +2,11 @@
 
 	require $_SERVER['DOCUMENT_ROOT'] . '/controllers/Language.controller.php';
   require $_SERVER['DOCUMENT_ROOT'] . '/controllers/Works.controller.php';
+  require $_SERVER['DOCUMENT_ROOT'] . '/controllers/Profile.controller.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/User.php';
   //require_once './routes/api.route.php';
+
+  session_start();
 
   $uri = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
 
@@ -68,6 +72,12 @@
 			break;
 
 		case 'profile':
+
+			if ( count($uri) == 2 )
+				$dataController = ProfileController::getProfile($_SESSION['user']->getUsername());
+			else if ( count($uri) == 3 )
+				$dataController = ProfileController::getProfile($uri[2]);
+
 			include $_SERVER['DOCUMENT_ROOT'] . '/views/profile.php';
 			break;
 

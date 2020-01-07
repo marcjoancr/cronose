@@ -112,6 +112,7 @@
 
 <script>
   $(document).ready(function(){
+
     $('#language_selector .nav-item').each(function(index) {
       const target = $(this);
       if (target.attr('value') == '<?= $displayLang ?? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) ?>') {

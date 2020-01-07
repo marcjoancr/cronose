@@ -1,7 +1,7 @@
 </div>
   <script>
     const selector = document.getElementById('language_selector');
-    selector.value = "<?= isset($_SESSION['lang']) ? $_SESSION['lang'] : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
+    selector.value = "<?= isset($displayLang) ? $displayLang : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
 
     $(document).ready(function(){
 
@@ -25,12 +25,7 @@
 
 
     function changeLang(lang) {
-      $.ajax({
-        url: "/language/"+lang,
-      })
-        .done(function( msg ) {
-          location.reload();
-        });
+      window.location.replace("/"+lang+"/<?= $auxUriString; ?>");
     }
 
   </script>
