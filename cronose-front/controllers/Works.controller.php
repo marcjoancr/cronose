@@ -12,7 +12,6 @@ class WorkController
   }
 
   public function getMyOffers() {
-    session_start();
     $username = $_SESSION['user']->getUsername();
     return array(
       'offers' => WorkModel::getOffersByUsername($username)
