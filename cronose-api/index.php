@@ -18,13 +18,13 @@ $uri = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
 $langController = LanguageController::getLang();
 $displayLang = $langController['data']['language'];
 
-// if (!LanguageController::langExist($uri[0])) {
-//   array_unshift($uri, $displayLang);
-//   $uriString = implode("/", $uri);
-//   header('Location: ' . $uriString);
-// } else {
-//   $displayLang = $uri[0];
-// }
+if (!LanguageController::langExist($uri[0])) {
+  array_unshift($uri, $displayLang);
+  $uriString = implode("/", $uri);
+  header('Location: ' . $uriString);
+} else {
+  $displayLang = $uri[0];
+}
 
 $auxUri = $uri;
 array_splice($auxUri, 0, 1);
@@ -39,7 +39,8 @@ switch ($uri[1]){
     break;
 
   case 'market':
-    $offers = OfferController::getAllOffers();
+    // $offers = OfferController::getAllOffers();
+    $offers = OfferController::getOffersByLang($displayLang);
     include $_SERVER['DOCUMENT_ROOT'] . '/views/market.php';
     break;
 
@@ -102,6 +103,27 @@ switch ($uri[1]){
   case 'published':
     include $_SERVER['DOCUMENT_ROOT'] . '/views/published.php';
     break;
+
+  case 'datatable':
+    if ($uri[2] == 'user') {
+      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/user.php';
+    }
+    if ($uri[2] == 'userTable') {
+      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/userTable.php';
+    }
+    // switch ($uri[2]) {
+    //   case 'user':
+    //   echo "hola";
+    //     include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/user.php';
+    //     break;
+
+    //   default:
+    //     header('Location: /home');
+    //     include $_SERVER['DOCUMENT_ROOT'] . '/views/home.php';
+    //     break;
+    // }
+    break;
+
 
   default:
     header('Location: /home');
