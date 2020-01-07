@@ -15,7 +15,9 @@
       url: "<?= $config['api']['api_url'] ?>" + window.location.pathname.substr(1),
       dataType: "html"
     }).done((data) => {
+      document.open();
       document.write(data);
+      document.close();
     });
   </script>
 </head>
