@@ -145,7 +145,8 @@
   $(document).ready( function () {
     let table = $('#table').DataTable( {
       ajax: {
-        url: 'http://api.local.cronose/ca/datatable/companyTable',
+        url: 'http://api.local.cronose/views/datatables/companyTable.php',
+        dataSrc: '',
         type: "POST",
       },
       select: {
@@ -170,7 +171,7 @@
       $.ajax({
         type: 'POST',
         data: { name, email, phone, website },
-        url: 'http://api.local.cronose/ca/datatable/companyTable',
+        url: 'http://api.local.cronose/views/datatables/insertCompany.php',
       });
     });
 
@@ -184,14 +185,15 @@
       $('#websiteEdit').val(data['website']);
 
       $('#update').click(function(){
+        const id = $('#idCompany').val();
         const name = $('#nameEdit').val();
         const email = $('#emailEdit').val();
         const phone = $('#phoneEdit').val();
         const website = $('#websiteEdit').val();
         $.ajax({
           type: 'POST',
-          data: { name, email, phone, website },
-          url: 'http://api.local.cronose/ca/datatable/companyTable',
+          data: { id, name, email, phone, website },
+          url: 'http://api.local.cronose/views/datatables/updateCompany.php',
         });
       });
     });
@@ -201,7 +203,7 @@
       $.ajax({
         type: 'POST',
         data: { id },
-        url: 'http://api.local.cronose/ca/datatable/companyTable',
+        url: 'http://api.local.cronose/views/datatables/deleteCompany.php',
       });
     });
 

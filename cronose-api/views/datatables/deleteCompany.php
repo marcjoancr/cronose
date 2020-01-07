@@ -1,9 +1,13 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
 $conn = new mysqli("localhost", "josep", "123", "Cronose");
-$stmt = $conn->prepare("SELECT * FROM Company");
+
+$id = $_REQUEST['id'];
+
+$stmt = $conn->prepare("DELETE FROM Company WHERE id = '$id'");
 $stmt->execute();
 $result = $stmt->get_result();
-$output = $result->fetch_all(MYSQLI_ASSOC);
-echo json_encode($output);
+
+$conn->close();
+
 ?>
