@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 	require $_SERVER['DOCUMENT_ROOT'] . '/controllers/Language.controller.php';
   //require_once './routes/api.route.php';

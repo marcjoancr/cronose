@@ -28,14 +28,12 @@
     session_start();
   }
 
-  if (isset($_GET['lang']) && in_array($_GET['lang'], $langAvailable)) changeLanguage($_GET['lang']);
-
   /*function changeLanguage($lang) {
     $_SESSION['lang'] = $lang;
   }*/
 ?>
 
-<?php require $_SERVER['DOCUMENT_ROOT'].'/views/components/nav.php' ?>
+<?php require $_SERVER['DOCUMENT_ROOT'].'/views/components/nav.php'; ?>
 
 <?php if (isset($_SESSION['user'])):?>
   <div  class="col-10 p-0">
