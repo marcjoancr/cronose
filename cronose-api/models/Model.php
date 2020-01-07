@@ -14,7 +14,7 @@ class Model {
     self::$DB = DB::connect();
   }
 
-  public function modelValidation($body) { return false; }
+  public static function modelValidation($body) { return false; }
 
   public static function getAll() {
     $model = str_replace('Model', '', get_called_class());

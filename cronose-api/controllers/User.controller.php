@@ -32,6 +32,10 @@ class UserController {
     return UserModel::getUsernameByDNI($dni);
   }
 
+  public static function getUserByUsername($username) {
+    return UserModel::getUserByUsername($username);
+  }
+
 }
 
 ?>
