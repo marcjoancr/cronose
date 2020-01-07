@@ -14,12 +14,14 @@ class Model {
     self::$DB = DB::connect();
   }
 
+  public function modelValidation($body) { return false; }
+
   public static function getAll() {
     $model = str_replace('Model', '', get_called_class());
     $sql = "SELECT * FROM " . $model;
     $statement = self::$DB->prepare($sql);
     $statement->execute();
-    return $statement->fetchAll();
+    return $statement->fetchAll() || [];
   }
 
   public function save() {
@@ -31,7 +33,7 @@ class Model {
       $statement->execute();
       if ($statement->fetch(PDO::FETCH_ASSOC) > 0) return Logger::log("ERROR", "This " . $this->model . " already exists.");
       Logger::log("INFO", "New " . $this->model . " saved.");
-      return $statement;
+      return $statement || null;
     } catch (PDOException $e) {
       Logger::log("ERROR", $e->getMessage());
       return null;
@@ -42,7 +44,7 @@ class Model {
     $sql = "SELECT FROM " . $this->model . " WHERE id = " . $id . ";";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
-    return $statement;
+    return $statement || null;
   }
 
   public function updateById($id, $body) {
@@ -62,7 +64,7 @@ class Model {
     $statement->execute();
     if($statement->fetch(PDO::FETCH_ASSOC) > 0) return Logger::log("ERROR", "This " . $this->model . " already exists.");
     Logger::log("INFO", "Updated " . $this->model . " with id = " . $id);
-    return $statement;
+    return $statement || null;
   }
 
   public static function deleteById($id) {
@@ -73,7 +75,7 @@ class Model {
     try {
       $statement->execute();
       Logger::log("WARNING", "Deleted " . $model . " with id = " . $id);
-      return $statement;
+      return $statement || null;
     } catch (PDOException $e) {
       Logger::log("ERROR", $e->getMessage());
       return null;
