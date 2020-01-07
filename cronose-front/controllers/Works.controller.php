@@ -7,9 +7,7 @@ class WorkController
 {
   public function getAll() {
     return array(
-      'data' => [
-        'offers' => WorkModel::getAllOffers()
-      ]
+      'offers' => WorkModel::getAllOffers()
     );
   }
 
@@ -17,9 +15,7 @@ class WorkController
     session_start();
     $username = $_SESSION['user']->getUsername();
     return array(
-      'data' => [
-        'offers' => WorkModel::getOffersByUsername($username)
-      ]
+      'offers' => WorkModel::getOffersByUsername($username)
     );
   }
 }

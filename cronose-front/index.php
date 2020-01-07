@@ -1,6 +1,7 @@
 <?php
 
 	require $_SERVER['DOCUMENT_ROOT'] . '/controllers/Language.controller.php';
+  require $_SERVER['DOCUMENT_ROOT'] . '/controllers/Works.controller.php';
   //require_once './routes/api.route.php';
 
   $uri = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
@@ -33,6 +34,7 @@
 			break;
 
 		case 'market':
+      $dataController = WorkController::getAll();
 			include $_SERVER['DOCUMENT_ROOT'] . '/views/market.php';
 			break;
 
@@ -49,6 +51,7 @@
 			break;
 
 		case 'my-works':
+      $dataController = WorkController::getMyOffers();
 			include $_SERVER['DOCUMENT_ROOT'] . '/views/myWorks.php';
 			break;
 
