@@ -23,11 +23,8 @@ class OfferController {
 
   public static function getOffersByLang($lang) {
     if (!LanguageController::langExist($lang)) return null;
-    $offers = self::getAllOffers();
-    $result = array_filter($offers, function ($offer) use ($lang) {
-      if ($offer['language_id'] == $lang) return true;
-    });
-    return $result;
+    $offers = OfferModel::getOffersByLang($lang);
+    return $offers;
   }
 
   public static function getOffersFromUsername($username) {

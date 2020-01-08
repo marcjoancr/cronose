@@ -28,7 +28,7 @@
 												<p><strong><?= $lang[$displayLang]['name'];?></strong></p>
 											</div>
 											<div class="row">
-												<p class="card-text"><?= $value['user']['name']; ?></p>
+												<p class="card-text"><?= $value['name']; ?></p>
 											</div>
 										</div>
 										<div class="col">
