@@ -2,15 +2,7 @@
 
 require_once 'Model.php';
 
-class AdvertisementModel extends Model
-{
-
-  public function __construct($id) {
-    $this->schema = array(
-      'id' => $id
-    );
-    parent::__construct();
-  }
+class AdvertisementModel {
 
   public static function modelValidation($body) {
     $body = json_decode($body);
