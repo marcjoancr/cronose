@@ -36,7 +36,6 @@ switch ($uri[1]){
     break;
 
   case 'market':
-    // $offers = OfferController::getAllOffers();
     $offers = OfferController::getOffersByLang($displayLang);
     include $_SERVER['DOCUMENT_ROOT'] . '/views/market.php';
     break;
@@ -70,10 +69,10 @@ switch ($uri[1]){
     break;
 
   case 'profile':
-    // if ( count($uri) == 2 )
-    //   $dataController = ProfileController::getProfile($_SESSION['user']->getUsername());
-    // else if ( count($uri) == 3 )
-    //   $dataController = ProfileController::getProfile($uri[2]);
+    if ( count($uri) == 2 )
+      $user = UserController::getProfileInfo($_SESSION['user']->getUsername());
+    else if ( count($uri) == 3 )
+      $user = UserController::getProfileInfo($uri[2]);
     include $_SERVER['DOCUMENT_ROOT'] . '/views/profile.php';
     break;
 
@@ -102,31 +101,16 @@ switch ($uri[1]){
     break;
 
   case 'datatable':
-    if ($uri[2] == 'user') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/user.php';
-    }
-    if ($uri[2] == 'userTable') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/userTable.php';
-    }
+    if ($uri[2] == 'province') {
+      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/province.php';
+    };
+    if ($uri[2] == 'category') {
+      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/category.php';
+    };
     if ($uri[2] == 'company') {
       include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/company.php';
-    }
-    if ($uri[2] == 'companyTable') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/companyTable.php';
-    }
-    // switch ($uri[2]) {
-    //   case 'user':
-    //   echo "hola";
-    //     include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/user.php';
-    //     break;
-
-    //   default:
-    //     header('Location: /home');
-    //     include $_SERVER['DOCUMENT_ROOT'] . '/views/home.php';
-    //     break;
-    // }
+    };
     break;
-
 
   default:
     header('Location: /home');
