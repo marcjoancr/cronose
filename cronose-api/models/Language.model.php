@@ -2,8 +2,7 @@
 
 require_once 'Model.php';
 
-class LanguageModel extends Model
-{
+class LanguageModel extends Model {
 
   public function __construct($id) {
     $this->schema = array(

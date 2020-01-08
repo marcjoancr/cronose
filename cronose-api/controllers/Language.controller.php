@@ -18,7 +18,6 @@ class LanguageController {
         'language' => $lang
       ]
     );
-
   }
 
   public function setLang($language) {
