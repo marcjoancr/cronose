@@ -17,7 +17,8 @@ class UserController {
   }
 
   public static function userLogin($username, $password) {
-    return (self::isValid($username, $password)) ? true : false;
+    $response = (self::isValid($username, $password)) ? array('status'=>'success') : array('status'=>'error');
+    return json_encode($response);
   }
 
   public static function userLogout() {

@@ -1,6 +1,6 @@
 <?php
 
-require_once '../utilities/DB.php';
+// require_once '../utilities/DB.php';
 require_once '../utilities/Logger.php';
 
 class Model {

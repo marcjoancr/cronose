@@ -3,14 +3,19 @@ session_start();
 require_once '../controllers/Language.controller.php';
 require_once '../controllers/Offer.controller.php';
 require_once '../controllers/User.controller.php';
-require_once '../models/Model.php';
-new Model();
+require_once '../dao/DAO.php';
+new DAO();
 
-// header('Access-Control-Allow-Origin: *');
-// header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-// header("Access-Control-Allow-Headers: Origin");
-
+//URI
 $uri = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
+$auxUri = $uri;
+array_splice($auxUri, 0, 1);
+$auxUriString = implode("/", $auxUri);
+
+//Method
+$method = strtolower($_SERVER['REQUEST_METHOD']);
+
+/*-------Language-------*/
 $langController = LanguageController::getLang();
 $displayLang = $langController['data']['language'];
 
@@ -21,14 +26,11 @@ if (!LanguageController::langExist($uri[0])) {
 } else {
   $displayLang = $uri[0];
 }
+/*----------------------*/
 
-$auxUri = $uri;
-array_splice($auxUri, 0, 1);
-$auxUriString = implode("/", $auxUri);
-
+/*-----User logged------*/
 if (isset($_SESSION['user'])) $user = json_decode($_SESSION['user']);
 
-$method = strtolower($_SERVER['REQUEST_METHOD']);
 switch ($uri[1]){
   case '':
     header('Location: ' . $displayLang . '/home');
@@ -44,8 +46,7 @@ switch ($uri[1]){
 
   case 'login':
     if ($method == 'post') {
-      UserController::userLogin($_POST['username'], $_POST['password']);
-      echo $_SESSION['user'];
+      echo UserController::userLogin($_POST['username'], $_POST['password']);
     } else {
       include '../views/login.php';
     }
@@ -107,7 +108,7 @@ switch ($uri[1]){
     include '../views/published.php';
     break;
 
-  //-------RAMIREZ----------
+  /*---------RAMIREZ----------*/
   case 'datatable':
     if ($uri[2] == 'province') {
       include '../views/datatables/province.php';
@@ -119,7 +120,7 @@ switch ($uri[1]){
       include '../views/datatables/company.php';
     };
     break;
-    //---------------------
+  /*--------------------------*/
 
   default:
     header('Location: /home');

@@ -49,7 +49,7 @@
         dataType: 'json',
         data: { username, password },
         success: (data) => {
-          if (data) window.location.href = '/<?= $displayLang; ?>/market';
+          if (data.status == 'success') window.location.href = '/<?= $displayLang; ?>/market';
         }
       });
     }
