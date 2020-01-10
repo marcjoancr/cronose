@@ -60,19 +60,19 @@ switch ($uri[1]){
 
   case 'my-works':
     // $dataController = WorkController::getMyOffers();
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/myWorks.php';
+    include '../views/myWorks.php';
     break;
 
   case 'logout':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/logout.php';
+    include '../views/logout.php';
     break;
 
   case 'chat':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/chat.php';
+    include '../views/chat.php';
     break;
 
   case 'wallet':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/wallet.php';
+    include '../views/wallet.php';
     break;
 
   case 'profile':
@@ -80,48 +80,48 @@ switch ($uri[1]){
       $user = UserController::getProfileInfo($_SESSION['user']->getUsername());
     else if ( count($uri) == 3 )
       $user = UserController::getProfileInfo($uri[2]);
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/profile.php';
+    include '../views/profile.php';
     break;
 
   case 'card':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/card.php';
+    include '../views/card.php';
     break;
 
   case 'edit-profile':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/editProfile.php';
+    include '../views/editProfile.php';
     break;
 
   case 'new-work':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/newWork.php';
+    include '../views/newWork.php';
     break;
 
   case 'work':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/work.php';
+    include '../views/work.php';
     break;
 
   case 'preview-work':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/previewWork.php';
+    include '../views/previewWork.php';
     break;
 
   case 'published':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/published.php';
+    include '../views/published.php';
     break;
 
   case 'datatable':
     if ($uri[2] == 'province') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/province.php';
+      include '../views/datatables/province.php';
     };
     if ($uri[2] == 'category') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/category.php';
+      include '../views/datatables/category.php';
     };
     if ($uri[2] == 'company') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/company.php';
+      include '../views/datatables/company.php';
     };
     break;
 
   default:
     header('Location: /home');
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/home.php';
+    include '../views/home.php';
     break;
 }
 
