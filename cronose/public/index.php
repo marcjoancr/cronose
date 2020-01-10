@@ -44,12 +44,13 @@ switch ($uri[1]){
 
   case 'login':
     if ($method == 'post') {
-      $_SESSION['user'] = UserController::userLogin($_POST['username'], $_POST['password']);
+      UserController::userLogin($_POST['username'], $_POST['password']);
       echo $_SESSION['user'];
     } else {
       include '../views/login.php';
     }
     break;
+
   case 'register':
     include '../views/register.php';
     break;
@@ -64,7 +65,8 @@ switch ($uri[1]){
     break;
 
   case 'logout':
-    include '../views/logout.php';
+    UserController::userLogout();
+    header('Location: ' . $displayLang . '/home');
     break;
 
   case 'chat':
