@@ -1,8 +1,8 @@
 <?php require 'layouts/head.php';?>
 
-<h1>CHat</h1>
+<h1>Chat</h1>
 
-<a href="/wallet">wallet</a>
+<a href="/wallet">wallet</a><br>
 <a href="/card">card</a>
 
-<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
+<?php require '../views/layouts/footer.php';?>

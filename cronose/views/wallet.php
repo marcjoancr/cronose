@@ -1,5 +1,5 @@
 <?php require 'layouts/head.php';?>
 
-<h1>Wall-e</h1>
+<h1>Wallet</h1>
 
-<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
+<?php require '../views/layouts/footer.php';?>

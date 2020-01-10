@@ -5,7 +5,7 @@ require_once '../models/User.model.php';
 class UserController {
 
   public static function getProfileInfo($username) {
-    return UserModel::getUserByUsername($username);
+    return json_encode(UserModel::getUserByUsername($username));
   }
 
   public static function isValid($username, $password) {

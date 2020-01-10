@@ -28,15 +28,7 @@
   error_reporting(E_ALL);
 
   require '../views/components/language.php';
-  //require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
 
-  if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-  }
-
-  /*function changeLanguage($lang) {
-    $_SESSION['lang'] = $lang;
-  }*/
 ?>
 
 <?php require '../views/components/nav.php'; ?>

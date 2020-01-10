@@ -1,9 +1,6 @@
 <div class="row " style="margin-left: 0; margin-right: 0">
 
 <?php if (isset($_SESSION['user'])):?>
-<?php $user = json_decode($_SESSION['user']); ?>
-
-
 
 <div class="col-2 p-0">
   <div class="vertical-nav min-vh-100">

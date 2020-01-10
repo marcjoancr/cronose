@@ -4,4 +4,4 @@
 
 <a href="chat">Chat</a>
 
-<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
+<?php require '../views/layouts/footer.php';?>

@@ -26,7 +26,7 @@ $auxUri = $uri;
 array_splice($auxUri, 0, 1);
 $auxUriString = implode("/", $auxUri);
 
-if (!isset($_SESSION['user'])) $_SESSION['user'] = null;
+if (isset($_SESSION['user'])) $user = json_decode($_SESSION['user']);
 
 $method = strtolower($_SERVER['REQUEST_METHOD']);
 switch ($uri[1]){
@@ -78,10 +78,8 @@ switch ($uri[1]){
     break;
 
   case 'profile':
-    if ( count($uri) == 2 )
-      $user = UserController::getProfileInfo($_SESSION['user']->getUsername());
-    else if ( count($uri) == 3 )
-      $user = UserController::getProfileInfo($uri[2]);
+    if (count($uri) == 2) $userProfile = json_decode(UserController::getProfileInfo($user->name));
+    if (count($uri) == 3) $userProfile = json_decode(UserController::getProfileInfo($uri[2]));
     include '../views/profile.php';
     break;
 
@@ -109,6 +107,7 @@ switch ($uri[1]){
     include '../views/published.php';
     break;
 
+  //-------RAMIREZ----------
   case 'datatable':
     if ($uri[2] == 'province') {
       include '../views/datatables/province.php';
@@ -120,6 +119,7 @@ switch ($uri[1]){
       include '../views/datatables/company.php';
     };
     break;
+    //---------------------
 
   default:
     header('Location: /home');
