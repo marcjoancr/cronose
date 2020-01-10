@@ -4,6 +4,10 @@
   <link rel="shortcut icon" href="/assets/img/favicon.ico">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Cronose</title>
+  <meta name="title" content="Cronose"/>
+  <meta name="description" content="A social platform for sharing your time with other people and let you know to others. Make this place your site for knowing nice other people and interchange some activities eachother."/>
+  <meta name="robots" content="index, follow"/>
+
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/plugin/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/stylesheet/css/main.css">

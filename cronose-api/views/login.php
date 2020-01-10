@@ -2,6 +2,11 @@
 
   require 'layouts/head.php';
 
+  if (isset($_POST['user'])) {
+    $_SESSION['user'] = $_POST['user'];
+    echo "hpa";
+  }
+
   if (isset($_SESSION['user']) && $_SESSION['user']->isValid()) header('Location: ../home');
 
 ?>
@@ -39,21 +44,27 @@
 
     // Send form via ajax request to Login.php
     function login() {
-      const url = '../assets/php/Login.php';
+      const url = 'http://api.local.cronose/<?= $displayLang; ?>/login';
       const username = $("#username").val();
       const password = $.md5($("#password").val());
 
       $.ajax({
         type: 'POST',
         url: url,
+        dataType: 'json',
         data: { username, password },
-        success: function(response) {
-          if (response.status == 'success') {
-            console.log(response);
-            window.location.replace('/market');
-          } else if (response.status == 'error') {
-            console.log(response);
-          }
+        success: (data) => {
+          const user = data;
+          $.ajax({
+            type: 'POST',
+            url: "<?= $_SERVER["HTTP_HOST"] . $_SERVER['PHP_SELF'] ?>",
+            dataType: 'json',
+            data: { user },
+            success: (data) => {
+              console.log('logged');
+              if (data['logged'] == true) window.location.href = '/<?= $displayLang; ?>/market';
+            }
+          });
         }
       });
     }

@@ -1,5 +1,6 @@
-<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/head.php'; ?>
-<!-- REPASAR require_once NO FUNCINA SINO -->
+<?php
+	require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/head.php';
+?>
 
 <div class="container wrap row justify-content-center mt-4">
 	<h1><?= $lang[$displayLang]['market'];?></h1>

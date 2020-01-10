@@ -8,17 +8,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/User.controller.php';
 class OfferController {
 
   public static function getAllOffers() {
-    $offers = OfferModel::getAll();
-    $offersLanguages = Offer_LanguageController::getAllOffers();
-    $result = [];
-    foreach ($offers as $offer) {
-      foreach ($offersLanguages as $offerLanguage) {
-        if ($offer['user_dni'] == $offerLanguage['user_dni'] && $offer['specialization_id'] == $offerLanguage['specialization_id']) {
-          $result[] = $offer + $offerLanguage + ['user' => UserController::getUsernameByDNI($offer['user_dni'])];
-        }
-      }
-    }
-    return $result;
+    $offers = OfferModel::getAllOffers();
+    return $offers;
   }
 
   public static function getOffersByLang($lang) {

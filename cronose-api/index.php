@@ -2,6 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Language.controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/Offer.controller.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/controllers/User.controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/models/Model.php';
 new Model();
 
@@ -10,6 +11,7 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Origin");
 
 session_start();
+echo $_SESSION['user'];
 
 $uri = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
 $langController = LanguageController::getLang();
@@ -26,7 +28,9 @@ if (!LanguageController::langExist($uri[0])) {
 $auxUri = $uri;
 array_splice($auxUri, 0, 1);
 $auxUriString = implode("/", $auxUri);
+if (!isset($_SESSION['user'])) $_SESSION['user'] = null;
 
+$method = strtolower($_SERVER['REQUEST_METHOD']);
 switch ($uri[1]){
   case '':
     header('Location: ' . $displayLang . '/home');
@@ -36,12 +40,18 @@ switch ($uri[1]){
     break;
 
   case 'market':
+
     $offers = OfferController::getOffersByLang($displayLang);
     include $_SERVER['DOCUMENT_ROOT'] . '/views/market.php';
     break;
 
   case 'login':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/login.php';
+    if ($method == 'post') {
+      $_SESSION['user'] = json_encode(UserController::userLogin($_POST['username'], $_POST['password']));
+      echo $_SESSION['user'];
+    } else {
+      include $_SERVER['DOCUMENT_ROOT'] . '/views/login.php';
+    }
     break;
   case 'register':
     include $_SERVER['DOCUMENT_ROOT'] . '/views/register.php';
