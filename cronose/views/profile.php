@@ -12,6 +12,10 @@
 <p><strong>PUNTOS: </strong><?php echo $userProfile->points; ?></p>
 
 <a href="/edit-profile">Edit Profile</a>
+<br>
+<?php if ($user->tag != $userProfile->tag) :?>
+  <a href="/<?= $displayLang ?>/chat/<?= $userProfile->name ?>">Chat</a>
+<?php endif; ?>
 
 <?php
 endif;
