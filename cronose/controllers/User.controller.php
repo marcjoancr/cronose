@@ -12,13 +12,21 @@ class UserController {
     $user = UserModel::getUserByUsername($username);
     if (!$user) return false;
     if ($user['password'] != $password) return false;
-    $_SESSION['user'] = json_encode($user);
+    // $_SESSION['user'] = json_encode($user);
     return true;
   }
 
   public static function userLogin($username, $password) {
-    $response = (self::isValid($username, $password)) ? array('status'=>'success') : array('status'=>'error');
-    return json_encode($response);
+    $response = (self::isValid($username, $password));
+    if ($response) return [
+      "status" => "success",
+      "msg" => "Successfully logged!"
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something go wrong!"
+    ];
+    // return json_encode($response);
   }
 
   public static function userLogout() {

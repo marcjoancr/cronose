@@ -40,7 +40,7 @@
 
     // Send form via ajax request to Login
     function login() {
-      const url = 'login';
+      const url = '/api/login';
       const username = $("#username").val();
       const password = $.md5($("#password").val());
       $.ajax({
@@ -50,6 +50,9 @@
         data: { username, password },
         success: (data) => {
           if (data.status == 'success') window.location.href = '/<?= $displayLang; ?>/market';
+        },
+        error: (data) => {
+          console.log(data);
         }
       });
     }

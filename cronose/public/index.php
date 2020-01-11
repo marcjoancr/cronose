@@ -20,7 +20,15 @@ $method = strtolower($_SERVER['REQUEST_METHOD']);
 if (isset($_SESSION['user'])) $user = json_decode($_SESSION['user']);
 
 if ($uri[0] == 'api') {
+
   switch ($uri[1]) {
+
+    case 'login':
+      if ($method == 'post') {
+        echo json_encode(UserController::userLogin($_POST['username'], $_POST['password']), JSON_PRETTY_PRINT);
+      }
+      break;
+
     case 'chat':
       if (count($uri) == 3 && $uri[2] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
       break;
@@ -28,7 +36,9 @@ if ($uri[0] == 'api') {
     default:
       echo "Nothing";
       break;
+
   }
+
 } else {
 
   /*-------Language-------*/
@@ -44,18 +54,13 @@ if ($uri[0] == 'api') {
   }
   /*----------------------*/
 
-
   switch ($uri[1]){
     case '':
       header('Location: ' . $displayLang . '/home');
       break;
 
     case 'login':
-      if ($method == 'post') {
-        echo UserController::userLogin($_POST['username'], $_POST['password']);
-      } else {
-        include '../views/login.php';
-      }
+      include '../views/login.php';
       break;
 
     case 'register':
@@ -144,7 +149,7 @@ if ($uri[0] == 'api') {
     /*--------------------------*/
 
     default:
-      header('Location: /home');
+      header('Location: ' . $displayLang . '/home');
       include '../views/home.php';
       break;
   }
