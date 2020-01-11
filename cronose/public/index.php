@@ -29,6 +29,13 @@ if ($uri[0] == 'api') {
       }
       break;
 
+    case 'profile':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
+        if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
+      }
+      break;
+
     case 'chat':
       if (count($uri) == 3 && $uri[2] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
       break;
@@ -105,8 +112,6 @@ if ($uri[0] == 'api') {
       break;
 
     case 'profile':
-      if (count($uri) == 2) $userProfile = json_decode(UserController::getProfileInfo($user->name));
-      if (count($uri) == 3) $userProfile = json_decode(UserController::getProfileInfo($uri[2]));
       include '../views/profile.php';
       break;
 

@@ -1,4 +1,4 @@
-<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/head.php'; ?>
+<?php require '../views/layouts/head.php'; ?>
 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<div class="container wrap row justify-content-center mt-4">

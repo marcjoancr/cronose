@@ -5,14 +5,22 @@ require_once '../models/User.model.php';
 class UserController {
 
   public static function getProfileInfo($username) {
-    return json_encode(UserModel::getUserByUsername($username));
+    $profile = (UserModel::getUserByUsername($username));
+    if ($profile) return [
+      "status" => "success",
+      "profile" => $profile
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "That profile dosen't exists"
+    ];
   }
 
   public static function isValid($username, $password) {
     $user = UserModel::getUserByUsername($username);
     if (!$user) return false;
     if ($user['password'] != $password) return false;
-    // $_SESSION['user'] = json_encode($user);
+    $_SESSION['user'] = json_encode($user);
     return true;
   }
 
@@ -26,7 +34,6 @@ class UserController {
       "status" => "error",
       "msg" => "Something go wrong!"
     ];
-    // return json_encode($response);
   }
 
   public static function userLogout() {

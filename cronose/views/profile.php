@@ -1,25 +1,49 @@
 <?php require 'layouts/head.php'; ?>
 
-<?php if($userProfile == null ) : ?>
-		<h1>THIS USER DOESN'T EXISTS</h1>
-<?php else : ?>
 <h1>Profile</h1>
+<div id="profile"></div>
 
-<h3 class="display-4"><?php echo $userProfile->name . " " . $userProfile->surname . " " . $userProfile->surname_2; ?></h3>
+<script>
+  $(document).ready(function(){
+    const url = (window.location.pathname.split('/')[3]) ? '/api/profile/'+window.location.pathname.split('/')[3] : '/api/profile' ;
+    showProfile();
+    function showProfile() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var status = JSON.parse(this.responseText)['status'];
+          if (status == "success") {
+            let profile = JSON.parse(this.responseText)['profile'];
 
-<p><strong>EMAIL: </strong><?php echo $userProfile->email; ?></p>
-<p><strong>MONEDAS: </strong><?php echo $userProfile->coins; ?></p>
-<p><strong>PUNTOS: </strong><?php echo $userProfile->points; ?></p>
+              let rowDIV = $("<div/>",{class:"row",});
 
-<a href="/edit-profile">Edit Profile</a>
-<br>
-<?php if ($user->tag != $userProfile->tag) :?>
-  <a href="/<?= $displayLang ?>/chat/<?= $userProfile->name ?>">Chat</a>
-<?php endif; ?>
+              let name = profile.name + " " + profile.surname + " " + profile.surname_2;
 
-<?php
-endif;
+              let cardBody = $("<div/>",{class:"card-body"});
+              let cardName = $("<h4/>",{class:"card-title", text:name});
+              let cardP = $("<p/>",{class:"card-text"});
+              let cardEmailTitle = $("<b/>",{class:"card-text", text:"Email: "});
+              let cardEmail = $("<span/>",{class:"card-text", text:profile.email});
+              let cardCoinsTitle = $("<b/>",{class:"card-text", text:"Coins: "});
+              let cardCoins = $("<span/>",{class:"card-text", text:profile.coins});
+              let cardPointsTitle = $("<b/>",{class:"card-text", text:"Points: "});
+              let cardPoints = $("<span/>",{class:"card-text", text:profile.points});
+              cardP.append(cardEmailTitle, cardEmail, $("<br/>"), cardCoinsTitle, cardCoins, $("<br/>"), cardPointsTitle, cardPoints);
+              if (window.location.pathname.split('/')[3])
+              cardP.append($("<br/><a href='/" + window.location.pathname.split('/')[1] + "/chat/"+ window.location.pathname.split('/')[3] + "'>Chat</a>"))
+              cardBody.append(cardName, cardP);
 
-require '../views/layouts/footer.php';?>
+              $("#profile").append(cardBody);
 
+          } else {
+            $("#profile").html(JSON.parse(this.responseText)['msg']);
+          }
+        }
+      }
+      xmlhttp.open("GET", url, false);
+      xmlhttp.send();
+    };
+  });
+</script>
 
+<?php require '../views/layouts/footer.php';?>
