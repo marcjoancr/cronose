@@ -45,14 +45,13 @@ if ($uri[0] == 'api') {
 
     case 'works':
       if ($method == 'get') {
-        if (count($uri) == 2) echo json_encode(OfferController::getOffersByLang($displayLang));
+        if (count($uri) == 2) echo json_encode(OfferController::getOffersByLang($_SESSION['displayLang']));
       }
       break;
 
     case 'myWorks':
       if ($method == 'get') {
         if (count($uri) == 2) echo json_encode(OfferController::getOffersFromUsername($user->name));
-        if (count($uri) == 3) echo json_encode(OfferController::getOffersFromUsername($uri[2]));
       }
       break;
 
@@ -78,6 +77,7 @@ if ($uri[0] == 'api') {
     header('Location: ' . $uriString);
   } else {
     $displayLang = $uri[0];
+    $_SESSION['displayLang'] = $displayLang;
   }
   /*----------------------*/
 

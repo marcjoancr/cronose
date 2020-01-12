@@ -26,7 +26,7 @@
 										body+='<h4 class="card-title "><strong>'+myWorks[x].title+'</strong> (<em>'+myWorks[x].name+'</em>)</h4>';
 										body+='<p class="card-text">'+myWorks[x].description+'</p>';
 										body+='<p><?= $lang[$displayLang]['price'];?> : <strong>'+myWorks[x].coin_price+'</strong></p><div class="d-flex justify-content-end  pb-3 pr-3">';
-										body+='<a href="/<?=$displayLang;?>/work/" class="btn btn-primary">Visit Work</a></div></div></div></div></div></div></div></div>';
+										body+='<a href="/<?=$displayLang;?>/work/" class="btn btn-primary"><?= $lang[$displayLang]['seeWork'];?></a></div></div></div></div></div></div></div></div>';
 									}
 									document.getElementById("myWorks").innerHTML = body;
 				        }
@@ -40,8 +40,8 @@
 			</div>
 		</div>
 	</div>
-	<a class="btn btn-primary mr-4" href="/new-work">Nova publicació</a>
-	<a class="btn btn-primary"href="/work">Edita publicació</a>
+	<a class="btn btn-primary mr-4 mb-4" href="/new-work"><?= $lang[$displayLang]['newPublication'];?></a>
+	<a class="btn btn-primary mb-4"href="/work"><?= $lang[$displayLang]['editPublication'];?></a>
 </div>
 
 

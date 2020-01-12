@@ -34,7 +34,10 @@ $lang = [
         'language' => 'LANGUAGE',
         'personalVal' => 'PERSONAL VALORATION',
         'generalVal' => 'GENERAL VALORATION',
-        'price' => 'PRICE'
+        'price' => 'PRICE',
+        'seeWork' => 'See Work',
+        'newPublication' => 'New Publication',
+        'editPublication' => 'Edit Publication'
     ],
     'es' => [
         'logIn' => 'Inicia sesión',
@@ -70,7 +73,10 @@ $lang = [
         'language' => 'IDIOMA',
         'personalVal' => 'VALORACIÓN PERSONAL',
         'generalVal' => 'VALORACIÓN GENERAL',
-        'price' => 'PRECIO'
+        'price' => 'PRECIO',
+        'seeWork' => 'Ver Trabajo',
+        'newPublication' => 'Nueva Publicación',
+        'editPublication' => 'Editar Publicación'
     ],
     'ca' => [
         'logIn' => 'Inicia sessió',
@@ -106,6 +112,9 @@ $lang = [
         'language' => 'IDIOMA',
         'personalVal' => 'VALORACIÓ PERSONAL',
         'generalVal' => 'VALORACIÓ GENERAL',
-        'price' => 'PREU'
+        'price' => 'PREU',
+        'seeWork' => 'Veure Treball',
+        'newPublication' => 'Nova Publicació',
+        'editPublication' => 'Editar Publicació'
     ]
 ];
