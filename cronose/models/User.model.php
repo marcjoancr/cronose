@@ -17,6 +17,10 @@ class UserModel extends Model {
     return UserDAO::saveUser($user);
   }
 
+  public static function getAllDirections() {
+    return UserDAO::getAllDirections();
+  }
+
   // private $username;
   // private $email;
   // private $password;

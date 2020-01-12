@@ -55,6 +55,11 @@ if ($uri[0] == 'api') {
       }
       break;
 
+    case 'directions':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(UserController::getAllDirections());
+      }
+
     case 'chat':
       if (count($uri) == 3 && $uri[2] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
       break;
