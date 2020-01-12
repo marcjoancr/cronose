@@ -52,6 +52,11 @@ class UserController {
     $_SESSION['user'] = null;
   }
 
+  public static function getAllDirections() {
+    $directions = UserModel::getAllDirections();
+    return $directions;
+  }
+
 }
 
 ?>

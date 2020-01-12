@@ -45,4 +45,11 @@ class UserDAO extends DAO {
     // return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public static function getAllDirections() {
+    $sql = "select City.name,City.longitude,City.latitude  from City,User";
+    $statement = self::$DB->prepare($sql);
+    $statement->execute();
+    return $statement->fetchAll();
+  }
+
 }
