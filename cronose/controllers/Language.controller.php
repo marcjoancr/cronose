@@ -25,7 +25,7 @@ class LanguageController {
     $_SESSION['lang'] = $lang;
   }
 
-  public function langExist($language) {
+  public static function langExist($language) {
     if( in_array($language, self::$langAvailable) ) return true;
     return false;
   }

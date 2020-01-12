@@ -43,6 +43,19 @@ if ($uri[0] == 'api') {
       }
       break;
 
+    case 'works':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(OfferController::getOffersByLang($displayLang));
+      }
+      break;
+
+    case 'myWorks':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(OfferController::getOffersFromUsername($user->name));
+        if (count($uri) == 3) echo json_encode(OfferController::getOffersFromUsername($uri[2]));
+      }
+      break;
+
     case 'chat':
       if (count($uri) == 3 && $uri[2] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
       break;

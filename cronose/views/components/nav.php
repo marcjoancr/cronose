@@ -2,7 +2,7 @@
 
 <?php if (isset($_SESSION['user'])):?>
 
-<div class="col-2 p-0">
+<div class="col-2 p-0" id="vericalNav">
   <div class="vertical-nav min-vh-100">
     <div class="btn-group pl-3">
       <!-- <button type="button" class="btn bg-white dropdown-toggle ml-1 mt-1 pt-1 pb-1 pl-1 pr-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

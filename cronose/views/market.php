@@ -4,69 +4,36 @@
 
 <div class="container wrap row justify-content-center mt-4">
 	<h1><?= $lang[$displayLang]['market'];?></h1>
-
 	<div class="container">
 		<div class="row p-2">
 			<div class="card-deck">
 				<?php foreach ($offers as $key => $value) : ?>
 					<div class="row w-100">
-						<a class="card m-2" href="/<?=$displayLang;?>/work/" style="text-decoration: none; color: black">
-								<div class="card-body d-flex flex-column justify-content-center">
-									<div class="row mx-auto">
-										<h4 class="card-title"><?= $value['title']; ?></h5>
-									</div>
-									<div class="row p-4">
-										<div class="col">
-											<div class="row">
-												<p><strong><?= $lang[$displayLang]['language'];?></strong></p>
+						<div class="container wrap row justify-content-center mt-4">
+								<div class="container py-3">
+									<div class="card">
+										<div class="row">
+											<div class="col-md-4">
+												<img src="https://thumbs.dreamstime.com/b/uso-en-l%C3%ADnea-de-trabajo-de-la-red-de-internet-del-negocio-de-la-gente-46666160.jpg" class="img-fluid">
 											</div>
-											<div class="row">
-												<p class="card-text"><?= $value['language_id']; ?></p>
-											</div>
-										</div>
-										<div class="col">
-											<div class="row">
-												<p><strong><?= $lang[$displayLang]['name'];?></strong></p>
-											</div>
-											<div class="row">
-												<p class="card-text"><?= $value['name']; ?></p>
-											</div>
-										</div>
-										<div class="col">
-											<div class="row">
-												<p><strong><?= $lang[$displayLang]['description'];?></strong></p>
-											</div>
-											<div class="row">
-												<p class="card-text"><?= $value['description']; ?></p>
-											</div>
-										</div>
-										<div class="col">
-											<div class="row">
-												<p><strong><?= $lang[$displayLang]['personalVal'];?></strong></p>
-											</div>
-											<div class="row">
-												<p class="card-text"><?= $value['personal_valoration']; ?></p>
-											</div>
-										</div>
-										<div class="col">
-											<div class="row">
-												<p><strong><?= $lang[$displayLang]['generalVal'];?></strong></p>
-											</div>
-											<div class="row">
-												<p class="card-text"><?= $value['valoration_avg']; ?></p>
-											</div>
-										</div>
-										<div class="col">
-											<div class="row">
-												<p><strong><?= $lang[$displayLang]['price'];?></strong></p>
-											</div>
-											<div class="row">
-												<p class="card-text"><?= $value['coin_price']; ?></p>
+											<div class="col-md-8 px-3">
+												<div class="card-block px-3">
+													<div class="d-flex justify-content-end px-4 pt-2">
+														<p class="pr-4">PV : <strong><?= $value['personal_valoration']; ?></strong><p>
+														<p>GV : <strong><?= $value['valoration_avg']; ?></strong><p>
+													</div>
+													<h4 class="card-title "><strong><?= $value['title']; ?></strong> (<em><?= $value['name']; ?></em>)</h4>
+													<p class="card-text"><?= $value['description']; ?></p>
+													<p><?= $lang[$displayLang]['price'];?> : <strong><?= $value['coin_price']; ?></strong></p>
+													<div class="d-flex justify-content-end  pb-3 pr-3">
+														<a href="/<?=$displayLang;?>/work/" class="btn btn-primary">Visit Work</a>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-						</a>
+							</div>
 					</div>
 				<?php endforeach ?>
 			</div>

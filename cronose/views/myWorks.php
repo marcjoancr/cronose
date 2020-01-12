@@ -1,41 +1,48 @@
 <?php require '../views/layouts/head.php'; ?>
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<div class="container wrap row justify-content-center mt-4">
-		<h1><?= $lang[$displayLang]['myOffers'];?></h1>
-    <div class="container">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <?php foreach ($dataController['offers'] as $key => $value): ?>
-            <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $key ?>"></li>
-          <?php endforeach ?>
-        </ol>
-        <div class="carousel-inner">
-          <?php foreach ($dataController['offers'] as $key => $value): ?>
-            <div class="carousel-item <?php if ($key == 0) echo "active" ?>">
-              <img class="d-block w-100" src="../assets/img/<?php echo $value["media"] ?>" class="active" <?php if ($key == 0) echo 'class="active"' ?>>
-              <div class="carousel-caption d-none d-md-block">
-                <div style="background-color: rgba(255, 255, 255, 0.8)">
-                <h5 class="text-dark"><?php echo $value["title"] ?><h5>
-                <p class="text-dark"><?php echo $value["description"] ?></p>
-                </div>
-              </div>
-            </div>
-          <?php endforeach ?>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-	</div>
+<div class="container wrap row justify-content-center mt-4">
+	<h1><?= $lang[$displayLang]['myOffers'];?></h1>
+	<div class="container">
+		<div class="row p-2">
+			<div class="card-deck" id="myWorks">
 
-	<a href="/new-work" style="display: block;">Nova publicació</a>
-	<a href="/work">Edita publicació</a>
+				<script>
+				  $(document).ready(function(){
+				    const url = (window.location.pathname.split('/')[3]) ? '/api/myWorks/'+window.location.pathname.split('/')[3] : '/api/myWorks' ;
+				    showWorks();
+				    function showWorks() {
+				      var xmlhttp = new XMLHttpRequest();
+				      xmlhttp.onreadystatechange = function() {
+				        if (this.readyState == 4 && this.status == 200) {
+				          var myWorks = JSON.parse(this.responseText);
+									var body =  "";
+									for(x in myWorks){
+										console.log(myWorks[x]);
+										body+='<div class="row w-100"><div class="container wrap row justify-content-center mt-4"><div class="container py-3"><div class="card"><div class="row"><div class="col-md-4">';
+										body+='<img src="https://thumbs.dreamstime.com/b/uso-en-l%C3%ADnea-de-trabajo-de-la-red-de-internet-del-negocio-de-la-gente-46666160.jpg" class="img-fluid">';
+										body+='</div><div class="col-md-8 px-3"><div class="card-block px-3"><div class="d-flex justify-content-end px-4 pt-2">';
+										body+='<p class="pr-4">PV : <strong>'+myWorks[x].personal_valoration+'</strong><p>';
+										body+='<p>GV : <strong>'+myWorks[x].valoration_avg+'</strong><p></div>';
+										body+='<h4 class="card-title "><strong>'+myWorks[x].title+'</strong> (<em>'+myWorks[x].name+'</em>)</h4>';
+										body+='<p class="card-text">'+myWorks[x].description+'</p>';
+										body+='<p><?= $lang[$displayLang]['price'];?> : <strong>'+myWorks[x].coin_price+'</strong></p><div class="d-flex justify-content-end  pb-3 pr-3">';
+										body+='<a href="/<?=$displayLang;?>/work/" class="btn btn-primary">Visit Work</a></div></div></div></div></div></div></div></div>';
+									}
+									document.getElementById("myWorks").innerHTML = body;
+				        }
+				      }
+				      xmlhttp.open("GET", url, false);
+				      xmlhttp.send();
+				    };
+				  });
+				</script>
+
+			</div>
+		</div>
+	</div>
+	<a class="btn btn-primary mr-4" href="/new-work">Nova publicació</a>
+	<a class="btn btn-primary"href="/work">Edita publicació</a>
+</div>
+
 
 <?php require '../views/layouts/footer.php';?>

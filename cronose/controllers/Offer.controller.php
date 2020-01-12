@@ -19,7 +19,7 @@ class OfferController {
   }
 
   public static function getOffersFromUsername($username) {
-    $user = UserController::getUserByUsername($username);
+    $user = UserModel::getUserByUsername($username);
     if (!$user) return null;
     $offers = self::getAllOffers();
     $result = array_filter($offers, function ($offer) use ($user) {
