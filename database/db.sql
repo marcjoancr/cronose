@@ -146,9 +146,10 @@ create table if not exists Blocks (
 )ENGINE = InnoDB;
 
 create table if not exists Message (
-    sender_id varchar(9) not null,
-    receiver_id varchar(9) not null,
+    sender_dni varchar(9) not null,
+    receiver_dni varchar(9) not null,
     sended_date timestamp not null unique,
+    message varchar(400) not null,
     foreign key (sender_id) references User(dni),
     foreign key (receiver_id) references User(dni),
     primary key(sender_id, receiver_id, sended_date)
@@ -205,27 +206,25 @@ create table if not exists Illustrates (
     primary key (media_id, company_id, specialization_id)
 )ENGINE = InnoDB;
 
-create table if not exists Archievments (
-    id int not null auto_increment primary key,
-    name varchar(45) not null,
-    description varchar(255) not null
+create table if not exists Achievement (
+    id int not null auto_increment primary key
 )ENGINE = InnoDB;
 
-create table if not exists Archievments_Language (
+create table if not exists Achievement_Language (
     language_id varchar(2) not null,
-    archievment_id int not null,
+    achievement_id int not null,
     name varchar(45) not null,
     description varchar(255) not null,
     foreign key (language_id) references Language(id),
-    foreign key (archievment_id) references Archievments(id),
-    primary key(language_id, archievment_id)
+    foreign key (achievement_id) references Achievement(id),
+    primary key(language_id, achievement_id)
 )ENGINE = InnoDB;
 
 create table if not exists Obtain (
-    archievments_id int not null auto_increment primary key,
+    achievement_id int not null auto_increment primary key,
     user_dni varchar(9) not null,
     obtained_at date not null,
-    foreign key (archievments_id) references Archievments(id),
+    foreign key (achievement_id) references Achievement(id),
     foreign key (user_dni) references User(dni)
 )ENGINE = InnoDB;
 

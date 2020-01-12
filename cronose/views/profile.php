@@ -5,8 +5,12 @@
 
 <script>
   $(document).ready(function(){
+
     const url = (window.location.pathname.split('/')[3]) ? '/api/profile/'+window.location.pathname.split('/')[3] : '/api/profile' ;
+
     showProfile();
+
+
     function showProfile() {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
@@ -14,6 +18,8 @@
           var status = JSON.parse(this.responseText)['status'];
           if (status == "success") {
             let profile = JSON.parse(this.responseText)['profile'];
+            let achievements = JSON.parse(this.responseText)['achievement'];
+              console.log(achievements);
 
               let rowDIV = $("<div/>",{class:"row",});
 
@@ -28,7 +34,33 @@
               let cardCoins = $("<span/>",{class:"card-text", text:profile.coins});
               let cardPointsTitle = $("<b/>",{class:"card-text", text:"Points: "});
               let cardPoints = $("<span/>",{class:"card-text", text:profile.points});
+
+              let array = [];
+              
+              for (let x = 0; x < 5 ; x++){
+                array[x] = ( achievements[x] != null ) ? achievements[x].achievement_id : null;
+                console.log(array[x]);
+              }
+
+              for (let x = 0; x < 5 ; x++){
+                let newDIV = $("<div/>");
+                let foto = "../public/assets/img/a"+x;
+
+                if ( x == 1 || x == 5)
+                  foto = foto + ".svg";
+                else
+                  foto = foto + ".png";
+
+                var newIMG = $("<img/>",{src:foto, alt:foto})
+                newDIV.append(newIMG);
+              }
+
+              //let achievement = 
+
+
               cardP.append(cardEmailTitle, cardEmail, $("<br/>"), cardCoinsTitle, cardCoins, $("<br/>"), cardPointsTitle, cardPoints);
+
+
               if (window.location.pathname.split('/')[3])
               cardP.append($("<br/><a href='/" + window.location.pathname.split('/')[1] + "/chat/"+ window.location.pathname.split('/')[3] + "'>Chat</a>"))
               cardBody.append(cardName, cardP);

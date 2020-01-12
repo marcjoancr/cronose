@@ -6,9 +6,11 @@ class UserController {
 
   public static function getProfileInfo($username) {
     $profile = UserModel::getUserByUsername($username);
+    $achievement = AchievementController::getAllByUser($profile['dni']);
     if ($profile) return [
       "status" => "success",
-      "profile" => $profile
+      "profile" => $profile,
+      "achievement" => $achievement
     ];
     else return [
       "status" => "error",

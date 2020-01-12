@@ -5,6 +5,7 @@ require_once '../controllers/Language.controller.php';
 require_once '../controllers/Offer.controller.php';
 require_once '../controllers/User.controller.php';
 require_once '../controllers/Chat.controller.php';
+require_once '../controllers/Achievement.controller.php';
 require_once '../dao/DAO.php';
 new DAO();
 
