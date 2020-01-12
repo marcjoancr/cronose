@@ -5,14 +5,26 @@ require_once '../models/User.model.php';
 class UserController {
 
   public static function getProfileInfo($username) {
-    $profile = (UserModel::getUserByUsername($username));
+    $profile = UserModel::getUserByUsername($username);
     if ($profile) return [
       "status" => "success",
       "profile" => $profile
     ];
     else return [
       "status" => "error",
-      "msg" => "That profile dosen't exists"
+      "msg" => "That profile doesn't exists!"
+    ];
+  }
+
+  public static function register($user) {
+    $profile = UserModel::saveUser($user);
+    if ($profile) return [
+      "status" => "success",
+      "profile" => $profile
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something went wrong!"
     ];
   }
 
@@ -25,7 +37,7 @@ class UserController {
   }
 
   public static function userLogin($username, $password) {
-    $response = (self::isValid($username, $password));
+    $response = self::isValid($username, $password);
     if ($response) return [
       "status" => "success",
       "msg" => "Successfully logged!"

@@ -13,6 +13,10 @@ class UserModel extends Model {
     return UserDAO::getUserByTag($tag);
   }
 
+  public static function saveUser($user) {
+    return UserDAO::saveUser($user);
+  }
+
   // private $username;
   // private $email;
   // private $password;

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once '../utilities/Logger.php';
 require_once '../controllers/Language.controller.php';
 require_once '../controllers/Offer.controller.php';
 require_once '../controllers/User.controller.php';
@@ -22,6 +23,12 @@ if (isset($_SESSION['user'])) $user = json_decode($_SESSION['user']);
 if ($uri[0] == 'api') {
 
   switch ($uri[1]) {
+
+    case 'register':
+      if ($method == 'post') {
+        echo json_encode(UserController::register($_POST['user']));
+      }
+      break;
 
     case 'login':
       if ($method == 'post') {

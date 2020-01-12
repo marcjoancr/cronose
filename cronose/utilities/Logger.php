@@ -3,6 +3,7 @@
 class Logger {
 
   public static function log($type, $message) {
+    if (is_array($message)) $message = implode( ", ", $message );
     try {
       openlog("$type", LOG_PID | LOG_PERROR, LOG_LOCAL0);
       syslog(ErrorType::$$type || $INFO, $message);
