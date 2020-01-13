@@ -5,21 +5,21 @@ require_once 'DAO.php';
 class UserDAO extends DAO {
 
   public static function getUserByDni($dni) {
-    $sql = "SELECT * FROM User WHERE dni = '" . $dni . "';";
+    $sql = "SELECT * FROM User WHERE dni = '${dni}';";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
     return $statement->fetch(PDO::FETCH_ASSOC);
   }
 
   public static function getUserByUsername($username) {
-    $sql = "SELECT * FROM User WHERE name = '" . $username . "';";
+    $sql = "SELECT * FROM User WHERE name = '${username}';";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
     return $statement->fetch(PDO::FETCH_ASSOC);
   }
 
   public static function getUserByTag($tag) {
-    $sql = "SELECT * FROM User WHERE name = '" . $tag . "';";
+    $sql = "SELECT * FROM User WHERE tag = ${tag};";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
     return $statement->fetch(PDO::FETCH_ASSOC);
@@ -30,8 +30,10 @@ class UserDAO extends DAO {
     $user['avatar_id'] = $user['avatar_id'] ?? null;
     $fields = "dni, name, surname, surname_2, email, password, tag, coins, registration_date, points, private, city_id, province_id, avatar_id, dni_photo_id";
     $values = "'${user['dni']}', '${user['name']}', '${user['surname']}', '${user['surname_2']}', '${user['email']}', '${user['password']}', ";
-    $values = $values.mt_rand(100000, 999999).", 0, '".date("Y-m-d H:i:s")."', 0, ${user['private']}, ${user['city_id']}, ${user['province_id']}, '${user['avatar_id']}', ${user['dni_photo_id']}";
-    $sql = "INSERT INTO User (". $fields .") VALUES (". $values .")";
+    $tag = mt_rand(1000, 9999);
+    $date = date("Y-m-d H:i:s");
+    $values = $values."${tag}, 0, '${date}', 0, ${user['private']}, ${user['city_id']}, ${user['province_id']}, '${user['avatar_id']}', ${user['dni_photo_id']}";
+    $sql = "INSERT INTO User (${fields}) VALUES (${values})";
     $statement = self::$DB->prepare($sql);
     try {
       $statement->execute();
