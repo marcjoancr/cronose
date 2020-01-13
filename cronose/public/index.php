@@ -6,6 +6,7 @@ require_once '../controllers/Offer.controller.php';
 require_once '../controllers/User.controller.php';
 require_once '../controllers/Chat.controller.php';
 require_once '../controllers/Achievement.controller.php';
+require_once '../controllers/Category.controller.php';
 require_once '../dao/DAO.php';
 new DAO();
 
@@ -18,6 +19,10 @@ $auxUri = $uri;
 array_splice($auxUri, 0, 1);
 $auxUriString = implode("/", $auxUri);
 
+/*-------Language-------*/
+$langController = LanguageController::getLang();
+$displayLang = $langController['data']['language'];
+
 //Method
 $method = strtolower($_SERVER['REQUEST_METHOD']);
 
@@ -26,6 +31,10 @@ if (isset($_SESSION['user'])) $user = json_decode($_SESSION['user']);
 if ($uri[0] == 'api') {
 
   switch ($uri[1]) {
+
+    case 'categories':
+      echo json_encode(CategoryController::getAllByLang($displayLang));
+      break;
 
     case 'register':
       if ($method == 'post') {
@@ -82,10 +91,6 @@ if ($uri[0] == 'api') {
   }
 
 } else if ($uri[0] != 'assets') {
-
-  /*-------Language-------*/
-  $langController = LanguageController::getLang();
-  $displayLang = $langController['language'];
 
   if (!LanguageController::langExist($uri[0])) {
     array_unshift($uri, $displayLang);

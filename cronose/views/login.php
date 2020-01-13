@@ -49,6 +49,8 @@
         dataType: 'json',
         data: { username, password },
         success: (data) => {
+          console.log(data);
+          
           if (data.status == 'success') window.location.href = '/<?= $displayLang; ?>/market';
         },
         error: (data) => {

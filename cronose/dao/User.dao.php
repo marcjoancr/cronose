@@ -26,9 +26,11 @@ class UserDAO extends DAO {
   }
 
   public static function saveUser($user) {
+    $user['surname_2'] = $user['surname_2'] ?? null;
+    $user['avatar_id'] = $user['avatar_id'] ?? null;
     $fields = "dni, name, surname, surname_2, email, password, tag, coins, registration_date, points, private, city_id, province_id, avatar_id, dni_photo_id";
     $values = "'${user['dni']}', '${user['name']}', '${user['surname']}', '${user['surname_2']}', '${user['email']}', '${user['password']}', ";
-    $values = $values.mt_rand(100000, 999999).", 0, '".date("Y-m-d H:i:s")."', 0, ${user['private']}, 1, 1, null, 1";
+    $values = $values.mt_rand(100000, 999999).", 0, '".date("Y-m-d H:i:s")."', 0, ${user['private']}, ${user['city_id']}, ${user['province_id']}, '${user['avatar_id']}', ${user['dni_photo_id']}";
     $sql = "INSERT INTO User (". $fields .") VALUES (". $values .")";
     $statement = self::$DB->prepare($sql);
     try {
@@ -42,7 +44,6 @@ class UserDAO extends DAO {
       Logger::log("ERROR", $e->getMessage());
       return null;
     }
-    // return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public static function getAllDirections() {
