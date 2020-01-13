@@ -101,13 +101,6 @@
 
 <?php endif ?>
 
-<?php
-  if (isset($_GET['logout']) && $_GET['logout']) {
-    session_destroy();
-    header('Location: /');
-  }
-?>
-
 <script>
   $(document).ready(function(){
 

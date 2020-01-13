@@ -1,34 +1,4 @@
 </main>
-  <script>
-    const selector = document.getElementById('language_selector');
-    selector.value = "<?= isset($displayLang) ? $displayLang : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
-
-    $(document).ready(function(){
-
-
-      $("#language_selector").change(function(){
-        let lang = $("#language_selector").val();
-        changeLang(lang);
-      });
-
-
-      $('#es').click(function(){
-        changeLang('es')
-      });
-      $('#ca').click(function(){
-        changeLang('ca')
-      });
-      $('#en').click(function(){
-        changeLang('en')
-      });
-    });
-
-
-    function changeLang(lang) {
-      window.location.replace("/"+lang+"/<?= $auxUriString; ?>");
-    }
-
-  </script>
 
   <?php if (isset($_SESSION['user'])):?>
 
@@ -84,6 +54,23 @@
 </div>
 </div>
   <?php endif; ?>
+  <script>
+    const selector = document.getElementById('language_selector');
+    selector.value = "<?= isset($displayLang) ? $displayLang : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
 
+    $(document).ready(function(){
+
+      $("#language_selector").change(function(){
+        let lang = $("#language_selector").val();
+        changeLang(lang);
+      });
+
+    });
+
+    function changeLang(lang) {
+      window.location.replace("/"+lang+"/<?= $auxUriString; ?>");
+    }
+
+  </script>
 </body>
 </html>
