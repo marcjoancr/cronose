@@ -3,7 +3,7 @@
 <head>
   <link rel="shortcut icon" href="/assets/img/favicon.ico">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Cronose</title>
+  <title><?= $title ?></title>
   <meta name="title" content="Cronose"/>
   <meta name="description" content="A social platform for sharing your time with other people and let you know to others. Make this place your site for knowing nice other people and interchange some activities eachother."/>
   <meta name="robots" content="index, follow"/>
@@ -26,9 +26,6 @@
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
-
-  require '../views/components/language.php';
-
 ?>
 
 <?php require '../views/components/nav.php'; ?>

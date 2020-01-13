@@ -9,6 +9,9 @@ require_once '../controllers/Achievement.controller.php';
 require_once '../dao/DAO.php';
 new DAO();
 
+//Lang
+require '../views/components/language.php';
+
 //URI
 $uri = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
 $auxUri = $uri;
@@ -20,7 +23,6 @@ $method = strtolower($_SERVER['REQUEST_METHOD']);
 
 /*-----User logged------*/
 if (isset($_SESSION['user'])) $user = json_decode($_SESSION['user']);
-
 if ($uri[0] == 'api') {
 
   switch ($uri[1]) {
@@ -39,8 +41,9 @@ if ($uri[0] == 'api') {
 
     case 'profile':
       if ($method == 'get') {
-        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
-        if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
+        echo $uri[2];
+        // if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
+        // if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
       }
       break;
 
@@ -63,6 +66,13 @@ if ($uri[0] == 'api') {
 
     case 'chat':
       if (count($uri) == 3 && $uri[2] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
+      if (count($uri) == 3 && $method == 'get'){
+        $reciver = UserController::getProfileInfo($uri[2]);
+        if ($reciver) {
+          echo json_encode(ChatController::showChat($user->dni, $reciver['profile']['dni']));
+        };
+      };
+      if (count($uri) == 4 && $uri[3] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
       break;
 
     default:
@@ -71,21 +81,23 @@ if ($uri[0] == 'api') {
 
   }
 
-} else {
+} else if ($uri[0] != 'assets') {
 
   /*-------Language-------*/
   $langController = LanguageController::getLang();
-  $displayLang = $langController['data']['language'];
+  $displayLang = $langController['language'];
 
   if (!LanguageController::langExist($uri[0])) {
     array_unshift($uri, $displayLang);
     $uriString = implode("/", $uri);
     header('Location: ' . $uriString);
-  } else {
+  } else if($displayLang != $uri[0]) {
     $displayLang = $uri[0];
     $_SESSION['displayLang'] = $displayLang;
   }
   /*----------------------*/
+
+  $title = "Cronose";
 
   switch ($uri[1]){
     case '':
@@ -93,10 +105,12 @@ if ($uri[0] == 'api') {
       break;
 
     case 'login':
+      $title = "Cronose - " . $lang[$displayLang]['logIn'];
       include '../views/login.php';
       break;
 
     case 'register':
+      $title = "Cronose - " . $lang[$displayLang]['register'];
       include '../views/register.php';
       break;
 
@@ -106,38 +120,49 @@ if ($uri[0] == 'api') {
       break;
 
     case 'home':
+      $title = "Cronose";
       include '../views/home.php';
       break;
 
     case 'market':
+      $title = "Cronose - " . $lang[$displayLang]['market'];
       $offers = OfferController::getOffersByLang($displayLang);
       include '../views/market.php';
       break;
 
     case 'about-us':
+      $title = "Cronose - " . $lang[$displayLang]['aboutUs'];
       include '../views/about-us.php';
       break;
 
     case 'my-works':
+      $title = "Cronose - " . $lang[$displayLang]['myOffers'];
       // $dataController = WorkController::getMyOffers();
       include '../views/myWorks.php';
       break;
 
     case 'chat':
+      $title = "Cronose - " . $lang[$displayLang]['chat'];
       if (count($uri) == 3) {
-        $reciver = json_decode(UserController::getProfileInfo($uri[2]));
+        $reciver = json_encode(UserController::getProfileInfo($uri[2]));
         if ($reciver) {
-          $messages = json_decode(ChatController::getChat($user->dni, $reciver->dni));
-        };
-      };
-      include '../views/chat.php';
+          include '../views/chat.php';
+        } else {
+          include '../views/404.php';
+        }
+      } else {
+        include '../views/home.php';
+      }
+      // include '../views/chat.php';
       break;
 
     case 'wallet':
+      $title = "Cronose - " . $lang[$displayLang]['wallet'];
       include '../views/wallet.php';
       break;
 
     case 'profile':
+      $title = "Cronose - " . $lang[$displayLang]['profile'];
       include '../views/profile.php';
       break;
 
@@ -154,6 +179,7 @@ if ($uri[0] == 'api') {
       break;
 
     case 'work':
+      $title = "Cronose - " . $lang[$displayLang]['work'];
       include '../views/work.php';
       break;
 
@@ -181,7 +207,6 @@ if ($uri[0] == 'api') {
 
     default:
       header('Location: ' . $displayLang . '/home');
-      include '../views/home.php';
       break;
   }
 }
