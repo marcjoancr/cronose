@@ -21,7 +21,7 @@ $auxUriString = implode("/", $auxUri);
 
 /*-------Language-------*/
 $langController = LanguageController::getLang();
-$displayLang = $langController['data']['language'];
+$displayLang = $langController['language'];
 
 //Method
 $method = strtolower($_SERVER['REQUEST_METHOD']);
