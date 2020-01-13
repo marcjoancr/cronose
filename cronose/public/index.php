@@ -21,7 +21,7 @@ $auxUriString = implode("/", $auxUri);
 
 /*-------Language-------*/
 $langController = LanguageController::getLang();
-$displayLang = $langController['data']['language'];
+$displayLang = $langController['language'];
 
 //Method
 $method = strtolower($_SERVER['REQUEST_METHOD']);
@@ -50,9 +50,8 @@ if ($uri[0] == 'api') {
 
     case 'profile':
       if ($method == 'get') {
-        echo $uri[2];
-        // if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
-        // if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
+        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo());
+        if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
       }
       break;
 
@@ -74,14 +73,17 @@ if ($uri[0] == 'api') {
       }
 
     case 'chat':
-      if (count($uri) == 3 && $uri[2] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
+    // var_dump($uri);
       if (count($uri) == 3 && $method == 'get'){
         $reciver = UserController::getProfileInfo($uri[2]);
         if ($reciver) {
           echo json_encode(ChatController::showChat($user->dni, $reciver['profile']['dni']));
         };
       };
-      if (count($uri) == 4 && $uri[3] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
+      if (count($uri) == 4 && $uri[3] == 'send' && $method == 'post') {
+        $reciver = UserController::getProfileInfo($uri[2]);
+        if ($reciver) echo ChatController::sendMSG($user->dni, $reciver['profile']['dni'], $_POST['msg']);
+      }
       break;
 
     default:
