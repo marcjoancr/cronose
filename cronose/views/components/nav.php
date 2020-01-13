@@ -21,7 +21,7 @@
       <div class="py-4 px-3 mb-4 mt-3 pl-4">
         <div class="media d-flex align-items-center"><img src="https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_960_720.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
           <div class="media-body">
-            <h4 class="m-0 text-white"><?php echo $user->name; ?></h4>
+            <h4 class="m-0 text-white"><?=$user->name;?></h4>
           </div>
         </div>
       </div>
@@ -29,22 +29,22 @@
     <div class="container">
       <ul class="nav  flex-column mb-0">
         <li class="nav-item pt-3">
-            <a class="btn text-white" href="/wallet"><i class="fab fa-google-wallet pl-4 pr-2"></i> <?=$lang[$displayLang]['wallet'];?></a>
+            <a class="btn text-white" href="/<?=$displayLang;?>/wallet"><i class="fab fa-google-wallet pl-4 pr-2"></i> <?=strtoupper($lang[$displayLang]['wallet']);?></a>
         </li>
         <li class="nav-item pt-3">
-          <a class="btn text-white" href="/profile"><i class="far fa-address-card pl-4 pr-2"></i> <?=$lang[$displayLang]['profile'];?></a>
+          <a class="btn text-white" href="/<?=$displayLang;?>/profile"><i class="far fa-address-card pl-4 pr-2"></i> <?=strtoupper($lang[$displayLang]['profile']);?></a>
         </li>
         <li class="nav-item pt-3">
-          <a class="btn text-white" href="/chat"><i class="far fa-comments pl-4 pr-2"></i> <?=$lang[$displayLang]['chat'];?></a>
+          <a class="btn text-white" href="/<?=$displayLang;?>/chat"><i class="far fa-comments pl-4 pr-2"></i> <?=strtoupper($lang[$displayLang]['chat']);?></a>
         </li>
         <li class="nav-item pt-3">
-            <a class="btn text-white" href="/market"><i class="fas fa-map-pin pl-4 pr-2"></i> <?=$lang[$displayLang]['market'];?></a>
+            <a class="btn text-white" href="/<?=$displayLang;?>/market"><i class="fas fa-map-pin pl-4 pr-2"></i> <?=strtoupper($lang[$displayLang]['market']);?></a>
         </li>
         <li class="nav-item pt-3">
-            <a class="btn text-white" href="/my-works"><i class="fas fa-database pl-4 pr-2"></i> <?=$lang[$displayLang]['myOffers'];?></a>
+            <a class="btn text-white" href="/<?=$displayLang;?>/my-works"><i class="fas fa-database pl-4 pr-2"></i> <?=strtoupper($lang[$displayLang]['myOffers']);?></a>
         </li>
         <li class="nav-item pt-3 pl-4">
-            <a href="/logout"><button type="btn" class="btn btn-danger ml-4  pt-2 pb-2 pr-4 pl-4"><?=$lang[$displayLang]['logOut'];?></button></a>
+            <a href="/logout"><button type="btn" class="btn btn-danger ml-4  pt-2 pb-2 pr-4 pl-4"><?=strtoupper($lang[$displayLang]['logOut']);?></button></a>
         </li>
       </ul>
     </div>
@@ -64,19 +64,19 @@
     <div class="collapse navbar-collapse order-3 order-md-1" id="language">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="btn" href="/<?=$displayLang;?>/about-us"><i class="fa fa-address-card"></i> <?=$lang[$displayLang]['aboutUs'];?></a>
+          <a class="btn" href="/<?=$displayLang;?>/about-us"><i class="fa fa-address-card"></i> <?=strtoupper($lang[$displayLang]['aboutUs']);?></a>
         </li>
         <li class="nav-item">
-          <a class="btn" href="/<?=$displayLang;?>/home"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['howWorks'];?></a>
+          <a class="btn" href="/<?=$displayLang;?>/home"><i class="fas fa-map-pin"></i> <?=strtoupper($lang[$displayLang]['howWorks']);?></a>
         </li>
         <li class="nav-item">
-          <a class="btn" href="/<?=$displayLang;?>/home"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['contact'];?></a>
+          <a class="btn" href="/<?=$displayLang;?>/home"><i class="fas fa-map-pin"></i> <?=strtoupper($lang[$displayLang]['contact']);?></a>
         </li>
         <li class="nav-item">
           <a class="btn" href="/<?=$displayLang;?>/home"><i class="fas fa-map-pin"></i> FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="btn" href="/<?=$displayLang;?>/market"><i class="fas fa-map-pin"></i> <?=$lang[$displayLang]['market'];?></a>
+          <a class="btn" href="/<?=$displayLang;?>/market"><i class="fas fa-map-pin"></i> <?=strtoupper($lang[$displayLang]['market']);?></a>
         </li>
       </ul>
       <div class="dropdown-divider"></div>

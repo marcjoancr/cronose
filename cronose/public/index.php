@@ -50,9 +50,8 @@ if ($uri[0] == 'api') {
 
     case 'profile':
       if ($method == 'get') {
-        echo $uri[2];
-        // if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
-        // if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
+        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
+        if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
       }
       break;
 
