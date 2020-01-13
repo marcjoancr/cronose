@@ -4,14 +4,21 @@ require_once '../models/Chat.model.php';
 
 class ChatController {
 
-  public static function getChat($sender, $reciver) {
-    $offers = ChatModel::getChat($sender, $reciver);
-    return json_encode($offers);
+  public static function showChat($sender, $reciver) {
+    $response = ChatModel::showChat($sender, $reciver);
+    if ($response) return [
+      "status" => "success",
+      "msg" => $response
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Ops!"
+    ];
   }
 
   public static function sendMSG($sender, $reciver, $msg) {
-    $offers = ChatModel::sendMSG($sender, $reciver, $msg);
-    return json_encode($offers);
+    $response = ChatModel::sendMSG($sender, $reciver, $msg);
+    return json_encode($response);
   }
 
 }

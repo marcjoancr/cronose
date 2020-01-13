@@ -50,7 +50,7 @@ if ($uri[0] == 'api') {
 
     case 'profile':
       if ($method == 'get') {
-        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
+        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo());
         if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
       }
       break;
@@ -73,14 +73,17 @@ if ($uri[0] == 'api') {
       }
 
     case 'chat':
-      if (count($uri) == 3 && $uri[2] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
+    // var_dump($uri);
       if (count($uri) == 3 && $method == 'get'){
         $reciver = UserController::getProfileInfo($uri[2]);
         if ($reciver) {
           echo json_encode(ChatController::showChat($user->dni, $reciver['profile']['dni']));
         };
       };
-      if (count($uri) == 4 && $uri[3] == 'send' && $method == 'post') ChatController::sendMSG($_POST['sender'], $_POST['reciver'], $_POST['msg']);
+      if (count($uri) == 4 && $uri[3] == 'send' && $method == 'post') {
+        $reciver = UserController::getProfileInfo($uri[2]);
+        if ($reciver) echo ChatController::sendMSG($user->dni, $reciver['profile']['dni'], $_POST['msg']);
+      }
       break;
 
     default:
