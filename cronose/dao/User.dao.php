@@ -29,11 +29,11 @@ class UserDAO extends DAO {
     $user['surname_2'] = $user['surname_2'] ?? null;
     $user['avatar_id'] = $user['avatar_id'] ?? null;
     /* SQL BEGIN CONSTRUCTION */
-    $fields = "dni, name, surname, surname_2, email, password, tag, coins, registration_date, points, private, city_id, province_id, avatar_id, dni_photo_id";
+    $fields = "dni, name, surname, surname_2, email, password, tag, coins, registration_date, points, private, city_cp, province_id, avatar_id, dni_photo_id";
     $values = "'${user['dni']}', '${user['name']}', '${user['surname']}', '${user['surname_2']}', '${user['email']}', '${user['password']}', ";
     $tag = mt_rand(1000, 9999);
     $date = date("Y-m-d H:i:s");
-    $values = $values."${tag}, 0, '${date}', 0, ${user['private']}, ${user['city_id']}, ${user['province_id']}, '${user['avatar_id']}', ${user['dni_photo_id']}";
+    $values = $values."${tag}, 0, '${date}', 0, ${user['private']}, 07500, 1, 1, 1";
     $sql = "INSERT INTO User (${fields}) VALUES (${values})";
     /* SQL END CONSTRUCTION */
     $statement = self::$DB->prepare($sql);

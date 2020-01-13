@@ -116,7 +116,7 @@
       const surname = $("#surname").val();
       const surname_2 = $("#surname_2").val();
       const email = $("#email").val();
-      const password = $("#password").val();
+      const password = $.md5($("#password").val());
       const private = $("#private").is(':checked');
       const data = { 'user' : { dni, name, surname, surname_2, email, password, private } };
 
