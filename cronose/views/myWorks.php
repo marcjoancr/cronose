@@ -19,7 +19,7 @@
 									for(x in myWorks){
 										console.log(myWorks[x]);
 										body+='<div class="row w-100"><div class="container wrap row justify-content-center mt-4"><div class="container py-3"><div class="card"><div class="row"><div class="col-md-4">';
-										body+='<img src="https://thumbs.dreamstime.com/b/uso-en-l%C3%ADnea-de-trabajo-de-la-red-de-internet-del-negocio-de-la-gente-46666160.jpg" class="img-fluid">';
+										body+='<img src="https://thumbs.dreamstime.com/b/uso-en-l%C3%ADnea-de-trabajo-de-la-red-de-internet-del-negocio-de-la-gente-46666160.jpg" class="img-fluid" style="height: 222.8px;"> ';
 										body+='</div><div class="col-md-8 px-3"><div class="card-block px-3"><div class="d-flex justify-content-end px-4 pt-2">';
 										body+='<p class="pr-4">PV : <strong>'+myWorks[x].personal_valoration+'</strong><p>';
 										body+='<p>GV : <strong>'+myWorks[x].valoration_avg+'</strong><p></div>';

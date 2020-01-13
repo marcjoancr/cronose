@@ -36,6 +36,10 @@ footer{
   background-color: #242633;
 }
 
+main > .container {
+  margin-bottom: 277px;
+}
+
 .vertical-nav {
   background-color: #242633;
 }

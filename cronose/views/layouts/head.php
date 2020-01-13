@@ -35,8 +35,8 @@
 
 <?php if (isset($_SESSION['user'])):?>
   <div  class="col-10 p-0">
-    <div  class="container">
+    <main class="container">
 <?php else :?>
-  <div  class="col-12">
-  <div  class="container">
+  <div class="col-12">
+    <main class="container">
 <?php endif ?>

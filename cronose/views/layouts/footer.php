@@ -1,4 +1,4 @@
-</div>
+</main>
   <script>
     const selector = document.getElementById('language_selector');
     selector.value = "<?= isset($displayLang) ? $displayLang : substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); ?>";
@@ -32,7 +32,7 @@
 
   <?php if (isset($_SESSION['user'])):?>
 
-  <!-- <footer class="py-4 text-white-50">
+  <footer class="py-4 text-white-50">
     <div class="container text-center text-md-left mt-3">
       <div class="container text-center">
         <div class="col-2"></div>
@@ -82,7 +82,7 @@
     </div>
   </footer>
 </div>
-</div> -->
+</div>
   <?php endif; ?>
 
 </body>
