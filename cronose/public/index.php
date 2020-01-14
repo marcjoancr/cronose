@@ -80,10 +80,11 @@ if ($uri[0] == 'api') {
 
     case 'chat':
     // var_dump($uri);
-      if (count($uri) == 3 && $method == 'get'){
-        $reciver = UserController::getProfileInfo($uri[2]);
+      if (count($uri) == 4 && $method == 'get'){
+        $sender = UserController::getProfileInfo($uri[2]);
+        $reciver = UserController::getProfileInfo($uri[3]);
         if ($reciver) {
-          echo json_encode(ChatController::showChat($user->dni, $reciver['profile']['dni']));
+          echo json_encode(ChatController::showChat($sender['profile']['dni'], $reciver['profile']['dni']));
         };
       };
       if (count($uri) == 4 && $uri[3] == 'send' && $method == 'post') {
