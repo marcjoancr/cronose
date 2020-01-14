@@ -1,14 +1,20 @@
 <?php
 session_start();
-require_once '../utilities/Logger.php';
+
+// Controllers
 require_once '../controllers/Language.controller.php';
 require_once '../controllers/Offer.controller.php';
 require_once '../controllers/User.controller.php';
 require_once '../controllers/Chat.controller.php';
 require_once '../controllers/Achievement.controller.php';
 require_once '../controllers/Category.controller.php';
+
+// DAO
 require_once '../dao/DAO.php';
 new DAO();
+
+// Logger
+require_once '../utilities/Logger.php';
 
 //Lang
 require '../views/components/language.php';
@@ -104,20 +110,18 @@ if ($uri[0] == 'api') {
   }
   /*----------------------*/
 
-  $title = "Cronose";
-
   switch ($uri[1]){
     case '':
       header('Location: ' . $displayLang . '/home');
       break;
 
     case 'login':
-      $title = "Cronose - " . $lang[$displayLang]['logIn'];
+      $title = $lang[$displayLang]['logIn'];
       include '../views/login.php';
       break;
 
     case 'register':
-      $title = "Cronose - " . $lang[$displayLang]['register'];
+      $title = $lang[$displayLang]['register'];
       include '../views/register.php';
       break;
 
@@ -127,29 +131,28 @@ if ($uri[0] == 'api') {
       break;
 
     case 'home':
-      $title = "Cronose";
       include '../views/home.php';
       break;
 
     case 'market':
-      $title = "Cronose - " . $lang[$displayLang]['market'];
+      $title = $lang[$displayLang]['market'];
       $offers = OfferController::getOffersByLang($displayLang);
       include '../views/market.php';
       break;
 
     case 'about-us':
-      $title = "Cronose - " . $lang[$displayLang]['aboutUs'];
+      $title = $lang[$displayLang]['aboutUs'];
       include '../views/about-us.php';
       break;
 
     case 'my-works':
-      $title = "Cronose - " . $lang[$displayLang]['myOffers'];
+      $title = $lang[$displayLang]['myOffers'];
       // $dataController = WorkController::getMyOffers();
       include '../views/myWorks.php';
       break;
 
     case 'chat':
-      $title = "Cronose - " . $lang[$displayLang]['chat'];
+      $title = $lang[$displayLang]['chat'];
       if (count($uri) == 3) {
         $reciver = json_encode(UserController::getProfileInfo($uri[2]));
         if ($reciver) {
@@ -164,12 +167,12 @@ if ($uri[0] == 'api') {
       break;
 
     case 'wallet':
-      $title = "Cronose - " . $lang[$displayLang]['wallet'];
+      $title = $lang[$displayLang]['wallet'];
       include '../views/wallet.php';
       break;
 
     case 'profile':
-      $title = "Cronose - " . $lang[$displayLang]['profile'];
+      $title = $lang[$displayLang]['profile'];
       include '../views/profile.php';
       break;
 
@@ -186,7 +189,7 @@ if ($uri[0] == 'api') {
       break;
 
     case 'work':
-      $title = "Cronose - " . $lang[$displayLang]['work'];
+      $title = $lang[$displayLang]['work'];
       include '../views/work.php';
       break;
 
