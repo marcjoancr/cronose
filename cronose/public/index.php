@@ -67,6 +67,15 @@ if ($uri[0] == 'api') {
       }
       break;
 
+    // case 'work':
+    //   // if ($method == 'get') {
+    //   //   $offerLang = 'es';
+    //   //   $offerEsp = 1;
+    //   //   $offerId = '12345678A';
+    //   //   if (count($uri) == 2) echo json_encode(OfferController::getOffer($offerLang,$offerEsp,$offerId));
+    //   }
+    // break;
+
     case 'myWorks':
       if ($method == 'get') {
         if (count($uri) == 2) echo json_encode(OfferController::getOffersByDNIAndLang($user->dni, $displayLang));

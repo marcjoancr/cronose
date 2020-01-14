@@ -14,7 +14,7 @@
           <input type="text" class="form-control">
         </div>
       </div>
-			<div class="card-deck" id="works">
+			<div class="card-deck w-100" id="works">
 				<script>
 				  $(document).ready(function(){
 				    const url = (window.location.pathname.split('/')[3]) ? '/api/works/'+window.location.pathname.split('/')[3] : '/api/works' ;

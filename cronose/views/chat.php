@@ -3,12 +3,14 @@
   .scroll {
     max-height: 400px;
     overflow-y: auto;
-  }
+}
   .chatBox {
     height: 400px;
   }
 </style>
 <h1>Chat</h1>
+
+
 
 <div class="container mt-5">
   <div class="row justify-content-center w-100 ">
@@ -28,6 +30,7 @@
         <div class="my-custom-scrollbar">
           <div class="card-body p-3">
             <div class="chat-message scroll chatBox" id="chat">
+
             </div>
           </div>
         </div>
@@ -37,7 +40,6 @@
           </span>
           <input id="message" type="text" class="form-control">
         </div>
-      </div>
     </div>
   </div>
 </div>
@@ -49,18 +51,29 @@
 
   $(document).ready(function(){
 
-    // Set title name
+    show();
     $('#name').html(window.location.pathname.split('/')[3]);
 
-    // Show chat 
-    show();
+    $("#message").keypress(function(event) {
+      if (event.keyCode === 13) {
+          $("#send-btn").click();
+      }
+    });
+
+    $('#send-btn').click(() => {
+      console.log($.trim($('#message').val()));
+      if (!$.trim($('#message').val()) == "") send();
+    });
 
     setInterval(function () {
       show();
     },1000);
 
     function show() {
-      const url = '/api/chat/<?= $user->name; ?>/'+window.location.pathname.split('/')[3];
+      const url = '/api/chat/'+window.location.pathname.split('/')[3];
+      console.log(url);
+      const sender = 'Admin';
+      const reciver = 'window.location.pathname.split('/')[3]';
       const msg = $('#message').val();
       $.ajax({
         type: 'get',
@@ -80,7 +93,6 @@
             });
             htmlLi += "</ul>"
             document.getElementById("chat").innerHTML = htmlLi;
-            scrollDownChat();
           };
         },
         error: ((data) => {
@@ -89,19 +101,7 @@
       });
     };
 
-    // Send MSG
-
-    $("#message").keypress(function(event) {
-      if (event.keyCode === 13) {
-          $("#send-btn").click();
-      }
-    });
-
-    $('#send-btn').click(() => {
-      console.log($.trim($('#message').val()));
-      if (!$.trim($('#message').val()) == "") send();
-    });
-
+    // Send form via ajax to sendMSG
     function send() {
       const url = '/api/chat/' + window.location.pathname.split('/')[3] + '/send';
       const reciver = window.location.pathname.split('/')[3];
@@ -116,17 +116,10 @@
           show();
         },
         error: ((data) => {
+          // console.log(data)
         })
       });
-    };
-
-    function scrollDownChat() {
-      setTimeout(function wait(){
-        var objDiv = document.getElementById("chat");
-        objDiv.scrollTop = objDiv.scrollHeight;
-      }, 10);
     }
-
   });
 
 </script>

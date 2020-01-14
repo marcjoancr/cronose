@@ -30,4 +30,9 @@ class OfferController {
     ];
   }
 
+  public static function getOffer($offerLang,$offerEsp,$offerId) {
+    $offers = OfferModel::getOffer($offerLang,$offerEsp,$offerId);
+    return $offers;
+  }
+
 }

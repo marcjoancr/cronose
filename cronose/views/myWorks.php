@@ -4,7 +4,7 @@
 	<h1><?= $lang[$displayLang]['myOffers'];?></h1>
 	<div class="container">
 		<div class="row p-2">
-			<div class="card-deck" id="myWorks">
+			<div class="card-deck w-100" id="myWorks">
 			</div>
 		</div>
 	</div>
@@ -14,7 +14,7 @@
 
 <script>
   $(document).ready(function(){
-    
+
     showWorks();
 		function showWorks() {
       const url = (window.location.pathname.split('/')[3]) ? '/api/myWorks/'+window.location.pathname.split('/')[3] : '/api/myWorks' ;
