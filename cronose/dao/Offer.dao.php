@@ -23,4 +23,14 @@ and Offer_Language.language_id='$lang'";
     return $statement->fetchAll();
   }
 
+  public static function getOffersByDNIAndLang($dni, $lang) {
+    $sql = "select Offer.user_dni,Offer_Language.language_id,User.name,Offer_Language.title,Offer_Language.description,Offer.personal_valoration,Offer.valoration_avg,Offer.coin_price
+from Offer,Offer_Language,User where Offer.user_dni = Offer_Language.user_dni
+and Offer.specialization_id = Offer_Language.specialization_id and User.dni = Offer.user_dni
+and Offer_Language.language_id='$lang' and User.dni = '$dni'";
+    $statement = self::$DB->prepare($sql);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+  }
+
 }

@@ -69,7 +69,7 @@ if ($uri[0] == 'api') {
 
     case 'myWorks':
       if ($method == 'get') {
-        if (count($uri) == 2) echo json_encode(OfferController::getOffersFromUsername($user->name));
+        if (count($uri) == 2) echo json_encode(OfferController::getOffersByDNIAndLang($user->dni, $displayLang));
       }
       break;
 

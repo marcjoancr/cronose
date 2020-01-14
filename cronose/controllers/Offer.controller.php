@@ -18,14 +18,16 @@ class OfferController {
     return $offers;
   }
 
-  public static function getOffersFromUsername($username) {
-    $user = UserModel::getUserByUsername($username);
-    if (!$user) return null;
-    $offers = self::getAllOffers();
-    $result = array_filter($offers, function ($offer) use ($user) {
-      if ($offer['user_dni'] == $user['dni']) return true;
-    });
-    return $result;
+  public static function getOffersByDNIAndLang($dni, $lang) {
+    $offers = OfferModel::getOffersByDNIAndLang($dni, $lang);
+    if ($offers) return [
+      "status" => "success",
+      "offers" => $offers
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something went wrong!"
+    ];
   }
 
 }
