@@ -14,7 +14,7 @@
 
     showWorks();
 		function showWorks() {
-      const url = (window.location.pathname.split('/')[3]) ? '/api/work/'+window.location.pathname.split('/')[3]+'/'+window.location.pathname.split('/')[4]+'/'+window.location.pathname.split('/')[5]: '/api/work' ;
+      const url = '/api/work/'+window.location.pathname.split('/')[3]+'/'+window.location.pathname.split('/')[4]+'/'+window.location.pathname.split('/')[5];
       $.ajax({
         type: 'get',
         url: url,

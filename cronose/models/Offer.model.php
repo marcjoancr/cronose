@@ -17,8 +17,8 @@ class OfferModel extends Model {
     return OfferDAO::getOffersByIdAndLang($id, $lang);
   }
 
-  public static function getOffer($userInitials,$userTag,$offerTitle) {
-    return OfferDAO::getOffer($userInitials,$userTag,$offerTitle);
+  public static function getOffer($userInitials,$userTag,$offerEsp) {
+    return OfferDAO::getOffer($userInitials,$userTag,$offerEsp);
   }
 
 //   public static function getOffersByUsername($username) {
