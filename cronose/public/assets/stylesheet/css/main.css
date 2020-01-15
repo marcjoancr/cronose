@@ -57,3 +57,7 @@ main > .container {
 #vericalNav{
   background-color: #242633;
 }
+
+.opacity{
+  opacity: .3;
+}
