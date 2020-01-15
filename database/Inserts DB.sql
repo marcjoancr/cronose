@@ -45,6 +45,13 @@ VALUES ('es', '2', '2', 'Fontanero', 'No hay ni uno igual ');
 
 insert into Media(extension, url) values ('.jpg','profesor'),('.jpg','fontanero');
 
+INSERT INTO Achievement values (),(),(),(),();
+
+INSERT INTO `obtain` (`achievement_id`, `user_id`, `obtained_at`) VALUES
+(1, 1, '2020-01-08'),
+(3, 1, '2020-01-02');
+
+
 /*INSERT INTO Load_Media (user_dni, specialization_id, media_id) VALUES ('12345678A', '1', '3'), ('12345678A', '2', '4');
 
 delete from Message where sender_dni = '12345678A';

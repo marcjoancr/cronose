@@ -223,11 +223,12 @@ create table if not exists Achievement_Language (
 )ENGINE = InnoDB;
 
 create table if not exists Obtain (
-    achievement_id int not null auto_increment primary key,
+    achievement_id int not null,
     user_id int not null,
     obtained_at date not null,
     foreign key (achievement_id) references Achievement(id),
-    foreign key (user_id) references User(id)
+    foreign key (user_id) references User(id),
+    primary key(achievement_id, user_id)
 )ENGINE = InnoDB;
 
 create table if not exists Veteranity (
