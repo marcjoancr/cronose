@@ -67,14 +67,12 @@ if ($uri[0] == 'api') {
       }
       break;
 
-    // case 'work':
-    //   // if ($method == 'get') {
-    //   //   $offerLang = 'es';
-    //   //   $offerEsp = 1;
-    //   //   $offerId = '12345678A';
-    //   //   if (count($uri) == 2) echo json_encode(OfferController::getOffer($offerLang,$offerEsp,$offerId));
-    //   }
-    // break;
+      case 'work':
+         if ($method == 'get') {
+           if (count($uri) == 2) echo json_encode(OfferController::getOffer($uri[4],$uri[3],$uri[2]));
+           if (count($uri) == 5) echo json_encode(OfferController::getOffer($uri[4],$uri[3],$uri[2]));
+        }
+      break;
 
     case 'myWorks':
       if ($method == 'get') {
