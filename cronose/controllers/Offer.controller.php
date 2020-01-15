@@ -15,11 +15,6 @@ class OfferController {
   public static function getOffersByLang($lang) {
     if (!LanguageController::langExist($lang)) return null;
     $offers = OfferModel::getOffersByLang($lang);
-    return $offers;
-  }
-
-  public static function getOffersByDNIAndLang($dni, $lang) {
-    $offers = OfferModel::getOffersByDNIAndLang($dni, $lang);
     if ($offers) return [
       "status" => "success",
       "offers" => $offers
@@ -30,8 +25,20 @@ class OfferController {
     ];
   }
 
-  public static function getOffer($offerLang,$offerEsp,$offerId) {
-    $offer = OfferModel::getOffer($offerLang,$offerEsp,$offerId);
+  public static function getOffersByIdAndLang($id, $lang) {
+    $offers = OfferModel::getOffersByIdAndLang($id, $lang);
+    if ($offers) return [
+      "status" => "success",
+      "offers" => $offers
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something went wrong!"
+    ];
+  }
+
+  public static function getOffer($userInitials,$userTag,$offerTitle) {
+    $offer = OfferModel::getOffer($userInitials,$userTag,$offerTitle);
     if ($offer) return [
       "status" => "success",
       "offers" => $offer

@@ -69,14 +69,14 @@ if ($uri[0] == 'api') {
 
       case 'work':
          if ($method == 'get') {
-           if (count($uri) == 2) echo json_encode(OfferController::getOffer($uri[4],$uri[3],$uri[2]));
-           if (count($uri) == 5) echo json_encode(OfferController::getOffer($uri[4],$uri[3],$uri[2]));
+           if (count($uri) == 2) echo json_encode(OfferController::getOffer($uri[2],$uri[3],$uri[4]));
+           if (count($uri) == 5) echo json_encode(OfferController::getOffer($uri[2],$uri[3],$uri[4]));
         }
       break;
 
     case 'myWorks':
       if ($method == 'get') {
-        if (count($uri) == 2) echo json_encode(OfferController::getOffersByDNIAndLang($user->dni, $displayLang));
+        if (count($uri) == 2) echo json_encode(OfferController::getOffersByIdAndLang($user->id, $displayLang));
       }
       break;
 
@@ -100,7 +100,7 @@ if ($uri[0] == 'api') {
           };
         };
       }
-      
+
       if (count($uri) == 4 && $uri[3] == 'send' && $method == 'post') {
         $reciver = UserController::getProfileInfo($uri[2]);
         if ($reciver) echo ChatController::sendMSG($user->id, $reciver['profile']['id'], $_POST['msg']);
