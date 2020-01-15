@@ -98,7 +98,7 @@ if ($uri[0] == 'api') {
     // var_dump($uri);
       if ($method == 'get') {
         if (count($uri) == 2){
-          echo json_encode(ChatController::showChats($user->dni));
+          echo json_encode(ChatController::showChats($user->id));
         }
         if (count($uri) == 4){
           echo json_encode(ChatController::showChat($uri[2], $uri[3]));

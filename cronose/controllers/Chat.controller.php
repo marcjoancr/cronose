@@ -25,7 +25,7 @@ class ChatController {
     $response = ChatModel::showChats($reciver);
     if ($response) return [
       "status" => "success",
-      "msg" => $response
+      "users" => $response
     ];
     else return [
       "status" => "error",

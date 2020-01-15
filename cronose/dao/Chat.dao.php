@@ -20,11 +20,10 @@ where (sender_id = '" . $sender . "' and receiver_id = '" . $reciver . "') or (s
   }
 
   public static function showChats($reciver) {
-    // return $reciver;
-    $sql = "select User.name,message,Message.sended_date from Message,User where Message.sender_dni = User.dni and receiver_dni = '" . $reciver . "' group by name;";
+    $sql = "select User.name,User.initials,User.tag from User,Message where User.id = sender_id and receiver_id = ${reciver} group by sender_id;";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
-    return $statement->fetch(PDO::FETCH_ASSOC);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 
 }

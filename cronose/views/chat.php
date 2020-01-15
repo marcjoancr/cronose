@@ -10,46 +10,51 @@
 </style>
 <h1>Chat</h1>
 
-<h4>Users:</h4>
-<div id="chats">
-  
-</div>
 
 
-<div class="container mt-5">
-  <div class="row justify-content-center w-100 ">
-    <div class="col-md-8 mb-4">
-      <div class="card w-100" id="myForm">
-        <div class="card-header white p-2" id="toggle">
-          <div class="d-flex">
-            <div class="profile-photo">
-              <img src="https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_960_720.png" alt="..." width="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-            </div>
-            <div class="data">
-              <p class="name mb-0"><strong id="name"></strong></p>
-              <p class="activity text-muted mb-0"><!-- Active now --></p>
+
+<div class="container mt-2">
+  <div class="container border">
+    <div class="row justify-content-center w-100 ">
+      <div class="col-md-3 mt-4 scroll">
+        <h4>Chats:</h4>
+        <div id="chats">
+          
+        </div>
+      </div>
+      <div class="col-md-9 mb-4 mt-4">
+        <div class="card w-100" id="myForm">
+          <div class="card-header white p-2" id="toggle">
+            <div class="d-flex">
+              <div class="profile-photo">
+                <img src="https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_960_720.png" alt="..." width="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+              </div>
+              <div class="data">
+                <p class="name mb-0"><strong id="name"></strong></p>
+                <p class="activity text-muted mb-0"><!-- Active now --></p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="my-custom-scrollbar">
-          <div class="card-body p-3">
-            <div class="chat-message scroll chatBox" id="chat">
+          <div class="my-custom-scrollbar">
+            <div class="card-body p-3">
+              <div class="chat-message scroll chatBox" id="chat">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button id="send-btn" class="btn btn-secondary" type="button"><i class="far fa-paper-plane"></i></button>
-          </span>
-          <input id="message" type="text" class="form-control">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button id="send-btn" class="btn btn-secondary" type="button"><i class="far fa-paper-plane"></i></button>
+            </span>
+            <input id="message" type="text" class="form-control">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
 <a href="/wallet">wallet</a><br>
 <a href="/card">card</a>
+</div>
+
 
 <script>
 
@@ -60,7 +65,7 @@
 
     // Get reciver ID;
 
-    getId();
+    if (window.location.pathname.split('/')[3]) getId();
 
     let reciverId;
 
@@ -86,11 +91,10 @@
         data: {},
         success: (data) => {
           if (data.status == 'success') {
-            let msg = data.msg;
+            let msg = data.users;
             htmlLi = '<ul class="list-unstyled chat">';
             $.each (msg, function(key, value) {
-              htmlLi += '<a href="/' + window.location.pathname.split('/')[1] + '/chat/' + value['name']  + '" title=""><strong>' + value['name'] + ':</strong> ' + value['message'] + ' <small>' + value['sended_date'] + '</small></a>';
-            
+              htmlLi += '<a href="/' + window.location.pathname.split('/')[1] + '/chat/' + value['initials']  + '/'+ value['tag'] + '" title=""><strong>' + value['name'] +'</small></a></br>';
             });
             htmlLi += "</ul>"
             document.getElementById("chats").innerHTML = htmlLi;
@@ -106,13 +110,14 @@
 
 
     // Set title name
-    $('#name').html(window.location.pathname.split('/')[3]);
+
+    if (window.location.pathname.split('/')[3]) $('#name').html(window.location.pathname.split('/')[3] + '<small>#'+window.location.pathname.split('/')[4] + '</small>');
 
     // Show chat 
     
     setInterval(function () {
       show();
-      // showChats();
+      showChats();
     },1000);
 
     function show() {
@@ -133,6 +138,7 @@
               }
             });
             html += "</ul>"
+
             document.getElementById("chat").innerHTML = html;
             scrollDownChat();
           };
@@ -154,7 +160,6 @@
 
     function send() {
       const url = '/api/chat/send/<?= $user->id; ?>/' + reciverId;
-      console.log(url);
       const reciver = window.location.pathname.split('/')[3];
       const msg = $('#message').val();
       $.ajax({
@@ -182,4 +187,4 @@
 
 </script>
 
-<!-- <?php require '../views/layouts/footer.php';?> -->
+<?php require '../views/layouts/footer.php';?>
