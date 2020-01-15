@@ -37,8 +37,8 @@ class OfferController {
     ];
   }
 
-  public static function getOffer($userInitials,$userTag,$offerTitle) {
-    $offer = OfferModel::getOffer($userInitials,$userTag,$offerTitle);
+  public static function getOffer($userInitials,$userTag,$offerEsp) {
+    $offer = OfferModel::getOffer($userInitials,$userTag,$offerEsp);
     if ($offer) return [
       "status" => "success",
       "offers" => $offer
