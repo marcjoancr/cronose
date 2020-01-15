@@ -89,16 +89,23 @@ if ($uri[0] == 'api') {
 
     case 'chat':
     // var_dump($uri);
-      if (count($uri) == 4 && $method == 'get'){
-        $sender = UserController::getProfileInfo($uri[2]);
-        $reciver = UserController::getProfileInfo($uri[3]);
-        if ($reciver) {
-          echo json_encode(ChatController::showChat($sender['profile']['dni'], $reciver['profile']['dni']));
+      if ($method == 'get') {
+        if (count($uri) == 2){
+          echo json_encode(ChatController::showChats($user->dni));
+        }
+        if (count($uri) == 4){
+          $sender = UserController::getProfileInfo($uri[2]);
+          $reciver = UserController::getProfileInfo($uri[3]);
+          if ($reciver) {
+            // echo $reciver['profile']['id'];
+            echo json_encode(ChatController::showChat($sender['profile']['id'], $reciver['profile']['id']));
+          };
         };
-      };
+      }
+      
       if (count($uri) == 4 && $uri[3] == 'send' && $method == 'post') {
         $reciver = UserController::getProfileInfo($uri[2]);
-        if ($reciver) echo ChatController::sendMSG($user->dni, $reciver['profile']['dni'], $_POST['msg']);
+        if ($reciver) echo ChatController::sendMSG($user->id, $reciver['profile']['id'], $_POST['msg']);
       }
       break;
 
@@ -163,17 +170,17 @@ if ($uri[0] == 'api') {
 
     case 'chat':
       $title = $lang[$displayLang]['chat'];
-      if (count($uri) == 3) {
-        $reciver = json_encode(UserController::getProfileInfo($uri[2]));
-        if ($reciver) {
-          include '../views/chat.php';
-        } else {
-          include '../views/404.php';
-        }
-      } else {
-        include '../views/home.php';
-      }
-      // include '../views/chat.php';
+      // if (count($uri) == 3) {
+      //   // $reciver = json_encode(UserController::getProfileInfo($uri[2]));
+      //   if ($reciver) {
+      //     include '../views/chat.php';
+      //   } else {
+      //     include '../views/404.php';
+      //   }
+      // } else {
+      //   include '../views/home.php';
+      // }
+      include '../views/chat.php';
       break;
 
     case 'wallet':

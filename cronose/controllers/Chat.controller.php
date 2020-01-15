@@ -21,4 +21,16 @@ class ChatController {
     return json_encode($response);
   }
 
+  public static function showChats($reciver) {
+    $response = ChatModel::showChats($reciver);
+    if ($response) return [
+      "status" => "success",
+      "msg" => $response
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Ops!"
+    ];
+  }
+
 }
