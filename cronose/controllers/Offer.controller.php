@@ -31,8 +31,15 @@ class OfferController {
   }
 
   public static function getOffer($offerLang,$offerEsp,$offerId) {
-    $offers = OfferModel::getOffer($offerLang,$offerEsp,$offerId);
-    return $offers;
+    $offer = OfferModel::getOffer($offerLang,$offerEsp,$offerId);
+    if ($offer) return [
+      "status" => "success",
+      "offers" => $offer
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something went wrong!"
+    ];
   }
 
 }

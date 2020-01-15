@@ -44,6 +44,10 @@ main > .container {
   background-color: #242633;
 }
 
+hr {/*BARRA HORIZONTAL */
+  background-color: black;
+  height: 1px;
+}
 
 #logo {
   width: 100px;

@@ -36,7 +36,7 @@
 										body+='<h4 class="card-title "><strong>'+works[x].title+'</strong> (<em>'+works[x].name+'</em>)</h4>';
 										body+='<p class="card-text">'+works[x].description+'</p>';
 										body+='<p><?= $lang[$displayLang]['price'];?> : <strong>'+works[x].coin_price+'</strong></p><div class="d-flex justify-content-end  pb-3 pr-3">';
-										body+='<a href="/<?=$displayLang;?>/work/" class="btn btn-primary"><?= $lang[$displayLang]['seeWork'];?></a></div></div></div></div></div></div></div></div>';
+										body+='<a href="/<?=$displayLang;?>/work/'+value.user_dni+'/'+value.specialization_id+'/'+value.language_id+'" class="btn btn-primary"><?= $lang[$displayLang]['seeWork'];?></a></div></div></div></div></div></div></div></div>';
 									}
 									document.getElementById("works").innerHTML = body;
 				        }
