@@ -40,6 +40,13 @@ class UserDAO extends DAO {
     return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public static function getId($initials, $tag) {
+    $sql = "SELECT id FROM User WHERE initials = '${initials}' and tag = ${tag};";
+    $statement = self::$DB->prepare($sql);
+    $statement->execute();
+    return $statement->fetch(PDO::FETCH_ASSOC);
+  }
+
   public static function saveUser($user) {
     /* DEFAULT VALUES */
     $user['surname_2'] = $user['surname_2'] ?? null;

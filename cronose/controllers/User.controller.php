@@ -34,6 +34,18 @@ class UserController {
     ];
   }
 
+  public static function getId($initials, $tag) {
+    $id = UserModel::getId($initials, $tag);
+    if ($id) return [
+      "status" => "success",
+      "user" => $id,
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "That user doesn't exists!"
+    ];
+  }
+
   public static function getUsersByInitials($initials) {
     $users = UserModel::getUsersByInitials($initials);
     if ($users) return [
@@ -42,7 +54,7 @@ class UserController {
     ];
     else return [
       "status" => "error",
-      "msg" => "That profile doesn't exists!"
+      "msg" => "That user doesn't exists!"
     ];
   }
 

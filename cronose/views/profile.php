@@ -6,7 +6,8 @@
 <script>
   $(document).ready(function(){
 
-    const url = (window.location.pathname.split('/')[3]) ? '/api/profile/'+window.location.pathname.split('/')[3] : '/api/profile' ;
+    const url = (window.location.pathname.split('/')[3] || window.location.pathname.split('/')[2] != 'profile') ? '/api/user/'+window.location.pathname.split('/')[3] + '/' + +window.location.pathname.split('/')[4] : '/api/user' ;
+    console.log(url);
 
     showProfile();
 

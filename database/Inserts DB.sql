@@ -54,9 +54,10 @@ INSERT INTO `obtain` (`achievement_id`, `user_id`, `obtained_at`) VALUES
 
 /*INSERT INTO Load_Media (user_dni, specialization_id, media_id) VALUES ('12345678A', '1', '3'), ('12345678A', '2', '4');
 
-delete from Message where sender_dni = '12345678A';
+/*delete from Message where sender_dni = '12345678A';
 delete from Message where sender_dni = '87654321Z';
-select User.name,message,Message.sended_date from Message,User where Message.sender_dni = User.dni and receiver_dni = '87654321Z' order by message desc limit 1;
+
+select User.name,message,Message.sended_date from Message,User where Message.sender_id = User.id and receiver_id = '1' order by message desc limit 1;
 
 select Offer.user_dni,Offer_Language.language_id,User.name,Offer_Language.title,Offer_Language.description,Offer.personal_valoration,Offer.valoration_avg,Offer.coin_price
 from Offer,Offer_Language,User where Offer.user_dni = Offer_Language.user_dni
@@ -66,4 +67,8 @@ and Offer_Language.language_id='es' and User.dni = '%a%';
 select User.name,message,Message.sended_date from Message,User where Message.sender_dni = User.dni and receiver_dni = '12345678A' group by Message.receiver_dni;
 select User.name,message,Message.sended_date from Message,User where Message.sender_dni = User.dni and receiver_dni = '12345678A' order by message desc limit 1;
 
-select User.name,message,Message.sended_date from Message,User where Message.sender_dni = User.dni and receiver_dni = '87654321Z' group by receiver_dni;
+select sender_id,receiver_id,(select name from User where sender_id = id) as name,sended_date,message from Message where (sender_id = '1' and receiver_id = '2') or (sender_id = '2' and receiver_id = '1') order by sended_date;
+
+select User.name,message,Message.sended_date from Message,User where Message.sender_dni = User.dni and receiver_dni = '87654321Z' group by receiver_dni;*/
+SELECT * FROM User WHERE initials like '%G%';
+select * from User;

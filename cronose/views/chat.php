@@ -58,6 +58,25 @@
     // See chats
     showChats();
 
+    // Get reciver ID;
+
+    getId();
+
+    let reciverId;
+
+    function getId() {
+      const url = '/api/user/get/id/'+window.location.pathname.split('/')[3]+'/'+window.location.pathname.split('/')[4];
+      $.ajax({
+        type: 'get',
+        url: url,
+        dataType: 'json',
+        success: (data) => {
+          reciverId = data.user.id;
+          show();
+        }
+      });
+    }
+
     function showChats() {
       const url = '/api/chat';
       $.ajax({
@@ -67,7 +86,6 @@
         data: {},
         success: (data) => {
           if (data.status == 'success') {
-            console.log(data);
             let msg = data.msg;
             htmlLi = '<ul class="list-unstyled chat">';
             $.each (msg, function(key, value) {
@@ -91,26 +109,24 @@
     $('#name').html(window.location.pathname.split('/')[3]);
 
     // Show chat 
-    show();
-
+    
     setInterval(function () {
       show();
       // showChats();
     },1000);
 
     function show() {
-      const url = '/api/chat/<?= $user->name; ?>/'+window.location.pathname.split('/')[3];
+      const url = '/api/chat/<?= $user->id; ?>/'+reciverId;
       $.ajax({
         type: 'get',
         url: url,
         dataType: 'json',
-        data: {},
         success: (data) => {
           if (data.status == 'success') {
             let msg = data.msg;
             html = '<ul class="list-unstyled chat">';
             $.each (msg, function(key, value) {
-              if (value['name'] == window.location.pathname.split('/')[3]) {
+              if (value.sender_id == reciverId) {
                 html += '<div class="card bg-light rounded w-75 z-depth-0 mb-1"><div class="card-body p-2"><p class="card-text black-text"> ' + value['message'] + ' </p></div></div>';
               } else {
                 html += '<div class="card bg-primary rounded w-75 float-right z-depth-0 mb-1"><div class="card-body p-2"><p class="card-text text-white">' + value['message'] + '</p></div></div>';
@@ -137,7 +153,8 @@
     });
 
     function send() {
-      const url = '/api/chat/' + window.location.pathname.split('/')[3] + '/send';
+      const url = '/api/chat/send/<?= $user->id; ?>/' + reciverId;
+      console.log(url);
       const reciver = window.location.pathname.split('/')[3];
       const msg = $('#message').val();
       $.ajax({

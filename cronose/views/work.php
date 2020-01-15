@@ -3,18 +3,19 @@
 <div class="container ">
   <div id="work">
   </div>
-
-  <div class="pt-4 pb-4">
-    <a href="chat">Chat</a>
-  </div>
 </div>
 
 <script>
   $(document).ready(function(){
+    const lang = window.location.pathname.split('/')[1]
+    const initials = window.location.pathname.split('/')[3];
+    const tag = window.location.pathname.split('/')[4];
+    const specialization_id = window.location.pathname.split('/')[5];
+    console.log('/'+lang+'/chat/'+initials+'/'+tag);
 
     showWorks();
 		function showWorks() {
-      const url = '/api/work/'+window.location.pathname.split('/')[3]+'/'+window.location.pathname.split('/')[4]+'/'+window.location.pathname.split('/')[5];
+      const url = '/api/work/'+initials+'/'+tag+'/'+specialization_id;
       $.ajax({
         type: 'get',
         url: url,
@@ -79,7 +80,7 @@
             body+='   <br>';
             body+='   <div class="mb-4 mt-4 "id="MyMap" style="width:350px;height:250px;"></div>';
             body+='   <br>';
-            body+='   <button type="button" class="btn btn-primary btn-lg btn-block">CONTACTAR</button>';
+            body+='   <a href="/'+lang+'/chat/'+initials+'/'+tag+'"><button type="button" class="btn btn-primary btn-lg btn-block" id="chat_btn">CONTACTAR</button>';
             body+=' </div>';
             body+='</div>';
             document.getElementById("work").innerHTML = body;

@@ -25,6 +25,10 @@ class UserModel extends Model {
     return UserDAO::getAllDirections();
   }
 
+  public static function getId($initials, $tag) {
+    return UserDAO::getId($initials, $tag);
+  }
+
   
 
   // private $username;
