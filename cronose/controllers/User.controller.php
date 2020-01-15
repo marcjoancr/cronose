@@ -18,6 +18,33 @@ class UserController {
     ];
   }
 
+  public static function getUserByInitialsAndTag($initials, $tag) {
+    $profile = UserModel::getUserByInitialsAndTag($initials, $tag);
+    // $achievement = AchievementController::getAllByUser($profile['dni']);
+    if ($profile) return [
+      "status" => "success",
+      "profile" => $profile,
+      // "achievement" => $achievement
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "That profile doesn't exists!"
+    ];
+  }
+
+  public static function getUsersByInitials($initials) {
+    $users = UserModel::getUsersByInitials($initials);
+    if ($users) return [
+      "status" => "success",
+      "profile" => $users
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "That profile doesn't exists!"
+    ];
+  }
+
+
   public static function register($user) {
     $profile = UserModel::saveUser($user);
     if ($profile) return [

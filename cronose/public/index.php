@@ -54,6 +54,14 @@ if ($uri[0] == 'api') {
       }
       break;
 
+    case 'user':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
+        if (count($uri) == 3) echo json_encode(UserController::getUsersByInitials($uri[2]));
+        if (count($uri) == 4) echo json_encode(UserController::getUserByInitialsAndTag($uri[2], $uri[3]));
+      }
+      break;
+
     case 'profile':
       if ($method == 'get') {
         if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
@@ -187,6 +195,11 @@ if ($uri[0] == 'api') {
       break;
 
     case 'profile':
+      $title = $lang[$displayLang]['profile'];
+      include '../views/profile.php';
+      break;
+
+    case 'user':
       $title = $lang[$displayLang]['profile'];
       include '../views/profile.php';
       break;
