@@ -38,7 +38,7 @@ insert into Media(extension, url) values ('.jpg','profesor'),('.jpg','fontanero'
 
 INSERT INTO Load_Media (user_dni, specialization_id, media_id) VALUES ('12345678A', '1', '3'), ('12345678A', '2', '4');
 
-INSERT INTO achievement VALUES (1), (2), (3), (4), (5);
+INSERT INTO `achievement` VALUES (),(),(),(),();
 
 
 INSERT INTO `achievement_language` (`language_id`, `achievement_id`, `name`, `description`) VALUES
@@ -57,6 +57,10 @@ INSERT INTO `achievement_language` (`language_id`, `achievement_id`, `name`, `de
 ('es', 3, 'a3', 'Publica una oferta'),
 ('es', 4, 'a4', 'Realiza tu primer trabajo'),
 ('es', 5, 'a5', 'Contrata a alguien');
+
+INSERT INTO `obtain` (`achievement_id`, `user_dni`, `obtained_at`) VALUES
+(1, '12345678A', '2020-01-08'),
+(3, '12345678A', '2020-01-02');
 
 insert into User values ('87654321Z','Anastasia','Guiterrez','Marcos','Anastasi@cgmail.com','202cb962ac59075b964b07152d234b70',0001,0.00,date(now()),0,0,07500,1,1,1);
 

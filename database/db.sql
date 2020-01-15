@@ -108,13 +108,15 @@ create table if not exists DNI_Photo (
 )ENGINE = InnoDB;
 
 create table if not exists User (
-    dni varchar(9) primary key not null,
+    id int auto_increment primary key,
+    dni varchar(9) not null,
     name varchar(45) not null,
     surname varchar(45) not null,
     surname_2 varchar(45),
     email varchar(32) not null,
     password varchar(255) not null,
     tag int(4) not null,
+    initials varchar(5) not null,
     coins double(3,2) default '0.00' not null,
     registration_date date not null,
     points int default 0 not null,
@@ -131,27 +133,27 @@ create table if not exists User (
 
 create table if not exists User_Language (
     language_id varchar(2) not null,
-    user_id varchar(9) not null,
+    user_id int not null,
     foreign key (language_id) references Language(id),
-    foreign key (user_id) references User(dni),
+    foreign key (user_id) references User(id),
     primary key(language_id, user_id)
 )ENGINE = InnoDB;
 
 create table if not exists Blocks (
-    user_blocker_id varchar(9) not null,
-    user_blocked_id varchar(9) not null,
-    foreign key (user_blocker_id) references User(dni),
-    foreign key (user_blocked_id) references User(dni),
+    user_blocker_id int not null,
+    user_blocked_id int not null,
+    foreign key (user_blocker_id) references User(id),
+    foreign key (user_blocked_id) references User(id),
     primary key(user_blocker_id, user_blocked_id)
 )ENGINE = InnoDB;
 
 create table if not exists Message (
-    sender_dni varchar(9) not null,
-    receiver_dni varchar(9) not null,
+    sender_id int not null,
+    receiver_id int not null,
     sended_date timestamp not null unique,
     message varchar(400) not null,
-    foreign key (sender_id) references User(dni),
-    foreign key (receiver_id) references User(dni),
+    foreign key (sender_id) references User(id),
+    foreign key (receiver_id) references User(id),
     primary key(sender_id, receiver_id, sended_date)
 )ENGINE = InnoDB;
 
@@ -222,10 +224,10 @@ create table if not exists Achievement_Language (
 
 create table if not exists Obtain (
     achievement_id int not null auto_increment primary key,
-    user_dni varchar(9) not null,
+    user_id int not null,
     obtained_at date not null,
     foreign key (achievement_id) references Achievement(id),
-    foreign key (user_dni) references User(dni)
+    foreign key (user_id) references User(id)
 )ENGINE = InnoDB;
 
 create table if not exists Veteranity (
@@ -245,56 +247,56 @@ create table if not exists Veteranity_Language(
 
 create table if not exists Change_Veteranity (
     veteranity_level int not null,
-    user_dni varchar(9) not null,
+    user_id int not null,
     changed_at date not null,
     foreign key (veteranity_level) references Veteranity(level),
-    foreign key (user_dni) references User(dni),
-    primary key (veteranity_level, user_dni)
+    foreign key (user_id) references User(id),
+    primary key (veteranity_level, user_id)
 )ENGINE = InnoDB;
 
 create table if not exists Offer (
-    user_dni varchar(9) not null,
+    user_id int not null,
     specialization_id int not null,
     valoration_avg int(3) default 0 not null,
     personal_valoration int(3) default 0 not null,
     coin_price double(2,1) not null,
     offered_at date not null,
     visibility boolean default true not null,
-    foreign key (user_dni) references User(dni),
+    foreign key (user_id) references User(id),
     foreign key (specialization_id) references Specialization(id),
-    primary key (user_dni, specialization_id)
+    primary key (user_id, specialization_id)
 )ENGINE = InnoDB;
 
 create table if not exists Offer_Language(
     language_id varchar(2) not null,
-    user_dni varchar(9) not null,
+    user_id int not null,
     specialization_id int not null,
     title varchar(45) not null,
     description varchar(255) not null,
     foreign key (language_id) references Language(id),
-    foreign key (user_dni) references Offer(user_dni),
+    foreign key (user_id) references Offer(user_id),
     foreign key (specialization_id) references Offer(specialization_id),
-    primary key(language_id, user_dni, specialization_id)
+    primary key(language_id, user_id, specialization_id)
 )ENGINE = InnoDB;
 
 create table if not exists Promotes (
-    user_dni varchar(9) not null,
+    user_id int not null,
     specialization_id int not null,
     starting_date timestamp not null unique,
     ending_date datetime,
-    foreign key (user_dni) references User(dni),
+    foreign key (user_id) references User(id),
     foreign key (specialization_id) references Specialization(id),
-    primary key (user_dni, specialization_id, starting_date)
+    primary key (user_id, specialization_id, starting_date)
 )ENGINE = InnoDB;
 
 create table if not exists Load_Media (
-    user_dni varchar(9) not null,
+    user_id int not null,
     specialization_id int not null,
     media_id int not null,
-    foreign key (user_dni) references User(dni),
+    foreign key (user_id) references User(id),
     foreign key (specialization_id) references Specialization(id),
     foreign key (media_id) references Media(id),
-    primary key (user_dni, specialization_id, media_id)
+    primary key (user_id, specialization_id, media_id)
 )ENGINE = InnoDB;
 
 create table if not exists QR_Code (
@@ -304,14 +306,14 @@ create table if not exists QR_Code (
 )ENGINE = InnoDB;
 
 create table if not exists Demands (
-    client_dni varchar(9) not null,
-    worker_dni varchar(9) not null,
+    client_id int not null,
+    worker_id int not null,
     specialization_id int not null,
     demanded_at timestamp not null unique,
-    foreign key (client_dni) references User(dni),
-    foreign key (worker_dni) references Offer(user_dni),
+    foreign key (client_id) references User(id),
+    foreign key (worker_id) references Offer(user_id),
     foreign key (specialization_id) references Offer(specialization_id),
-    primary key (client_dni, worker_dni, specialization_id, demanded_at)
+    primary key (client_id, worker_id, specialization_id, demanded_at)
 )ENGINE = InnoDB;
 
 
@@ -321,21 +323,21 @@ create table if not exists Card (
     work_date datetime not null,
     qr_code_id int,
     cancelation_policy_id int not null,
-    client_dni varchar(9) not null,
-    worker_dni varchar(9) not null,
+    client_id int not null,
+    worker_id int not null,
     specialization_id int not null,
     demand_date timestamp not null unique,
     foreign key (qr_code_id) references QR_Code(id),
     foreign key (cancelation_policy_id) references Cancelation_Policy(id),
-    foreign key (client_dni) references Demands(client_dni),
-    foreign key (worker_dni) references Demands(worker_dni),
+    foreign key (client_id) references Demands(client_id),
+    foreign key (worker_id) references Demands(worker_id),
     foreign key (specialization_id) references Demands(specialization_id),
     foreign key (demand_date) references Demands(demanded_at)
 )ENGINE = InnoDB;
 
 
 create table if not exists Auction (
-    user_dni varchar(9) not null,
+    user_id int not null,
     specialization_id int not null,
     auctioned_at timestamp not null unique,
     valoration_avg int default 0 not null,
@@ -344,39 +346,39 @@ create table if not exists Auction (
     work_date date not null,
     cancelation_policy_id int not null,
     card_id int not null,
-    foreign key (user_dni) references User(dni),
+    foreign key (user_id) references User(id),
     foreign key (specialization_id) references Specialization(id),
     foreign key (cancelation_policy_id) references Cancelation_Policy(id),
     foreign key (card_id) references Card(id),
-    primary key (user_dni, specialization_id, auctioned_at)
+    primary key (user_id, specialization_id, auctioned_at)
 )ENGINE = InnoDB;
 
 create table if not exists Auction_Language (
     language_id varchar(2) not null,
-    user_dni varchar(9) not null,
+    user_id int not null,
     specialization_id int not null,
     auctioned_at timestamp not null unique,
     title varchar(45) not null,
     description varchar(255) not null,
     foreign key (language_id) references Language(id),
-    foreign key (user_dni) references Auction(user_dni),
+    foreign key (user_id) references Auction(user_id),
     foreign key (specialization_id) references Auction(specialization_id),
     foreign key (auctioned_at) references Auction(auctioned_at),
-    primary key(language_id, user_dni, specialization_id, auctioned_at)
+    primary key(language_id, user_id, specialization_id, auctioned_at)
 )ENGINE = InnoDB;
 
 create table if not exists Pushes (
     coin_pushed double(3,2) not null,
     date_pushed timestamp not null unique,
-    pusher_id varchar(9) not null,
-    user_dni varchar(9) not null,
+    pusher_id int not null,
+    user_id int not null,
     specialization_id int not null,
     auction_date timestamp not null unique,
-    foreign key (pusher_id) references User(dni),
-    foreign key (user_dni) references Auction(user_dni),
+    foreign key (pusher_id) references User(id),
+    foreign key (user_id) references Auction(user_id),
     foreign key (specialization_id) references Auction(specialization_id),
     foreign key (auction_date) references Auction(auctioned_at),
-    primary key(pusher_id, user_dni, specialization_id, auction_date, date_pushed)
+    primary key(pusher_id, user_id, specialization_id, auction_date, date_pushed)
 )ENGINE = InnoDB;
 
 create table if not exists Valoration_Label (
