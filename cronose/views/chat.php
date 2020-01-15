@@ -10,6 +10,12 @@
 </style>
 <h1>Chat</h1>
 
+<h4>Users:</h4>
+<div id="chats">
+  
+</div>
+
+
 <div class="container mt-5">
   <div class="row justify-content-center w-100 ">
     <div class="col-md-8 mb-4">
@@ -21,7 +27,7 @@
             </div>
             <div class="data">
               <p class="name mb-0"><strong id="name"></strong></p>
-              <p class="activity text-muted mb-0">Active now</p>
+              <p class="activity text-muted mb-0"><!-- Active now --></p>
             </div>
           </div>
         </div>
@@ -49,6 +55,38 @@
 
   $(document).ready(function(){
 
+    // See chats
+    showChats();
+
+    function showChats() {
+      const url = '/api/chat';
+      $.ajax({
+        type: 'get',
+        url: url,
+        dataType: 'json',
+        data: {},
+        success: (data) => {
+          if (data.status == 'success') {
+            console.log(data);
+            let msg = data.msg;
+            htmlLi = '<ul class="list-unstyled chat">';
+            $.each (msg, function(key, value) {
+              htmlLi += '<a href="/' + window.location.pathname.split('/')[1] + '/chat/' + value['name']  + '" title=""><strong>' + value['name'] + ':</strong> ' + value['message'] + ' <small>' + value['sended_date'] + '</small></a>';
+            
+            });
+            htmlLi += "</ul>"
+            document.getElementById("chats").innerHTML = htmlLi;
+            scrollDownChat();
+          };
+        },
+        error: ((data) => {
+          console.log(data)
+        })
+      });
+    };
+
+
+
     // Set title name
     $('#name').html(window.location.pathname.split('/')[3]);
 
@@ -57,11 +95,11 @@
 
     setInterval(function () {
       show();
+      // showChats();
     },1000);
 
     function show() {
       const url = '/api/chat/<?= $user->name; ?>/'+window.location.pathname.split('/')[3];
-      const msg = $('#message').val();
       $.ajax({
         type: 'get',
         url: url,
@@ -70,22 +108,19 @@
         success: (data) => {
           if (data.status == 'success') {
             let msg = data.msg;
-            htmlLi = '<ul class="list-unstyled chat">';
+            html = '<ul class="list-unstyled chat">';
             $.each (msg, function(key, value) {
               if (value['name'] == window.location.pathname.split('/')[3]) {
-                htmlLi += '<div class="card bg-light rounded w-75 z-depth-0 mb-1"><div class="card-body p-2"><p class="card-text black-text"> ' + value['message'] + ' </p></div></div>';
+                html += '<div class="card bg-light rounded w-75 z-depth-0 mb-1"><div class="card-body p-2"><p class="card-text black-text"> ' + value['message'] + ' </p></div></div>';
               } else {
-                htmlLi += '<div class="card bg-primary rounded w-75 float-right z-depth-0 mb-1"><div class="card-body p-2"><p class="card-text text-white">' + value['message'] + '</p></div></div>';
+                html += '<div class="card bg-primary rounded w-75 float-right z-depth-0 mb-1"><div class="card-body p-2"><p class="card-text text-white">' + value['message'] + '</p></div></div>';
               }
             });
-            htmlLi += "</ul>"
-            document.getElementById("chat").innerHTML = htmlLi;
+            html += "</ul>"
+            document.getElementById("chat").innerHTML = html;
             scrollDownChat();
           };
-        },
-        error: ((data) => {
-          console.log(data)
-        })
+        }
       });
     };
 
@@ -98,7 +133,6 @@
     });
 
     $('#send-btn').click(() => {
-      console.log($.trim($('#message').val()));
       if (!$.trim($('#message').val()) == "") send();
     });
 

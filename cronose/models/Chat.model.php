@@ -13,4 +13,8 @@ class ChatModel extends Model {
     return ChatDAO::sendMSG($sender, $reciver, $msg);
   }
 
+	public static function showChats($reciver) {
+    return ChatDAO::showChats($reciver);
+  }
+
 }
