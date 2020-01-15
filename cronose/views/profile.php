@@ -12,13 +12,16 @@
 
     function showProfile() {
 
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          var status = JSON.parse(this.responseText)['status'];
-          if (status == "success") {
-            let profile = JSON.parse(this.responseText)['profile'];
-            let achievements = JSON.parse(this.responseText)['achievement'];
+      $.ajax({
+        type: 'get',
+        url: url,
+        dataType: 'json',
+        data: {},
+        success: (data) => {
+          console.log(data);
+          if (data.status == 'success') {
+            let profile = data.profile;
+            let achievements = data.achievement;
 
             let rowDIV = $("<div/>",{class:"row",});
 
@@ -36,47 +39,65 @@
 
             cardP.append(cardEmailTitle, cardEmail, $("<br/>"), cardCoinsTitle, cardCoins, $("<br/>"), cardPointsTitle, cardPoints);
             cardBody.append(cardName, cardP);
+            
+
+            let array = [];
+
+            for (let x = 0; x < 5 ; x++){
+              array[x] = ( achievements[x] != null ) ? achievements[x].achievement_id : null;
+            }
+
+
+            let i = 0;
+            let newDIV2 = $("<div/>",{class:'row h-10'});
+            for (let x = 1; x <= 5 ; x++){
+              let newDIV3 = $("<div/>",{class: 'col'});
+              let photo = "/assets/img/a"+x;
+
+              if ( x == 1 || x == 5)
+                photo = photo + ".svg";
+              else
+                photo = photo + ".png";
+
+              //comprobar si el logro está en el array haga newIMG normal, si no está que la cree con class: 'opacity-30'
+              
+              if( array[i] == x ){
+                var newIMG = $("<img/>",{src:photo, alt:photo, class: 'w-100'});
+                i++;
+              }else{
+                var newIMG = $("<img/>",{src:photo, alt:photo, class: 'w-100 opacity'});
+              }
+              
+              newDIV3.append(newIMG);
+              newDIV2.append(newDIV3);
+            }
+            cardBody.append(newDIV2);
             $("#profile").append(cardBody);
-
-            // let array = [];
-
-            // for (let x = 0; x < 5 ; x++){
-            //   array[x] = ( achievements[x] != null ) ? achievements[x].achievement_id : null;
-            //   console.log(array[x]);
-            // }
-
-            //   for (let x = 0; x < 5 ; x++){
-            //     let newDIV = $("<div/>");
-            //     let foto = "../public/assets/img/a"+x;
-
-            //     if ( x == 1 || x == 5)
-            //       foto = foto + ".svg";
-            //     else
-            //       foto = foto + ".png";
-
-            //     var newIMG = $("<img/>",{src:foto, alt:foto})
-            //     newDIV.append(newIMG);
-            //   }
-
-            //   //let achievement =
 
             if (window.location.pathname.split('/')[3] && window.location.pathname.split('/')[3] != '<?=$user->name;?>') {
               cardP.append($("<br/><a href='/" + window.location.pathname.split('/')[1] + "/chat/"+ window.location.pathname.split('/')[3] + "'>Chat</a>"))
-              cardBody.append(cardName, cardP);
+              cardBody.append(cardName, cardP, newDIV);
+              console.log(newDIV);
 
               console.log(window.location.pathname.split('/')[3]);
 
               $("#profile").append(cardBody);
 
             } else {
-              $("#profile").html(JSON.parse(this.responseText)['msg']);
+              $("#profile").html(data.msg);
             }
+          } else {
+              $("#profile").html(data.msg);
+              console.log(data.msg);
+              console.log(data);
           }
-        };
-      };
-      xhttp.open("GET", url, true);
-      xhttp.send();
-    };
+        },
+        error: ((data) => {
+          console.log(data);
+
+        })
+      });
+    }
   });
 </script>
 

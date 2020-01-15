@@ -14,13 +14,14 @@
 
     showWorks();
 		function showWorks() {
-      const url = (window.location.pathname.split('/')[3]) ? '/api/work/'+window.location.pathname.split('/')[3]+'/'+window.location.pathname.split('/')[4]+'/'+window.location.pathname.split('/')[5]: '/api/myWork' ;
+      const url = (window.location.pathname.split('/')[3]) ? '/api/work/'+window.location.pathname.split('/')[3]+'/'+window.location.pathname.split('/')[4]+'/'+window.location.pathname.split('/')[5]: '/api/work' ;
       $.ajax({
         type: 'get',
         url: url,
         dataType: 'json',
         data: {},
         success: (data) => {
+          console.log(data);
           if (data.status == 'success') {
           	console.log(data.offers);
             let body =  "";

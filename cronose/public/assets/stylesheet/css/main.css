@@ -61,3 +61,7 @@ hr {/*BARRA HORIZONTAL */
 #vericalNav{
   background-color: #242633;
 }
+
+.opacity{
+  opacity: .3;
+}
