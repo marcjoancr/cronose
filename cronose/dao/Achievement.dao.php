@@ -39,8 +39,8 @@ class AchievementDAO extends DAO {
     return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public static function getAllByUser($dni) {
-    $sql = "SELECT * FROM obtain WHERE user_dni = '" . $dni . "';";
+  public static function getAllByUser($id) {
+    $sql = "SELECT * FROM obtain WHERE user_id = " . $id . ";";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);

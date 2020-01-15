@@ -25,6 +25,8 @@ class UserModel extends Model {
     return UserDAO::getAllDirections();
   }
 
+  
+
   // private $username;
   // private $email;
   // private $password;

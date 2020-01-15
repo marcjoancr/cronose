@@ -14,8 +14,8 @@ class AchievementController {
     return $achievements;
   }
 
-  public static function getAllByUser($dni) {
-  	$achievements = AchievementModel::getAllByUser($dni);
+  public static function getAllByUser($id) {
+  	$achievements = AchievementModel::getAllByUser($id);
     return $achievements;
   }
 

@@ -30,7 +30,7 @@ class AchievementModel extends Model {
     return AchievementDAO::getByLang($lang);
   }
 
-  public static function getAllByUser($dni) {
-    return AchievementDAO::getAllByUser($dni);
+  public static function getAllByUser($id) {
+    return AchievementDAO::getAllByUser($id);
   }
 }

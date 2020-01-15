@@ -22,11 +22,11 @@ class UserController {
 
   public static function getUserByInitialsAndTag($initials, $tag) {
     $profile = UserModel::getUserByInitialsAndTag($initials, $tag);
-    // $achievement = AchievementController::getAllByUser($profile['dni']);
+    $achievement = AchievementController::getAllByUser($profile['id']);
     if ($profile) return [
       "status" => "success",
       "profile" => $profile,
-      // "achievement" => $achievement
+      "achievement" => $achievement
     ];
     else return [
       "status" => "error",
