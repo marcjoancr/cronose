@@ -50,7 +50,7 @@ class UserController {
     $users = UserModel::getUsersByInitials($initials);
     if ($users) return [
       "status" => "success",
-      "profile" => $users
+      "users" => $users
     ];
     else return [
       "status" => "error",

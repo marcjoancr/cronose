@@ -62,6 +62,7 @@
 
     // See chats
     showChats();
+    scrollDownChat();
 
     // Get reciver ID;
 
@@ -98,7 +99,6 @@
             });
             htmlLi += "</ul>"
             document.getElementById("chats").innerHTML = htmlLi;
-            scrollDownChat();
           };
         },
         error: ((data) => {
@@ -120,6 +120,8 @@
       showChats();
     },1000);
 
+    let lastMsg;
+
     function show() {
       const url = '/api/chat/<?= $user->id; ?>/'+reciverId;
       $.ajax({
@@ -129,6 +131,7 @@
         success: (data) => {
           if (data.status == 'success') {
             let msg = data.msg;
+            let auxLastMsg;
             html = '<ul class="list-unstyled chat">';
             $.each (msg, function(key, value) {
               if (value.sender_id == reciverId) {
@@ -136,11 +139,14 @@
               } else {
                 html += '<div class="card bg-primary rounded w-75 float-right z-depth-0 mb-1"><div class="card-body p-2"><p class="card-text text-white">' + value['message'] + '</p></div></div>';
               }
+              auxLastMsg = value.sended_date;
             });
             html += "</ul>"
-
             document.getElementById("chat").innerHTML = html;
-            scrollDownChat();
+            if (auxLastMsg != lastMsg) {
+              lastMsg = auxLastMsg;
+              scrollDownChat();
+            }
           };
         }
       });

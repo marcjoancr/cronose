@@ -1,17 +1,14 @@
 <?php require 'layouts/head.php'; ?>
 
-<h1>Profile</h1>
+<h1 id="title"></h1>
 <div id="profile"></div>
 
 <script>
   $(document).ready(function(){
 
-    const url = (window.location.pathname.split('/')[3] || window.location.pathname.split('/')[2] != 'profile') ? '/api/user/'+window.location.pathname.split('/')[3] + '/' + +window.location.pathname.split('/')[4] : '/api/user' ;
-    console.log(url);
-
     showProfile();
-
     function showProfile() {
+      const url = (window.location.pathname.split('/')[3] || window.location.pathname.split('/')[2] != 'profile') ? '/api/user/'+window.location.pathname.split('/')[3] + '/' + +window.location.pathname.split('/')[4] : '/api/user' ;
 
       $.ajax({
         type: 'get',
@@ -40,7 +37,6 @@
 
             cardP.append(cardEmailTitle, cardEmail, $("<br/>"), cardCoinsTitle, cardCoins, $("<br/>"), cardPointsTitle, cardPoints);
             cardBody.append(cardName, cardP);
-            
 
             let array = [];
 
@@ -74,13 +70,11 @@
             }
             cardBody.append(newDIV2);
             $("#profile").append(cardBody);
+            $("#title").append('Profile');
 
             if (window.location.pathname.split('/')[3] && window.location.pathname.split('/')[3] != '<?=$user->name;?>') {
-              cardP.append($("<br/><a href='/" + window.location.pathname.split('/')[1] + "/chat/"+ window.location.pathname.split('/')[3] + "'>Chat</a>"))
-              cardBody.append(cardName, cardP, newDIV);
-              console.log(newDIV);
-
-              console.log(window.location.pathname.split('/')[3]);
+              cardP.append($("<br/><a href='/" + window.location.pathname.split('/')[1] + "/chat/"+ window.location.pathname.split('/')[3] + "/" + window.location.pathname.split('/')[4] +"'>Chat</a>"))
+              cardBody.append(cardName, cardP/*, newDIV*/);
 
               $("#profile").append(cardBody);
 
@@ -88,9 +82,37 @@
               $("#profile").html(data.msg);
             }
           } else {
-              $("#profile").html(data.msg);
-              console.log(data.msg);
-              console.log(data);
+            // $("#profile").html(data.msg);
+            showUsers();
+          }
+        },
+        error: ((data) => {
+          console.log(data);
+        })
+      });
+    };
+
+    function showUsers() {
+      const url = (window.location.pathname.split('/')[2] != 'profile') ? '/api/user/'+window.location.pathname.split('/')[3] : '/api/user' ;
+      $.ajax({
+        type: 'get',
+        url: url,
+        dataType: 'json',
+        data: {},
+        success: (data) => {
+          console.log(data);
+          if (data.status == 'success') {
+          
+            $('#title').append('Users');
+            htmlLi = '<ul class="list-unstyled">';
+            $.each (data.users, function(key, value) {
+              console.log(value.name);
+              htmlLi += '<a href="/' + window.location.pathname.split('/')[1] + '/user/' + value.initials  + '/'+ value.tag + '" title=""><strong>' + value.name + ' ' + value.surname + '</strong></a></br>';
+            });
+            htmlLi += "</ul>"
+            document.getElementById("profile").innerHTML = htmlLi;
+            // $('profile').append(htmlLi);
+
           }
         },
         error: ((data) => {
@@ -99,6 +121,9 @@
         })
       });
     }
+
+
+
   });
 </script>
 
