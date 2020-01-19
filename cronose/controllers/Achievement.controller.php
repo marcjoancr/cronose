@@ -19,4 +19,9 @@ class AchievementController {
     return $achievements;
   }
 
+  public static function getDescription($lang) {
+    $achievements = AchievementModel::getDescription($lang);
+    return $achievements;
+  }
+
 }

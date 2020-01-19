@@ -13,7 +13,6 @@
 <div id="profile"></div>
 
 
-
 <script>
   $(document).ready(function(){
 
@@ -57,25 +56,51 @@
               array[x] = ( achievements[x] != null ) ? achievements[x].achievement_id : null;
             }
 
+            let description;
+            $.ajax({
+              type: 'get',
+              url: "/api/achievements/description",
+              dataType: 'json',
+              data: {},
+              async: false,
+              success: function (data) {
+                description = data;
+              }
+            });
+
 
             let i = 0;
-            let newDIV2 = $("<div/>",{class:'row h-10'});
+            let newDIV2 = $("<div/>",{class:'row h-10 col-5'});
+
             for (let x = 1; x <= 5 ; x++){
-              let newDIV3 = $("<div/>",{class: 'col'});
+              let newDIV3 = $("<div/>",{class: 'col p-0'});
               let photo = "/assets/img/a"+x;
 
               if ( x == 1 || x == 5)
                 photo = photo + ".svg";
               else
                 photo = photo + ".png";
-
-              //comprobar si el logro está en el array haga newIMG normal, si no está que la cree con class: 'opacity-30'
               
               if( array[i] == x ){
-                var newIMG = $("<img/>",{src:photo, alt:photo, class: 'w-100'});
+                var newIMG = $("<img/>", {
+                  src:photo, 
+                  alt:photo, 
+                  class: 'w-100', 
+                  'data-toggle':'tooltip', 
+                  'data-placement':'top',
+                  title:description[x-1].description
+                });
+
                 i++;
               }else{
-                var newIMG = $("<img/>",{src:photo, alt:photo, class: 'w-100 opacity'});
+                var newIMG = $("<img/>",{
+                  src:photo, 
+                  alt:photo, 
+                  class: 'w-100 opacity',
+                  'data-toggle':'tooltip', 
+                  'data-placement':'top',
+                  title:description[x-1].description
+                });
               }
               
               newDIV3.append(newIMG);
@@ -94,10 +119,13 @@
             } else {
               $("#profile").html(data.msg);
             }
+
           } else {
             // $("#profile").html(data.msg);
             showUsers();
           }
+
+          $('[data-toggle="tooltip"]').tooltip();
         }
       });
     };

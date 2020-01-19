@@ -67,10 +67,7 @@ INSERT INTO `achievement_language` (`language_id`, `achievement_id`, `name`, `de
 ('es', 4, 'a4', 'Realiza tu primer trabajo'),
 ('es', 5, 'a5', 'Contrata a alguien');
 
-INSERT INTO `obtain` (`achievement_id`, `user_dni`, `obtained_at`) VALUES
-(1, '12345678A', '2020-01-08'),
-(3, '12345678A', '2020-01-02');
-
-insert into User values ('87654321Z','Anastasia','Guiterrez','Marcos','Anastasi@cgmail.com','202cb962ac59075b964b07152d234b70',0001,0.00,date(now()),0,0,07500,1,1,1);
-
+INSERT INTO `obtain` (`achievement_id`, `user_id`, `obtained_at`) VALUES
+(1, '1', '2020-01-08'),
+(3, '1', '2020-01-02');
 

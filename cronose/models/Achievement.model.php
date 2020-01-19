@@ -33,4 +33,8 @@ class AchievementModel extends Model {
   public static function getAllByUser($id) {
     return AchievementDAO::getAllByUser($id);
   }
+
+  public static function getDescription($lang) {
+    return AchievementDAO::getDescription($lang);
+  }
 }

@@ -110,6 +110,12 @@ if ($uri[0] == 'api') {
       }
       break;
 
+    case 'achievements':
+      if ($uri[2] == 'description') {
+        echo json_encode(AchievementController::getDescription($displayLang));
+      }
+      break;
+
     default:
       echo "Nothing";
       break;
