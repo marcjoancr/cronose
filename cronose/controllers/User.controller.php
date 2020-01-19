@@ -46,8 +46,8 @@ class UserController {
     ];
   }
 
-  public static function getUsersByInitials($initials) {
-    $users = UserModel::getUsersByInitials($initials);
+  public static function getUsersBySearch($text) {
+    $users = UserModel::getUsersBySearch($text);
     if ($users) return [
       "status" => "success",
       "users" => $users

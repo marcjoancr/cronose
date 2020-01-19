@@ -32,9 +32,8 @@ class UserDAO extends DAO {
     return $statement->fetch(PDO::FETCH_ASSOC);
   }
 
-  public static function getUsersByInitials($initials) {
-    $sql = "SELECT * FROM User WHERE initials LIKE '%${initials}%';";
-    // return $sql;
+  public static function getUsersBySearch($text) {
+    $sql = "SELECT * FROM User WHERE initials LIKE '%${text}%' or tag LIKE '%${text}%' or name LIKE '%${text}%' or surname LIKE '%${text}%';";
     $statement = self::$DB->prepare($sql);
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);

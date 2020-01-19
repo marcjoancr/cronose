@@ -1,12 +1,24 @@
 <?php require 'layouts/head.php'; ?>
 
 <h1 id="title"></h1>
+
+
+<div class="input-group" id="search">
+  <span class="input-group-btn">
+    <button class="btn btn-secondary" type="button"><i class="fas fa-search"></i></button>
+  </span>
+  <input id="in-serch" type="text" class="form-control">
+</div>
+
 <div id="profile"></div>
+
+
 
 <script>
   $(document).ready(function(){
 
     showProfile();
+
     function showProfile() {
       const url = (window.location.pathname.split('/')[3] || window.location.pathname.split('/')[2] != 'profile') ? '/api/user/'+window.location.pathname.split('/')[3] + '/' + +window.location.pathname.split('/')[4] : '/api/user' ;
 
@@ -16,8 +28,9 @@
         dataType: 'json',
         data: {},
         success: (data) => {
-          console.log(data);
           if (data.status == 'success') {
+            $('#search').hide();
+
             let profile = data.profile;
             let achievements = data.achievement;
 
@@ -85,44 +98,46 @@
             // $("#profile").html(data.msg);
             showUsers();
           }
-        },
-        error: ((data) => {
-          console.log(data);
-        })
+        }
       });
     };
 
     function showUsers() {
-      const url = (window.location.pathname.split('/')[2] != 'profile') ? '/api/user/'+window.location.pathname.split('/')[3] : '/api/user' ;
+      
+      $('#in-serch').val(window.location.pathname.split('/')[3]);
+      $('#title').append('Users');
+
+      ajaxShowUsers();
+
+    }
+
+    function ajaxShowUsers() {
+      const url = (window.location.pathname.split('/')[2] != 'profile') ? '/api/user/'+$('#in-serch').val() : '/api/user' ;
       $.ajax({
         type: 'get',
         url: url,
         dataType: 'json',
         data: {},
         success: (data) => {
-          console.log(data);
           if (data.status == 'success') {
           
-            $('#title').append('Users');
             htmlLi = '<ul class="list-unstyled">';
             $.each (data.users, function(key, value) {
-              console.log(value.name);
-              htmlLi += '<a href="/' + window.location.pathname.split('/')[1] + '/user/' + value.initials  + '/'+ value.tag + '" title=""><strong>' + value.name + ' ' + value.surname + '</strong></a></br>';
+              htmlLi += '<a href="/' + window.location.pathname.split('/')[1] + '/user/' + value.initials  + '/'+ value.tag + '" title=""><strong>' + value.initials + '</strong><small># ' + value.tag + ' ' + value.name + ' ' + value.surname +'</small></a></br>';
             });
             htmlLi += "</ul>"
             document.getElementById("profile").innerHTML = htmlLi;
-            // $('profile').append(htmlLi);
 
+          } else {
+            document.getElementById("profile").innerHTML = '';
           }
-        },
-        error: ((data) => {
-          console.log(data);
-
-        })
+        }
       });
     }
 
-
+    $('#in-serch').on('input',function(e){
+      ajaxShowUsers();
+    });
 
   });
 </script>

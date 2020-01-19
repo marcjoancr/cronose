@@ -13,8 +13,8 @@ class UserModel extends Model {
     return UserDAO::getUserByInitialsAndTag($initials, $tag);
   }
 
-  public static function getUsersByInitials($initials) {
-    return UserDAO::getUsersByInitials($initials);
+  public static function getUsersBySearch($text) {
+    return UserDAO::getUsersBySearch($text);
   }
 
   public static function saveUser($user) {
