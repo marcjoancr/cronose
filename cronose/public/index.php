@@ -8,6 +8,8 @@ require_once '../controllers/User.controller.php';
 require_once '../controllers/Chat.controller.php';
 require_once '../controllers/Achievement.controller.php';
 require_once '../controllers/Category.controller.php';
+require_once '../controllers/Province.controller.php';
+require_once '../controllers/City.controller.php';
 
 // DAO
 require_once '../dao/DAO.php';
@@ -40,6 +42,20 @@ if ($uri[0] == 'api') {
 
     case 'categories':
       echo json_encode(CategoryController::getAllByLang($displayLang));
+      break;
+
+    case 'provinces':
+      echo json_encode(ProvinceController::getAll());
+      break;
+
+    case 'cities':
+      if ($method == 'get') {
+        if (isset($uri[2]) && preg_match("/^province/", $uri[2], $match)) {
+          echo json_encode(CityController::getByProvinceId($_GET['province_id']));
+        } else {
+          echo json_encode(CityController::getAll());
+        }
+      }
       break;
 
     case 'register':

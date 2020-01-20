@@ -47,6 +47,20 @@
               <input id="c_password" type="password" class="form-control" name="c_password" required>
             </div>
             <div class="form-group">
+              <label for="province"><?=$lang[$displayLang]['province'];?></label>
+              <select name="province_id" id="province"></select>
+            </div>
+            <div class="form-group">
+              <label for="city"><?=$lang[$displayLang]['city'];?></label>
+              <select name="city_cp" id="city"></select>
+            </div>
+            <div class="form-group">
+              <input id="dni_photo" type="hidden" class="form-control" name="dni_photo_id" value="1">
+            </div>
+            <div class="form-group">
+              <input id="avatar" type="hidden" class="form-control" name="avatar_id" value="1">
+            </div>
+            <div class="form-group">
               <div class="custom-checkbox custom-control">
                 <input id="private" type="checkbox" name="private" class="custom-control-input">
                 <label for="private" class="custom-control-label"><?=$lang[$displayLang]['private'];?></label>
@@ -68,6 +82,45 @@
 
   $(document).ready(function(){
     $('#errorAlert').hide();
+
+    // Load select fields
+    function renderProvinces() {
+      const url = '/api/provinces';
+      $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'json',
+        success: function(response) {
+          if (response) {
+            response.forEach(province => {
+              $('#province').append(`<option value="${province.id}">${province.name}</option>`);
+            });
+            renderCities(response[0].id);
+          }
+        }
+      });
+    }
+    function renderCities(province) {
+      const url = '/api/cities/province';
+      $.ajax({
+        type: 'GET',
+        url: url,
+        data: { 'province_id' : province },
+        dataType: 'json',
+        success: function(response) {
+          $('#city').empty();
+          if (response) {
+            response.forEach(city => {
+              $('#city').append(`<option value="${city.cp}">${city.name}</option>`);
+            });
+          }
+        }
+      });
+    }
+    renderProvinces();
+    $('#province').on('change', function() {
+      renderCities($(this).find(":selected").val());
+    });
 
     //Validate
     let dni, name, surname, email, password, c_password, private;
@@ -132,7 +185,7 @@
         type: 'POST',
         url: '/api/login',
         dataType: 'json',
-        data: { name, password },
+        data: { 'username' : name, password },
         success: (data) => {
           if (data.status == 'success') window.location.href = '/<?= $displayLang; ?>/market';
         },

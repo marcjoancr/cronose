@@ -429,5 +429,3 @@ create table if not exists Client_Valoration (
     foreign key (comment_id) references Comment(id),
     primary key (valoration_id,card_id)
 )ENGINE = InnoDB;
-
-
