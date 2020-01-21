@@ -3,4 +3,4 @@
 <h1>Published!</h1>
 
 
-<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
+<?php require '../views/layouts/footer.php';?>

@@ -1,58 +1,68 @@
 <?php
 
 require_once 'Model.php';
+require_once '../dao/User.dao.php';
 
 class UserModel extends Model {
 
-    private $username;
-    private $email;
-    private $password;
-    private $valid = false;
-
-    public function __construct($username, $password, $email = '') {
-        $this->username = $username;
-        $this->password = $password;
-        $this->valid = UserController::isValid($this);
-        if ($this->valid) {
-            // $this->email = DB::getEmailByUsername($this->username);
-        } else {
-            // $this->email = $email;
-        }
-    }
-
-    public function isValid() {
-        return $this->valid;
-    }
-    public function validate() {
-        $this->valid = UserController::isValid($this);
-    }
-
-    public function getUsername() {
-        return $this->username;
-    }
-    public function getEmail() {
-        return $this->email;
-    }
-    public function getPassword() {
-        return $this->password;
-    }
-
-  public static function getById($dni) {
-    return self::getUsernameByDNI($dni);
-  }
-
   public static function getUserByUsername($username) {
-    $sql = "SELECT * FROM User WHERE name = '" . $username . "';";
-    $statement = self::$DB->prepare($sql);
-    $statement->execute();
-    return $statement->fetch(PDO::FETCH_ASSOC);
+    return UserDAO::getUserByUsername($username);
   }
 
-  public static function getUsernameByDNI($dni) {
-    $sql = "SELECT name FROM User WHERE dni = '" . $dni . "';";
-    $statement = self::$DB->prepare($sql);
-    $statement->execute();
-    return  $statement->fetchAll()[0];
+  public static function getUserByInitialsAndTag($initials, $tag) {
+    return UserDAO::getUserByInitialsAndTag($initials, $tag);
   }
+
+  public static function getUsersBySearch($text) {
+    return UserDAO::getUsersBySearch($text);
+  }
+
+  public static function saveUser($user) {
+    return UserDAO::saveUser($user);
+  }
+
+  public static function getAllDirections() {
+    return UserDAO::getAllDirections();
+  }
+
+  public static function getId($initials, $tag) {
+    return UserDAO::getId($initials, $tag);
+  }
+
+  
+
+  // private $username;
+  // private $email;
+  // private $password;
+  // private $valid = false;
+
+  // public function __construct($username, $password, $email = '') {
+  //     $this->username = $username;
+  //     $this->password = $password;
+  //     $this->valid = UserController::isValid($this);
+  //     if ($this->valid) {
+  //         // $this->email = DB::getEmailByUsername($this->username);
+  //     } else {
+  //         // $this->email = $email;
+  //     }
+  // }
+
+  // public function isValid() {
+  //     return $this->valid;
+  // }
+  // public function validate() {
+  //     $this->valid = UserController::isValid($this);
+  // }
+
+  // public function getUsername() {
+  //     return $this->username;
+  // }
+  // public function getEmail() {
+  //     return $this->email;
+  // }
+  // public function getPassword() {
+  //     return $this->password;
+  // }
+
 
 }

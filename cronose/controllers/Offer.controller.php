@@ -15,17 +15,38 @@ class OfferController {
   public static function getOffersByLang($lang) {
     if (!LanguageController::langExist($lang)) return null;
     $offers = OfferModel::getOffersByLang($lang);
-    return $offers;
+    if ($offers) return [
+      "status" => "success",
+      "offers" => $offers
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something went wrong!"
+    ];
   }
 
-  public static function getOffersFromUsername($username) {
-    $user = UserController::getUserByUsername($username);
-    if (!$user) return null;
-    $offers = self::getAllOffers();
-    $result = array_filter($offers, function ($offer) use ($user) {
-      if ($offer['user_dni'] == $user['dni']) return true;
-    });
-    return $result;
+  public static function getOffersByIdAndLang($id, $lang) {
+    $offers = OfferModel::getOffersByIdAndLang($id, $lang);
+    if ($offers) return [
+      "status" => "success",
+      "offers" => $offers
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something went wrong!"
+    ];
+  }
+
+  public static function getOffer($userInitials,$userTag,$offerEsp) {
+    $offer = OfferModel::getOffer($userInitials,$userTag,$offerEsp);
+    if ($offer) return [
+      "status" => "success",
+      "offers" => $offer
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something went wrong!"
+    ];
   }
 
 }

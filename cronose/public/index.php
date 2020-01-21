@@ -1,128 +1,259 @@
 <?php
 session_start();
+
+// Controllers
 require_once '../controllers/Language.controller.php';
 require_once '../controllers/Offer.controller.php';
 require_once '../controllers/User.controller.php';
-require_once '../models/Model.php';
-new Model();
+require_once '../controllers/Chat.controller.php';
+require_once '../controllers/Achievement.controller.php';
+require_once '../controllers/Category.controller.php';
+require_once '../controllers/Province.controller.php';
+require_once '../controllers/City.controller.php';
 
-// header('Access-Control-Allow-Origin: *');
-// header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-// header("Access-Control-Allow-Headers: Origin");
+// DAO
+require_once '../dao/DAO.php';
+new DAO();
 
+// Logger
+require_once '../utilities/Logger.php';
+
+//Lang
+require '../views/components/language.php';
+
+//URI
 $uri = explode("/", trim($_SERVER['REQUEST_URI'], "/"));
-$langController = LanguageController::getLang();
-$displayLang = $langController['data']['language'];
-
-if (!LanguageController::langExist($uri[0])) {
-  array_unshift($uri, $displayLang);
-  $uriString = implode("/", $uri);
-  header('Location: ' . $uriString);
-} else {
-  $displayLang = $uri[0];
-}
-
 $auxUri = $uri;
 array_splice($auxUri, 0, 1);
 $auxUriString = implode("/", $auxUri);
 
-if (!isset($_SESSION['user'])) $_SESSION['user'] = null;
+/*-------Language-------*/
+$langController = LanguageController::getLang();
+$displayLang = $langController['language'];
 
+//Method
 $method = strtolower($_SERVER['REQUEST_METHOD']);
-switch ($uri[1]){
-  case '':
-    header('Location: ' . $displayLang . '/home');
-    break;
-  case 'home':
-    include '../views/home.php';
-    break;
 
-  case 'market':
-    $offers = OfferController::getOffersByLang($displayLang);
-    include '../views/market.php';
-    break;
+/*-----User logged------*/
+if (isset($_SESSION['user'])) $user = json_decode($_SESSION['user']);
+if ($uri[0] == 'api') {
 
-  case 'login':
-    if ($method == 'post') {
-      $_SESSION['user'] = UserController::userLogin($_POST['username'], $_POST['password']);
-      echo $_SESSION['user'];
-    } else {
+  switch ($uri[1]) {
+
+    case 'categories':
+      echo json_encode(CategoryController::getAllByLang($displayLang));
+      break;
+
+    case 'provinces':
+      echo json_encode(ProvinceController::getAll());
+      break;
+
+    case 'cities':
+      if ($method == 'get') {
+        if (isset($uri[2]) && preg_match("/^province/", $uri[2], $match)) {
+          echo json_encode(CityController::getByProvinceId($_GET['province_id']));
+        } else {
+          echo json_encode(CityController::getAll());
+        }
+      }
+      break;
+
+    case 'register':
+      if ($method == 'post') {
+        echo json_encode(UserController::register($_POST['user']));
+      }
+      break;
+
+    case 'login':
+      if ($method == 'post') {
+        echo json_encode(UserController::userLogin($_POST['username'], $_POST['password']), JSON_PRETTY_PRINT);
+      }
+      break;
+
+    case 'user':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
+        if (count($uri) == 3) echo json_encode(UserController::getUsersBySearch($uri[2]));
+        if (count($uri) == 4) echo json_encode(UserController::getUserByInitialsAndTag($uri[2], $uri[3]));
+        if (count($uri) == 6) echo json_encode(UserController::getId($uri[4], $uri[5]));;
+      }
+      break;
+
+    case 'profile':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(UserController::getProfileInfo($user->name));
+        if (count($uri) == 3) echo json_encode(UserController::getProfileInfo($uri[2]));
+      }
+      break;
+
+    case 'works':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(OfferController::getOffersByLang($_SESSION['displayLang']));
+      }
+      break;
+
+      case 'work':
+         if ($method == 'get') {
+           if (count($uri) == 2) echo json_encode(OfferController::getOffer($uri[2],$uri[3],$uri[4]));
+           if (count($uri) == 5) echo json_encode(OfferController::getOffer($uri[2],$uri[3],$uri[4]));
+        }
+      break;
+
+    case 'myWorks':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(OfferController::getOffersByIdAndLang($user->id, $displayLang));
+      }
+      break;
+
+    case 'directions':
+      if ($method == 'get') {
+        if (count($uri) == 2) echo json_encode(UserController::getAllDirections());
+      }
+
+    case 'chat':
+    // var_dump($uri);
+      if ($method == 'get') {
+        if (count($uri) == 2){
+          echo json_encode(ChatController::showChats($user->id));
+        }
+        if (count($uri) == 4){
+          echo json_encode(ChatController::showChat($uri[2], $uri[3]));
+        };
+      }
+
+      if (count($uri) == 5 && $uri[2] == 'send' && $method == 'post') {
+        echo ChatController::sendMSG($uri[3], $uri[4], $_POST['msg']);
+      }
+      break;
+
+    case 'achievements':
+      if ($uri[2] == 'description') {
+        echo json_encode(AchievementController::getDescription($displayLang));
+      }
+      break;
+
+    default:
+      echo "Nothing";
+      break;
+
+  }
+
+} else if ($uri[0] != 'assets') {
+
+  if (!LanguageController::langExist($uri[0])) {
+    array_unshift($uri, $displayLang);
+    $uriString = implode("/", $uri);
+    header('Location: ' . $uriString);
+  } else if($displayLang != $uri[0]) {
+    $displayLang = $uri[0];
+    $_SESSION['displayLang'] = $displayLang;
+  }
+  /*----------------------*/
+
+  switch ($uri[1]){
+    case '':
+      header('Location: ' . $displayLang . '/home');
+      break;
+
+    case 'login':
+      $title = $lang[$displayLang]['logIn'];
       include '../views/login.php';
-    }
-    break;
-  case 'register':
-    include '../views/register.php';
-    break;
+      break;
 
-  case 'about-us':
-    include '../views/about-us.php';
-    break;
+    case 'register':
+      $title = $lang[$displayLang]['register'];
+      include '../views/register.php';
+      break;
 
-  case 'my-works':
-    // $dataController = WorkController::getMyOffers();
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/myWorks.php';
-    break;
+    case 'logout':
+      UserController::userLogout();
+      header('Location: ' . $displayLang . '/home');
+      break;
 
-  case 'logout':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/logout.php';
-    break;
+    case 'home':
+      include '../views/home.php';
+      break;
 
-  case 'chat':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/chat.php';
-    break;
+    case 'market':
+      $title = $lang[$displayLang]['market'];
+      $offers = OfferController::getOffersByLang($displayLang);
+      include '../views/market.php';
+      break;
 
-  case 'wallet':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/wallet.php';
-    break;
+    case 'about-us':
+      $title = $lang[$displayLang]['aboutUs'];
+      include '../views/about-us.php';
+      break;
 
-  case 'profile':
-    if ( count($uri) == 2 )
-      $user = UserController::getProfileInfo($_SESSION['user']->getUsername());
-    else if ( count($uri) == 3 )
-      $user = UserController::getProfileInfo($uri[2]);
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/profile.php';
-    break;
+    case 'my-works':
+      $title = $lang[$displayLang]['myOffers'];
+      // $dataController = WorkController::getMyOffers();
+      include '../views/myWorks.php';
+      break;
 
-  case 'card':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/card.php';
-    break;
+    case 'chat':
+      $title = $lang[$displayLang]['chat'];
+      include '../views/chat.php';
+      break;
 
-  case 'edit-profile':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/editProfile.php';
-    break;
+    case 'wallet':
+      $title = $lang[$displayLang]['wallet'];
+      include '../views/wallet.php';
+      break;
 
-  case 'new-work':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/newWork.php';
-    break;
+    case 'profile':
+      $title = $lang[$displayLang]['profile'];
+      include '../views/profile.php';
+      break;
 
-  case 'work':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/work.php';
-    break;
+    case 'user':
+      $title = $lang[$displayLang]['profile'];
+      include '../views/profile.php';
+      break;
 
-  case 'preview-work':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/previewWork.php';
-    break;
+    case 'card':
+      include '../views/card.php';
+      break;
 
-  case 'published':
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/published.php';
-    break;
+    case 'edit-profile':
+      include '../views/editProfile.php';
+      break;
 
-  case 'datatable':
-    if ($uri[2] == 'province') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/province.php';
-    };
-    if ($uri[2] == 'category') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/category.php';
-    };
-    if ($uri[2] == 'company') {
-      include $_SERVER['DOCUMENT_ROOT'] . '/views/datatables/company.php';
-    };
-    break;
+    case 'new-work':
+      include '../views/newWork.php';
+      break;
 
-  default:
-    header('Location: /home');
-    include $_SERVER['DOCUMENT_ROOT'] . '/views/home.php';
-    break;
+    case 'work':
+      $title = $lang[$displayLang]['work'];
+      include '../views/work.php';
+      break;
+
+    case 'preview-work':
+      include '../views/previewWork.php';
+      break;
+
+    case 'published':
+      include '../views/published.php';
+      break;
+
+    /*---------RAMIREZ----------*/
+    case 'datatable':
+      if ($uri[2] == 'province') {
+        include '../views/datatables/province.php';
+      };
+      if ($uri[2] == 'category') {
+        include '../views/datatables/category.php';
+      };
+      if ($uri[2] == 'company') {
+        include '../views/datatables/company.php';
+      };
+      break;
+    /*--------------------------*/
+
+    default:
+      header('Location: ' . $displayLang . '/home');
+      break;
+  }
 }
 
 ?>

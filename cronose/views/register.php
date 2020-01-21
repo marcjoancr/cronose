@@ -17,10 +17,22 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title"><?=$lang[$displayLang]['register'];?></h4>
-          <form method="POST" class="my-login-validation" id="register">
+          <form method="POST" class="my-login-validation" id="register" name="registration">
             <div class="form-group">
-              <label for="username"><?=$lang[$displayLang]['name'];?></label>
-              <input id="username" type="text" class="form-control" name="username" required autofocus>
+              <label for="dni"><?=$lang[$displayLang]['dni'];?></label>
+              <input id="dni" type="text" class="form-control" name="dni" required autofocus>
+            </div>
+            <div class="form-group">
+              <label for="name"><?=$lang[$displayLang]['name'];?></label>
+              <input id="name" type="text" class="form-control" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="surname"><?=$lang[$displayLang]['surname'];?></label>
+              <input id="surname" type="text" class="form-control" name="surname" required>
+            </div>
+            <div class="form-group">
+              <label for="surname_2"><?=$lang[$displayLang]['surname_2'];?></label>
+              <input id="surname_2" type="text" class="form-control" name="surname_2">
             </div>
             <div class="form-group">
               <label for="email"><?=$lang[$displayLang]['email'];?></label>
@@ -31,17 +43,31 @@
               <input id="password" type="password" class="form-control" name="password" required>
             </div>
             <div class="form-group">
-              <label for="myPasswordConfirm"><?=$lang[$displayLang]['repeatPassword'];?></label>
-              <input id="myPasswordConfirm" type="password" class="form-control" name="password2" required>
+              <label for="c_password"><?=$lang[$displayLang]['repeatPassword'];?></label>
+              <input id="c_password" type="password" class="form-control" name="c_password" required>
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
+              <label for="province"><?=$lang[$displayLang]['province'];?></label>
+              <select name="province_id" id="province"></select>
+            </div>
+            <div class="form-group">
+              <label for="city"><?=$lang[$displayLang]['city'];?></label>
+              <select name="city_cp" id="city"></select>
+            </div>
+            <div class="form-group">
+              <input id="dni_photo" type="hidden" class="form-control" name="dni_photo_id" value="1">
+            </div>
+            <div class="form-group">
+              <input id="avatar" type="hidden" class="form-control" name="avatar_id" value="1">
+            </div>
+            <div class="form-group">
               <div class="custom-checkbox custom-control">
-                <input id="agree" type="checkbox" name="agree" class="custom-control-input" required>
-                <label for="agree" class="custom-control-label"><?=$lang[$displayLang]['agree'];?> <a href="#"><?=$lang[$displayLang]['terms'];?></a></label>
+                <input id="private" type="checkbox" name="private" class="custom-control-input">
+                <label for="private" class="custom-control-label"><?=$lang[$displayLang]['private'];?></label>
               </div>
-            </div> -->
+            </div>
             <div class="form-group m-0">
-              <input id="btnSubmit" type="button" class="btn btn-primary btn-block text-uppercase" value="<?=$lang[$displayLang]['register'];?>" disabled/>
+              <input id="btnSubmit" type="submit" class="btn btn-primary btn-block text-uppercase" value="<?=$lang[$displayLang]['register'];?>"/>
             </div>
           </form>
         </div>
@@ -57,58 +83,114 @@
   $(document).ready(function(){
     $('#errorAlert').hide();
 
+    // Load select fields
+    function renderProvinces() {
+      const url = '/api/provinces';
+      $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'json',
+        success: function(response) {
+          if (response) {
+            response.forEach(province => {
+              $('#province').append(`<option value="${province.id}">${province.name}</option>`);
+            });
+            renderCities(response[0].id);
+          }
+        }
+      });
+    }
+    function renderCities(province) {
+      const url = '/api/cities/province';
+      $.ajax({
+        type: 'GET',
+        url: url,
+        data: { 'province_id' : province },
+        dataType: 'json',
+        success: function(response) {
+          $('#city').empty();
+          if (response) {
+            response.forEach(city => {
+              $('#city').append(`<option value="${city.cp}">${city.name}</option>`);
+            });
+          }
+        }
+      });
+    }
+    renderProvinces();
+    $('#province').on('change', function() {
+      renderCities($(this).find(":selected").val());
+    });
+
     //Validate
-    let vName,vEmail,vPass,vPass2;
-    bootstrapValidate('#username', 'min:4:<?=$lang[$displayLang]['min4characters'];?>',function (validName){
-      vName = (validName) ?  true : false;
-      validate();
+    let dni, name, surname, email, password, c_password, private;
+    bootstrapValidate('#dni', 'min:9:<?=$lang[$displayLang]['min9characters'];?>|required', function (isValid){
+      dni = isValid;
     });
-    bootstrapValidate('#email','email:<?=$lang[$displayLang]['validEmail'];?>',function (validEmail) {
-      vEmail = (validEmail) ?  true : false;
-      validate();
+    bootstrapValidate('#name', 'min:4:<?=$lang[$displayLang]['min4characters'];?>|required', function (isValid){
+      name = isValid;
     });
-    bootstrapValidate('#password', 'min:5:<?=$lang[$displayLang]['min5characters'];?>', function (validPass) {
-      vPass = (validPass) ? true : false;
-      validate();
+    bootstrapValidate('#surname', 'min:4:<?=$lang[$displayLang]['min4characters'];?>|required', function (isValid){
+      surname = isValid;
     });
-    bootstrapValidate('#myPasswordConfirm','matches:#password:<?=$lang[$displayLang]['passError'];?>', function (validPass2){
-      vPass2 = (validPass2) ? true : false;
-      validate();
+    bootstrapValidate('#email','email:<?=$lang[$displayLang]['validEmail'];?>|required', function (isValid) {
+      email = isValid;
     });
-
-    function validate() {
-      if (vName && vEmail && vPass && vPass2) {
-        $('#btnSubmit').prop("disabled", false);
-      } else {
-        $('#btnSubmit').prop("disabled", true);
-      };
-    };
-
-    // Validate form
-    $('#btnSubmit').click(() => {
-      register();
+    bootstrapValidate('#password', 'min:5:<?=$lang[$displayLang]['min5characters'];?>|required', function (isValid) {
+      password = isValid;
+    });
+    bootstrapValidate('#c_password','matches:#password:<?=$lang[$displayLang]['passError'];?>|required', function (isValid){
+      c_password = isValid;
     });
 
-    // Send form via ajax request to Login.php
-    function register() {
-      const url = '../assets/php/Register.php';
-      const username = $("#username").val();
-      const password = $.md5($("#password").val());
-      const email = $("#email").val();
+    function isValid() {
+      return (dni && name && surname && email && password && c_password);
+    }
 
+    // Submit Action
+    $('form[name="registration"]').submit((e) => {
+      e.preventDefault();
+      if (!isValid()) return;
+      const form = document.forms.namedItem("registration");
+      const formData = new FormData(form);
+      formData.set( 'password', $.md5(formData.get('password')) );
+      formData.delete('c_password');
+      const data = Object.fromEntries(formData);
+      register(data);
+    });
+
+    // Send form via ajax request to Register
+    function register(data) {
+      const url = '/api/register';
       $.ajax({
         type: 'POST',
         url: url,
-        data: { username, password, email },
+        dataType: 'json',
+        data: { 'user' : data },
         success: function(response) {
           if (response.status == 'success') {
-            console.log(response);
-            window.location.replace('/');
+            login(response.profile.name, response.profile.password);
           } else if (response.status == 'error') {
             $("#errorAlertMessage").html( response.message );
             $("#errorAlert").show();
             console.log(response);
           };
+        }
+      });
+    }
+
+    // Send form via ajax request to Login
+    function login(name, password) {
+      $.ajax({
+        type: 'POST',
+        url: '/api/login',
+        dataType: 'json',
+        data: { 'username' : name, password },
+        success: (data) => {
+          if (data.status == 'success') window.location.href = '/<?= $displayLang; ?>/market';
+        },
+        error: (data) => {
+          console.log(data);
         }
       });
     }

@@ -5,4 +5,4 @@
 <a href="/published">Publish</a>
 
 
-<?php require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/footer.php';?>
+<?php require '../views/layouts/footer.php';?>

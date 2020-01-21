@@ -3,9 +3,9 @@
 <head>
   <link rel="shortcut icon" href="/assets/img/favicon.ico">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Cronose</title>
-  <meta name="title" content="Cronose"/>
-  <meta name="description" content="A social platform for sharing your time with other people and let you know to others. Make this place your site for knowing nice other people and interchange some activities eachother."/>
+  <title><?= $title ? "Cronose | ${title}" : "Cronose"; ?></title>
+  <meta name="title" content="<?= $title ? "Cronose | ${title}" : "Cronose"; ?>"/>
+  <meta name="description" content="<?= $description ? "${description}" : "A social platform for sharing your time with other people and let you know to others. Make this place your site for knowing nice other people and interchange some activities eachother.; "?>" />
   <meta name="robots" content="index, follow"/>
 
   <!-- CSS -->
@@ -19,6 +19,8 @@
   <script src="/assets/plugin/bootstrap/bootstrap.min.js"></script>
   <script src="/assets/plugin/jquery/jquery.md5.min.js"></script>
   <script src="/assets/plugin/leaflet/leaflet.js"></script>
+  <script src="/assets/plugin/D3JS/d3.min.js"></script>
+
 </head>
 <body>
 
@@ -26,25 +28,14 @@
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
-
-  require '../views/components/language.php';
-  //require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/User.php';
-
-  if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-  }
-
-  /*function changeLanguage($lang) {
-    $_SESSION['lang'] = $lang;
-  }*/
 ?>
 
 <?php require '../views/components/nav.php'; ?>
 
 <?php if (isset($_SESSION['user'])):?>
   <div  class="col-10 p-0">
-    <div  class="container">
+    <main class="container">
 <?php else :?>
-  <div  class="col-12">
-  <div  class="container">
+  <div class="col-12">
+    <main class="container">
 <?php endif ?>

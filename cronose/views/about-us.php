@@ -6,19 +6,32 @@
 		<div class="mb-4 mt-4"id="MyMap" style="width:950px;height:400px;"></div>
 	</div>
 	<script>
+		$(document).ready(function(){
 
-		var mapa = L.map('MyMap').setView([39.561627,3.199883],16);
+				var map = L.map('MyMap').setView([39.5994550, 2.9726290],9);
 
-		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-				maxZoom: 20,
-				id: 'mapbox.light',
-				accessToken: 'pk.eyJ1IjoibWVuYTciLCJhIjoiY2szeThhZHUyMGlwNDNscDZoYmc1ZnMweiJ9.lTy9NAE_I_tyg7Xt04pihw'
-		}).addTo(mapa);
+	      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	    	    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	    	    maxZoom: 20,
+	    	    id: 'mapbox.light',
+	          accessToken: 'pk.eyJ1IjoibWVuYTciLCJhIjoiY2szeThhZHUyMGlwNDNscDZoYmc1ZnMweiJ9.lTy9NAE_I_tyg7Xt04pihw'
+	    	}).addTo(map);
 
-		var point = L.marker([39.5616104,3.200250]).addTo(mapa);
+				const url = (window.location.pathname.split('/')[3]) ? '/api/directions/'+window.location.pathname.split('/')[3] : '/api/directions' ;
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							var directions = JSON.parse(this.responseText);
+							console.log(directions);
+							for(x in directions){
+							 var point = L.marker([directions[x].latitude,directions[x].longitude]).addTo(map);
+							}
+						}
+					}
+					xmlhttp.open("GET", url, false);
+					xmlhttp.send();
 
-		point.bindPopup("<b>Aqui Estamos!</b>").openPopup();
+		});
 
 	</script>
 <?php require '../views/layouts/footer.php';?>
