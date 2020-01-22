@@ -14,4 +14,16 @@ class CategoryController {
     return $categories;
   }
 
+  public static function getCountSpecialization($lang) {
+    $categories = CategoryModel::getCountSpecialization($lang);
+    if ($categories) return [
+      "status" => "success",
+      "offers" => $categories
+    ];
+    else return [
+      "status" => "error",
+      "msg" => "Something went wrong!"
+    ];
+  }
+
 }

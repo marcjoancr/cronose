@@ -30,4 +30,9 @@ class CategoryModel extends Model {
     return CategoryDAO::getAllByLang($lang);
   }
 
+  public static function getCountSpecialization($lang) {
+    return CategoryDAO::getCountSpecialization($lang);
+  }
+
+
 }

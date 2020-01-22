@@ -105,6 +105,12 @@ if ($uri[0] == 'api') {
       }
       break;
 
+    case 'category':
+       if ($method == 'get') {
+         if (count($uri) == 2) echo json_encode(CategoryController::getCountSpecialization($_SESSION['displayLang']));
+      }
+    break;
+
     case 'directions':
       if ($method == 'get') {
         if (count($uri) == 2) echo json_encode(UserController::getAllDirections());
