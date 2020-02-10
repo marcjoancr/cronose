@@ -1,11 +1,9 @@
 import React from 'react';
 
-function App() {
+export default function App() {
 	return (
 		<>
 			<h1>Cronose</h1>
 		</>
 	);
 }
-
-export default App;
