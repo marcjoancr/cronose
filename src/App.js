@@ -1,9 +1,12 @@
 import React from 'react';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 export default function App() {
 	return (
 		<>
-			<h1>Cronose</h1>
+			<NavBar></NavBar>
+			<Footer></Footer>
 		</>
 	);
 }
