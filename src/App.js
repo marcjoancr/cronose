@@ -1,12 +1,12 @@
 import React from 'react';
-import NavBar from './components/NavBar';
+import Navigator from './components/Navigator';
 import Footer from './components/Footer';
 
 export default function App() {
 	return (
 		<>
-			<NavBar></NavBar>
-			<Footer></Footer>
+			<Navigator />
+			<Footer />
 		</>
 	);
 }

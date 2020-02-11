@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 
-export default function NavBarHorizontal(props) {
+export default function SideBar(props) {
 	return (
-		<nav className='navbar'>
+		<nav className='sidebar'>
 			<BrowserRouter basename={props.basename}>
 				<ul className='menu'>
 					{props.routes.map((route, index) => (
