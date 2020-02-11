@@ -17,9 +17,9 @@ export default function NavBar() {
 				basename: 'app',
 				routes: [
 					{
-						title: 'Home',
-						path: '/',
-						component: Home,
+						title: 'Market',
+						path: '/market',
+						component: Market,
 						exact: true,
 					},
 					{
@@ -41,11 +41,6 @@ export default function NavBar() {
 						title: 'Profile',
 						path: '/me',
 						component: Profile,
-					},
-					{
-						title: 'Market',
-						path: '/market',
-						component: Market,
 					},
 				],
 			},
