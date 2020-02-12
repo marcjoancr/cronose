@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default function Market() {
-  return (
-    <div>
-      
-    </div>
-  )
+	return (
+		<div>
+			<h1>Market</h1>
+		</div>
+	);
 }
