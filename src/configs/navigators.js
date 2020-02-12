@@ -4,6 +4,8 @@ import Chat from '../components/Chat';
 import MyWorks from '../components/MyWorks';
 import Profile from '../components/Profile';
 import Home from '../homepage/components/Home';
+import Login from '../homepage/components/Login';
+import SignIn from '../homepage/components/SignIn';
 
 export default [
 	{
@@ -54,9 +56,29 @@ export default [
 				component: Home,
 			},
 			{
+				title: 'How It Works',
+				path: '/#HowItWorks',
+				component: Home,
+			},
+			{
+				title: 'Contact',
+				path: '/#contact',
+				component: Home,
+			},
+			{
 				title: 'Market',
 				path: '/market',
 				component: Market,
+			},
+			{
+				title: 'Login',
+				path: '/login',
+				component: Login,
+			},
+			{
+				title: 'Sign In',
+				path: '/SignIn',
+				component: SignIn,
 			},
 		],
 	},
