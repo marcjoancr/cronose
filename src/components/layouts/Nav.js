@@ -4,7 +4,7 @@ import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
-			<nav className='navbar navbar-expand-md'>
+			<nav className='navbar navbar-expand-md w-100'>
 				<a class='navbar-brand' href='#'>
 					Cronose
 				</a>
@@ -24,7 +24,7 @@ function NavBar(props) {
 					</ul>
 				</div>
 			</nav>
-			<main>{SwitchRoutes(props.routes)}</main>
+			<main className='w-100'>{SwitchRoutes(props.routes)}</main>
 		</BrowserRouter>
 	);
 }
@@ -32,14 +32,20 @@ function NavBar(props) {
 function SideBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
+			<input type='checkbox' name='toggle' id='sidebar-toggle'></input>
+			<label for='sidebar-toggle' className='menu-bg'></label>
 			<nav className='vertical-nav'>
 				<section className='navbar'>
+					<label for='sidebar-toggle' class='menu-icon'>
+						<i class='hamburger'></i>
+					</label>
 					<ul className='nav flex-column mb-0'>
 						{props.routes.map((route, index) => (
 							<li key={index} className='nav-item pt-3'>
 								<NavLink
 									to={route.path}
 									exact={route.exact}
+									className='text-white'
 									activeClassName='active'>
 									{route.title}
 								</NavLink>
@@ -48,7 +54,10 @@ function SideBar(props) {
 					</ul>
 				</section>
 			</nav>
-			<main>{SwitchRoutes(props.routes)}</main>
+			<main className='vertical container-fluid'>
+				{SwitchRoutes(props.routes)}
+				<h1></h1>
+			</main>
 		</BrowserRouter>
 	);
 }
