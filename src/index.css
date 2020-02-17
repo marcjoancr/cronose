@@ -12,19 +12,4 @@ code {
 		monospace;
 }
 
-/* FOOTER */
-footer {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	width: 100%;
-	position: fixed;
-	bottom: 0;
-	background-color: #242633;
-	color: white;
-}
-
-footer a {
-	color: #f09a24;
-}
-/*-------*/
 

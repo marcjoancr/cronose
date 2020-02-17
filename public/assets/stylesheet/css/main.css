@@ -209,8 +209,6 @@ main.vertical {
 }
 
 footer {
-	position: absolute;
-	bottom: 0;
 	width: 100%;
 	background-color: #242633;
 }
@@ -253,3 +251,43 @@ hr {
 	shape-rendering: crispEdges;
 }
 /*------------------------*/
+/* FOOTER */
+footer {
+	width: 100%;
+	margin-left: var(--nav-width);
+	background-color: #242633;
+	color: white;
+}
+
+footer a {
+	color: #f09a24;
+}
+
+#footerLinks .col-md-6 {
+	padding-left: 10%;
+}
+
+#buttonSubmit {
+	background-color: #f09a24;
+}
+
+#socialLinks a {
+	margin-right: 20px;
+	font-size: 50px;
+	color: #f09a24;
+	border: 0;
+}
+
+#socialLinks a:hover {
+	text-decoration: none;
+}
+
+#submitFooter {
+	padding-top: 20px;
+}
+
+#socialLinks {
+	padding-top: 10px;
+}
+
+/*-------*/

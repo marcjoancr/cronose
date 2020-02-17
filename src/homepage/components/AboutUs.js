@@ -3,6 +3,8 @@ import React from 'react';
 export default function AboutUs(props) {
 	const data = props.data;
 
+	console.log(`${process.env.PUBLIC_URL}/assets/img/initial-ls.svg`);
+
 	return (
 		<div className='container' id='about'>
 			<h1>About Us</h1>
@@ -21,6 +23,17 @@ export default function AboutUs(props) {
 				al resto de comunidad y en la misma medida puede utilizar los que el
 				resto de usuarios le ofrecen.
 			</p>
+			<picture>
+				<source
+					media='(max-width: 799px)'
+					srcset='elva-480w-close-portrait.jpg'
+				/>
+				<source media='(min-width: 800px)' srcset='elva-800w.jpg' />
+				<img
+					src={`${process.env.PUBLIC_URL}/assets/img/initial-ls.svg`}
+					alt='Chris standing up holding his daughter Elva'
+				/>
+			</picture>
 		</div>
 	);
 }
