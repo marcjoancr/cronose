@@ -5,7 +5,7 @@ function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
 			<nav className='navbar navbar-expand-md w-100'>
-				<a class='navbar-brand' href='#'>
+				<a className='navbar-brand' href='#'>
 					Cronose
 				</a>
 				<div className='h-nav collapse navbar-collapse d-flex flex-row-reverse mr-4 mt-2'>
@@ -33,11 +33,11 @@ function SideBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
 			<input type='checkbox' name='toggle' id='sidebar-toggle'></input>
-			<label for='sidebar-toggle' className='menu-bg'></label>
+			<label htmlFor='sidebar-toggle' className='menu-bg'></label>
 			<nav className='vertical-nav'>
 				<section className='navbar'>
-					<label for='sidebar-toggle' class='menu-icon'>
-						<i class='hamburger'></i>
+					<label htmlFor='sidebar-toggle' className='menu-icon'>
+						<i className='hamburger'></i>
 					</label>
 					<ul className='nav flex-column mb-0'>
 						{props.routes.map((route, index) => (

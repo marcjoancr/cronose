@@ -1,9 +1,14 @@
 import React from 'react';
+import { NavBar, SideBar } from '../components/layouts/Nav';
 
-export default function App() {
+export default function App(props) {
 	return (
-		<div>
-			<h1>APP</h1>
-		</div>
+		<>
+			<SideBar
+				basename={props.navigator.basename}
+				routes={props.navigator.routes}
+				refresh={true}
+			/>
+		</>
 	);
 }
