@@ -14,7 +14,7 @@ export default class Market extends Component {
 	}
 
 	getWorks() {
-		Axios.get('http://localhost:3030/api/works')
+		Axios.get(`${process.env.REACT_APP_API_URL}/works`)
 			.then((response) => this.setState({ works: response.data.works }))
 			.catch((err) => console.error(err));
 	}

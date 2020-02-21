@@ -250,11 +250,69 @@ hr {
 	stroke: #000;
 	shape-rendering: crispEdges;
 }
+/* JOB */
+#job {
+	background-color: #242633;
+	border: solid;
+	margin-bottom: 30px;
+	border-color: #f09a24;
+	padding: 0px;
+	max-width: 1200px;
+	margin: auto;
+}
+
+#buttonJob {
+	background-color: #f09a24;
+	color: black;
+}
+
+.val {
+	border-left: solid;
+	border-bottom: solid;
+	border-color: #f09a24;
+}
+
+#imgArticle {
+	border-radius: 7px;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+#imgArticle {
+	border-radius: 8px;
+}
+
+#valJob p {
+	margin: 0px;
+}
+
+#barR {
+	height: 220px;
+}
+
+#valJob {
+	margin: 0px;
+	margin-bottom: 50px;
+}
+
+#buttonDiv {
+	margin-top: 50px;
+}
+
+#priceJob {
+	text-align: center;
+}
+/*------------------------*/
+/* LOGIN */
+#login-btn {
+	background-color: #242633;
+}
 /*------------------------*/
 /* FOOTER */
 footer {
 	width: 100%;
-	margin-left: var(--nav-width);
+	/* margin-left: var(--nav-width); */
 	background-color: #242633;
 	color: white;
 }
