@@ -11,6 +11,19 @@ body {
 	margin: 0;
 }
 
+/*** Buttons ***/
+
+.btn-orange {
+	background-color: #f09a24;
+	color: #fff;
+	border-radius: 30px;
+}
+
+.btn-orange:hover {
+	transform: scale(1.1);
+	color: #fff;
+}
+
 /*** NavBar ***/
 
 .h-nav a {

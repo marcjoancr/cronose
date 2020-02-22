@@ -5,11 +5,25 @@ import Contact from './Contact';
 
 export default function Home() {
 	return (
-		<div>
-			<h1>Home</h1>
-			<AboutUs />
+		<>
+			<div className='container mt-5'>
+				<h1>Share Your Time</h1>
+				<p>
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry. Lorem Ipsum has been the industry's standard dummy text ever
+					since the 1500s, when an unknown printer took a galley of type and
+					scrambled it to make a type specimen book.
+				</p>
+				<a href='/market'>
+					<input
+						type='button'
+						className='btn btn-orange'
+						value='See Our Market'></input>
+				</a>
+			</div>
 			<HowItWorks />
+			<AboutUs />
 			<Contact />
-		</div>
+		</>
 	);
 }
