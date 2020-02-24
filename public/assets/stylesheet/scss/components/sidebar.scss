@@ -1,0 +1,28 @@
+#sidebar-toggle {
+	display: none;
+	z-index: 1000;
+}
+
+#sidebar-toggle:checked ~ * {
+	--nav-width: 250px;
+}
+
+#sidebar-toggle:checked ~ * .vertical-nav #nav-text {
+	display: inline;
+}
+
+#sidebar-toggle:checked ~ * .vertical-nav i {
+	font-size: 30px;
+}
+#sidebar-toggle:checked ~ * .vertical-nav img {
+	display: block;
+}
+#sidebar-toggle:checked ~ * .menu-icon .hamburger {
+	width: 100%;
+}
+#sidebar-toggle:checked ~ * .menu-icon .hamburger::after {
+	width: 100%;
+}
+#sidebar-toggle:checked ~ * .menu-icon .hamburger::before {
+	width: 100%;
+}

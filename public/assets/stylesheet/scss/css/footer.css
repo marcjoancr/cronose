@@ -1,0 +1,37 @@
+footer {
+  width: 100%;
+  /* margin-left: var(--nav-width); */
+  background-color: #242633;
+  color: white;
+}
+
+footer a {
+  color: #f09a24;
+}
+
+footer .col-md-6 {
+  padding-left: 10%;
+}
+
+footer .btn-submit {
+  background-color: #f09a24;
+}
+
+footer .social a {
+  margin-right: 20px;
+  font-size: 50px;
+  color: #f09a24;
+  border: 0;
+}
+
+footer .social a:hover {
+  text-decoration: none;
+}
+
+footer .newsletter {
+  padding-top: 20px;
+}
+
+footer .links {
+  padding-top: 10px;
+}

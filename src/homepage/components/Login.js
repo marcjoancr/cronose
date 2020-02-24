@@ -23,15 +23,16 @@ export default function Login() {
 
 	return (
 		<>
-			<div id='cardLogin' className='card text-center'>
-				<h5 className='card-title text-center'>LOGIN</h5>
+			<div className='card-login card text-center'>
+				<h3 className='card-title text-center'>LOGIN</h3>
 				<form
 					id='login_form'
 					method='post'
 					target='_self'
 					className='form-signin'
 					onSubmit={sendLogin}>
-					<div className='form-label-group mt-4'>
+					<div className='form-label-group mt-4 text-left'>
+						<label for='email'>Email</label>
 						<input
 							id='email'
 							type='email'
@@ -42,7 +43,8 @@ export default function Login() {
 							autofocus
 						/>
 					</div>
-					<div className='form-label-group mt-4'>
+					<div className='form-label-group mt-4 text-left'>
+						<label for='password'>Password</label>
 						<input
 							id='password'
 							type='password'
@@ -53,16 +55,16 @@ export default function Login() {
 						/>
 					</div>
 					<input
-						className='btn btn-lg btn-primary btn-block mt-4'
+						className='btn-login btn btn-lg btn-primary btn-block mt-4'
 						type='submit'
 						value='Submit'
 					/>
 				</form>
 				<div class='card-footer'>
-					<div class='d-flex justify-content-center links'>
-						Don't have an account? <a href='#'>Sign Up</a>
+					<div class='justify-content-center links'>
+						Don't have an account? <a href='#'> Sign Up</a>
 					</div>
-					<div class='d-flex justify-content-center'>
+					<div class=' justify-content-center'>
 						<a href='#'>Forgot your password?</a>
 					</div>
 				</div>
