@@ -33,7 +33,7 @@ export default function Login() {
 					className='form-signin'
 					onSubmit={sendLogin}>
 					<div className='form-label-group mt-4 text-left'>
-						<label for='email'>Email</label>
+						<label htmlFor='email'>Email</label>
 						<input
 							id='email'
 							type='email'
@@ -41,11 +41,11 @@ export default function Login() {
 							className='form-control'
 							placeholder='email'
 							required
-							autofocus
+							autoFocus
 						/>
 					</div>
 					<div className='form-label-group mt-4 text-left'>
-						<label for='password'>Password</label>
+						<label htmlFor='password'>Password</label>
 						<input
 							id='password'
 							type='password'
@@ -61,11 +61,11 @@ export default function Login() {
 						value='Submit'
 					/>
 				</form>
-				<div class='card-footer'>
-					<div class='justify-content-center links'>
+				<div className='card-footer'>
+					<div className='justify-content-center links'>
 						Don't have an account? <a href='#'> Sign Up</a>
 					</div>
-					<div class=' justify-content-center'>
+					<div className=' justify-content-center'>
 						<a href='#'>Forgot your password?</a>
 					</div>
 				</div>
