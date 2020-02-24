@@ -12,8 +12,8 @@ body {
 	margin: 0;
 }
 
-@import 'components/buttons';
-@import 'components/sidebar';
-@import 'layouts/navBar';
-@import 'layouts/footer';
-@import 'pages/login';
+@import 'components/__buttons';
+@import 'components/__sidebar';
+@import 'layouts/__navbar';
+@import 'layouts/__footer';
+@import 'pages/__login';

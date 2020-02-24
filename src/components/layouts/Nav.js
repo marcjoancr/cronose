@@ -5,7 +5,8 @@ function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
 			<nav className='navbar navbar-expand-md w-100'>
-				<a className='navbar-brand' href='#'>
+				<img class="img-logo" src="https://cdn.discordapp.com/attachments/638666472427749385/664800639779471373/CronoseLogo.png"></img>
+				<a className='pl-3 navbar-brand' href='#'>
 					Cronose
 				</a>
 				<div className='h-nav collapse navbar-collapse d-flex flex-row-reverse mr-4 mt-2'>
