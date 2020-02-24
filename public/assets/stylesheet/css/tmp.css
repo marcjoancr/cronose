@@ -1,15 +1,5 @@
-:root {
-	--nav-width: 100px;
-	--primary-color: #242633;
-}
 
-* {
-	font-family: 'Montserrat', 'Lato', 'Work Sans', sans-serif;
-}
 
-body {
-	margin: 0;
-}
 
 /*** NavBar ***/
 
@@ -62,36 +52,6 @@ main.vertical {
 	display: flex;
 }
 
-/*** SIDEBAR ***/
-
-#sidebar-toggle {
-	display: none;
-	z-index: 1000;
-}
-
-#sidebar-toggle:checked ~ * {
-	--nav-width: 250px;
-}
-
-#sidebar-toggle:checked ~ * .vertical-nav #nav-text {
-	display: inline;
-}
-
-#sidebar-toggle:checked ~ * .vertical-nav i {
-	font-size: 30px;
-}
-#sidebar-toggle:checked ~ * .vertical-nav img {
-	display: block;
-}
-#sidebar-toggle:checked ~ * .menu-icon .hamburger {
-	width: 100%;
-}
-#sidebar-toggle:checked ~ * .menu-icon .hamburger::after {
-	width: 100%;
-}
-#sidebar-toggle:checked ~ * .menu-icon .hamburger::before {
-	width: 100%;
-}
 
 /*** MENU ICON ***/
 
@@ -163,20 +123,3 @@ main.vertical {
 		z-index: 100;
 	}
 }
-/*------------------------*/
-/* LOGIN */
-#login-btn {
-	background-color: #242633;
-}
-
-#cardLogin {
-	max-width: 400px;
-	margin: auto;
-	margin-top: 200px;
-	margin-bottom: 200px;
-	padding: 40px;
-}
-/*------------------------*/
-/* FOOTER */
-
-/*-------*/
