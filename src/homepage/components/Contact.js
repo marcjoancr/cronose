@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Contact() {
 	return (
-		<div className='container' id='contact'>
+		<div className='container mb-5 mt-5' id='contact'>
 			<h1>Contact</h1>
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting

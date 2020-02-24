@@ -6,7 +6,7 @@ import Contact from './Contact';
 export default function Home() {
 	return (
 		<>
-			<div className='container mt-5'>
+			<div className='container mt-5 pt-4 text-center'>
 				<h1>Share Your Time</h1>
 				<p>
 					Lorem Ipsum is simply dummy text of the printing and typesetting

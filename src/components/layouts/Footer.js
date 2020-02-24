@@ -1,9 +1,10 @@
 import React from 'react';
+import { IoLogoTwitter, IoLogoFacebook, IoLogoInstagram } from 'react-icons/io';
 
 export default function Footer() {
 	return (
 		<footer className='page-footer p-4'>
-			<div id='footerLinks' className='row text-center'>
+			<div className='links row text-center'>
 				<div className='col-md-6 text-md-left'>
 					<p>
 						<a href='#'>Home</a>
@@ -35,7 +36,7 @@ export default function Footer() {
 						<a href='#'>Team</a>
 					</p>
 				</div>
-				<div id='submitFooter' className='col-md-6'>
+				<div className='newsletter col-md-6'>
 					<form>
 						<div className='form-inline justify-content-center justify-content-md-start'>
 							<input
@@ -45,19 +46,22 @@ export default function Footer() {
 								aria-describedby='emailHelp'
 								placeholder='Enter email'
 							/>
-							<button
-								type='submit'
-								id='buttonSubmit'
-								className='btn my-2 my-sm-0'>
+							<button type='submit' className='btn-submit btn my-2 my-sm-0'>
 								Submit
 							</button>
 						</div>
 					</form>
 				</div>
-				<div id='socialLinks' className='col-md-6 text-md-left'>
-					<a href='#' className='fa fa-twitter-square'></a>
-					<a href='#' className='fa fa-instagram'></a>
-					<a href='#' className='fa fa-twitter'></a>
+				<div className='social col-md-6 text-md-left'>
+					<a href='#'>
+						<IoLogoTwitter />
+					</a>
+					<a href='#'>
+						<IoLogoFacebook />
+					</a>
+					<a href='#'>
+						<IoLogoInstagram />
+					</a>
 				</div>
 				<div className='col-12'>
 					<div className='footer-copyright text-center py-3'>

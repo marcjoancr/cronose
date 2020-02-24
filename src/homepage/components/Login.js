@@ -23,40 +23,50 @@ export default function Login() {
 
 	return (
 		<>
-			<h5 className='card-title text-center'>LOGIN</h5>
-			<form
-				id='login_form'
-				method='post'
-				target='_self'
-				className='form-signin'
-				onSubmit={sendLogin}>
-				<div className='form-label-group mt-4'>
+			<div id='cardLogin' className='card text-center'>
+				<h5 className='card-title text-center'>LOGIN</h5>
+				<form
+					id='login_form'
+					method='post'
+					target='_self'
+					className='form-signin'
+					onSubmit={sendLogin}>
+					<div className='form-label-group mt-4'>
+						<input
+							id='email'
+							type='email'
+							name='email'
+							className='form-control'
+							placeholder='email'
+							required
+							autofocus
+						/>
+					</div>
+					<div className='form-label-group mt-4'>
+						<input
+							id='password'
+							type='password'
+							name='password'
+							className='form-control'
+							placeholder='password'
+							required
+						/>
+					</div>
 					<input
-						id='email'
-						type='email'
-						name='email'
-						className='form-control'
-						placeholder='email'
-						required
-						autofocus
+						className='btn btn-lg btn-primary btn-block mt-4'
+						type='submit'
+						value='Submit'
 					/>
+				</form>
+				<div class='card-footer'>
+					<div class='d-flex justify-content-center links'>
+						Don't have an account? <a href='#'>Sign Up</a>
+					</div>
+					<div class='d-flex justify-content-center'>
+						<a href='#'>Forgot your password?</a>
+					</div>
 				</div>
-				<div className='form-label-group mt-4'>
-					<input
-						id='password'
-						type='password'
-						name='password'
-						className='form-control'
-						placeholder='password'
-						required
-					/>
-				</div>
-				<input
-					className='btn btn-lg btn-primary btn-block mt-4'
-					type='submit'
-					value='Submit'
-				/>
-			</form>
+			</div>
 		</>
 	);
 }
