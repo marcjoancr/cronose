@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import md5 from 'md5';
+import qs from 'qs';
 
 export default function Login() {
 	function sendLogin(e) {
@@ -12,7 +13,7 @@ export default function Login() {
 	}
 
 	function login(data) {
-		Axios.post(`${process.env.REACT_APP_API_URL}/login`, JSON.stringify(data))
+		Axios.post(`${process.env.REACT_APP_API_URL}/login`, qs.stringify(data))
 			.then(function(response) {
 				console.log(response);
 			})

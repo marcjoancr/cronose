@@ -25,5 +25,4 @@ yarn-error.log*
 
 
 #project files
-/public/assets/stylesheet/scss/css
 .vscode
