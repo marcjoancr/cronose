@@ -26,6 +26,12 @@
 	}
 }
 
+@media (max-width: 575px) {
+	.img-profile {
+		padding-left: 0px !important;
+	}
+}
+
 .row-profile-name {
 	margin-right: 0px;
 	margin-left: 0px;

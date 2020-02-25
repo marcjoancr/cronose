@@ -38,3 +38,9 @@ footer {
 		padding-top: 10px;
 	}
 }
+
+@media (max-width: 575px) {
+	footer {
+		margin-left: 0px;
+	}
+}

@@ -4,6 +4,12 @@
 	--secondary-color: #f09a24;
 }
 
+@media (max-width: 575px) {
+	main {
+		margin-left: 0px !important;
+	}
+}
+
 * {
 	font-family: 'Montserrat', 'Lato', 'Work Sans', sans-serif;
 }
