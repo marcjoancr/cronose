@@ -5,7 +5,9 @@ function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
 			<nav className='navbar navbar-expand-md w-100'>
-				<img class="img-logo" src="https://cdn.discordapp.com/attachments/638666472427749385/664800639779471373/CronoseLogo.png"></img>
+				<img
+					class='img-logo'
+					src='https://cdn.discordapp.com/attachments/638666472427749385/664800639779471373/CronoseLogo.png'></img>
 				<a className='pl-3 navbar-brand' href='#'>
 					Cronose
 				</a>
@@ -34,8 +36,7 @@ function SideBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
 			<input type='checkbox' name='toggle' id='sidebar-toggle'></input>
-			<label htmlFor='sidebar-toggle' className='menu-bg'></label>
-			<nav className='vertical-nav'>
+			<nav className='sidebar-nav'>
 				<section className='navbar'>
 					<label htmlFor='sidebar-toggle' className='menu-icon'>
 						<i className='hamburger'></i>
@@ -55,7 +56,7 @@ function SideBar(props) {
 					</ul>
 				</section>
 			</nav>
-			<main className='vertical container-fluid'>
+			<main>
 				{SwitchRoutes(props.routes)}
 				<h1></h1>
 			</main>

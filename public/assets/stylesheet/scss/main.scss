@@ -1,5 +1,5 @@
 :root {
-	--nav-width: 100px;
+	--sidebar-width: 0px;
 	--primary-color: #242633;
 	--secondary-color: #f09a24;
 }
@@ -9,6 +9,7 @@
 }
 
 body {
+	min-height: 100vh;
 	margin: 0;
 }
 

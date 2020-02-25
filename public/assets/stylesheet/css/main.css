@@ -1,5 +1,5 @@
 :root {
-  --nav-width: 100px;
+  --sidebar-width: 0px;
   --primary-color: #242633;
   --secondary-color: #f09a24;
 }
@@ -9,6 +9,7 @@
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -30,7 +31,7 @@ body {
 }
 
 #sidebar-toggle:checked ~ * {
-  --nav-width: 250px;
+  --sidebar-width: 250px;
 }
 
 #sidebar-toggle:checked ~ * .sidebar-nav #nav-text {
@@ -58,10 +59,14 @@ body {
 }
 
 /*** sidebar NAV ***/
-main.sidebar {
+.container-side {
+  --sidebar-width: 100px;
   width: 100%;
+}
+
+main {
   height: 100%;
-  margin-left: var(--nav-width);
+  margin-left: var(--sidebar-width);
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
 }
@@ -69,7 +74,7 @@ main.sidebar {
 .sidebar-nav {
   background-color: var(--primary-color);
   position: fixed;
-  width: var(--nav-width);
+  width: var(--sidebar-width);
   height: 100%;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
@@ -110,8 +115,8 @@ main.sidebar {
           align-items: center;
   width: 40px;
   height: 35px;
-  -webkit-transform: translateX(var(--nav-width));
-          transform: translateX(var(--nav-width));
+  -webkit-transform: translateX(var(--sidebar-width));
+          transform: translateX(var(--sidebar-width));
   cursor: pointer;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
@@ -153,8 +158,8 @@ main.sidebar {
 
 @media (max-width: 576px) {
   .sidebar-nav {
-    -webkit-transform: translateX(calc((var(--nav-width)) * -1));
-            transform: translateX(calc((var(--nav-width)) * -1));
+    -webkit-transform: translateX(calc((var(--sidebar-width)) * -1));
+            transform: translateX(calc((var(--sidebar-width)) * -1));
   }
   main.sidebar {
     margin: 0 !important;
@@ -163,8 +168,8 @@ main.sidebar {
     width: 35px;
   }
   #sidebar-toggle:checked ~ * .sidebar-nav {
-    -webkit-transform: translateX(var(--nav-width));
-            transform: translateX(var(--nav-width));
+    -webkit-transform: translateX(var(--sidebar-width));
+            transform: translateX(var(--sidebar-width));
   }
   #sidebar-toggle:checked ~ * .menu-bg {
     position: absolute;
@@ -200,9 +205,11 @@ main.sidebar {
 }
 
 footer {
-  width: 100%;
+  margin-left: var(--sidebar-width);
   background-color: #242633;
   color: white;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 footer a {

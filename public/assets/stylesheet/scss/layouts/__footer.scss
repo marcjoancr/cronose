@@ -1,7 +1,8 @@
 footer {
-	width: 100%;
+	margin-left: var(--sidebar-width);
 	background-color: #242633;
 	color: white;
+	transition: all 250ms ease-in-out;
 
 	a {
 		color: #f09a24;

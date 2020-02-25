@@ -4,7 +4,7 @@
 }
 
 #sidebar-toggle:checked ~ * {
-	--nav-width: 250px;
+	--sidebar-width: 250px;
 }
 
 #sidebar-toggle:checked ~ * .sidebar-nav #nav-text {
@@ -27,19 +27,28 @@
 	width: 100%;
 }
 
+// #sidebar-toggle:checked ~ * {
+// 	margin-left: var(--sidebar-width);
+// }
+
 /*** sidebar NAV ***/
 
-main.sidebar {
+.container-side {
+	--sidebar-width: 100px;
+
 	width: 100%;
+}
+
+main {
 	height: 100%;
-	margin-left: var(--nav-width);
+	margin-left: var(--sidebar-width);
 	transition: all 250ms ease-in-out;
 }
 
 .sidebar-nav {
 	background-color: var(--primary-color);
 	position: fixed;
-	width: var(--nav-width);
+	width: var(--sidebar-width);
 	height: 100%;
 	transition: all 250ms ease-in-out;
 	z-index: 1000;
@@ -72,7 +81,7 @@ main.sidebar {
 	align-items: center;
 	width: 40px;
 	height: 35px;
-	transform: translateX(var(--nav-width));
+	transform: translateX(var(--sidebar-width));
 	cursor: pointer;
 	transition: all 250ms ease-in-out;
 }
@@ -110,7 +119,7 @@ main.sidebar {
 
 @media (max-width: 576px) {
 	.sidebar-nav {
-		transform: translateX(calc((var(--nav-width)) * -1));
+		transform: translateX(calc((var(--sidebar-width)) * -1));
 	}
 	main.sidebar {
 		margin: 0 !important;
@@ -119,7 +128,7 @@ main.sidebar {
 		width: 35px;
 	}
 	#sidebar-toggle:checked ~ * .sidebar-nav {
-		transform: translateX((var(--nav-width)));
+		transform: translateX((var(--sidebar-width)));
 	}
 	#sidebar-toggle:checked ~ * .menu-bg {
 		position: absolute;
