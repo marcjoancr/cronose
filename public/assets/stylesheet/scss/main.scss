@@ -13,8 +13,18 @@ body {
 	margin: 0;
 }
 
+.col-6 {
+	padding: 0px;
+}
+
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
 @import 'components/__buttons';
 @import 'layouts/__sidebar';
 @import 'layouts/__navbar';
 @import 'layouts/__footer';
 @import 'pages/__login';
+@import 'pages/__profile';

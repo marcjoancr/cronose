@@ -57,10 +57,7 @@ function SideBar(props) {
 					</ul>
 				</section>
 			</nav>
-			<main>
-				{SwitchRoutes(props.routes)}
-				<h1></h1>
-			</main>
+			<main>{SwitchRoutes(props.routes)}</main>
 		</BrowserRouter>
 	);
 }

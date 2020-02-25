@@ -13,6 +13,15 @@ body {
   margin: 0;
 }
 
+.col-6 {
+  padding: 0px;
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
 .btn-orange {
   background-color: #f09a24;
   color: #fff;
@@ -274,4 +283,76 @@ footer .links {
 
 .card-login .card-footer a {
   color: var(--secondary-color);
+}
+
+.img-back-profile {
+  z-index: -100;
+}
+
+.img-back-profile img {
+  height: 300px;
+  min-width: 100%;
+}
+
+#head-profile {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#head-profile .btn {
+  background-color: var(--secondary-color);
+}
+
+.img-profile {
+  margin-top: -80px;
+  padding-left: 50px;
+}
+
+.img-profile img {
+  width: 120px;
+  background-color: white;
+}
+
+.row-profile-name {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+#body-profile {
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 30px;
+}
+
+.profile-offers {
+  padding-top: 25px;
+}
+
+.profile-offers h3 {
+  padding-left: 20px;
+}
+
+.profile-offers .card-deck {
+  padding-top: 20px;
+}
+
+.profile-offers .card {
+  max-width: 300px;
+  min-width: 300px;
+  margin: auto;
+  text-align: start;
+}
+
+.profile-offers .btn {
+  background-color: var(--primary-color);
+}
+
+.profile-offers .icon-more a {
+  font-size: 60px;
+  color: #f09a24;
+  border: 0;
+}
+
+.profile-offers .icon-more a:hover {
+  text-decoration: none;
 }
