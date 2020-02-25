@@ -1,15 +1,42 @@
+#sidebar-toggle {
+	display: none;
+	z-index: 1000;
+}
 
+#sidebar-toggle:checked ~ * {
+	--nav-width: 250px;
+}
 
-/*** VERTICAL NAV ***/
+#sidebar-toggle:checked ~ * .sidebar-nav #nav-text {
+	display: inline;
+}
 
-main.vertical {
+#sidebar-toggle:checked ~ * .sidebar-nav i {
+	font-size: 30px;
+}
+#sidebar-toggle:checked ~ * .sidebar-nav img {
+	display: block;
+}
+#sidebar-toggle:checked ~ * .menu-icon .hamburger {
+	width: 100%;
+}
+#sidebar-toggle:checked ~ * .menu-icon .hamburger::after {
+	width: 100%;
+}
+#sidebar-toggle:checked ~ * .menu-icon .hamburger::before {
+	width: 100%;
+}
+
+/*** sidebar NAV ***/
+
+main.sidebar {
 	width: 100%;
 	height: 100%;
 	margin-left: var(--nav-width);
 	transition: all 250ms ease-in-out;
 }
 
-.vertical-nav {
+.sidebar-nav {
 	background-color: var(--primary-color);
 	position: fixed;
 	width: var(--nav-width);
@@ -18,24 +45,23 @@ main.vertical {
 	z-index: 1000;
 }
 
-.vertical-nav #nav-text {
+.sidebar-nav #nav-text {
 	display: none;
 	margin-left: 10px;
 }
 
-.vertical-nav img {
+.sidebar-nav img {
 	margin-left: -16px;
 }
 
-.vertical-nav i {
+.sidebar-nav i {
 	font-size: 30px;
 }
 
-.vertical-nav a {
+.sidebar-nav a {
 	text-align: left;
 	display: flex;
 }
-
 
 /*** MENU ICON ***/
 
@@ -83,16 +109,16 @@ main.vertical {
 }
 
 @media (max-width: 576px) {
-	.vertical-nav {
+	.sidebar-nav {
 		transform: translateX(calc((var(--nav-width)) * -1));
 	}
-	main.vertical {
+	main.sidebar {
 		margin: 0 !important;
 	}
 	.menu-icon {
 		width: 35px;
 	}
-	#sidebar-toggle:checked ~ * .vertical-nav {
+	#sidebar-toggle:checked ~ * .sidebar-nav {
 		transform: translateX((var(--nav-width)));
 	}
 	#sidebar-toggle:checked ~ * .menu-bg {

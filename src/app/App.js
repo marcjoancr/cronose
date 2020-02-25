@@ -4,7 +4,7 @@ import { NavBar, SideBar } from '../components/layouts/Nav';
 export default function App(props) {
 	return (
 		<>
-			<NavBar
+			<SideBar
 				basename={props.navigator.basename}
 				routes={props.navigator.routes}
 				refresh={true}

@@ -4,7 +4,7 @@ import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 export default function SideBar(props) {
 	return (
 		<div>
-			<nav className='vertical-nav'>
+			<nav className='sidebar-nav'>
 				<section className='navbar'>
 					<BrowserRouter basename={props.basename}>
 						<ul className='nav flex-column mb-0'>
