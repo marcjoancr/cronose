@@ -59,7 +59,7 @@ body {
 }
 
 /*** sidebar NAV ***/
-.container-side {
+#app {
   --sidebar-width: 100px;
   width: 100%;
 }
@@ -69,6 +69,10 @@ main {
   margin-left: var(--sidebar-width);
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
+}
+
+main#homepage {
+  width: 100%;
 }
 
 .sidebar-nav {
@@ -210,6 +214,10 @@ footer {
   color: white;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
+}
+
+footer#homepage {
+  width: 100%;
 }
 
 footer a {
