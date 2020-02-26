@@ -42,7 +42,11 @@ function SideBar(props) {
 					<label htmlFor='sidebar-toggle' className='menu-icon'>
 						<i className='hamburger'></i>
 					</label>
-					<ul className='nav flex-column mb-0'>
+					<img
+						className='img-logo m-auto mt-4'
+						src='https://cdn.discordapp.com/attachments/638666472427749385/664800639779471373/CronoseLogo.png'
+					/>
+					<ul className='nav flex-column mb-0 mt-4'>
 						{props.routes.map((route, index) => (
 							<li key={index} className='nav-item pt-3'>
 								<NavLink

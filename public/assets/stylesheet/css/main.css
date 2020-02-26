@@ -238,8 +238,7 @@ main#homepage {
 
 footer {
   margin-left: var(--sidebar-width);
-  background-color: var(--primary-color);
-  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.02);
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
 }
@@ -249,7 +248,7 @@ footer#homepage {
 }
 
 footer a {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 footer .col-md-6 {
@@ -257,13 +256,13 @@ footer .col-md-6 {
 }
 
 footer .btn-submit {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 footer .social a {
   margin-right: 20px;
   font-size: 50px;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   border: 0;
 }
 
@@ -282,6 +281,9 @@ footer .links {
 @media (max-width: 575px) {
   footer {
     margin-left: 0px;
+  }
+  .footer-copyright {
+    color: black;
   }
 }
 
@@ -450,4 +452,12 @@ footer .links {
 
 .work-card .btn:hover {
   background-color: var(--secondary-color);
+}
+
+.work-card .price {
+  color: #498f30;
+}
+
+.works {
+  padding-bottom: 40px;
 }
