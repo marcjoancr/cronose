@@ -1,4 +1,8 @@
 import React from 'react';
+import { render } from 'react-dom';
+import { ReactSVG } from 'react-svg';
+
+
 
 export default function HowItWorks() {
 	return (
@@ -14,7 +18,9 @@ export default function HowItWorks() {
 						only five centuries, but also the leap into electronic typesetting.
 					</p>
 				</div>
-				<div className='col-5 m-auto'></div>
+				<div className='col-5 m-auto'>
+					<ReactSVG />
+				</div>
 			</div>
 			<div className='row justify-content-md-end mt-4'>
 				<div className='col-lg-8 d-right'>
