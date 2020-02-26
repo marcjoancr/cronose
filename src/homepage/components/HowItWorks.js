@@ -19,10 +19,7 @@ export default function HowItWorks() {
 				</div>
 			</div>
 			<div className='row justify-content-md-end mt-4'>
-				<div className='col-5 m-auto'>
-					<img src='/assets/img/svg/contact-lg.svg' alt='...' class=''></img>
-				</div>
-				<div className='col-lg-7 d-right'>
+				<div className='col-lg-7 d-right order-lg-2'>
 					<h1>Contact People</h1>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -31,6 +28,9 @@ export default function HowItWorks() {
 						and scrambled it to make a type specimen book. It has survived not
 						only five centuries, but also the leap into electronic typesetting.
 					</p>
+				</div>
+				<div className='col-5 m-auto order-lg-1'>
+					<img src='/assets/img/svg/contact-lg.svg' alt='...' class=''></img>
 				</div>
 			</div>
 			<div className='row mt-4'>
@@ -49,10 +49,7 @@ export default function HowItWorks() {
 				</div>
 			</div>
 			<div className='row justify-content-md-end mt-4 mb-5'>
-				<div className='col-5 m-auto'>
-					<img src='/assets/img/svg/coins-lg.svg' alt='...' class=''></img>
-				</div>
-				<div className='col-lg-7 d-right'>
+				<div className='col-lg-7 d-right order-lg-2'>
 					<h1>Get Coins</h1>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -61,6 +58,9 @@ export default function HowItWorks() {
 						and scrambled it to make a type specimen book. It has survived not
 						only five centuries, but also the leap into electronic typesetting.
 					</p>
+				</div>
+				<div className='col-5 m-auto order-lg-1'>
+					<img src='/assets/img/svg/coins-lg.svg' alt='...' class=''></img>
 				</div>
 			</div>
 		</div>
