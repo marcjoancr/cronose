@@ -48,7 +48,7 @@ function SideBar(props) {
 								<NavLink
 									to={route.path}
 									exact={route.exact}
-									className='text-white'
+									className=''
 									activeClassName='active'>
 									{route.title}
 								</NavLink>
