@@ -15,12 +15,40 @@
 	}
 }
 
-main {
-	background-color: var(--back-color);
-}
+// main {
+// 	background-color: var(--back-color);
+// }
 
 * {
 	font-family: 'Montserrat', 'Lato', 'Work Sans', sans-serif;
+}
+
+.navbar {
+	background-color: var(--white);
+}
+
+footer {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+#app {
+	background-color: var(--back-color);
+}
+
+#homepage {
+	footer {
+		width: 100%;
+		background-color: var(--primary-color);
+
+		a,
+		p {
+			color: var(--white);
+		}
+
+		.btn {
+			background-color: var(--white);
+		}
+	}
 }
 
 body {
@@ -57,3 +85,4 @@ main {
 @import 'pages/__login';
 @import 'pages/__profile';
 @import 'pages/__market';
+@import 'pages/__about';

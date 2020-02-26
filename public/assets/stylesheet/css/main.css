@@ -15,12 +15,34 @@
   }
 }
 
-main {
+* {
+  font-family: 'Montserrat', 'Lato', 'Work Sans', sans-serif;
+}
+
+.navbar {
+  background-color: var(--white);
+}
+
+footer {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#app {
   background-color: var(--back-color);
 }
 
-* {
-  font-family: 'Montserrat', 'Lato', 'Work Sans', sans-serif;
+#homepage footer {
+  width: 100%;
+  background-color: var(--primary-color);
+}
+
+#homepage footer a,
+#homepage footer p {
+  color: var(--white);
+}
+
+#homepage footer .btn {
+  background-color: var(--white);
 }
 
 body {
@@ -238,13 +260,9 @@ main#homepage {
 
 footer {
   margin-left: var(--sidebar-width);
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(255, 255, 255, 0.5);
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
-}
-
-footer#homepage {
-  width: 100%;
 }
 
 footer a {

@@ -9,7 +9,7 @@ export default function Platform() {
 
 	return (
 		<>
-			<App navigator={navigators.filter((nav) => nav.name == 'root')[0]} />
+			<HomePage navigator={navigators.filter((nav) => nav.name == 'root')[0]} />
 		</>
 	);
 }

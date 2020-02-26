@@ -1,4 +1,41 @@
 import React from 'react';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+
+const position = [39.5616104, 3.20025];
+
+const styles = {
+	wrapper: {
+		height: 400,
+		width: '100%',
+		margin: '0 auto',
+		display: 'flex',
+	},
+	map: {
+		flex: 1,
+	},
+};
+
+const Moves = (props) => {
+	return (
+		<div style={styles.wrapper}>
+			<Map style={styles.map} center={props.center} zoom={props.zoom}>
+				<TileLayer url={props.url} />
+				<Marker position={position}>
+					<Popup>
+						<b>Aqui Estamos!</b>
+					</Popup>
+				</Marker>
+			</Map>
+		</div>
+	);
+};
+
+Moves.defaultProps = {
+	center: [39.561627, 3.199883],
+	zoom: 16,
+	url: 'https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png',
+};
 
 export default function AboutUs(props) {
 	const data = props.data;
@@ -23,17 +60,7 @@ export default function AboutUs(props) {
 				al resto de comunidad y en la misma medida puede utilizar los que el
 				resto de usuarios le ofrecen.
 			</p>
-			<picture>
-				<source
-					media='(max-width: 799px)'
-					srcset='elva-480w-close-portrait.jpg'
-				/>
-				<source media='(min-width: 800px)' srcset='elva-800w.jpg' />
-				<img
-					src={`${process.env.PUBLIC_URL}/assets/img/initial-ls.svg`}
-					alt='Chris standing up holding his daughter Elva'
-				/>
-			</picture>
+			<Moves />
 		</div>
 	);
 }
