@@ -5,7 +5,7 @@ function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
 			<nav className='navbar navbar-expand-md w-100'>
-				<img className='img-logo' src='/assets/img/CronoseLogo.png' />
+				<img className='img-logo' src='/assets/img/svg/logo.svg' />
 				<a className='pl-3 navbar-brand' href='#'>
 					Cronose
 				</a>
@@ -41,7 +41,7 @@ function SideBar(props) {
 					</label>
 					<img
 						className='img-logo m-auto mt-4'
-						src='/assets/img/CronoseLogo.png'
+						src='/assets/img/svg/logo.svg'
 					/>
 					<ul className='nav flex-column mb-0 mt-4'>
 						{props.routes.map((route, index) => (
