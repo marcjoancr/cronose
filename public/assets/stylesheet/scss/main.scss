@@ -6,12 +6,17 @@
 	--text-color: #242633;
 	--white: #ffffff;
 	--black: #000000;
+	--back-color: rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 575px) {
 	main {
 		margin-left: 0px !important;
 	}
+}
+
+main {
+	background-color: var(--back-color);
 }
 
 * {
