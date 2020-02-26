@@ -23,11 +23,20 @@ export default class Market extends Component {
 
 	render() {
 		return (
-			<section className='works'>
-				{this.state.works.map((work, index) => (
-					<WorkCard key={index} work={work} />
-				))}
-			</section>
+			<>
+				<div class='btn-search md-form mt-0'>
+					<input
+						class='form-control'
+						type='text'
+						placeholder='Search'
+						aria-label='Search'></input>
+				</div>
+				<section className='works'>
+					{this.state.works.map((work, index) => (
+						<WorkCard key={index} work={work} />
+					))}
+				</section>
+			</>
 		);
 	}
 }

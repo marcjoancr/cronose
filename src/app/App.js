@@ -8,7 +8,7 @@ export default function App(props) {
 			<SideBar
 				basename={props.navigator.basename}
 				routes={props.navigator.routes}
-				refresh={true}
+				refresh={false}
 			/>
 			<Footer />
 		</div>

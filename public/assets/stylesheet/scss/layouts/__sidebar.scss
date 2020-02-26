@@ -39,15 +39,6 @@
 	width: 100%;
 }
 
-main {
-	&#homepage {
-		width: 100%;
-	}
-	height: 100%;
-	margin-left: var(--sidebar-width);
-	transition: all 250ms ease-in-out;
-}
-
 .sidebar-nav {
 	background-color: var(--primary-color);
 	position: fixed;
