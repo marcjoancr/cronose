@@ -7,17 +7,14 @@ export default function Profile(props) {
 	return (
 		<div className='profile'>
 			<div className='img-back-profile'>
-				<img
-					src='https://www.blogdelfotografo.com/wp-content/uploads/2019/04/v2osk-303977-unsplash.jpg'
-					alt=''
-					className=''></img>
+				<img src='/assets/img/img-profile.jpg' alt='' className=''></img>
 			</div>
 			<div id='head-profile'>
 				<div className='row row-profile-name'>
 					<div className='col-md-6 d-flex justify-content-md-start justify-content-center'>
 						<div className='img-profile'>
 							<img
-								src='https://i.imgur.com/B1ZmT0B.png'
+								src='/assets/img/img-profile-person.png'
 								alt='...'
 								class=' rounded-circle shadow-sm'></img>
 							<h5>
@@ -68,7 +65,7 @@ export default function Profile(props) {
 						<div class='card'>
 							<img
 								class='card-img-top'
-								src='https://mdbootstrap.com/img/Photos/Others/images/43.jpg'
+								src='/assets/img/img-work.jpg'
 								alt='Card image cap'></img>
 							<div class='card-body'>
 								<div class='card-title'>
@@ -92,7 +89,7 @@ export default function Profile(props) {
 						<div class='card'>
 							<img
 								class='card-img-top'
-								src='https://mdbootstrap.com/img/Photos/Others/images/43.jpg'
+								src='/assets/img/img-work.jpg'
 								alt='Card image cap'></img>
 							<div class='card-body'>
 								<div class='card-title'>
@@ -116,7 +113,7 @@ export default function Profile(props) {
 						<div class='card'>
 							<img
 								class='card-img-top'
-								src='https://mdbootstrap.com/img/Photos/Others/images/43.jpg'
+								src='/assets/img/img-work.jpg'
 								alt='Card image cap'></img>
 							<div class='card-body'>
 								<div class='card-title'>

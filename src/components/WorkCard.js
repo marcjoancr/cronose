@@ -10,7 +10,7 @@ export default function WorkCard(props) {
 				<figure className='col-lg-4'>
 					<img
 						class='card-img'
-						src='https://mdbootstrap.com/img/Photos/Others/images/43.jpg'
+						src='/assets/img/img-work.jpg'
 						alt='Card image cap'></img>
 				</figure>
 				<div className='col-lg-8'>
