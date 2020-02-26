@@ -78,6 +78,13 @@ main {
 	transition: all 250ms ease-in-out;
 }
 
+#HowItWorks {
+	.col-lg-7 {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+}
+
 @import 'components/__buttons';
 @import 'layouts/__sidebar';
 @import 'layouts/__navbar';

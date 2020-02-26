@@ -74,6 +74,11 @@ main#homepage {
   width: 100%;
 }
 
+#HowItWorks .col-lg-7 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .btn-orange {
   background-color: var(--secondary-color);
   color: var(--white);
