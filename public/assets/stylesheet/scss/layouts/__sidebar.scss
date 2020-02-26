@@ -100,7 +100,7 @@ main {
 	width: 85%;
 	height: 5px;
 	margin: 10px 0;
-	background-color: black;
+	background-color: var(--black);
 	transition: height 150ms ease-in-out;
 	transition: transform 250ms ease-in-out;
 	cursor: pointer;

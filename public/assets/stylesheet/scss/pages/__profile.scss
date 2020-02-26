@@ -22,7 +22,7 @@
 	padding-left: 50px;
 	img {
 		width: 120px;
-		background-color: white;
+		background-color: var(--white);
 	}
 }
 
@@ -69,7 +69,7 @@
 
 	.icon-more a {
 		font-size: 60px;
-		color: #f09a24;
+		color: var(--secondary-color);
 		border: 0;
 
 		&:hover {

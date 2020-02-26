@@ -1,9 +1,9 @@
 .h-nav a {
-	color: #000;
+	color: var(--black);
 }
 .h-nav li:last-child a {
-	background-color: #f09a24;
-	color: #fff;
+	background-color: var(--secondary-color);
+	color: var(--white);
 	border-radius: 30px;
 }
 
