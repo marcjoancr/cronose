@@ -4,6 +4,8 @@
   --secondary-color: #f09a24;
   --ternary-color: #242633;
   --text-color: #242633;
+  --white: #ffffff;
+  --black: #000000;
 }
 
 @media (max-width: 575px) {
@@ -46,15 +48,15 @@ main#homepage {
 }
 
 .btn-orange {
-  background-color: #f09a24;
-  color: #fff;
+  background-color: var(--secondary-color);
+  color: var(--white);
   border-radius: 30px;
 }
 
 .btn-orange:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  color: #fff;
+  color: var(--white);
 }
 
 #sidebar-toggle {
@@ -157,7 +159,7 @@ main#homepage {
   width: 85%;
   height: 5px;
   margin: 10px 0;
-  background-color: black;
+  background-color: var(--black);
   -webkit-transition: height 150ms ease-in-out;
   transition: height 150ms ease-in-out;
   -webkit-transition: -webkit-transform 250ms ease-in-out;
@@ -211,12 +213,12 @@ main#homepage {
 }
 
 .h-nav a {
-  color: #000;
+  color: var(--black);
 }
 
 .h-nav li:last-child a {
-  background-color: #f09a24;
-  color: #fff;
+  background-color: var(--secondary-color);
+  color: var(--white);
   border-radius: 30px;
 }
 
@@ -232,7 +234,7 @@ main#homepage {
 footer {
   margin-left: var(--sidebar-width);
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white);
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
 }
@@ -296,7 +298,7 @@ footer .links {
 }
 
 .card-login .card-footer {
-  background-color: white;
+  background-color: var(--white);
 }
 
 .card-login .card-footer a {
@@ -328,7 +330,7 @@ footer .links {
 
 .img-profile img {
   width: 120px;
-  background-color: white;
+  background-color: var(--white);
 }
 
 @media (max-width: 575px) {
@@ -373,7 +375,7 @@ footer .links {
 
 .profile-offers .icon-more a {
   font-size: 60px;
-  color: #f09a24;
+  color: var(--secondary-color);
   border: 0;
 }
 
