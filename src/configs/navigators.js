@@ -6,6 +6,15 @@ import Profile from '../app/components/Profile';
 import Home from '../homepage/components/Home';
 import Login from '../homepage/components/Login';
 import SignIn from '../homepage/components/SignIn';
+import {
+	IoIosArrowDroprightCircle,
+	IoMdChatboxes,
+	IoIosWallet,
+} from 'react-icons/io';
+import { FaWallet, FaStore } from 'react-icons/fa';
+import { GiNetworkBars, GiTwoCoins } from 'react-icons/gi';
+import { MdWork } from 'react-icons/md';
+import { GoPerson } from 'react-icons/go';
 
 export default [
 	{
@@ -17,26 +26,31 @@ export default [
 				path: '/market',
 				component: Market,
 				exact: true,
+				icon: FaStore,
 			},
 			{
 				title: 'Wallet',
 				path: '/wallet',
 				component: Wallet,
+				icon: GiTwoCoins,
 			},
 			{
 				title: 'Chat',
 				path: '/chat',
 				component: Chat,
+				icon: IoMdChatboxes,
 			},
 			{
 				title: 'My Works',
 				path: '/:user/works',
 				component: MyWorks,
+				icon: MdWork,
 			},
 			{
 				title: 'Profile',
 				path: '/me',
 				component: Profile,
+				icon: GoPerson,
 			},
 		],
 	},

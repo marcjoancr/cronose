@@ -1,6 +1,9 @@
 #sidebar-toggle {
 	display: none;
 	z-index: 1000;
+	.sidebar-nav ul a a {
+		display: initial;
+	}
 }
 
 #sidebar-toggle:checked ~ * {
@@ -27,12 +30,6 @@
 	width: 100%;
 }
 
-// #sidebar-toggle:checked ~ * {
-// 	margin-left: var(--sidebar-width);
-// }
-
-/*** sidebar NAV ***/
-
 #app {
 	--sidebar-width: 100px;
 
@@ -53,6 +50,12 @@
 	margin-left: 10px;
 }
 
+.sidebar-nav .img-logo {
+	margin-top: 10px;
+	width: 50px;
+	height: 100px;
+}
+
 .sidebar-nav img {
 	margin-left: -16px;
 }
@@ -61,15 +64,33 @@
 	font-size: 30px;
 }
 
-.sidebar-nav a {
-	text-align: left;
-	display: flex;
+.sidebar-nav ul {
+	width: 100%;
+	text-align: center;
+
+	li {
+		margin: auto;
+		font-size: 35px;
+		padding-top: 20px;
+	}
+	svg {
+		color: var(--primary-color);
+	}
+	a {
+		display: flex;
+		margin: auto;
+
+		a {
+			display: none;
+		}
+	}
 }
 
 /*** MENU ICON ***/
 
 .menu-icon {
-	position: relative;
+	position: absolute;
+	top: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

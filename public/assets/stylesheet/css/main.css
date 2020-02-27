@@ -96,6 +96,10 @@ main#homepage {
   z-index: 1000;
 }
 
+#sidebar-toggle .sidebar-nav ul a a {
+  display: initial;
+}
+
 #sidebar-toggle:checked ~ * {
   --sidebar-width: 250px;
 }
@@ -124,7 +128,6 @@ main#homepage {
   width: 100%;
 }
 
-/*** sidebar NAV ***/
 #app {
   --sidebar-width: 100px;
   width: 100%;
@@ -145,6 +148,12 @@ main#homepage {
   margin-left: 10px;
 }
 
+.sidebar-nav .img-logo {
+  margin-top: 10px;
+  width: 50px;
+  height: 100px;
+}
+
 .sidebar-nav img {
   margin-left: -16px;
 }
@@ -153,16 +162,36 @@ main#homepage {
   font-size: 30px;
 }
 
-.sidebar-nav a {
-  text-align: left;
+.sidebar-nav ul {
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar-nav ul li {
+  margin: auto;
+  font-size: 35px;
+  padding-top: 20px;
+}
+
+.sidebar-nav ul svg {
+  color: var(--primary-color);
+}
+
+.sidebar-nav ul a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: auto;
+}
+
+.sidebar-nav ul a a {
+  display: none;
 }
 
 /*** MENU ICON ***/
 .menu-icon {
-  position: relative;
+  position: absolute;
+  top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
