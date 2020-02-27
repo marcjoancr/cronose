@@ -51,7 +51,7 @@ function SideBar(props) {
 									exact={route.exact}
 									className=''
 									activeClassName='active'>
-									{route.icon ? <route.icon /> : null}
+									<i className='icon'>{route.icon ? <route.icon /> : null}</i>
 									<a>{route.title}</a>
 								</NavLink>
 							</li>

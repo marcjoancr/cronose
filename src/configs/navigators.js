@@ -6,13 +6,9 @@ import Profile from '../app/components/Profile';
 import Home from '../homepage/components/Home';
 import Login from '../homepage/components/Login';
 import SignIn from '../homepage/components/SignIn';
-import {
-	IoIosArrowDroprightCircle,
-	IoMdChatboxes,
-	IoIosWallet,
-} from 'react-icons/io';
-import { FaWallet, FaStore } from 'react-icons/fa';
-import { GiNetworkBars, GiTwoCoins } from 'react-icons/gi';
+import { IoMdChatboxes, IoIosChatbubbles } from 'react-icons/io';
+import { FaStore } from 'react-icons/fa';
+import { GiTwoCoins } from 'react-icons/gi';
 import { MdWork } from 'react-icons/md';
 import { GoPerson } from 'react-icons/go';
 
@@ -38,7 +34,7 @@ export default [
 				title: 'Chat',
 				path: '/chat',
 				component: Chat,
-				icon: IoMdChatboxes,
+				icon: IoIosChatbubbles,
 			},
 			{
 				title: 'My Works',
