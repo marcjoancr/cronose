@@ -449,6 +449,7 @@ footer .links {
 
 .work-card .card-body {
   padding: 20px;
+  padding-bottom: 0px;
 }
 
 .work-card .card-img {
@@ -483,4 +484,20 @@ footer .links {
 
 .works {
   padding-bottom: 40px;
+}
+
+#jobFilter {
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 200px;
+  height: 565px;
+}
+
+#jobFilter a {
+  font-size: 50px;
+  color: var(--primary-color);
+  position: absolute;
+  right: 175px;
 }

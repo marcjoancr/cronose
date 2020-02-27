@@ -32,6 +32,7 @@
 
 	.card-body {
 		padding: 20px;
+		padding-bottom: 0px;
 	}
 
 	.card-img {
@@ -66,4 +67,20 @@
 
 .works {
 	padding-bottom: 40px;
+}
+
+#jobFilter {
+	background-color: white;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 200px;
+	height: 565px;
+
+	a {
+		font-size: 50px;
+		color: var(--primary-color);
+		position: absolute;
+		right: 175px;
+	}
 }
