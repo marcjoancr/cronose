@@ -544,3 +544,17 @@ footer .links {
   position: absolute;
   right: 175px;
 }
+
+.register .btn-register {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.register .btn-register:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.register a {
+  color: var(--secondary-color);
+}
