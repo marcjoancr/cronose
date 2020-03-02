@@ -5,6 +5,7 @@ import {
 	IoIosArrowDropleftCircle,
 } from 'react-icons/io';
 import WorkCard from './WorkCard';
+import WorkDetail from './WorkDetail';
 
 export default class Market extends Component {
 	constructor(props) {
