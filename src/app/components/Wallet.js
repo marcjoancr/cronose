@@ -58,8 +58,6 @@ export default class Example extends PureComponent {
 							bottom: 5,
 						}}>
 						<CartesianGrid strokeDasharray='3 3' />
-						{/* <XAxis dataKey='fecha' />
-						<YAxis /> */}
 						<XAxis dataKey='fecha' />
 						<YAxis />
 						<Tooltip />
