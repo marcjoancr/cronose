@@ -32,7 +32,7 @@ export default function WorkCard(props) {
 								<b>PRECIO</b>
 							</p>
 
-							<a href='#' class='btn text-white'>
+							<a href='/work' class='btn text-white'>
 								See Offer
 							</a>
 						</section>
