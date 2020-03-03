@@ -84,3 +84,12 @@
 		}
 	}
 }
+
+.progress {
+	height: 20px;
+	.progress-bar {
+		width: 25%;
+		height: 20px;
+		background-color: var(--secondary-color);
+	}
+}

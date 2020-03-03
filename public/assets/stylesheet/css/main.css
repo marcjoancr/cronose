@@ -473,6 +473,16 @@ footer .links {
   text-decoration: none;
 }
 
+.progress {
+  height: 20px;
+}
+
+.progress .progress-bar {
+  width: 25%;
+  height: 20px;
+  background-color: var(--secondary-color);
+}
+
 .btn-search {
   padding-right: 20%;
   padding-left: 20%;
@@ -648,4 +658,20 @@ footer .links {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+#records .card-header .fa {
+  -webkit-transition: 0.3s -webkit-transform ease-in-out;
+  transition: 0.3s -webkit-transform ease-in-out;
+  transition: 0.3s transform ease-in-out;
+  transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out;
+}
+
+#records .card-header a {
+  color: var(--primary-color);
+}
+
+#records .card-header .collapsed .fa {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }

@@ -37,12 +37,26 @@ export default function Profile(props) {
 				</div>
 			</div>
 			<div id='body-profile'>
+				<div className='progress md-progress mt-4 mb-4'>
+					<h5 className='pr-4'>
+						Lvl : <b>3</b>
+					</h5>
+					<div
+						className='progress-bar'
+						role='progressbar'
+						aria-valuenow='25'
+						aria-valuemin='0'
+						aria-valuemax='100'>
+						25%
+					</div>
+				</div>
 				<div class='card card-about'>
 					<div class='card-header'>
 						<h3>
 							<b>ABOUT ME</b>
 						</h3>
 					</div>
+
 					<div class='card-body'>
 						<p class='card-text'>
 							Lorem ipsum dolor sit amet, ea vel prima adhuc, scripta
