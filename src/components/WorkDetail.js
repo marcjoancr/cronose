@@ -4,7 +4,7 @@ import L from 'leaflet';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 
-const position = [39.5616104, 3.20025];
+const position = [39.5643576, 3.20227];
 
 const styles = {
 	wrapper: {
@@ -34,7 +34,7 @@ const Moves = (props) => {
 };
 
 Moves.defaultProps = {
-	center: [39.561627, 3.199883],
+	center: [39.5643576, 3.20227],
 	zoom: 16,
 	url: 'https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png',
 };
@@ -42,9 +42,9 @@ Moves.defaultProps = {
 export default function WorkDetail(props) {
 	return (
 		<section className='work'>
-			<div className='container'>
+			<div className='container mt-2'>
 				<div className='row'>
-					<h1>Título genérico aquí</h1>
+					<h1>Profesor de guitarra (Nivel básico)</h1>
 				</div>
 				<div className='row'>
 					<div className='col-12 col-md-8'>
@@ -105,12 +105,14 @@ export default function WorkDetail(props) {
 							</a>
 						</div>
 						<div className='row'>
-							<div className="col-6">
+							<div className='col-6'>
 								<Rater total={5} rating={2} interactive={false} />
-								<small className="muted ml-2 my-auto">Personal Valoration</small>
+								<small className='muted ml-2 my-auto'>
+									Personal Valoration
+								</small>
 							</div>
-							<div className="col-6 text-right">
-								<small className="muted mr-2 my-auto">Users Valoration</small>
+							<div className='col-6 text-right'>
+								<small className='muted mr-2 my-auto'>Users Valoration</small>
 								<Rater total={5} rating={4.5} interactive={false} />
 							</div>
 						</div>
@@ -119,35 +121,35 @@ export default function WorkDetail(props) {
 							<h6 className='ml-2 my-auto'>Nombre Genérico</h6>
 						</div>
 						<div className='row mt-4'>
-							<div className="container-fluid">
-								<h6>Work info</h6>
+							<div className='container-fluid'>
+								<h4>Work info</h4>
 								<hr />
 								<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting
-									industry. Lorem Ipsum has been the industry's standard dummy
-									text ever since the 1500s, when an unknown printer took a galley
-									of type and scrambled it to make a type specimen book. It has
-									survived not only five centuries, but also the leap into
-									electronic typesetting, remaining essentially unchanged. It was
-									popularised in the 1960s with the release of Letraset sheets
-									containing Lorem Ipsum passages, and more recently with desktop
-									publishing software like Aldus PageMaker including versions of
-									Lorem Ipsum.
+									Lorem Ipsum is simply dummy text of the printing and
+									typesetting industry. Lorem Ipsum has been the industry's
+									standard dummy text ever since the 1500s, when an unknown
+									printer took a galley of type and scrambled it to make a type
+									specimen book. It has survived not only five centuries, but
+									also the leap into electronic typesetting, remaining
+									essentially unchanged. It was popularised in the 1960s with
+									the release of Letraset sheets containing Lorem Ipsum
+									passages, and more recently with desktop publishing software
+									like Aldus PageMaker including versions of Lorem Ipsum.
 								</p>
 							</div>
 						</div>
 						<div className='row mt-4'>
 							<div className='container-fluid'>
-								<h6>User info</h6>
+								<h4>User info</h4>
 								<hr />
 								<div className='row mt-2'>
 									<img src='/assets/img/avatar-placeholder.png' height='40px' />
-									<h6 className='ml-2 my-auto'>Nombre Genérico</h6>
+									<h4 className='ml-2 my-auto'>Nombre Genérico</h4>
 								</div>
 								<div className='row'>
 									<div className='container-fluid mt-4'>
 										<div className='col-4'>
-											<h6>Description</h6>
+											<h4>Description</h4>
 											<hr />
 										</div>
 										<p>
@@ -163,42 +165,116 @@ export default function WorkDetail(props) {
 								<div className='row'>
 									<div className='container-fluid mt-4'>
 										<div className='col-4'>
-											<h6>Rating</h6>
+											<h4>Rating</h4>
 											<hr />
 										</div>
-										<div className="col-6 text-left">
-											<small className="muted mr-2 my-auto">Puntuality</small>
-											<Rater total={5} rating={4.5} interactive={false} />
+										<div className='col-6 text-left'>
+											<div className='row'>
+												<div className='col'>
+													<small className='muted mr-2 my-auto'>
+														Puntuality
+													</small>
+												</div>
+												<div className='col'>
+													<Rater total={5} rating={4.5} interactive={false} />
+												</div>
+											</div>
 										</div>
-										<div className="col-6 text-left">
-											<small className="muted mr-2 my-auto">Profesionality</small>
-											<Rater total={5} rating={5} interactive={false} />
+										<div className='col-6 text-left'>
+											<div className='row'>
+												<div className='col'>
+													<small className='muted mr-2 my-auto'>
+														Profesionality
+													</small>
+												</div>
+												<div className='col'>
+													<Rater total={5} rating={4.5} interactive={false} />
+												</div>
+											</div>
 										</div>
-										<div className="col-6 text-left">
-											<small className="muted mr-2 my-auto">Sympathy</small>
-											<Rater total={5} rating={1} interactive={false} />
+										<div className='col-6 text-left'>
+											<div className='row'>
+												<div className='col'>
+													<small className='muted mr-2 my-auto'>Simpathy</small>
+												</div>
+												<div className='col'>
+													<Rater total={5} rating={4.5} interactive={false} />
+												</div>
+											</div>
 										</div>
 									</div>
 									<div className='container-fluid mt-4'>
 										<div className='mb-4'>
-											<h6>Comments</h6>
-											<div className="border-bottom col-4"></div>
-											<div className='container-fluid'>
+											<h4>Comments</h4>
+											<div className='border-bottom col-4'></div>
+											<div className='container-fluid mt-3'>
 												<div className='row mt-2'>
 													<img
 														src='/assets/img/avatar-placeholder.png'
 														height='30px'
 													/>
-													<h6 className='ml-2 my-auto'>Pepito grillo</h6>
+													<h4 className='ml-2 my-auto'>Pepito grillo</h4>
 												</div>
 												<div className='row mt-2'>
-													<div className="col-8">
+													<div className='col-8'>
 														<p>"Me gusta este hombre"</p>
 													</div>
-													<div className="col-4">
-														<div className="text-left">
-															<small className="muted mr-2 my-auto">Valoration Average</small>
+													<div className='pl-3 col-4'>
+														<div className='text-left'>
+															<small className='muted mr-2 my-auto'>
+																Valoration Average
+															</small>
 															<Rater total={5} rating={4} interactive={false} />
+														</div>
+													</div>
+												</div>
+												<div className='row mt-2'>
+													<img
+														src='/assets/img/avatar-placeholder.png'
+														height='30px'
+													/>
+													<h4 className='ml-2 my-auto'>Amancio Ortega</h4>
+												</div>
+												<div className='row mt-2'>
+													<div className='col-8'>
+														<p>
+															"Salvó mi negocio, un crack, máquina, mastodonte,
+															tifón..."
+														</p>
+													</div>
+													<div className='pl-3 col-4'>
+														<div className='text-left'>
+															<small className='muted mr-2 my-auto'>
+																Valoration Average
+															</small>
+															<Rater total={5} rating={5} interactive={false} />
+														</div>
+													</div>
+												</div>
+												<div className='row mt-2'>
+													<img
+														src='/assets/img/avatar-placeholder.png'
+														height='30px'
+													/>
+													<h4 className='ml-2 my-auto'>Willy Toledo</h4>
+												</div>
+												<div className='row mt-2'>
+													<div className='col-8'>
+														<p>
+															"No me denunció a pesar de blasfemar un par de
+															veces. Se agradece bastante"
+														</p>
+													</div>
+													<div className='pl-3 col-4'>
+														<div className='text-left'>
+															<small className='muted mr-2 my-auto'>
+																Valoration Average
+															</small>
+															<Rater
+																total={5}
+																rating={3.5}
+																interactive={false}
+															/>
 														</div>
 													</div>
 												</div>
@@ -211,31 +287,24 @@ export default function WorkDetail(props) {
 					</div>
 					<div className='col-12 col-md-4'>
 						<div className='m-3'>
-							<h6>Schedule</h6>
+							<h4>Schedule</h4>
 							<hr />
 							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting
-								industry. Lorem Ipsum has been the industry's standard dummy
-								text ever since the 1500s, when an unknown printer took a galley
-								of type and scrambled it to make a type specimen book. It has
-								survived not only five centuries.
+								<b>Días de la semana:</b> Entre semana.
 							</p>
+							<p>
+								<b>Horario:</b> De 10:00h a 13:00h.
+							</p>
+						</div>
+						<div className='m-3 mt-4'>
+							<h4>Zone info</h4>
+							<hr />
+							<p>Realizo el trabajo en mi casa, no hago desplazamientos.</p>
 						</div>
 						<div className='m-3'>
-							<h6>Zone info</h6>
-							<hr />
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting
-								industry. Lorem Ipsum has been the industry's standard dummy
-								text ever since the 1500s, when an unknown printer took a galley
-								of type and scrambled it to make a type specimen book. It has
-								survived not only five centuries.
-							</p>
-						</div>
-						<div>
 							<Moves />
 						</div>
-						<div className='text-center'>
+						<div className='text-center mt-4'>
 							<a href='#' className='btn btn-large btn-primary'>
 								Contactar
 							</a>
