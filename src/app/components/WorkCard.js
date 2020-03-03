@@ -1,11 +1,8 @@
 import React from 'react';
 
-export default function WorkCard(props) {
-	const work = props.work;
-	console.log(work);
-
+export default function WorkCard() {
 	return (
-		<article className='card work-card'>
+		<article className='card my-work-card'>
 			<section className='info row'>
 				<figure className='col-lg-4'>
 					<img
@@ -31,8 +28,10 @@ export default function WorkCard(props) {
 							<p className='price d-inline'>
 								<b>PRECIO</b>
 							</p>
-
-							<a href='/work' class='btn text-white'>
+							<a href='#' id='editButton' class='btn text-white'>
+								Edit Offer
+							</a>
+							<a href='#' class='btn text-white'>
 								See Offer
 							</a>
 						</section>
