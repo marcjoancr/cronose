@@ -6,6 +6,7 @@ import Profile from '../app/components/Profile';
 import Home from '../homepage/components/Home';
 import Login from '../homepage/components/Login';
 import SignIn from '../homepage/components/SignIn';
+import WorkDetail from '../components/WorkDetail';
 import { IoMdChatboxes, IoIosChatbubbles } from 'react-icons/io';
 import { FaStore } from 'react-icons/fa';
 import { GiTwoCoins } from 'react-icons/gi';
@@ -79,6 +80,11 @@ export default [
 				title: 'Market',
 				path: '/market',
 				component: Market,
+			},
+			{
+				title: 'Work Details',
+				path: '/work',
+				component: WorkDetail,
 			},
 			{
 				title: 'Login',

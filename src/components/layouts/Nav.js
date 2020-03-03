@@ -12,15 +12,17 @@ function NavBar(props) {
 				<div className='h-nav collapse navbar-collapse d-flex flex-row-reverse mr-4 mt-2'>
 					<ul className='navbar-nav'>
 						{props.routes.map((route, index) => (
-							<li key={index} className='item'>
-								<NavLink
-									to={route.path}
-									exact={route.exact}
-									className='nav-item mr-2 px-3 py-2'
-									activeClassName='active'>
-									{route.title}
-								</NavLink>
-							</li>
+							<>
+								<li key={index} className='item'>
+									<NavLink
+										to={route.path}
+										exact={route.exact}
+										className='nav-item mr-2 px-3 py-2'
+										activeClassName='active'>
+										{route.title}
+									</NavLink>
+								</li>
+							</>
 						))}
 					</ul>
 				</div>
