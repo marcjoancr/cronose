@@ -1,4 +1,6 @@
 import React from 'react';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 export default function WorkCard() {
 	return (
@@ -13,7 +15,9 @@ export default function WorkCard() {
 				<div className='col-lg-8'>
 					<section className='header card-header row'>
 						<p className='schedule col-6 text-muted'>HORARIO</p>
-						<div className='valuation col-6 text-right'>VALORACIONES</div>
+						<div className='valuation col-6 text-right'>
+							<Rater total={5} rating={4} interactive={false} />
+						</div>
 					</section>
 					<div className='card-body'>
 						<h4>
