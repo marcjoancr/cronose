@@ -106,10 +106,7 @@ export default function WorkDetail(props) {
 							<div className='rating' id='rating'></div>
 						</div>
 						<div className='row mt-2'>
-							<img
-								src='../../public/assets/img/avatar-placeholder.png'
-								style='height: 50px;'
-							/>
+							<img src='/assets/img/avatar-placeholder.png' height='50px' />
 							<h6 className='ml-2 my-auto'>Nombre genérico</h6>
 						</div>
 						<div className='row mt-4'>
@@ -133,10 +130,7 @@ export default function WorkDetail(props) {
 								<h6>User info</h6>
 								<hr />
 								<div className='row mt-2'>
-									<img
-										src='../../public/assets/img/avatar-placeholder.png'
-										style='height: 40px;'
-									/>
+									<img src='/assets/img/avatar-placeholder.png' height='40px' />
 									<h6 className='ml-2 my-auto'>Nombre genérico</h6>
 								</div>
 								<div className='row'>
@@ -169,8 +163,8 @@ export default function WorkDetail(props) {
 											<div className='container-fluid'>
 												<div className='row mt-2'>
 													<img
-														src='../../public/assets/img/avatar-placeholder.png'
-														style='height: 30px;'
+														src='/assets/img/avatar-placeholder.png'
+														height='30px'
 													/>
 													<h6 className='ml-2 my-auto'>Pepito grillo</h6>
 												</div>
@@ -185,7 +179,7 @@ export default function WorkDetail(props) {
 						</div>
 					</div>
 					<div className='col-12 col-md-4'>
-						<div>
+						<div className='m-3'>
 							<h6>Schedule</h6>
 							<hr />
 							<p>
@@ -196,7 +190,7 @@ export default function WorkDetail(props) {
 								survived not only five centuries.
 							</p>
 						</div>
-						<div>
+						<div className='m-3'>
 							<h6>Zone info</h6>
 							<hr />
 							<p>
