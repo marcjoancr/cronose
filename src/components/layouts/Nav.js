@@ -11,8 +11,9 @@ function NavBar(props) {
 				</a>
 				<div className='h-nav collapse navbar-collapse d-flex flex-row-reverse mr-4 mt-2'>
 					<ul className='navbar-nav'>
-						{props.routes.map((route, index) => (
-							<>
+						{props.routes.map(function(route, index) {
+							if (route.path == '/work') return false;
+							return (
 								<li key={index} className='item'>
 									<NavLink
 										to={route.path}
@@ -22,8 +23,8 @@ function NavBar(props) {
 										{route.title}
 									</NavLink>
 								</li>
-							</>
-						))}
+							);
+						})}
 					</ul>
 				</div>
 			</nav>
