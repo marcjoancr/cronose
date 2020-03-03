@@ -558,3 +558,71 @@ footer .links {
 .register a {
   color: var(--secondary-color);
 }
+
+.register .btn-register {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.register .btn-register:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.register a {
+  color: var(--secondary-color);
+}
+
+.my-work-card {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.my-work-card .card-header {
+  padding-bottom: 0px;
+}
+
+.my-work-card .card-body {
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+.my-work-card .card-img {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .my-work-card .card-img {
+    height: 250px;
+  }
+}
+
+.my-work-card .btn {
+  background-color: #1b64aa;
+  margin: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.my-work-card .btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.my-work-card #editButton {
+  margin-right: 0px;
+}
+
+.my-work-card .price {
+  color: #498f30;
+}
+
+.btn {
+  background-color: var(--secondary-color);
+}
