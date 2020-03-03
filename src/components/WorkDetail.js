@@ -1,6 +1,8 @@
 import React from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 const position = [39.5616104, 3.20025];
 
@@ -39,7 +41,7 @@ Moves.defaultProps = {
 
 export default function WorkDetail(props) {
 	return (
-		<section classNameName='work'>
+		<section className='work'>
 			<div className='container'>
 				<div className='row'>
 					<h1>Título genérico aquí</h1>
@@ -103,27 +105,36 @@ export default function WorkDetail(props) {
 							</a>
 						</div>
 						<div className='row'>
-							<div className='rating' id='rating'></div>
+							<div className="col-6">
+								<Rater total={5} rating={2} interactive={false} />
+								<small className="muted ml-2 my-auto">Personal Valoration</small>
+							</div>
+							<div className="col-6 text-right">
+								<small className="muted mr-2 my-auto">Users Valoration</small>
+								<Rater total={5} rating={4.5} interactive={false} />
+							</div>
 						</div>
 						<div className='row mt-2'>
 							<img src='/assets/img/avatar-placeholder.png' height='50px' />
-							<h6 className='ml-2 my-auto'>Nombre genérico</h6>
+							<h6 className='ml-2 my-auto'>Nombre Genérico</h6>
 						</div>
 						<div className='row mt-4'>
-							<h6>Work info</h6>
-							<hr />
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting
-								industry. Lorem Ipsum has been the industry's standard dummy
-								text ever since the 1500s, when an unknown printer took a galley
-								of type and scrambled it to make a type specimen book. It has
-								survived not only five centuries, but also the leap into
-								electronic typesetting, remaining essentially unchanged. It was
-								popularised in the 1960s with the release of Letraset sheets
-								containing Lorem Ipsum passages, and more recently with desktop
-								publishing software like Aldus PageMaker including versions of
-								Lorem Ipsum.
-							</p>
+							<div className="container-fluid">
+								<h6>Work info</h6>
+								<hr />
+								<p>
+									Lorem Ipsum is simply dummy text of the printing and typesetting
+									industry. Lorem Ipsum has been the industry's standard dummy
+									text ever since the 1500s, when an unknown printer took a galley
+									of type and scrambled it to make a type specimen book. It has
+									survived not only five centuries, but also the leap into
+									electronic typesetting, remaining essentially unchanged. It was
+									popularised in the 1960s with the release of Letraset sheets
+									containing Lorem Ipsum passages, and more recently with desktop
+									publishing software like Aldus PageMaker including versions of
+									Lorem Ipsum.
+								</p>
+							</div>
 						</div>
 						<div className='row mt-4'>
 							<div className='container-fluid'>
@@ -131,7 +142,7 @@ export default function WorkDetail(props) {
 								<hr />
 								<div className='row mt-2'>
 									<img src='/assets/img/avatar-placeholder.png' height='40px' />
-									<h6 className='ml-2 my-auto'>Nombre genérico</h6>
+									<h6 className='ml-2 my-auto'>Nombre Genérico</h6>
 								</div>
 								<div className='row'>
 									<div className='container-fluid mt-4'>
@@ -155,11 +166,23 @@ export default function WorkDetail(props) {
 											<h6>Rating</h6>
 											<hr />
 										</div>
+										<div className="col-6 text-left">
+											<small className="muted mr-2 my-auto">Puntuality</small>
+											<Rater total={5} rating={4.5} interactive={false} />
+										</div>
+										<div className="col-6 text-left">
+											<small className="muted mr-2 my-auto">Profesionality</small>
+											<Rater total={5} rating={5} interactive={false} />
+										</div>
+										<div className="col-6 text-left">
+											<small className="muted mr-2 my-auto">Sympathy</small>
+											<Rater total={5} rating={1} interactive={false} />
+										</div>
 									</div>
 									<div className='container-fluid mt-4'>
-										<div className='col-4'>
+										<div className='mb-4'>
 											<h6>Comments</h6>
-											<hr />
+											<div className="border-bottom col-4"></div>
 											<div className='container-fluid'>
 												<div className='row mt-2'>
 													<img
@@ -169,7 +192,15 @@ export default function WorkDetail(props) {
 													<h6 className='ml-2 my-auto'>Pepito grillo</h6>
 												</div>
 												<div className='row mt-2'>
-													<p>Me gusta este hombre</p>
+													<div className="col-8">
+														<p>"Me gusta este hombre"</p>
+													</div>
+													<div className="col-4">
+														<div className="text-left">
+															<small className="muted mr-2 my-auto">Valoration Average</small>
+															<Rater total={5} rating={4} interactive={false} />
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
