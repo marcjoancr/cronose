@@ -122,7 +122,7 @@ export default function WorkDetail(props) {
 						</div>
 						<div className='row mt-4'>
 							<div className='container-fluid'>
-								<h4>Work info</h4>
+								<h6>Work info</h6>
 								<hr />
 								<p>
 									Lorem Ipsum is simply dummy text of the printing and
