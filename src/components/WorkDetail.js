@@ -6,7 +6,7 @@ const position = [39.5616104, 3.20025];
 
 const styles = {
 	wrapper: {
-		height: 400,
+		height: 200,
 		width: '100%',
 		margin: '0 auto',
 		display: 'flex',

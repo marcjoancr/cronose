@@ -29,8 +29,7 @@ export default class Market extends Component {
 	render() {
 		return (
 			<>
-				<WorkDetail />
-				{/* <div className='btn-search md-form mt-0'>
+				<div className='btn-search md-form mt-0'>
 					<input
 						className='form-control'
 						type='text'
@@ -85,7 +84,7 @@ export default class Market extends Component {
 							<button id='reset'>Reset Filter</button>
 						</div>
 					</div>
-				</div> */}
+				</div>
 			</>
 		);
 	}
