@@ -1,4 +1,41 @@
 import React from 'react';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+
+const position = [39.5616104, 3.20025];
+
+const styles = {
+	wrapper: {
+		height: 400,
+		width: '100%',
+		margin: '0 auto',
+		display: 'flex',
+	},
+	map: {
+		flex: 1,
+	},
+};
+
+const Moves = (props) => {
+	return (
+		<div style={styles.wrapper}>
+			<Map style={styles.map} center={props.center} zoom={props.zoom}>
+				<TileLayer url={props.url} />
+				<Marker position={position}>
+					<Popup>
+						<b>Mi casa</b>
+					</Popup>
+				</Marker>
+			</Map>
+		</div>
+	);
+};
+
+Moves.defaultProps = {
+	center: [39.561627, 3.199883],
+	zoom: 16,
+	url: 'https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png',
+};
 
 export default function WorkDetail(props) {
 	return (
@@ -170,7 +207,9 @@ export default function WorkDetail(props) {
 								survived not only five centuries.
 							</p>
 						</div>
-						<div>MAPA</div>
+						<div>
+							<Moves />
+						</div>
 						<div className='text-center'>
 							<a href='#' className='btn btn-large btn-primary'>
 								Contactar
