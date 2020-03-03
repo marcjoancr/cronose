@@ -408,6 +408,11 @@ footer .links {
   background-color: var(--secondary-color);
 }
 
+#profile-average p {
+  margin-top: 4px;
+  margin-right: 5px;
+}
+
 .img-profile {
   margin-top: -80px;
   padding-left: 50px;

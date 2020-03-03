@@ -1,5 +1,7 @@
 import React from 'react';
 import { MdAddBox } from 'react-icons/md';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 export default function Profile(props) {
 	const data = props.data;
@@ -26,6 +28,7 @@ export default function Profile(props) {
 						id='profile-average'
 						className='col-md-6 mt-3 d-flex justify-content-end'>
 						<p>RATE AVERAGE</p>
+						<Rater total={5} rating={3} interactive={false} />
 					</div>
 				</div>
 				<div className='d-flex justify-content-md-end justify-content-center'>
@@ -70,7 +73,7 @@ export default function Profile(props) {
 							<div class='card-body'>
 								<div class='card-title'>
 									<div className='d-flex justify-content-end'>
-										<p>Rate Average</p>
+										<Rater total={5} rating={3} interactive={false} />
 									</div>
 									<h4>
 										<b>Offer Title</b>
@@ -94,7 +97,7 @@ export default function Profile(props) {
 							<div class='card-body'>
 								<div class='card-title'>
 									<div className='d-flex justify-content-end'>
-										<p>Rate Average</p>
+										<Rater total={5} rating={2} interactive={false} />
 									</div>
 									<h4>
 										<b>Offer Title</b>
@@ -118,7 +121,7 @@ export default function Profile(props) {
 							<div class='card-body'>
 								<div class='card-title'>
 									<div className='d-flex justify-content-end'>
-										<p>Rate Average</p>
+										<Rater total={5} rating={5} interactive={false} />
 									</div>
 									<h4>
 										<b>Offer Title</b>
@@ -142,7 +145,7 @@ export default function Profile(props) {
 							<div class='card-body'>
 								<div class='card-title'>
 									<div className='d-flex justify-content-end'>
-										<p>Rate Average</p>
+										<Rater total={5} rating={3} interactive={false} />
 									</div>
 									<h4>
 										<b>Offer Title</b>
