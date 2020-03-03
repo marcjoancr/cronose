@@ -626,3 +626,9 @@ footer .links {
 .btn {
   background-color: var(--secondary-color);
 }
+
+.recharts-wrapper {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
