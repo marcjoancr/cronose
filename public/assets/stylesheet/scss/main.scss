@@ -15,12 +15,21 @@
 	}
 }
 
-// main {
-// 	background-color: var(--back-color);
-// }
-
 * {
 	font-family: 'Montserrat', 'Lato', 'Work Sans', sans-serif;
+}
+
+//RATER REACT
+.react-rater-star {
+	font-size: 25px !important ;
+}
+
+.react-rater-star.is-active {
+	color: var(--secondary-color) !important ;
+}
+
+.react-rater-star.is-active-half::before {
+	color: var(--secondary-color) !important ;
 }
 
 .navbar {
