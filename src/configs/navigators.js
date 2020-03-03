@@ -86,8 +86,8 @@ export default [
 				component: Login,
 			},
 			{
-				title: 'Sign In',
-				path: '/SignIn',
+				title: 'Register',
+				path: '/register',
 				component: SignIn,
 			},
 		],
