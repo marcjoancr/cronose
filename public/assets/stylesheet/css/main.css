@@ -609,19 +609,35 @@ footer .links {
 }
 
 #jobFilter {
-  background-color: white;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 200px;
-  height: 565px;
+  display: none;
+  background-color: var(--white);
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  z-index: 1000;
+  right: 0;
+  top: 0;
+}
+
+#jobFilter #btn-filter {
+  background-color: var(--primary-color);
 }
 
 #jobFilter a {
   font-size: 50px;
   color: var(--primary-color);
   position: absolute;
-  right: 175px;
+  right: 225px;
+}
+
+#btn-show {
+  font-size: 50px !important;
+  color: var(--primary-color);
+  position: absolute;
+  top: 0;
+  right: 10px;
 }
 
 .register .btn-register {

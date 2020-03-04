@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import $ from 'jquery';
 import {
 	IoIosArrowDroprightCircle,
 	IoIosArrowDropleftCircle,
@@ -16,13 +17,19 @@ export default class Market extends Component {
 
 	componentDidMount() {
 		this.getWorks();
+		$('#btn-show').click(function() {
+			$('#jobFilter').show();
+		});
+
+		$('#btn-hide').click(function() {
+			$('#jobFilter').hide();
+		});
 	}
 
 	getWorks() {
-		Axios.get(`${process.env.REACT_APP_API_URL}/works`)
-			.then((response) =>
-				this.setState({ works: response.data || this.state.works })
-			)
+		Axios.get(`${process.env.REACT_APP_API_URL}/works`).then((response) =>
+			this.setState({ works: response.data || this.state.works })
+		);
 	}
 
 	render() {
@@ -44,8 +51,12 @@ export default class Market extends Component {
 						/>
 					))}
 				</section>
+				<a id='btn-show'>
+					<IoIosArrowDropleftCircle />
+				</a>
+
 				<div className='' id='jobFilter'>
-					<a href='#'>
+					<a id='btn-hide'>
 						<IoIosArrowDroprightCircle />
 					</a>
 					<h2 className='p-3 pt-4 text-center'>Job Filter</h2>
@@ -53,11 +64,15 @@ export default class Market extends Component {
 						<div className='p-2 pt-4'>
 							<label for='language'>Language</label>
 							<br></br>
-							<select className='' id='lang'></select>
+							<select className='browser-default custom-select' id='lang'>
+								<option disabled selected='selected'>
+									Castellano
+								</option>
+							</select>
 						</div>
 						<div className='p-2 pt-4 '>
 							<label for='myLangs'>Selected Languages</label>
-							<select className='' id='myLangs'>
+							<select className='rowser-default custom-select' id='myLangs'>
 								<br></br>
 								<option disabled selected='selected'>
 									My Langs
@@ -67,11 +82,17 @@ export default class Market extends Component {
 						<div className='p-2 pt-4'>
 							<label for='category'>Category</label>
 							<br></br>
-							<select className='' id='category'></select>
+							<select className='rowser-default custom-select' id='category'>
+								<option disabled selected='selected'>
+									My Category
+								</option>
+							</select>
 						</div>
 						<div className='p-2 pt-4'>
 							<label for='specialization'>Specialization</label>
-							<select className='' id='specialization'>
+							<select
+								className='rowser-default custom-select'
+								id='specialization'>
 								<br></br>
 								<option disabled selected='selected' value='null'>
 									Specializations
@@ -79,11 +100,26 @@ export default class Market extends Component {
 							</select>
 						</div>
 						<div className='p-2 pt-4 pl-4'>
-							<button id='reset'>Reset Filter</button>
+							<button id='btn-filter' className='btn text-white'>
+								Reset Filter
+							</button>
 						</div>
 					</div>
 				</div>
 			</>
 		);
 	}
+}
+
+function hide() {
+	function handleClick(e) {
+		e.preventDefault();
+		console.log('The link was clicked.');
+	}
+
+	return (
+		<a href='#' onClick={handleClick}>
+			Click me
+		</a>
+	);
 }
