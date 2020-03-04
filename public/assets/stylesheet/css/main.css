@@ -91,6 +91,11 @@ main#homepage {
   margin-bottom: auto;
 }
 
+.user-val {
+  height: 100vh;
+  margin-top: 50vh;
+}
+
 .btn-orange {
   background-color: var(--secondary-color);
   color: var(--white);

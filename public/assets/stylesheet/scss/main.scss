@@ -94,6 +94,11 @@ main {
 	}
 }
 
+.user-val {
+	height: 100vh;
+	margin-top: 50vh;
+}
+
 @import 'components/__buttons';
 @import 'layouts/__sidebar';
 @import 'layouts/__navbar';

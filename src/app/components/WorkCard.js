@@ -2,7 +2,18 @@ import React from 'react';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 
-export default function WorkCard() {
+export default function WorkCard(props) {
+	const work = props.work;
+	let translation;
+	let title, description, price, rater;
+	for (translation in work.translations) {
+		title = work.translations[0].title;
+		description = work.translations[0].description;
+		price = work.coin_price;
+		rater = work.valoration_avg / 10 / 2;
+		break;
+	}
+
 	return (
 		<article className='card my-work-card'>
 			<section className='info row'>
@@ -16,26 +27,21 @@ export default function WorkCard() {
 					<section className='header card-header row'>
 						<p className='schedule col-6 text-muted'>HORARIO</p>
 						<div className='valuation col-6 text-right'>
-							<Rater total={5} rating={4} interactive={false} />
+							<Rater total={5} rating={rater} interactive={false} />
 						</div>
 					</section>
 					<div className='card-body'>
 						<h4>
-							<b>TITULO</b>
+							<b>{title}</b>
 						</h4>
 						<hr></hr>
-						<p class='card-text'>
-							Lorem ipsum dolor sit amet, ea vel prima adhuc, scripta
-							liberavisse ea quo, te vel vidit mollis complectitur.
-						</p>
+						<p class='card-text'>{description}</p>
 						<section className='text-right'>
 							<p className='price d-inline'>
-								<b>PRECIO</b>
+								<b>{price}</b>
 							</p>
-							<a href='#' id='editButton' class='btn text-white'>
-								Edit Offer
-							</a>
-							<a href='#' class='btn text-white'>
+
+							<a href='/work' class='btn text-white'>
 								See Offer
 							</a>
 						</section>

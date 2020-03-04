@@ -5,11 +5,12 @@ import 'react-rater/lib/react-rater.css';
 export default function WorkCard(props) {
 	const work = props.work;
 	let translation;
-	let title, description, price;
+	let title, description, price, rater;
 	for (translation in work.translations) {
 		title = work.translations[0].title;
 		description = work.translations[0].description;
 		price = work.coin_price;
+		rater = work.valoration_avg / 10 / 2;
 		break;
 	}
 
@@ -26,7 +27,7 @@ export default function WorkCard(props) {
 					<section className='header card-header row'>
 						<p className='schedule col-6 text-muted'>HORARIO</p>
 						<div className='valuation col-6 text-right'>
-							<Rater total={5} rating={3} interactive={false} />
+							<Rater total={5} rating={rater} interactive={false} />
 						</div>
 					</section>
 					<div className='card-body'>
