@@ -1,5 +1,5 @@
 .card-chat {
-	height: 600px;
+	// height: 600px;
 
 	.chats {
 		.bg {
@@ -69,6 +69,13 @@
 				font-weight: bold;
 			}
 		}
+
+		@media (max-width: 767px) {
+			.bg {
+				height: auto;
+			}
+		}
+
 		h3 {
 			border-bottom: 1px solid var(--primary-color);
 		}

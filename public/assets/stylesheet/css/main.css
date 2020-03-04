@@ -722,10 +722,6 @@ footer .links {
           transform: rotate(90deg);
 }
 
-.card-chat {
-  height: 600px;
-}
-
 .card-chat .chats .bg {
   background-color: #fff;
   border: 1px solid var(--primary-color);
@@ -797,6 +793,12 @@ footer .links {
   color: var(--secondary-color);
   font-size: 30px;
   font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .card-chat .cards .bg {
+    height: auto;
+  }
 }
 
 .card-chat .cards h3 {
