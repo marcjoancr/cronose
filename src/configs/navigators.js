@@ -61,6 +61,27 @@ export default [
 				component: Profile,
 				icon: GoPerson,
 			},
+			{
+				title: 'Home',
+				path: '/home',
+				component: Home,
+				exact: true,
+			},
+			{
+				title: 'About Us',
+				path: '/#about',
+				component: Home,
+			},
+			{
+				title: 'How It Works',
+				path: '/#HowItWorks',
+				component: Home,
+			},
+			{
+				title: 'Contact',
+				path: '/#contact',
+				component: Home,
+			},
 		],
 	},
 	{

@@ -13,6 +13,7 @@ function NavBar(props) {
 					<ul className='navbar-nav'>
 						{props.routes.map(function(route, index) {
 							if (route.path == '/work') return false;
+							if (route.path == '/newoffer') return false;
 							return (
 								<li key={index} className='item'>
 									<NavLink
@@ -49,6 +50,11 @@ function SideBar(props) {
 					<ul className='nav flex-column mb-0 mt-4'>
 						{props.routes.map(function(route, index) {
 							if (route.path == '/work') return false;
+							if (route.path == '/newoffer') return false;
+							if (route.path == '/home') return false;
+							if (route.path == '/#about') return false;
+							if (route.path == '/#HowItWorks') return false;
+							if (route.path == '/#contact') return false;
 							return (
 								<li key={index} className='nav-item pt-4'>
 									<NavLink
