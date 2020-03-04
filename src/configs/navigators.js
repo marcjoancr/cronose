@@ -8,7 +8,7 @@ import Login from '../homepage/components/Login';
 import SignIn from '../homepage/components/SignIn';
 import WorkDetail from '../components/WorkDetail';
 import NewOffer from '../app/components/NewOffer';
-import { IoMdChatboxes, IoIosChatbubbles } from 'react-icons/io';
+import { IoIosChatbubbles } from 'react-icons/io';
 import { FaStore } from 'react-icons/fa';
 import { GiTwoCoins } from 'react-icons/gi';
 import { MdWork } from 'react-icons/md';

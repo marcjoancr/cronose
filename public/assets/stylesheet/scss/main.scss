@@ -59,7 +59,7 @@ footer {
 		}
 	}
 }
-2 body {
+body {
 	min-height: 100vh;
 	margin: 0;
 }
@@ -112,3 +112,4 @@ main {
 @import 'pages/__wallet';
 @import 'pages/__chat';
 @import 'pages/__newOffer';
+@import 'pages/__workDetail';

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
+import { FaPowerOff } from 'react-icons/fa';
 
 function NavBar(props) {
 	return (
@@ -68,6 +69,9 @@ function SideBar(props) {
 								</li>
 							);
 						})}
+						<i id='iconDown' className='mt-5'>
+							<FaPowerOff />
+						</i>
 					</ul>
 				</section>
 			</nav>

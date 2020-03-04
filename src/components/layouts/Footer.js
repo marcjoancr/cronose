@@ -50,13 +50,13 @@ export default function Footer() {
 					</form>
 				</div>
 				<div className='social col-md-6 text-md-left'>
-					<a href='#'>
+					<a href='https://twitter.com/'>
 						<IoLogoTwitter />
 					</a>
-					<a href='#'>
+					<a href='https://es-es.facebook.com/'>
 						<IoLogoFacebook />
 					</a>
-					<a href='#'>
+					<a href='https://www.instagram.com/?hl=es'>
 						<IoLogoInstagram />
 					</a>
 				</div>

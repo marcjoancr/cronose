@@ -64,21 +64,21 @@ export default function WorkDetail(props) {
 								<div className='carousel-item active'>
 									<img
 										className='d-block w-100'
-										src='https://via.placeholder.com/300x100'
+										src='/assets/img/img-work.jpg'
 										alt='First slide'
 									/>
 								</div>
 								<div className='carousel-item'>
 									<img
 										className='d-block w-100'
-										src='https://via.placeholder.com/300x100'
+										src='/assets/img/img-work.jpg'
 										alt='Second slide'
 									/>
 								</div>
 								<div className='carousel-item'>
 									<img
 										className='d-block w-100'
-										src='https://via.placeholder.com/300x100'
+										src='/assets/img/img-work.jpg'
 										alt='Third slide'
 									/>
 								</div>
