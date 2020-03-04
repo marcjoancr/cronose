@@ -4,6 +4,7 @@ import Chat from '../app/components/Chat';
 import MyWorks from '../app/components/MyWorks';
 import Profile from '../app/components/Profile';
 import Home from '../homepage/components/Home';
+import HomePage from '../homepage/components/HomePage';
 import Login from '../homepage/components/Login';
 import SignIn from '../homepage/components/SignIn';
 import WorkDetail from '../components/WorkDetail';
@@ -91,23 +92,23 @@ export default [
 			{
 				title: 'Home',
 				path: '/',
-				component: Home,
+				component: HomePage,
 				exact: true,
 			},
 			{
 				title: 'About Us',
 				path: '/#about',
-				component: Home,
+				component: HomePage,
 			},
 			{
 				title: 'How It Works',
 				path: '/#HowItWorks',
-				component: Home,
+				component: HomePage,
 			},
 			{
 				title: 'Contact',
 				path: '/#contact',
-				component: Home,
+				component: HomePage,
 			},
 			{
 				title: 'Market',
