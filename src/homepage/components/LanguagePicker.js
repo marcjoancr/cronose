@@ -5,15 +5,18 @@ class LanguagePicker extends Component {
 	render() {
 		const { changeLanguage } = this.props;
 		return (
-			<div>
-				<button id='en' onClick={changeLanguage}>
-					ENGLISH
+			<div
+				class='btn-group languagesButtons'
+				role='group'
+				aria-label='Basic example'>
+				<button type='button' class='btn ' onClick={changeLanguage}>
+					EN
 				</button>
-				<button id='es' onClick={changeLanguage}>
-					SPANISH
+				<button type='button' class='btn ' onClick={changeLanguage}>
+					ES
 				</button>
-				<button id='ca' onClick={changeLanguage}>
-					CATALAN
+				<button type='button' class='btn ' onClick={changeLanguage}>
+					CA
 				</button>
 			</div>
 		);

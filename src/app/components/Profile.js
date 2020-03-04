@@ -37,7 +37,7 @@ export default function Profile(props) {
 				</div>
 			</div>
 			<div id='body-profile'>
-				<div className='progress md-progress mt-4 mb-4'>
+				{/* <div className='progress md-progress mt-4 mb-4'>
 					<h5 className='pr-4'>
 						Lvl : <b>3</b>
 					</h5>
@@ -49,7 +49,7 @@ export default function Profile(props) {
 						aria-valuemax='100'>
 						25%
 					</div>
-				</div>
+				</div> */}
 				<div class='card card-about'>
 					<div class='card-header'>
 						<h3>
