@@ -692,13 +692,23 @@ footer .links {
 
 .card-chat .chats .bg {
   background-color: #fff;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 10px 10px;
   height: 591px;
 }
 
 .card-chat .chats .user-chat {
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.card-chat .chats .user-chat:hover {
+  cursor: pointer;
+}
+
+.card-chat .chats .user-chat .active {
+  color: orange;
+  font-weight: bold;
 }
 
 .card-chat .chats small {
@@ -706,18 +716,55 @@ footer .links {
 }
 
 .card-chat .chat .messages {
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--primary-color);
   background-color: #fff;
   border-radius: 10px 10px;
   height: 545px;
 }
 
 .card-chat .chat .messages .user {
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.card-chat .chat .messages .scroll {
+  height: 480px;
+  overflow-y: scroll;
 }
 
 .card-chat .chat .btn {
   background-color: var(--primary-color);
+}
+
+.card-chat .cards {
+  border-radius: 10px 10px;
+}
+
+.card-chat .cards .bg {
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px 10px;
+  height: 591px;
+}
+
+.card-chat .cards .bg .offer-card {
+  border-bottom: 1px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.card-chat .cards .bg .offer-card .title {
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.card-chat .cards .bg .add {
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.card-chat .cards h3 {
+  border-bottom: 1px solid var(--primary-color);
 }
 
 #workForm {
