@@ -4,7 +4,14 @@ import 'react-rater/lib/react-rater.css';
 
 export default function WorkCard(props) {
 	const work = props.work;
-	console.log(work);
+	let translation;
+	let title, description, price;
+	for (translation in work.translations) {
+		title = work.translations[0].title;
+		description = work.translations[0].description;
+		price = work.coin_price;
+		break;
+	}
 
 	return (
 		<article className='card work-card'>
@@ -24,16 +31,13 @@ export default function WorkCard(props) {
 					</section>
 					<div className='card-body'>
 						<h4>
-							<b>TITULO</b>
+							<b>{title}</b>
 						</h4>
 						<hr></hr>
-						<p class='card-text'>
-							Lorem ipsum dolor sit amet, ea vel prima adhuc, scripta
-							liberavisse ea quo, te vel vidit mollis complectitur.
-						</p>
+						<p class='card-text'>{description}</p>
 						<section className='text-right'>
 							<p className='price d-inline'>
-								<b>PRECIO</b>
+								<b>{price}</b>
 							</p>
 
 							<a href='/work' class='btn text-white'>

@@ -21,9 +21,8 @@ export default class Market extends Component {
 	getWorks() {
 		Axios.get(`${process.env.REACT_APP_API_URL}/works`)
 			.then((response) =>
-				this.setState({ works: response.data.works || this.state.works })
+				this.setState({ works: response.data || this.state.works })
 			)
-			.catch((err) => console.error(err));
 	}
 
 	render() {
@@ -38,12 +37,11 @@ export default class Market extends Component {
 				</div>
 				<section className='works'>
 					{this.state.works.map((work, index) => (
-						<WorkCard key={index} work={work} />
-					))}
-				</section>
-				<section className='works'>
-					{this.state.works.map((work, index) => (
-						<WorkCard key={index} work={work} />
+						<WorkCard
+							key={index}
+							work={work}
+							translations={work.translations}
+						/>
 					))}
 				</section>
 				<div className='' id='jobFilter'>
