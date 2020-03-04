@@ -7,10 +7,13 @@ function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
 			<nav className='navbar navbar-expand-lg w-100'>
-				<img className='img-logo' src='/assets/img/svg/logo.svg' />
-				<a className='pl-3 navbar-brand' href='#'>
-					Cronose
-				</a>
+				<div>
+					<img className='img-logo' src='/assets/img/svg/logo.svg' />
+					<a className='pl-3 navbar-brand' href='#'>
+						Cronose
+					</a>
+				</div>
+
 				<button
 					class='navbar-toggler'
 					type='button'

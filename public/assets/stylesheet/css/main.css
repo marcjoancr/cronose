@@ -354,6 +354,12 @@ main#homepage {
   height: 60px;
 }
 
+#navbarToggler {
+  -webkit-box-pack: end !important;
+      -ms-flex-pack: end !important;
+          justify-content: end !important;
+}
+
 @media (max-width: 992px) {
   #ul-nav-hor {
     text-align: center;
