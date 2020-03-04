@@ -162,8 +162,8 @@
 	.menu-icon {
 		width: 35px;
 	}
-	#sidebar-toggle:checked ~ * .sidebar-nav {
-		transform: translateX((var(--sidebar-width)));
+	#sidebar-toggle:checked ~ .sidebar-nav {
+		transform: translateX(0);
 	}
 	#sidebar-toggle:checked ~ * .menu-bg {
 		position: absolute;
