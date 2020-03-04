@@ -24,7 +24,6 @@
 	margin-bottom: 40px;
 	margin-left: 10%;
 	margin-right: 10%;
-	max-width: 1000px;
 
 	.card-header {
 		padding-bottom: 0px;
@@ -41,6 +40,7 @@
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
+		max-height: 245px;
 	}
 
 	@media (max-width: 992px) {
