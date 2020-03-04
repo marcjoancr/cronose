@@ -675,3 +675,37 @@ footer .links {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
+
+.card-chat {
+  height: 600px;
+}
+
+.card-chat .chats .bg {
+  background-color: #fff;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px 10px;
+  height: 591px;
+}
+
+.card-chat .chats .user-chat {
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.card-chat .chats small {
+  color: #808080;
+}
+
+.card-chat .chat .messages {
+  border: 1px solid var(--secondary-color);
+  background-color: #fff;
+  border-radius: 10px 10px;
+  height: 545px;
+}
+
+.card-chat .chat .messages .user {
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.card-chat .chat .btn {
+  background-color: var(--primary-color);
+}

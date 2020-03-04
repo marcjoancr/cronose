@@ -203,7 +203,7 @@ export default class SignIn extends Component {
 								</label>
 							</div>
 							<input
-								className='btn-login btn btn-lg btn-register w-100 mt-3'
+								className='btn btn-lg btn-register w-100 mt-3'
 								type='submit'
 								value='Submit'
 							/>

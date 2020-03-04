@@ -7,10 +7,10 @@ export default function Footer() {
 			<div className='links row text-center'>
 				<div className='col-md-6 text-md-left'>
 					<p>
-						<a href='#'>Home</a>
+						<a href='/'>Home</a>
 					</p>
 					<p>
-						<a href='#'>About Us</a>
+						<a href='/#about'>About Us</a>
 					</p>
 					<p>
 						<a href='#'>How it work</a>

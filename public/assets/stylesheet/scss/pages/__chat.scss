@@ -1,0 +1,37 @@
+.card-chat {
+	height: 600px;
+
+	.chats {
+		.bg {
+			background-color: #fff;
+			border: 1px solid var(--secondary-color);
+			border-radius: 10px 10px;
+			height: 591px;
+		}
+
+		.user-chat {
+			border-bottom: 1px solid var(--secondary-color);
+		}
+
+		small {
+			color: #808080;
+		}
+	}
+
+	.chat {
+		.messages {
+			border: 1px solid var(--secondary-color);
+			background-color: #fff;
+			border-radius: 10px 10px;
+			height: 545px;
+
+			.user {
+				border-bottom: 1px solid var(--secondary-color);
+			}
+		}
+
+		.btn {
+			background-color: var(--primary-color);
+		}
+	}
+}
