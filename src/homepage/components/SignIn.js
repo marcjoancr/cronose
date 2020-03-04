@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import md5 from 'md5';
 
 export default class SignIn extends Component {
 	constructor(props) {
@@ -17,6 +18,7 @@ export default class SignIn extends Component {
 	register(e) {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
+		formData.set('password', md5(formData.get('password')));
 		Axios.post(`${process.env.REACT_APP_API_URL}/register`, formData, {
 			headers: {
 				'Content-Type':
