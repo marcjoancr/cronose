@@ -40,7 +40,7 @@ export default class MyWorks extends Component {
 					))}
 				</section>
 				<div className='text-center'>
-					<a href='#' class='btn btn-lg mb-4'>
+					<a href='/newoffer' class='btn btn-lg mb-4'>
 						NEW OFFER
 					</a>
 				</div>

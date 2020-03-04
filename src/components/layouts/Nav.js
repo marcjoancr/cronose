@@ -47,18 +47,21 @@ function SideBar(props) {
 						src='/assets/img/svg/logo.svg'
 					/>
 					<ul className='nav flex-column mb-0 mt-4'>
-						{props.routes.map((route, index) => (
-							<li key={index} className='nav-item pt-4'>
-								<NavLink
-									to={route.path}
-									exact={route.exact}
-									className=''
-									activeClassName='active'>
-									<i className='icon'>{route.icon ? <route.icon /> : null}</i>
-									<a>{route.title}</a>
-								</NavLink>
-							</li>
-						))}
+						{props.routes.map(function(route, index) {
+							if (route.path == '/work') return false;
+							return (
+								<li key={index} className='nav-item pt-4'>
+									<NavLink
+										to={route.path}
+										exact={route.exact}
+										className=''
+										activeClassName='active'>
+										<i className='icon'>{route.icon ? <route.icon /> : null}</i>
+										<a>{route.title}</a>
+									</NavLink>
+								</li>
+							);
+						})}
 					</ul>
 				</section>
 			</nav>

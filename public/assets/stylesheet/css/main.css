@@ -57,6 +57,7 @@ footer {
   background-color: var(--white);
 }
 
+2
 body {
   min-height: 100vh;
   margin: 0;
@@ -713,4 +714,10 @@ footer .links {
 
 .card-chat .chat .btn {
   background-color: var(--primary-color);
+}
+
+#workForm {
+  margin: auto !important;
+  margin-bottom: 40px !important;
+  margin-top: 40px !important;
 }

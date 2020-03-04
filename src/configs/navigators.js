@@ -7,6 +7,7 @@ import Home from '../homepage/components/Home';
 import Login from '../homepage/components/Login';
 import SignIn from '../homepage/components/SignIn';
 import WorkDetail from '../components/WorkDetail';
+import NewOffer from '../app/components/NewOffer';
 import { IoMdChatboxes, IoIosChatbubbles } from 'react-icons/io';
 import { FaStore } from 'react-icons/fa';
 import { GiTwoCoins } from 'react-icons/gi';
@@ -24,6 +25,17 @@ export default [
 				component: Market,
 				exact: true,
 				icon: FaStore,
+			},
+			{
+				title: 'Work Details',
+				path: '/work',
+				component: WorkDetail,
+			},
+
+			{
+				title: 'New Offer',
+				path: '/newoffer',
+				component: NewOffer,
 			},
 			{
 				title: 'Wallet',
