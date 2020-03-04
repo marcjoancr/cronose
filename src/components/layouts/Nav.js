@@ -1,17 +1,32 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 import { FaPowerOff } from 'react-icons/fa';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
-			<nav className='navbar navbar-expand-md w-100'>
+			<nav className='navbar navbar-expand-lg w-100'>
 				<img className='img-logo' src='/assets/img/svg/logo.svg' />
 				<a className='pl-3 navbar-brand' href='#'>
 					Cronose
 				</a>
-				<div className='h-nav collapse navbar-collapse d-flex flex-row-reverse mr-4 mt-2'>
-					<ul className='navbar-nav'>
+				<button
+					class='navbar-toggler'
+					type='button'
+					data-toggle='collapse'
+					data-target='#navbarToggler'
+					aria-controls='navbarToggler'
+					aria-expanded='false'
+					aria-label='Toggle navigation'>
+					<span class='navbar-toggler-icon'>
+						<GiHamburgerMenu />
+					</span>
+				</button>
+				<div
+					className='h-nav collapse navbar-collapse text-left mr-4 mt-2'
+					id='navbarToggler'>
+					<ul id='ul-nav-hor' className='navbar-nav'>
 						{props.routes.map(function(route, index) {
 							if (route.path == '/work') return false;
 							if (route.path == '/newoffer') return false;

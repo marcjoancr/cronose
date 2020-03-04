@@ -15,3 +15,18 @@
 	width: 40px;
 	height: 60px;
 }
+
+@media (max-width: 992px) {
+	// .navbar-brand {
+	// 	display: none;
+	// }
+
+	#ul-nav-hor {
+		text-align: center;
+		padding: 10px;
+
+		.item {
+			margin: 8px;
+		}
+	}
+}
