@@ -9,7 +9,7 @@ function NavBar(props) {
 			<nav className='navbar navbar-expand-lg w-100'>
 				<div>
 					<img className='img-logo' src='/assets/img/svg/logo.svg' />
-					<a className='pl-3 navbar-brand' href='#'>
+					<a className='pl-3 navbar-brand' href='/'>
 						Cronose
 					</a>
 				</div>

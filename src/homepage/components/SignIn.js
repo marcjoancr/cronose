@@ -230,7 +230,7 @@ export default class SignIn extends Component {
 								/>
 								<div className='form-label-group col-12 mt-2'>
 									<label className='ml-2' htmlFor='terms_and_conditions'>
-										You already have an account? Please <a href='#'>log in!</a>
+										You already have an account? Please <a href='/login'>log in!</a>
 									</label>
 								</div>
 							</div>

@@ -62,7 +62,7 @@ export default class Login extends React.Component {
 						</form>
 						<div className='card-footer'>
 							<div className='justify-content-center links'>
-								Don't have an account? <a href='#'> Sign Up</a>
+								Don't have an account? <a href='/register'> Sign Up</a>
 							</div>
 							<div className=' justify-content-center'>
 								<a href='#'>Forgot your password?</a>
