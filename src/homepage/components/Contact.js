@@ -15,21 +15,23 @@ export default function Contact() {
 				with desktop publishing software like Aldus PageMaker including versions
 				of Lorem Ipsum.
 			</p>
-			<div class='form-group'>
-				<label for='exampleFormControlInput1'></label>
+			<div class='form-group mt-4'>
+				<label for='exampleFormControlInput1'>Email</label>
 				<input
 					type='email'
 					class='form-control'
 					id='exampleFormControlInput1'
 					placeholder='Email'></input>
-			</div>
-			<div class='form-group'>
-				<label for='exampleFormControlTextarea1'></label>
+				<label className="mt-2" for='exampleFormControlTextarea1'>Body</label>
 				<textarea
 					class='form-control'
 					id='exampleFormControlTextarea1'
 					rows='3'
 					placeholder='Text'></textarea>
+				<button className='btn btn-orange mt-2 text-white float-right'>
+					Contact
+				</button>
+				<div className='clearfix'></div>
 			</div>
 		</div>
 	);
