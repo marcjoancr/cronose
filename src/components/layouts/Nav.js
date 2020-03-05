@@ -15,14 +15,14 @@ function NavBar(props) {
 				</div>
 
 				<button
-					class='navbar-toggler'
+					className='navbar-toggler'
 					type='button'
 					data-toggle='collapse'
 					data-target='#navbarToggler'
 					aria-controls='navbarToggler'
 					aria-expanded='false'
 					aria-label='Toggle navigation'>
-					<span class='navbar-toggler-icon'>
+					<span className='navbar-toggler-icon'>
 						<GiHamburgerMenu />
 					</span>
 				</button>

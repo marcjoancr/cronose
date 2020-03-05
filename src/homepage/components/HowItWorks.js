@@ -18,12 +18,14 @@ export default function HowItWorks() {
 					</p>
 				</div>
 				<div className='col-5 m-auto'>
-					<img src='/assets/img/svg/offer-lg.svg' alt='...' class=''></img>
+					<img src='/assets/img/svg/offer-lg.svg' alt='...' className=''></img>
 				</div>
 			</div>
 			<div className='row justify-content-md-end mt-4'>
 				<div className='col-lg-7 d-right order-lg-2'>
-					<h1><Translate string={'contact-people'} /></h1>
+					<h1>
+						<Translate string={'contact-people'} />
+					</h1>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry's standard dummy text
@@ -33,12 +35,17 @@ export default function HowItWorks() {
 					</p>
 				</div>
 				<div className='col-5 m-auto order-lg-1'>
-					<img src='/assets/img/svg/contact-lg.svg' alt='...' class=''></img>
+					<img
+						src='/assets/img/svg/contact-lg.svg'
+						alt='...'
+						className=''></img>
 				</div>
 			</div>
 			<div className='row mt-4'>
 				<div className='col-lg-7'>
-					<h1><Translate string={'stablish-a-work'} /></h1>
+					<h1>
+						<Translate string={'stablish-a-work'} />
+					</h1>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry's standard dummy text
@@ -48,12 +55,14 @@ export default function HowItWorks() {
 					</p>
 				</div>
 				<div className='col-5 m-auto'>
-					<img src='/assets/img/svg/work-lg.svg' alt='...' class=''></img>
+					<img src='/assets/img/svg/work-lg.svg' alt='...' className=''></img>
 				</div>
 			</div>
 			<div className='row justify-content-md-end mt-4 mb-5'>
 				<div className='col-lg-7 d-right order-lg-2'>
-					<h1><Translate string={'get-coins'} /></h1>
+					<h1>
+						<Translate string={'get-coins'} />
+					</h1>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry's standard dummy text
@@ -63,7 +72,7 @@ export default function HowItWorks() {
 					</p>
 				</div>
 				<div className='col-5 m-auto order-lg-1'>
-					<img src='/assets/img/svg/coins-lg.svg' alt='...' class=''></img>
+					<img src='/assets/img/svg/coins-lg.svg' alt='...' className=''></img>
 				</div>
 			</div>
 		</div>
