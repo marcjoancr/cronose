@@ -10,7 +10,7 @@ export default function NewOffer() {
 			<h5>¿En qué idioma ofrecerás tu trabajo?</h5>
 			<p>Después podrás añadir más idiomas complementarios</p>
 			<button
-				className='btn btn-primary btn-lg dropdown-toggle'
+				className='btn btn-lg dropdown-toggle text-white'
 				type='button'
 				id='dropdownMenuButton'
 				data-toggle='dropdown'
@@ -205,7 +205,7 @@ export default function NewOffer() {
 					</div>
 					<input
 						type='button'
-						className='btn btn-primary'
+						className='btn text-white'
 						id='generateData'
 						value='Previsualizar'
 					/>
