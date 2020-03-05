@@ -2,6 +2,7 @@ import React from 'react';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 import Axios from 'axios';
+import qs from 'qs';
 import { LoginContext } from '../../contexts/LoginContext';
 
 export default class NewOffer extends React.Component {
@@ -42,7 +43,7 @@ export default class NewOffer extends React.Component {
 		console.log(data);
 		Axios.post(
 			`${process.env.REACT_APP_API_URL}/work`,
-			e.stringify({
+			qs.stringify({
 				data: data,
 			})
 		).then((response) => this.setState({ works: response.data }));
