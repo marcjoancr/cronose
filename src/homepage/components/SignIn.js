@@ -53,7 +53,7 @@ export default class SignIn extends Component {
 		return (
 			<div className='jumbotron'>
 				<section className='register signin container p-5 bg-white'>
-					<h1>Register</h1>
+					<h1 className="mb-4">Register</h1>
 					<form
 						id='register_form'
 						method='post'
@@ -182,7 +182,7 @@ export default class SignIn extends Component {
 									/>
 								</div>
 							</div>
-							<div className='col-12 col-md-6'>
+							<div className='col-12 col-md-6 pl-3'>
 								<div className='form-group col p-1'>
 									<label htmlFor='avatar'>Avatar</label>
 									<input
@@ -218,7 +218,7 @@ export default class SignIn extends Component {
 										type='checkbox'
 									/>
 									<label className='ml-2' htmlFor='terms_and_conditions'>
-										Accept the <a href='#'>terms and conditions</a>
+										Accept the <a href="#" data-toggle="modal" data-target="#termsAndConds">terms and conditions</a>
 									</label>
 								</div>
 							</div>
@@ -235,6 +235,19 @@ export default class SignIn extends Component {
 								</div>
 							</div>
 						</div>
+            <div className="modal fade bannerformmodal bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="termsAndConds">
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content p-4">
+                  <h4 className="modal-title mb-4">Condiciones generales de Cronose</h4>
+                  <p>1. ACTIVIDAD. Cronose C.B (en adelante la página) no se hace responsable del uso que los usuarios hagan de la misma. Sin embargo, se reserva el derecho de tomar las medidas que considere oportunas en la gestión de éstos, pudiendo sus perfiles ser borrados sin previo aviso ni derecho a compensación alguna.</p>
+                  <p>2. PRECIO. El ratio de precios por hora de las actividades es susceptible de ser modificado.</p>
+                  <p>4. BAJA O CANCELACIÓN. Los perfiles de usuarios nunca se borrarán complemtamente. En caso de desear eliminar el perfil simplemente se ocultará al resto de usuarios, pero en cualquier momento se podrá dar de alta de nuevo.</p>
+                  <p>4.1 La página podrá impedir el acceso de los usuarios que considere que no permiten el desarrollo de las actividades. La expulsión no da lugar a devolución ni total ni parcial de la cuota mensual en caso de ser usuario <em>premium</em>.</p>
+                  <p>4.2 El contratante declara expresamente que las informaciones facilitadas en la inscripción son verdaderas y exactas. Toda omisión o información errónea puede dar lugar a la expulsión inmediata de la página.</p>
+                  <p>5. JURISDICCIÓN Y RÉGIMEN LEGAL APLICABLE. En relación a toda cuestión litigiosa que surja en relación con el presente contrato o relación jurídica, las partes y de mutuo acuerdo renuncian a su fuero propio si lo tuvieran, sometiéndose al de los Juzgados y Tribunales de la ciudad de Palma de Mallorca.</p>
+                </div>
+              </div>
+            </div>
 					</form>
 				</section>
 			</div>
