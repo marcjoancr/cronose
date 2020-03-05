@@ -6,7 +6,6 @@ import {
 	IoIosArrowDropleftCircle,
 } from 'react-icons/io';
 import WorkCard from './WorkCard';
-import WorkDetail from './WorkDetail';
 
 export default class Market extends Component {
 	constructor(props) {
@@ -19,10 +18,12 @@ export default class Market extends Component {
 		this.getWorks();
 		$('#btn-show').click(function() {
 			$('#jobFilter').show();
+			$('#btn-show').hide();
 		});
 
 		$('#btn-hide').click(function() {
 			$('#jobFilter').hide();
+			$('#btn-show').show();
 		});
 	}
 
@@ -96,7 +97,7 @@ export default class Market extends Component {
 								</option>
 							</select>
 						</div>
-						<div className='p-2 pt-4 pl-4'>
+						<div className='p-2 pt-4'>
 							<button id='btn-filter' className='btn text-white'>
 								Reset Filter
 							</button>

@@ -95,7 +95,7 @@ export default function NewOffer() {
 							sepan los demás usuarios.
 						</small>
 					</div>
-					<hr/>
+					<hr />
 					<h3>Horario</h3>
 					<div className='row mb-4 mt-1'>
 						<div className='col-lg-8 my-auto'>
@@ -177,7 +177,9 @@ export default function NewOffer() {
 							<div className='form-row'>
 								<div className='col'>
 									<div className='md-form'>
-										<label className="form-label" for ="date1">De las </label>
+										<label className='form-label' for='date1'>
+											De las{' '}
+										</label>
 										<input
 											type='text'
 											id='date1'
@@ -188,7 +190,9 @@ export default function NewOffer() {
 								</div>
 								<div className='col'>
 									<div className='md-form'>
-									<label className="form-label" for ="date2">Hasta las </label>
+										<label className='form-label' for='date2'>
+											Hasta las{' '}
+										</label>
 										<input
 											type='email'
 											id='date2'

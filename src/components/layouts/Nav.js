@@ -33,6 +33,8 @@ function NavBar(props) {
 						{props.routes.map(function(route, index) {
 							if (route.path == '/work') return false;
 							if (route.path == '/newoffer') return false;
+							if (route.path == '/userValidator') return false;
+							if (route.path == '/resetPassword') return false;
 							return (
 								<li key={index} className='item'>
 									<NavLink
@@ -74,6 +76,8 @@ function SideBar(props) {
 							if (route.path == '/#about') return false;
 							if (route.path == '/#HowItWorks') return false;
 							if (route.path == '/#contact') return false;
+							if (route.path == '/userValidator') return false;
+							if (route.path == '/resetPassword') return false;
 							return (
 								<li key={index} className='nav-item'>
 									<NavLink

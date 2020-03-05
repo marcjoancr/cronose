@@ -9,6 +9,9 @@ import Login from '../homepage/components/Login';
 import SignIn from '../homepage/components/SignIn';
 import WorkDetail from '../components/WorkDetail';
 import NewOffer from '../app/components/NewOffer';
+import ResetPassword from '../components/ResetPassword';
+import UserValidator from '../components/UserValidator';
+
 import { IoIosChatbubbles } from 'react-icons/io';
 import { FaStore } from 'react-icons/fa';
 import { GiTwoCoins } from 'react-icons/gi';
@@ -83,6 +86,16 @@ export default [
 				path: '/#contact',
 				component: HomePage,
 			},
+			{
+				title: 'Reset Password',
+				path: '/resetPassword',
+				component: ResetPassword,
+			},
+			{
+				title: 'User Validator',
+				path: '/userValidator',
+				component: UserValidator,
+			},
 		],
 	},
 	{
@@ -129,6 +142,16 @@ export default [
 				title: 'Register',
 				path: '/register',
 				component: SignIn,
+			},
+			{
+				title: 'Reset Password',
+				path: '/resetPassword',
+				component: ResetPassword,
+			},
+			{
+				title: 'User Validator',
+				path: '/userValidator',
+				component: UserValidator,
 			},
 		],
 	},

@@ -17,7 +17,7 @@ export default function HowItWorks() {
 						only five centuries, but also the leap into electronic typesetting.
 					</p>
 				</div>
-				<div className='col-5 m-auto'>
+				<div className='col-5 m-lg-auto'>
 					<img src='/assets/img/svg/offer-lg.svg' alt='...' className=''></img>
 				</div>
 			</div>
@@ -34,7 +34,7 @@ export default function HowItWorks() {
 						only five centuries, but also the leap into electronic typesetting.
 					</p>
 				</div>
-				<div className='col-5 m-auto order-lg-1'>
+				<div className='col-5 m-lg-auto order-lg-1'>
 					<img
 						src='/assets/img/svg/contact-lg.svg'
 						alt='...'
@@ -54,7 +54,7 @@ export default function HowItWorks() {
 						only five centuries, but also the leap into electronic typesetting.
 					</p>
 				</div>
-				<div className='col-5 m-auto'>
+				<div className='col-5 m-lg-auto'>
 					<img src='/assets/img/svg/work-lg.svg' alt='...' className=''></img>
 				</div>
 			</div>
@@ -71,7 +71,7 @@ export default function HowItWorks() {
 						only five centuries, but also the leap into electronic typesetting.
 					</p>
 				</div>
-				<div className='col-5 m-auto order-lg-1'>
+				<div className='col-5 m-lg-auto order-lg-1'>
 					<img src='/assets/img/svg/coins-lg.svg' alt='...' className=''></img>
 				</div>
 			</div>

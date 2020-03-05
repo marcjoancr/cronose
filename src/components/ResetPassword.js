@@ -21,7 +21,7 @@ export default function ResetPassword() {
 					/>
 				</div>
 				<div className='form-label-group mt-4 text-left'>
-					<label htmlFor='password'>Pepeat the Password</label>
+					<label htmlFor='password'>Repeat the Password</label>
 					<input
 						id='newpassword2'
 						type='password'
