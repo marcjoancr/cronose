@@ -23,7 +23,7 @@ export default function HowItWorks() {
 			</div>
 			<div className='row justify-content-md-end mt-4'>
 				<div className='col-lg-7 d-right order-lg-2'>
-					<h1>Contact People</h1>
+					<h1><Translate string={'contact-people'} /></h1>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry's standard dummy text
@@ -38,7 +38,7 @@ export default function HowItWorks() {
 			</div>
 			<div className='row mt-4'>
 				<div className='col-lg-7'>
-					<h1>Stablish a Work</h1>
+					<h1><Translate string={'stablish-a-work'} /></h1>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry's standard dummy text
@@ -53,7 +53,7 @@ export default function HowItWorks() {
 			</div>
 			<div className='row justify-content-md-end mt-4 mb-5'>
 				<div className='col-lg-7 d-right order-lg-2'>
-					<h1>Get Coins</h1>
+					<h1><Translate string={'get-coins'} /></h1>
 					<p>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry's standard dummy text
