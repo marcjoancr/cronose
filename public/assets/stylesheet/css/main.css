@@ -119,7 +119,24 @@ main#homepage {
 }
 
 .languagesButtons {
-  color: var(--primary-color);
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.languagesButtons .btn {
+  border-radius: 10px;
+  color: var(--white);
+  border: solid 1px;
+  border-color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.languagesButtons .active {
+  background-color: var(--secondary-color);
+}
+
+#btnLanguages {
+  text-align: right;
 }
 
 .btn-orange {

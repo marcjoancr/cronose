@@ -120,7 +120,22 @@ main {
 }
 
 .languagesButtons {
-	color: var(--primary-color);
+	margin-top: 20px;
+	margin-right: 20px;
+	.btn {
+		border-radius: 10px;
+		color: var(--white);
+		border: solid 1px;
+		border-color: var(--white);
+		background-color: var(--primary-color);
+	}
+	.active {
+		background-color: var(--secondary-color);
+	}
+}
+
+#btnLanguages {
+	text-align: right;
 }
 
 @import 'components/__buttons';
