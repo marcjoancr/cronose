@@ -20,6 +20,7 @@ export default class Market extends Component {
 		this.getCategories = this.getCategories.bind(this);
 		this.getSpecialization = this.getSpecialization.bind(this);
 		this.getFilteredWorks = this.getFilteredWorks.bind(this);
+		this.resetFilter = this.resetFilter.bind(this);
 	}
 
 	componentDidMount() {
@@ -36,9 +37,15 @@ export default class Market extends Component {
 		});
 	}
 
+	resetFilter() {
+		this.setState({ categories: [], specialization: [] });
+		this.getWorks();
+		this.getCategories();
+	}
+
 	getWorks() {
 		Axios.get(
-			`${process.env.REACT_APP_API_URL}/works/es/0/10`
+			`${process.env.REACT_APP_API_URL}/works/0/10/default/ca`
 		).then((response) =>
 			this.setState({ works: response.data || this.state.works })
 		);
@@ -60,7 +67,7 @@ export default class Market extends Component {
 					category: category_id,
 					specialization: specialization_id,
 					string: string,
-					defaultLang: 'es',
+					defaultLang: 'ca',
 				},
 			})
 		).then((response) => this.setState({ works: response.data }));
@@ -68,14 +75,14 @@ export default class Market extends Component {
 
 	getCategories() {
 		Axios.get(
-			`${process.env.REACT_APP_API_URL}/categories/es`
+			`${process.env.REACT_APP_API_URL}/categories/ca`
 		).then((response) => this.setState({ categories: response.data }));
 	}
 
 	getSpecialization() {
 		const category_id = document.getElementById('category_id').value;
 		Axios.get(
-			`${process.env.REACT_APP_API_URL}/specialization/es/${category_id}`
+			`${process.env.REACT_APP_API_URL}/specialization/ca/${category_id}`
 		).then((response) => this.setState({ specialization: response.data }));
 		this.getFilteredWorks();
 	}
@@ -163,7 +170,10 @@ export default class Market extends Component {
 							</select>
 						</div>
 						<div className='p-2 pt-4'>
-							<button id='btn-filter' className='btn text-white'>
+							<button
+								id='btn-filter'
+								onClick={this.resetFilter}
+								className='btn text-white'>
 								Reset Filter
 							</button>
 						</div>
