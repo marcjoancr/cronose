@@ -8,8 +8,6 @@ export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
 
-		console.log(this.context);
-
 		this.login = this.login.bind(this);
 	}
 

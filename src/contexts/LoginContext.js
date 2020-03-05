@@ -8,7 +8,7 @@ export default class LoginContextProvider extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
+		this.state = JSON.parse(localStorage.getItem('login')) || {
 			user: {},
 			jwt: '',
 			isLogged: false,
@@ -16,6 +16,7 @@ export default class LoginContextProvider extends Component {
 
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
+		this.saveLocalStorage = this.saveLocalStorage.bind(this);
 	}
 
 	login(data) {
@@ -24,19 +25,25 @@ export default class LoginContextProvider extends Component {
 			.then(function(response) {
 				self.setState({
 					user: response.user,
-					jwt: response.jwt,
+					jwt: response.data.jwt,
 					isLogged: true,
 				});
 			})
 			.catch(function(error) {
 				self.logout(error);
+			})
+			.finally(function() {
+				self.saveLocalStorage();
 			});
-
 		return this.state.isLogged;
 	}
 
 	logout(error) {
 		this.setState({ user: {}, jwt: {}, isLogged: false });
+	}
+
+	saveLocalStorage() {
+		localStorage.setItem('login', JSON.stringify(this.state));
 	}
 
 	render() {
