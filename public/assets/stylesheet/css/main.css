@@ -92,8 +92,34 @@ main#homepage {
 }
 
 .user-val {
-  height: 100vh;
-  margin-top: 50vh;
+  margin: auto;
+  margin-top: 40vh;
+  margin-bottom: 200px;
+}
+
+.reset-pass {
+  margin: auto;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.reset-pass .btn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.reset-pass .btn:hover {
+  background-color: var(--ternary-color);
+}
+
+.navbar-toggler-icon {
+  font-size: 40px;
+}
+
+.languagesButtons {
+  color: var(--primary-color);
 }
 
 .btn-orange {
@@ -198,7 +224,7 @@ main#homepage {
 }
 
 .sidebar-nav ul #iconDown {
-  color: #c42929;
+  color: #df2323;
   font-size: 40px;
 }
 
@@ -291,9 +317,9 @@ main#homepage {
   .menu-icon {
     width: 35px;
   }
-  #sidebar-toggle:checked ~ * .sidebar-nav {
-    -webkit-transform: translateX(var(--sidebar-width));
-            transform: translateX(var(--sidebar-width));
+  #sidebar-toggle:checked ~ .sidebar-nav {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   #sidebar-toggle:checked ~ * .menu-bg {
     position: absolute;
@@ -307,6 +333,11 @@ main#homepage {
     transition: all 0ms;
     z-index: 100;
   }
+}
+
+.h-nav {
+  position: absolute;
+  right: 0;
 }
 
 .h-nav a {
@@ -326,6 +357,26 @@ main#homepage {
 .img-logo {
   width: 40px;
   height: 60px;
+}
+
+#navbarToggler {
+  -webkit-box-pack: end !important;
+      -ms-flex-pack: end !important;
+          justify-content: end !important;
+}
+
+@media (max-width: 992px) {
+  .h-nav {
+    position: relative;
+    right: none;
+  }
+  #ul-nav-hor {
+    text-align: center;
+    padding: 10px;
+  }
+  #ul-nav-hor .item {
+    margin: 8px;
+  }
 }
 
 footer {
@@ -520,7 +571,6 @@ footer .links {
   margin-bottom: 40px;
   margin-left: 10%;
   margin-right: 10%;
-  max-width: 1000px;
 }
 
 .work-card .card-header {
@@ -539,6 +589,7 @@ footer .links {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  max-height: 245px;
 }
 
 @media (max-width: 992px) {
@@ -567,19 +618,35 @@ footer .links {
 }
 
 #jobFilter {
-  background-color: white;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 200px;
-  height: 565px;
+  display: none;
+  background-color: var(--white);
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  z-index: 1000;
+  right: 0;
+  top: 0;
+}
+
+#jobFilter #btn-filter {
+  background-color: var(--primary-color);
 }
 
 #jobFilter a {
   font-size: 50px;
   color: var(--primary-color);
   position: absolute;
-  right: 175px;
+  right: 225px;
+}
+
+#btn-show {
+  font-size: 50px !important;
+  color: var(--primary-color);
+  position: absolute;
+  top: 0;
+  right: 10px;
 }
 
 .register .btn-register {
@@ -686,19 +753,25 @@ footer .links {
           transform: rotate(90deg);
 }
 
-.card-chat {
-  height: 600px;
-}
-
 .card-chat .chats .bg {
   background-color: #fff;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 10px 10px;
   height: 591px;
 }
 
 .card-chat .chats .user-chat {
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.card-chat .chats .user-chat:hover {
+  cursor: pointer;
+}
+
+.card-chat .chats .user-chat .active {
+  color: orange;
+  font-weight: bold;
 }
 
 .card-chat .chats small {
@@ -706,18 +779,61 @@ footer .links {
 }
 
 .card-chat .chat .messages {
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--primary-color);
   background-color: #fff;
   border-radius: 10px 10px;
   height: 545px;
 }
 
 .card-chat .chat .messages .user {
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.card-chat .chat .messages .scroll {
+  height: 480px;
+  overflow-y: scroll;
 }
 
 .card-chat .chat .btn {
   background-color: var(--primary-color);
+}
+
+.card-chat .cards {
+  border-radius: 10px 10px;
+}
+
+.card-chat .cards .bg {
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px 10px;
+  height: 591px;
+}
+
+.card-chat .cards .bg .offer-card {
+  border-bottom: 1px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.card-chat .cards .bg .offer-card .title {
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.card-chat .cards .bg .add {
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .card-chat .cards .bg {
+    height: auto;
+  }
+}
+
+.card-chat .cards h3 {
+  border-bottom: 1px solid var(--primary-color);
 }
 
 #workForm {

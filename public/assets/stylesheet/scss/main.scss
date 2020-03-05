@@ -94,8 +94,33 @@ main {
 }
 
 .user-val {
-	height: 100vh;
-	margin-top: 50vh;
+	margin: auto;
+	margin-top: 40vh;
+	margin-bottom: 200px;
+}
+
+.reset-pass {
+	margin: auto;
+	margin-top: 200px;
+	margin-bottom: 200px;
+	max-width: 400px;
+	padding: 40px;
+	.btn {
+		background-color: var(--primary-color);
+		border-color: var(--primary-color);
+
+		&:hover {
+			background-color: var(--ternary-color);
+		}
+	}
+}
+
+.navbar-toggler-icon {
+	font-size: 40px;
+}
+
+.languagesButtons {
+	color: var(--primary-color);
 }
 
 @import 'components/__buttons';

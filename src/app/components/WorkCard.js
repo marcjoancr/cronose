@@ -15,15 +15,15 @@ export default function WorkCard(props) {
 	}
 
 	return (
-		<article className='card my-work-card'>
+		<article className='card work-card'>
 			<section className='info row'>
-				<figure className='col-lg-4'>
+				<figure className='col-lg-3'>
 					<img
 						class='card-img'
 						src='/assets/img/img-work.jpg'
 						alt='Card image cap'></img>
 				</figure>
-				<div className='col-lg-8'>
+				<div className='col-lg-9'>
 					<section className='header card-header row'>
 						<p className='schedule col-6 text-muted'>HORARIO</p>
 						<div className='valuation col-6 text-right'>
