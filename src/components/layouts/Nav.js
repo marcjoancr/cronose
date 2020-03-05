@@ -75,7 +75,7 @@ function SideBar(props) {
 							if (route.path == '/#HowItWorks') return false;
 							if (route.path == '/#contact') return false;
 							return (
-								<li key={index} className='nav-item pt-4'>
+								<li key={index} className='nav-item'>
 									<NavLink
 										to={route.path}
 										exact={route.exact}
