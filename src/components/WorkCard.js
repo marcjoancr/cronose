@@ -45,6 +45,7 @@ export default function WorkCard(props) {
 						<h4>
 							<b>{work.title || work.translations[0].title}</b>
 						</h4>
+						<small className='form-text text-muted'>{work.name}</small>
 						<hr></hr>
 						<p className='card-text'>
 							{work.description || work.translations[0].description}

@@ -9,7 +9,6 @@ export default function ProfileCard(props) {
 	let title, description, rater;
 	for (translation in work.translations) {
 		title = work.translations[0].title;
-		console.log(title);
 		description = work.translations[0].description;
 		rater = work.valoration_avg / 10 / 2;
 		break;
@@ -24,14 +23,17 @@ export default function ProfileCard(props) {
 			<div class='card-body'>
 				<div class='card-title'>
 					<div className='d-flex justify-content-end'>
-						<Rater total={5} rating={rater} interactive={false} />
+						<Rater
+							total={5}
+							rating={work.valoration_avg / 10 / 2}
+							interactive={false}
+						/>
 					</div>
 					<h4>
 						<b>{work.title || work.translations[0].title}</b>
 					</h4>
 				</div>
 				<p class='card-text'>
-					{' '}
 					{work.description || work.translations[0].description}
 				</p>
 				<a href='#' class='btn btn-block text-white'>
