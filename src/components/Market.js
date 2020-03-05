@@ -6,16 +6,25 @@ import {
 	IoIosArrowDropleftCircle,
 } from 'react-icons/io';
 import WorkCard from './WorkCard';
+import qs from 'qs';
 
 export default class Market extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { works: [{ title: 'Sample Work Title' }] };
+		this.state = {
+			works: [],
+			categories: [],
+			specialization: [],
+		};
 		this.getWorks = this.getWorks.bind(this);
+		this.getCategories = this.getCategories.bind(this);
+		this.getSpecialization = this.getSpecialization.bind(this);
+		this.getFilteredWorks = this.getFilteredWorks.bind(this);
 	}
 
 	componentDidMount() {
 		this.getWorks();
+		this.getCategories();
 		$('#btn-show').click(function() {
 			$('#jobFilter').show();
 			$('#btn-show').hide();
@@ -28,9 +37,47 @@ export default class Market extends Component {
 	}
 
 	getWorks() {
-		Axios.get(`${process.env.REACT_APP_API_URL}/works`).then((response) =>
+		Axios.get(
+			`${process.env.REACT_APP_API_URL}/works/es/0/10`
+		).then((response) =>
 			this.setState({ works: response.data || this.state.works })
 		);
+	}
+
+	getFilteredWorks() {
+		const category_id = document.getElementById('category_id').value;
+		const specialization_id =
+			category_id != '0'
+				? document.getElementById('specialization_id').value
+				: '';
+
+		const string = document.getElementById('search').value;
+
+		Axios.post(
+			`${process.env.REACT_APP_API_URL}/works/filter`,
+			qs.stringify({
+				filter: {
+					category: category_id,
+					specialization: specialization_id,
+					string: string,
+					defaultLang: 'es',
+				},
+			})
+		).then((response) => this.setState({ works: response.data }));
+	}
+
+	getCategories() {
+		Axios.get(
+			`${process.env.REACT_APP_API_URL}/categories/es`
+		).then((response) => this.setState({ categories: response.data }));
+	}
+
+	getSpecialization() {
+		const category_id = document.getElementById('category_id').value;
+		Axios.get(
+			`${process.env.REACT_APP_API_URL}/specialization/es/${category_id}`
+		).then((response) => this.setState({ specialization: response.data }));
+		this.getFilteredWorks();
 	}
 
 	render() {
@@ -40,6 +87,8 @@ export default class Market extends Component {
 					<input
 						className='form-control'
 						type='text'
+						id='search'
+						onChange={this.getFilteredWorks}
 						placeholder='Search'
 						aria-label='Search'></input>
 				</div>
@@ -81,20 +130,36 @@ export default class Market extends Component {
 						</div>
 						<div className='p-2 pt-4'>
 							<label htmlFor='category'>Category</label>
-							<select className='rowser-default custom-select' id='category'>
-								<option disabled selected value='null'>
-									My Category
+							<select
+								id='category_id'
+								name='category_id'
+								className='rowser-default custom-select'
+								onChange={this.getSpecialization}
+								required>
+								<option value='0' selected='selected'>
+									Select category
 								</option>
+								{this.state.categories.map((category, index) => (
+									<option value={category.id}>{category.name}</option>
+								))}
 							</select>
 						</div>
 						<div className='p-2 pt-4'>
 							<label htmlFor='specialization'>Specialization</label>
 							<select
+								id='specialization_id'
+								name='specialization_id'
 								className='rowser-default custom-select'
-								id='specialization'>
-								<option disabled selected value='null'>
-									Specializations
+								onChange={this.getFilteredWorks}
+								required>
+								<option value='0' selected='selected'>
+									Select specialization
 								</option>
+								{this.state.specialization.map((specialization, index) => (
+									<option value={specialization.id}>
+										{specialization.name}
+									</option>
+								))}
 							</select>
 						</div>
 						<div className='p-2 pt-4'>
@@ -107,17 +172,4 @@ export default class Market extends Component {
 			</>
 		);
 	}
-}
-
-function hide() {
-	function handleClick(e) {
-		e.preventDefault();
-		console.log('The link was clicked.');
-	}
-
-	return (
-		<a href='#' onClick={handleClick}>
-			Click me
-		</a>
-	);
 }

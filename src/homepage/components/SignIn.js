@@ -35,9 +35,7 @@ export default class SignIn extends Component {
 
 	getProvinces() {
 		Axios.get(`${process.env.REACT_APP_API_URL}/provinces`)
-			.then((response) =>
-				this.setState({ province: response.data || this.state.province })
-			)
+			.then((response) => this.setState({ province: response.data }))
 			.catch((err) => console.error(err));
 	}
 
