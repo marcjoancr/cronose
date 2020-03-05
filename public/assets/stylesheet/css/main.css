@@ -335,6 +335,11 @@ main#homepage {
   }
 }
 
+.h-nav {
+  position: absolute;
+  right: 0;
+}
+
 .h-nav a {
   color: var(--black);
 }
@@ -361,6 +366,10 @@ main#homepage {
 }
 
 @media (max-width: 992px) {
+  .h-nav {
+    position: relative;
+    right: none;
+  }
   #ul-nav-hor {
     text-align: center;
     padding: 10px;
