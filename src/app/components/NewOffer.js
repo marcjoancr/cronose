@@ -1,4 +1,6 @@
 import React from 'react';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 export default function NewOffer() {
 	return (
@@ -62,7 +64,9 @@ export default function NewOffer() {
 						<label for='rating'>
 							¿Cuál es tu nivel de profesionalidad en este sector?
 						</label>
-						<div className='rating' id='rating'></div>
+						<div className='col'>
+							<Rater total={5} rating={0} />
+						</div>
 					</div>
 					<div className='form-group'>
 						<label for='workTitle'>Título</label>
@@ -91,9 +95,10 @@ export default function NewOffer() {
 							sepan los demás usuarios.
 						</small>
 					</div>
-					<label>Dias y Horario</label>
+					<hr/>
+					<h3>Horario</h3>
 					<div className='row mb-4 mt-1'>
-						<div className='col-lg-8'>
+						<div className='col-lg-8 my-auto'>
 							<div className='form-check form-check-inline'>
 								<input
 									type='checkbox'
@@ -121,7 +126,7 @@ export default function NewOffer() {
 									id='materialInline3'
 								/>
 								<label className='form-check-label' for='materialInline3'>
-									Miercoles
+									Miércoles
 								</label>
 							</div>
 							<div className='form-check form-check-inline'>
@@ -151,7 +156,7 @@ export default function NewOffer() {
 									id='materialInline3'
 								/>
 								<label className='form-check-label' for='materialInline3'>
-									Sabado
+									Sábado
 								</label>
 							</div>
 							<div className='form-check form-check-inline'>
@@ -165,13 +170,14 @@ export default function NewOffer() {
 								</label>
 							</div>
 							<small id='workSubtitle' className='form-text text-muted'>
-								Indica los dias que puedes reaizar el trabajo.
+								Indica los días que puedes reaizar el trabajo.
 							</small>
 						</div>
 						<div className='col-lg-4'>
 							<div className='form-row'>
 								<div className='col'>
 									<div className='md-form'>
+										<label className="form-label" for ="date1">De las </label>
 										<input
 											type='text'
 											id='date1'
@@ -182,6 +188,7 @@ export default function NewOffer() {
 								</div>
 								<div className='col'>
 									<div className='md-form'>
+									<label className="form-label" for ="date2">Hasta las </label>
 										<input
 											type='email'
 											id='date2'
