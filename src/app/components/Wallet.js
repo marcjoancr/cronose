@@ -10,36 +10,27 @@ import {
 } from 'recharts';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
+import { LoginContext } from '../../contexts/LoginContext';
+import Axios from 'axios';
 
-const data = [
-	{
-		fecha: '11-1-2020',
-		Coins: 0,
-	},
-	{
-		fecha: '12-1-2020',
-		Coins: 2,
-	},
-	{
-		fecha: '13-1-2020',
-		Coins: 4,
-	},
-	{
-		fecha: '14-1-2020',
-		Coins: 3,
-	},
-	{
-		fecha: '15-1-2020',
-		Coins: 5,
-	},
-	{
-		fecha: '15-1-2020',
-		Coins: -1,
-	},
-];
 
 export default class Wallet extends PureComponent {
+  static contextType = LoginContext;
+
+  state = {
+    coins: []
+  }
+
+  componentDidMount() {
+    const coins = Axios.get(`${process.env.REACT_APP_API_URL}/wallet/${this.context.user.id}`).then(res => {
+      const coins = res.data;
+      this.setState({ coins: coins });
+    });
+  }
+  
 	render() {
+    const data = this.state.coins.forEach((coin) => {return {work_date: coin.work_date, new_coins: coin.new_coins}});
+    console.log(data);
 		return (
 			<>
 				<div className='text-center pt-4'>
@@ -49,7 +40,7 @@ export default class Wallet extends PureComponent {
 					<LineChart
 						width={1000}
 						height={500}
-						data={data}
+            //data={}
 						margin={{
 							top: 5,
 							right: 30,
@@ -57,13 +48,13 @@ export default class Wallet extends PureComponent {
 							bottom: 5,
 						}}>
 						<CartesianGrid strokeDasharray='3 3' />
-						<XAxis dataKey='fecha' />
+						<XAxis dataKey='work_date' />
 						<YAxis />
 						<Tooltip />
 						<Legend />
 						<Line
 							type='monotone'
-							dataKey='Coins'
+							dataKey='new_coins'
 							stroke='#f09a24'
 							activeDot={{ r: 8 }}
 						/>

@@ -17,13 +17,13 @@ export default class MyWorks extends Component {
 		Axios.get(`${process.env.REACT_APP_API_URL}/works`).then((response) =>
 			this.setState({ works: response.data || this.state.works })
 		);
-	}
+  }
 
 	render() {
 		return (
 			<>
 				<div className='text-right pt-4 mr-4'>
-					<a href='#' class='btn'>
+					<a href='/wallet' class='btn'>
 						WORK HISTORY
 					</a>
 				</div>
