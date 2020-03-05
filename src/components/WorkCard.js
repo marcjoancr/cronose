@@ -4,16 +4,6 @@ import 'react-rater/lib/react-rater.css';
 
 export default function WorkCard(props) {
 	const work = props.work;
-	let translation;
-	let title, description, price, rater, name;
-	for (translation in work.translations) {
-		title = work.translations[0].title;
-		description = work.translations[0].description;
-		price = work.coin_price;
-		name = work.name;
-		rater = work.valoration_avg / 10 / 2;
-		break;
-	}
 
 	return (
 		<article className='card work-card'>
@@ -44,13 +34,16 @@ export default function WorkCard(props) {
 							</p>
 						</div>
 						<div className='valuation col-4 text-right my-auto'>
-							<Rater total={5} rating={rater} interactive={false} />
+							<Rater
+								total={5}
+								rating={work.valoration_avg / 10 / 2}
+								interactive={false}
+							/>
 						</div>
 					</section>
 					<div className='card-body'>
 						<h4>
 							<b>{work.title || work.translations[0].title}</b>
-							<small className='form-text text-muted'>{name}</small>
 						</h4>
 						<hr></hr>
 						<p className='card-text'>
@@ -58,7 +51,7 @@ export default function WorkCard(props) {
 						</p>
 						<section className='text-right'>
 							<p className='price d-inline'>
-								<b> {price || work.price}</b>
+								<b>Precio: {work.coin_price}</b>
 							</p>
 							<a href='/work' className='btn text-white'>
 								See Offer
