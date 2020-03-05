@@ -130,7 +130,7 @@ export default class Market extends Component {
 									Select category
 								</option>
 								{this.state.categories.map((category, index) => (
-									<option value={category.id}>{category.name}</option>
+									<option key={category.id} value={category.id}>{category.name}</option>
 								))}
 							</select>
 						</div>
