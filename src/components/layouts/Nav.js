@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
-			<nav className='navbar navbar-expand-lg w-100'>
+			<nav className='navbar navbar-expand-lg w-100 container'>
 				<div>
 					<img className='img-logo' src='/assets/img/svg/logo.svg' />
 					<a className='pl-3 navbar-brand' href='/'>
