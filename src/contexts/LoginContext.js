@@ -24,7 +24,7 @@ export default class LoginContextProvider extends Component {
 		Axios.post(`${process.env.REACT_APP_API_URL}/login`, qs.stringify(data))
 			.then(function(response) {
 				self.setState({
-					user: response.user,
+					user: response.data.user,
 					jwt: response.data.jwt,
 					isLogged: true,
 				});
