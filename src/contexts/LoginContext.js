@@ -39,7 +39,9 @@ export default class LoginContextProvider extends Component {
 	}
 
 	logout(error) {
-		this.setState({ user: {}, jwt: {}, isLogged: false });
+		this.setState({ user: {}, jwt: {}, isLogged: false }, () => {
+			this.saveLocalStorage();
+		});
 	}
 
 	saveLocalStorage() {
@@ -48,7 +50,8 @@ export default class LoginContextProvider extends Component {
 
 	render() {
 		return (
-			<LoginContext.Provider value={{ ...this.state, login: this.login }}>
+			<LoginContext.Provider
+				value={{ ...this.state, login: this.login, logout: this.logout }}>
 				{this.props.children}
 			</LoginContext.Provider>
 		);

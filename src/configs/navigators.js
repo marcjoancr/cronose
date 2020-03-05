@@ -109,13 +109,13 @@ export default [
 				exact: true,
 			},
 			{
-				title: 'About Us',
-				path: '/#about',
+				title: 'How It Works',
+				path: '/#HowItWorks',
 				component: HomePage,
 			},
 			{
-				title: 'How It Works',
-				path: '/#HowItWorks',
+				title: 'About Us',
+				path: '/#about',
 				component: HomePage,
 			},
 			{
