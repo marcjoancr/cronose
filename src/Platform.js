@@ -16,9 +16,22 @@ export default class Platform extends Component {
 	render() {
 		return (
 			<LoginContextProvider>
-				<HomePage
-					navigator={navigators.filter((nav) => nav.name == 'root')[0]}
-				/>
+				<LoginContext.Consumer>
+					{(context) => {
+						if (context.isLogged) {
+							return (
+								<App
+									navigator={navigators.filter((nav) => nav.name == 'app')[0]}
+								/>
+							);
+						}
+						return (
+							<HomePage
+								navigator={navigators.filter((nav) => nav.name == 'root')[0]}
+							/>
+						);
+					}}
+				</LoginContext.Consumer>
 			</LoginContextProvider>
 		);
 	}
