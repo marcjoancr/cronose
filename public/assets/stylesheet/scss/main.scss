@@ -19,6 +19,10 @@
 	font-family: 'Montserrat', 'Lato', 'Work Sans', sans-serif;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 //RATER REACT
 .react-rater-star {
 	font-size: 25px !important ;
