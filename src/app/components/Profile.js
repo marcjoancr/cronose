@@ -3,8 +3,26 @@ import { MdAddBox } from 'react-icons/md';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 import { LoginContext } from '../../contexts/LoginContext';
+import ProfileCard from './ProfileCard';
+import Axios from 'axios';
 
 export default class Profile extends Component {
+	static contextType = LoginContext;
+	constructor(props) {
+		super(props);
+		this.state = { works: [] };
+		this.getWorks = this.getWorks.bind(this);
+	}
+
+	componentDidMount() {
+		this.getWorks();
+	}
+
+	getWorks() {
+		Axios.get(
+			`${process.env.REACT_APP_API_URL}/works/user/${this.context.user.id}`
+		).then((response) => this.setState({ works: response.data }));
+	}
 	render() {
 		return (
 			<LoginContext.Consumer>
@@ -90,102 +108,13 @@ export default class Profile extends Component {
 										<b>My Offers</b>
 									</h3>
 									<div class='card-deck text-center'>
-										<div class='card card-profile mt-3'>
-											<img
-												class='card-img-top'
-												src='/assets/img/img-work.jpg'
-												alt='Card image cap'></img>
-											<div class='card-body'>
-												<div class='card-title'>
-													<div className='d-flex justify-content-end'>
-														<Rater total={5} rating={3} interactive={false} />
-													</div>
-													<h4>
-														<b>Offer Title</b>
-													</h4>
-													<p>Date</p>
-												</div>
-												<p class='card-text'>
-													Some quick example text to build on the card title and
-													make up the bulk of the card's content.
-												</p>
-												<a href='#' class='btn btn-block text-white'>
-													See Offer
-												</a>
-											</div>
-										</div>
-										<div class='card card-profile  mt-3'>
-											<img
-												class='card-img-top'
-												src='/assets/img/img-work.jpg'
-												alt='Card image cap'></img>
-											<div class='card-body'>
-												<div class='card-title'>
-													<div className='d-flex justify-content-end'>
-														<Rater total={5} rating={2} interactive={false} />
-													</div>
-													<h4>
-														<b>Offer Title</b>
-													</h4>
-													<p>Date</p>
-												</div>
-												<p class='card-text'>
-													Some quick example text to build on the card title and
-													make up the bulk of the card's content.
-												</p>
-												<a href='#' class='btn btn-block text-white'>
-													See Offer
-												</a>
-											</div>
-										</div>
-										<div class='card card-profile mt-3'>
-											<img
-												class='card-img-top'
-												src='/assets/img/img-work.jpg'
-												alt='Card image cap'></img>
-											<div class='card-body'>
-												<div class='card-title'>
-													<div className='d-flex justify-content-end'>
-														<Rater total={5} rating={5} interactive={false} />
-													</div>
-													<h4>
-														<b>Offer Title</b>
-													</h4>
-													<p>Date</p>
-												</div>
-												<p class='card-text'>
-													Some quick example text to build on the card title and
-													make up the bulk of the card's content.
-												</p>
-												<a href='#' class='btn btn-block text-white'>
-													See Offer
-												</a>
-											</div>
-										</div>
-										<div class='card card-profile mt-3'>
-											<img
-												class='card-img-top'
-												src='https://mdbootstrap.com/img/Photos/Others/images/43.jpg'
-												alt='Card image cap'></img>
-											<div class='card-body'>
-												<div class='card-title'>
-													<div className='d-flex justify-content-end'>
-														<Rater total={5} rating={3} interactive={false} />
-													</div>
-													<h4>
-														<b>Offer Title</b>
-													</h4>
-													<p>Date</p>
-												</div>
-												<p class='card-text'>
-													Some quick example text to build on the card title and
-													make up the bulk of the card's content.
-												</p>
-												<a href='#' class='btn btn-block text-white'>
-													See Offer
-												</a>
-											</div>
-										</div>
+										{this.state.works.map((work, index) => (
+											<ProfileCard
+												key={index}
+												work={work}
+												translations={work.translations}
+											/>
+										))}
 									</div>
 									<div className='icon-more text-center '>
 										<a href='#'>

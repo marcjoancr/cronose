@@ -42,7 +42,7 @@ export default class NewOffer extends React.Component {
 		console.log(data);
 		Axios.post(
 			`${process.env.REACT_APP_API_URL}/work`,
-			qs.stringify({
+			e.stringify({
 				data: data,
 			})
 		).then((response) => this.setState({ works: response.data }));
