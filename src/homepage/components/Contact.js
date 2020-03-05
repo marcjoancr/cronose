@@ -1,9 +1,10 @@
 import React from 'react';
+import Translate from '../../translations/Translate';
 
 export default function Contact() {
 	return (
 		<div className='container mb-5 mt-5' id='contact'>
-			<h1>Contact</h1>
+			<h1><Translate string={'contact'} /></h1>
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy text ever
