@@ -14,9 +14,12 @@ export default class Platform extends Component {
 	}
 
 	render() {
-		console.log(this.contextType);
 		return (
-			<HomePage navigator={navigators.filter((nav) => nav.name == 'root')[0]} />
+			<LoginContextProvider>
+				<HomePage
+					navigator={navigators.filter((nav) => nav.name == 'root')[0]}
+				/>
+			</LoginContextProvider>
 		);
 		const { value } = this.context;
 		value.isLogged ? (

@@ -1,22 +1,30 @@
 import React from 'react';
-import Axios from 'axios';
 import md5 from 'md5';
-import qs from 'qs';
 import { LoginContext } from '../../contexts/LoginContext';
 
-export default function Login() {
-	function login(e) {
+export default class Login extends React.Component {
+	static contextType = LoginContext;
+
+	constructor(props) {
+		super(props);
+
+		console.log(this.context);
+
+		this.login = this.login.bind(this);
+	}
+
+	login(e) {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
 		formData.set('password', md5(formData.get('password')));
 		const data = Object.fromEntries(formData);
-		login(data);
+		this.context.login(data);
 	}
 
-	return (
-		<LoginContext.Consumer>
-			{(context) => {
-				return (
+	render() {
+		return (
+			<LoginContext.Consumer>
+				{(context) => (
 					<div className='card-login card text-center'>
 						<h3 className='card-title text-center'>LOGIN</h3>
 						<form
@@ -24,7 +32,7 @@ export default function Login() {
 							method='post'
 							target='_self'
 							className='form-signin'
-							onSubmit={login}>
+							onSubmit={this.login}>
 							<div className='form-label-group mt-4 text-left'>
 								<label htmlFor='email'>Email</label>
 								<input
@@ -63,8 +71,8 @@ export default function Login() {
 							</div>
 						</div>
 					</div>
-				);
-			}}
-		</LoginContext.Consumer>
-	);
+				)}
+			</LoginContext.Consumer>
+		);
+	}
 }
