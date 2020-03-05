@@ -2,11 +2,12 @@ import React from 'react';
 import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 import { FaPowerOff } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { LoginContext } from '../../contexts/LoginContext';
 
 function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
-			<nav className='navbar navbar-expand-lg w-100'>
+			<nav className='navbar navbar-expand-lg w-100 container'>
 				<div>
 					<img className='img-logo' src='/assets/img/svg/logo.svg' />
 					<a className='pl-3 navbar-brand' href='/'>
@@ -91,9 +92,16 @@ function SideBar(props) {
 								</li>
 							);
 						})}
-						<i id='iconDown' className='mt-5'>
-							<FaPowerOff />
-						</i>
+						<LoginContext.Consumer>
+							{(context) => (
+								<i
+									id='iconDown'
+									className='mt-5'
+									onClick={() => context.logout()}>
+									<FaPowerOff />
+								</i>
+							)}
+						</LoginContext.Consumer>
 					</ul>
 				</section>
 			</nav>
