@@ -65,23 +65,23 @@ export default [
 			{
 				title: 'Home',
 				path: '/home',
-				component: Home,
+				component: HomePage,
 				exact: true,
 			},
 			{
 				title: 'About Us',
 				path: '/#about',
-				component: Home,
+				component: HomePage,
 			},
 			{
 				title: 'How It Works',
 				path: '/#HowItWorks',
-				component: Home,
+				component: HomePage,
 			},
 			{
 				title: 'Contact',
 				path: '/#contact',
-				component: Home,
+				component: HomePage,
 			},
 		],
 	},
