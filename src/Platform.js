@@ -21,11 +21,5 @@ export default class Platform extends Component {
 				/>
 			</LoginContextProvider>
 		);
-		const { value } = this.context;
-		value.isLogged ? (
-			<App navigator={navigators.filter((nav) => nav.name == 'app')[0]} />
-		) : (
-			<HomePage navigator={navigators.filter((nav) => nav.name == 'root')[0]} />
-		);
 	}
 }
