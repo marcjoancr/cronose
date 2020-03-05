@@ -1,8 +1,53 @@
 import React from 'react';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
+import Axios from 'axios';
+import { LoginContext } from '../../contexts/LoginContext';
 
 export default class NewOffer extends React.Component {
+	static contextType = LoginContext;
+	constructor(props) {
+		super(props);
+		this.state = {
+			categories: [],
+			specialization: [],
+		};
+		this.getCategories = this.getCategories.bind(this);
+		this.getSpecialization = this.getSpecialization.bind(this);
+		this.send = this.send.bind(this);
+	}
+
+	componentDidMount() {
+		this.getCategories();
+	}
+
+	getCategories() {
+		Axios.get(
+			`${process.env.REACT_APP_API_URL}/categories/ca`
+		).then((response) => this.setState({ categories: response.data }));
+	}
+
+	getSpecialization() {
+		const category_id = document.getElementById('category_id').value;
+		Axios.get(
+			`${process.env.REACT_APP_API_URL}/specialization/ca/${category_id}`
+		).then((response) => this.setState({ specialization: response.data }));
+	}
+
+	send(e) {
+		e.preventDefault();
+		const formData = new FormData(e.currentTarget);
+		formData.set('user_id', this.context.user.id);
+		const data = Object.fromEntries(formData);
+		console.log(data);
+		Axios.post(
+			`${process.env.REACT_APP_API_URL}/work`,
+			qs.stringify({
+				data: data,
+			})
+		).then((response) => this.setState({ works: response.data }));
+	}
+
 	render() {
 		return (
 			<div
@@ -27,18 +72,24 @@ export default class NewOffer extends React.Component {
 				<div id='workForm2' className='container text-left'>
 					<hr />
 
-					<form>
+					<form method='post' target='_self' onSubmit={this.send}>
 						<div className='row'>
 							<div className='form-group col'>
+								<label htmlFor='category'>Category</label>
 								<select
-									className='form-control'
-									id='dropdownCategory'
-									data-toggle='dropdown'
-									aria-haspopup='true'
-									aria-expanded='false'>
-									<option disabled selected>
-										Categoría
+									id='category_id'
+									name='category_id'
+									className='rowser-default custom-select'
+									onChange={this.getSpecialization}
+									required>
+									<option value='0' selected='selected'>
+										Select category
 									</option>
+									{this.state.categories.map((category, index) => (
+										<option key={category.id} value={category.id}>
+											{category.name}
+										</option>
+									))}
 								</select>
 								<small className='form-text text-muted'>
 									Elige la categoría que mejor se ajuste al trabajo que deseas
@@ -47,13 +98,21 @@ export default class NewOffer extends React.Component {
 							</div>
 
 							<div className='form-group col'>
+								<label htmlFor='specialization'>Specialization</label>
 								<select
-									className='form-control'
-									id='dropdownSpecialization'
-									data-toggle='dropdown'
-									aria-haspopup='true'
-									aria-expanded='false'>
-									<option>Especialización</option>
+									id='specialization_id'
+									name='specialization_id'
+									className='rowser-default custom-select'
+									onChange={this.getFilteredWorks}
+									required>
+									<option value='0' selected='selected'>
+										Select specialization
+									</option>
+									{this.state.specialization.map((specialization, index) => (
+										<option value={specialization.id}>
+											{specialization.name}
+										</option>
+									))}
 								</select>
 								<small className='form-text text-muted'>
 									Elige la categoría que mejor se ajuste al trabajo que deseas
@@ -74,6 +133,7 @@ export default class NewOffer extends React.Component {
 							<input
 								type='text'
 								className='form-control'
+								name='workTitle'
 								id='workTitle'
 								aria-describedby='emailHelp'
 								placeholder='Introduce tu título...'
@@ -87,6 +147,7 @@ export default class NewOffer extends React.Component {
 							<textarea
 								type='text'
 								className='form-control'
+								name='workDescription'
 								id='workDescription'
 								aria-describedby='emailHelp'
 								placeholder='Describe tu actividad...'
@@ -209,7 +270,7 @@ export default class NewOffer extends React.Component {
 							</div>
 						</div>
 						<input
-							type='button'
+							type='submit'
 							className='btn text-white'
 							id='generateData'
 							value='Previsualizar'
