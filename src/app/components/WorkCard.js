@@ -19,30 +19,14 @@ export default function WorkCard(props) {
 			<section className='info row'>
 				<figure className='col-lg-3'>
 					<img
-						className='card-img'
+						class='card-img'
 						src='/assets/img/img-work.jpg'
 						alt='Card image cap'></img>
 				</figure>
 				<div className='col-lg-9'>
 					<section className='header card-header row'>
-						<p className='schedule col-2 text-muted my-auto d-none d-md-block'>
-							HORARIO
-						</p>
-						<div className='col-6 d-inline-flex'>
-							<ul className='list-group list-group-horizontal list-unstyled mb-4 my-auto'>
-								<li className='text-muted my-auto'>L</li>
-								<li className=''>M</li>
-								<li className=''>X</li>
-								<li className='text-muted my-auto'>J</li>
-								<li className=''>V</li>
-								<li className=''>S</li>
-								<li className=''>D</li>
-							</ul>
-							<p className='ml-4 my-auto'>
-								De: <b>10:00h</b> a <b>14:00h</b>
-							</p>
-						</div>
-						<div className='valuation col-4 text-right my-auto'>
+						<p className='schedule col-6 text-muted'>HORARIO</p>
+						<div className='valuation col-6 text-right'>
 							<Rater total={5} rating={rater} interactive={false} />
 						</div>
 					</section>
@@ -51,12 +35,13 @@ export default function WorkCard(props) {
 							<b>{title}</b>
 						</h4>
 						<hr></hr>
-						<p className='card-text'>{description}</p>
+						<p class='card-text'>{description}</p>
 						<section className='text-right'>
 							<p className='price d-inline'>
-								<b>Precio: {price}</b>
+								<b>{price}</b>
 							</p>
-							<a href='/work' className='btn text-white'>
+
+							<a href='/work' class='btn text-white'>
 								See Offer
 							</a>
 						</section>

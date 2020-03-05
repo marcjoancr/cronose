@@ -1,9 +1,12 @@
 import React from 'react';
+import Translate from '../../translations/Translate';
 
 export default function Contact() {
 	return (
 		<div className='container mb-5 mt-5' id='contact'>
-			<h1>Contact</h1>
+			<h1>
+				<Translate string={'contact'} />
+			</h1>
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -15,21 +18,25 @@ export default function Contact() {
 				with desktop publishing software like Aldus PageMaker including versions
 				of Lorem Ipsum.
 			</p>
-			<div class='form-group'>
-				<label for='exampleFormControlInput1'></label>
+			<div className='form-group mt-4'>
+				<label htmlFor='exampleFormControlInput1'>Email</label>
 				<input
 					type='email'
-					class='form-control'
+					className='form-control'
 					id='exampleFormControlInput1'
 					placeholder='Email'></input>
-			</div>
-			<div class='form-group'>
-				<label for='exampleFormControlTextarea1'></label>
+				<label className='mt-2' htmlFor='exampleFormControlTextarea1'>
+					Body
+				</label>
 				<textarea
-					class='form-control'
+					className='form-control'
 					id='exampleFormControlTextarea1'
 					rows='3'
 					placeholder='Text'></textarea>
+				<button className='btn btn-orange mt-2 text-white float-right'>
+					Contact
+				</button>
+				<div className='clearfix'></div>
 			</div>
 		</div>
 	);

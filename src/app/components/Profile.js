@@ -1,5 +1,7 @@
 import React from 'react';
 import { MdAddBox } from 'react-icons/md';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 export default function Profile(props) {
 	const data = props.data;
@@ -26,6 +28,7 @@ export default function Profile(props) {
 						id='profile-average'
 						className='col-md-6 mt-3 d-flex justify-content-end'>
 						<p>RATE AVERAGE</p>
+						<Rater total={5} rating={3} interactive={false} />
 					</div>
 				</div>
 				<div className='d-flex justify-content-md-end justify-content-center'>
@@ -34,12 +37,26 @@ export default function Profile(props) {
 				</div>
 			</div>
 			<div id='body-profile'>
+				<div className='progress md-progress mt-4 mb-4'>
+					<h5 className='pr-4'>
+						Lvl : <b>3</b>
+					</h5>
+					<div
+						className='progress-bar'
+						role='progressbar'
+						aria-valuenow='25'
+						aria-valuemin='0'
+						aria-valuemax='100'>
+						25%
+					</div>
+				</div>
 				<div class='card card-about'>
 					<div class='card-header'>
 						<h3>
 							<b>ABOUT ME</b>
 						</h3>
 					</div>
+
 					<div class='card-body'>
 						<p class='card-text'>
 							Lorem ipsum dolor sit amet, ea vel prima adhuc, scripta
@@ -62,7 +79,7 @@ export default function Profile(props) {
 						<b>My Offers</b>
 					</h3>
 					<div class='card-deck text-center'>
-						<div class='card'>
+						<div class='card card-profile mt-3'>
 							<img
 								class='card-img-top'
 								src='/assets/img/img-work.jpg'
@@ -70,7 +87,7 @@ export default function Profile(props) {
 							<div class='card-body'>
 								<div class='card-title'>
 									<div className='d-flex justify-content-end'>
-										<p>Rate Average</p>
+										<Rater total={5} rating={3} interactive={false} />
 									</div>
 									<h4>
 										<b>Offer Title</b>
@@ -86,7 +103,7 @@ export default function Profile(props) {
 								</a>
 							</div>
 						</div>
-						<div class='card'>
+						<div class='card card-profile  mt-3'>
 							<img
 								class='card-img-top'
 								src='/assets/img/img-work.jpg'
@@ -94,7 +111,7 @@ export default function Profile(props) {
 							<div class='card-body'>
 								<div class='card-title'>
 									<div className='d-flex justify-content-end'>
-										<p>Rate Average</p>
+										<Rater total={5} rating={2} interactive={false} />
 									</div>
 									<h4>
 										<b>Offer Title</b>
@@ -110,7 +127,7 @@ export default function Profile(props) {
 								</a>
 							</div>
 						</div>
-						<div class='card'>
+						<div class='card card-profile mt-3'>
 							<img
 								class='card-img-top'
 								src='/assets/img/img-work.jpg'
@@ -118,7 +135,7 @@ export default function Profile(props) {
 							<div class='card-body'>
 								<div class='card-title'>
 									<div className='d-flex justify-content-end'>
-										<p>Rate Average</p>
+										<Rater total={5} rating={5} interactive={false} />
 									</div>
 									<h4>
 										<b>Offer Title</b>
@@ -134,7 +151,7 @@ export default function Profile(props) {
 								</a>
 							</div>
 						</div>
-						<div class='card'>
+						<div class='card card-profile mt-3'>
 							<img
 								class='card-img-top'
 								src='https://mdbootstrap.com/img/Photos/Others/images/43.jpg'
@@ -142,7 +159,7 @@ export default function Profile(props) {
 							<div class='card-body'>
 								<div class='card-title'>
 									<div className='d-flex justify-content-end'>
-										<p>Rate Average</p>
+										<Rater total={5} rating={3} interactive={false} />
 									</div>
 									<h4>
 										<b>Offer Title</b>

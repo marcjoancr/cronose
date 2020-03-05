@@ -15,12 +15,21 @@
 	}
 }
 
-// main {
-// 	background-color: var(--back-color);
-// }
-
 * {
 	font-family: 'Montserrat', 'Lato', 'Work Sans', sans-serif;
+}
+
+//RATER REACT
+.react-rater-star {
+	font-size: 25px !important ;
+}
+
+.react-rater-star.is-active {
+	color: var(--secondary-color) !important ;
+}
+
+.react-rater-star.is-active-half::before {
+	color: var(--secondary-color) !important ;
 }
 
 .navbar {
@@ -50,7 +59,6 @@ footer {
 		}
 	}
 }
-
 body {
 	min-height: 100vh;
 	margin: 0;
@@ -85,6 +93,51 @@ main {
 	}
 }
 
+.user-val {
+	margin: auto;
+	margin-top: 40vh;
+	margin-bottom: 200px;
+}
+
+.reset-pass {
+	margin: auto;
+	margin-top: 200px;
+	margin-bottom: 200px;
+	max-width: 400px;
+	padding: 40px;
+	.btn {
+		background-color: var(--primary-color);
+		border-color: var(--primary-color);
+
+		&:hover {
+			background-color: var(--ternary-color);
+		}
+	}
+}
+
+.navbar-toggler-icon {
+	font-size: 40px;
+}
+
+.languagesButtons {
+	margin-top: 20px;
+	margin-right: 20px;
+	.btn {
+		border-radius: 10px;
+		color: var(--white);
+		border: solid 1px;
+		border-color: var(--white);
+		background-color: var(--primary-color);
+	}
+	.active {
+		background-color: var(--secondary-color);
+	}
+}
+
+#btnLanguages {
+	text-align: right;
+}
+
 @import 'components/__buttons';
 @import 'layouts/__sidebar';
 @import 'layouts/__navbar';
@@ -93,3 +146,10 @@ main {
 @import 'pages/__profile';
 @import 'pages/__market';
 @import 'pages/__about';
+@import 'pages/__register';
+@import 'pages/__register';
+@import 'pages/__myWork';
+@import 'pages/__wallet';
+@import 'pages/__chat';
+@import 'pages/__newOffer';
+@import 'pages/__workDetail';

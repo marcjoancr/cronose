@@ -4,8 +4,19 @@ import Chat from '../app/components/Chat';
 import MyWorks from '../app/components/MyWorks';
 import Profile from '../app/components/Profile';
 import Home from '../homepage/components/Home';
+import HomePage from '../homepage/components/HomePage';
 import Login from '../homepage/components/Login';
 import SignIn from '../homepage/components/SignIn';
+import WorkDetail from '../components/WorkDetail';
+import NewOffer from '../app/components/NewOffer';
+import ResetPassword from '../components/ResetPassword';
+import UserValidator from '../components/UserValidator';
+
+import { IoIosChatbubbles } from 'react-icons/io';
+import { FaStore } from 'react-icons/fa';
+import { GiTwoCoins } from 'react-icons/gi';
+import { MdWork } from 'react-icons/md';
+import { GoPerson } from 'react-icons/go';
 
 export default [
 	{
@@ -17,26 +28,73 @@ export default [
 				path: '/market',
 				component: Market,
 				exact: true,
+				icon: FaStore,
+			},
+			{
+				title: 'Work Details',
+				path: '/work',
+				component: WorkDetail,
+			},
+
+			{
+				title: 'New Offer',
+				path: '/newoffer',
+				component: NewOffer,
 			},
 			{
 				title: 'Wallet',
 				path: '/wallet',
 				component: Wallet,
+				icon: GiTwoCoins,
 			},
 			{
 				title: 'Chat',
 				path: '/chat',
 				component: Chat,
+				icon: IoIosChatbubbles,
 			},
 			{
 				title: 'My Works',
 				path: '/:user/works',
 				component: MyWorks,
+				icon: MdWork,
 			},
 			{
 				title: 'Profile',
 				path: '/me',
 				component: Profile,
+				icon: GoPerson,
+			},
+			{
+				title: 'Home',
+				path: '/home',
+				component: HomePage,
+				exact: true,
+			},
+			{
+				title: 'About Us',
+				path: '/#about',
+				component: HomePage,
+			},
+			{
+				title: 'How It Works',
+				path: '/#HowItWorks',
+				component: HomePage,
+			},
+			{
+				title: 'Contact',
+				path: '/#contact',
+				component: HomePage,
+			},
+			{
+				title: 'Reset Password',
+				path: '/resetPassword',
+				component: ResetPassword,
+			},
+			{
+				title: 'User Validator',
+				path: '/userValidator',
+				component: UserValidator,
 			},
 		],
 	},
@@ -47,23 +105,23 @@ export default [
 			{
 				title: 'Home',
 				path: '/',
-				component: Home,
+				component: HomePage,
 				exact: true,
 			},
 			{
 				title: 'About Us',
 				path: '/#about',
-				component: Home,
+				component: HomePage,
 			},
 			{
 				title: 'How It Works',
 				path: '/#HowItWorks',
-				component: Home,
+				component: HomePage,
 			},
 			{
 				title: 'Contact',
 				path: '/#contact',
-				component: Home,
+				component: HomePage,
 			},
 			{
 				title: 'Market',
@@ -71,14 +129,29 @@ export default [
 				component: Market,
 			},
 			{
+				title: 'Work Details',
+				path: '/work',
+				component: WorkDetail,
+			},
+			{
 				title: 'Login',
 				path: '/login',
 				component: Login,
 			},
 			{
-				title: 'Sign In',
-				path: '/SignIn',
+				title: 'Register',
+				path: '/register',
 				component: SignIn,
+			},
+			{
+				title: 'Reset Password',
+				path: '/resetPassword',
+				component: ResetPassword,
+			},
+			{
+				title: 'User Validator',
+				path: '/userValidator',
+				component: UserValidator,
 			},
 		],
 	},
