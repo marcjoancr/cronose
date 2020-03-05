@@ -19,7 +19,7 @@ export default function WorkCard(props) {
 			<section className='info row'>
 				<figure className='col-lg-3'>
 					<img
-						class='card-img'
+						className='card-img'
 						src='/assets/img/img-work.jpg'
 						alt='Card image cap'></img>
 				</figure>
@@ -35,13 +35,13 @@ export default function WorkCard(props) {
 							<b>{title}</b>
 						</h4>
 						<hr></hr>
-						<p class='card-text'>{description}</p>
+						<p className='card-text'>{description}</p>
 						<section className='text-right'>
 							<p className='price d-inline'>
 								<b>{price}</b>
 							</p>
 
-							<a href='/work' class='btn text-white'>
+							<a href='/work' className='btn text-white'>
 								See Offer
 							</a>
 						</section>

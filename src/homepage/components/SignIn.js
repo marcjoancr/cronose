@@ -64,7 +64,7 @@ export default class SignIn extends Component {
 						onSubmit={this.register}>
 						<div className='row'>
 							<div className='form-group col-12 col-md-6 p-1'>
-								<label for='name'>Name:</label>
+								<label htmlFor='name'>Name:</label>
 								<input
 									id='name'
 									type='text'
@@ -77,7 +77,7 @@ export default class SignIn extends Component {
 						</div>
 						<div className='row'>
 							<div className='form-group col-md-6 p-1'>
-								<label for='surname'>Surname:</label>
+								<label htmlFor='surname'>Surname:</label>
 								<input
 									id='surname'
 									type='text'
@@ -88,7 +88,7 @@ export default class SignIn extends Component {
 								/>
 							</div>
 							<div className='form-group col-md-6 p-1'>
-								<label for='surname_2'>
+								<label htmlFor='surname_2'>
 									Surname 2: <small className='text-muted'>Optional</small>
 								</label>
 								<input
@@ -103,7 +103,7 @@ export default class SignIn extends Component {
 						</div>
 						<div className='row'>
 							<div className='form-group col-md-3 p-1'>
-								<label for='dni'>DNI:</label>
+								<label htmlFor='dni'>DNI:</label>
 								<input
 									id='dni'
 									type='text'
@@ -114,7 +114,7 @@ export default class SignIn extends Component {
 								/>
 							</div>
 							<div className='form-group col-md-9 p-1'>
-								<label for='email'>Email:</label>
+								<label htmlFor='email'>Email:</label>
 								<input
 									id='email'
 									type='email'

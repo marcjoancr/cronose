@@ -40,11 +40,11 @@ Moves.defaultProps = {
 export default function AboutUs(props) {
 	const data = props.data;
 
-	console.log(`${process.env.PUBLIC_URL}/assets/img/initial-ls.svg`);
-
 	return (
 		<div className='container' id='about'>
-			<h1><Translate string={'about-us'} /></h1>
+			<h1>
+				<Translate string={'about-us'} />
+			</h1>
 			<p>
 				<Translate string={'about-us-text-1'} />
 				<br />

@@ -62,39 +62,36 @@ export default class Market extends Component {
 					<h2 className='p-3 pt-4 text-center'>Job Filter</h2>
 					<div className='input-group p-2'>
 						<div className='p-2 pt-4'>
-							<label for='language'>Language</label>
+							<label htmlFor='language'>Language</label>
 							<br></br>
 							<select className='browser-default custom-select' id='lang'>
-								<option disabled selected='selected'>
+								<option disabled selected value='null'>
 									Castellano
 								</option>
 							</select>
 						</div>
 						<div className='p-2 pt-4 '>
-							<label for='myLangs'>Selected Languages</label>
+							<label htmlFor='myLangs'>Selected Languages</label>
 							<select className='rowser-default custom-select' id='myLangs'>
-								<br></br>
-								<option disabled selected='selected'>
+								<option disabled selected value='null'>
 									My Langs
 								</option>
 							</select>
 						</div>
 						<div className='p-2 pt-4'>
-							<label for='category'>Category</label>
-							<br></br>
+							<label htmlFor='category'>Category</label>
 							<select className='rowser-default custom-select' id='category'>
-								<option disabled selected='selected'>
+								<option disabled selected value='null'>
 									My Category
 								</option>
 							</select>
 						</div>
 						<div className='p-2 pt-4'>
-							<label for='specialization'>Specialization</label>
+							<label htmlFor='specialization'>Specialization</label>
 							<select
 								className='rowser-default custom-select'
 								id='specialization'>
-								<br></br>
-								<option disabled selected='selected' value='null'>
+								<option disabled selected value='null'>
 									Specializations
 								</option>
 							</select>
