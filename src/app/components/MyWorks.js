@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import WorkCard from './WorkCard';
 import Axios from 'axios';
+import { LoginContext } from '../../contexts/LoginContext';
 
 export default class MyWorks extends Component {
+	static contextType = LoginContext;
 	constructor(props) {
 		super(props);
-		this.state = { works: [{ title: 'Sample Work Title' }] };
+		this.state = { works: [] };
 		this.getWorks = this.getWorks.bind(this);
 	}
 
@@ -14,9 +16,9 @@ export default class MyWorks extends Component {
 	}
 
 	getWorks() {
-		Axios.get(`${process.env.REACT_APP_API_URL}/works`).then((response) =>
-			this.setState({ works: response.data || this.state.works })
-		);
+		Axios.get(
+			`${process.env.REACT_APP_API_URL}/works/user/${this.context.user.id}`
+		).then((response) => this.setState({ works: response.data }));
 	}
 
 	render() {
