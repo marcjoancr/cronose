@@ -4,6 +4,7 @@ import 'react-rater/lib/react-rater.css';
 
 export default function WorkCard(props) {
 	const work = props.work;
+	console.log(work);
 	let translation;
 	let title, description, price, rater;
 	for (translation in work.translations) {
