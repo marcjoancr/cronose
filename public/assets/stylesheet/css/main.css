@@ -489,7 +489,7 @@ footer .links {
 }
 
 .card-profile a:hover {
-  background-color: var(--secondary-color);
+	background-color: var(--secondary-color);
 }
 
 #profile-average p {
@@ -867,4 +867,13 @@ footer .links {
 
 .work #carousel img {
   max-height: 250px;
+}
+
+.list-group li {
+	margin-left: 4px;
+}
+
+.list-group li.text-muted {
+	font-size: 10px;
+	margin-left: 4px;
 }
