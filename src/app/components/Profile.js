@@ -37,7 +37,7 @@ export default function Profile(props) {
 				</div>
 			</div>
 			<div id='body-profile'>
-				{/* <div className='progress md-progress mt-4 mb-4'>
+				<div className='progress md-progress mt-4 mb-4'>
 					<h5 className='pr-4'>
 						Lvl : <b>3</b>
 					</h5>
@@ -49,7 +49,7 @@ export default function Profile(props) {
 						aria-valuemax='100'>
 						25%
 					</div>
-				</div> */}
+				</div>
 				<div class='card card-about'>
 					<div class='card-header'>
 						<h3>
@@ -79,7 +79,7 @@ export default function Profile(props) {
 						<b>My Offers</b>
 					</h3>
 					<div class='card-deck text-center'>
-						<div class='card'>
+						<div class='card card-profile mt-3'>
 							<img
 								class='card-img-top'
 								src='/assets/img/img-work.jpg'
@@ -103,7 +103,7 @@ export default function Profile(props) {
 								</a>
 							</div>
 						</div>
-						<div class='card'>
+						<div class='card card-profile  mt-3'>
 							<img
 								class='card-img-top'
 								src='/assets/img/img-work.jpg'
@@ -127,7 +127,7 @@ export default function Profile(props) {
 								</a>
 							</div>
 						</div>
-						<div class='card'>
+						<div class='card card-profile mt-3'>
 							<img
 								class='card-img-top'
 								src='/assets/img/img-work.jpg'
@@ -151,7 +151,7 @@ export default function Profile(props) {
 								</a>
 							</div>
 						</div>
-						<div class='card'>
+						<div class='card card-profile mt-3'>
 							<img
 								class='card-img-top'
 								src='https://mdbootstrap.com/img/Photos/Others/images/43.jpg'

@@ -488,6 +488,10 @@ footer .links {
   background-color: var(--secondary-color);
 }
 
+.card-profile a:hover {
+  background-color: var(--secondary-color);
+}
+
 #profile-average p {
   margin-top: 4px;
   margin-right: 5px;
