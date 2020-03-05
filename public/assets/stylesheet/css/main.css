@@ -149,6 +149,7 @@ main#homepage {
 
 #sidebar-toggle:checked ~ .sidebar-nav ul li a {
   color: var(--primary-color);
+  margin: 10px 0 0;
 }
 
 #sidebar-toggle:checked ~ .sidebar-nav ul li a:hover {
@@ -218,6 +219,7 @@ main#homepage {
 }
 
 .sidebar-nav ul .icon {
+  margin-right: 5px;
   color: var(--ternary-color);
   opacity: 0.8;
   font-size: 40px;

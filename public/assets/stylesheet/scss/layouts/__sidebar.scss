@@ -13,6 +13,7 @@
 
 #sidebar-toggle:checked ~ .sidebar-nav ul li a {
 	color: var(--primary-color);
+	margin: 10px 0 0;
 	&:hover {
 		color: var(--secondary-color);
 		text-decoration: none;
@@ -77,6 +78,7 @@
 		padding-top: 20px;
 	}
 	.icon {
+		margin-right: 5px;
 		color: var(--ternary-color);
 		opacity: 0.8;
 		font-size: 40px;
