@@ -87,7 +87,7 @@ function SideBar(props) {
 										className=''
 										activeClassName='active'>
 										<i className='icon'>{route.icon ? <route.icon /> : null}</i>
-										<a>{route.title}</a>
+										<p>{route.title}</p>
 									</NavLink>
 								</li>
 							);

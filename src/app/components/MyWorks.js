@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WorkCard from './WorkCard';
+import WorkCard from '../../components/WorkCard';
 import Axios from 'axios';
 import { LoginContext } from '../../contexts/LoginContext';
 
@@ -25,7 +25,7 @@ export default class MyWorks extends Component {
 		return (
 			<>
 				<div className='text-right pt-4 mr-4'>
-					<a href='#' class='btn'>
+					<a href='#' className='btn'>
 						WORK HISTORY
 					</a>
 				</div>
@@ -42,7 +42,7 @@ export default class MyWorks extends Component {
 					))}
 				</section>
 				<div className='text-center'>
-					<a href='/newoffer' class='btn btn-lg mb-4'>
+					<a href='/newoffer' className='btn btn-lg mb-4'>
 						NEW OFFER
 					</a>
 				</div>

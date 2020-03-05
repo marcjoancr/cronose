@@ -160,7 +160,7 @@ main#homepage {
   z-index: 1000;
 }
 
-#sidebar-toggle:checked ~ .sidebar-nav ul a a {
+#sidebar-toggle:checked ~ .sidebar-nav ul a p {
   display: initial;
 }
 
@@ -168,12 +168,12 @@ main#homepage {
   margin: 0px;
 }
 
-#sidebar-toggle:checked ~ .sidebar-nav ul li a {
+#sidebar-toggle:checked ~ .sidebar-nav ul li p {
   color: var(--primary-color);
   margin: 10px 0 0;
 }
 
-#sidebar-toggle:checked ~ .sidebar-nav ul li a:hover {
+#sidebar-toggle:checked ~ .sidebar-nav ul li p:hover {
   color: var(--secondary-color);
   text-decoration: none;
 }
@@ -262,9 +262,10 @@ main#homepage {
   display: -ms-flexbox;
   display: flex;
   margin: auto;
+  text-decoration: none;
 }
 
-.sidebar-nav ul a a {
+.sidebar-nav ul a p {
   display: none;
 }
 

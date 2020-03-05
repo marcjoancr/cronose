@@ -43,10 +43,12 @@ export default function WorkCard(props) {
 					</section>
 					<div className='card-body'>
 						<h4>
-							<b>{work.translations[0].title}</b>
+							<b>{work.title || work.translations[0].title}</b>
 						</h4>
 						<hr></hr>
-						<p className='card-text'>{work.translations[0].description}</p>
+						<p className='card-text'>
+							{work.description || work.translations[0].description}
+						</p>
 						<section className='text-right'>
 							<p className='price d-inline'>
 								<b>Precio: {work.coin_price}</b>
