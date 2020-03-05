@@ -46,7 +46,7 @@ export default class NewOffer extends React.Component {
 			qs.stringify({
 				data: data,
 			})
-		).then((response) => this.setState({ works: response.data }));
+		).then((response) => (window.location.href = '/Market'));
 	}
 
 	render() {
@@ -274,7 +274,7 @@ export default class NewOffer extends React.Component {
 							type='submit'
 							className='btn text-white'
 							id='generateData'
-							value='Previsualizar'
+							value='Publicar'
 						/>
 					</form>
 				</div>
