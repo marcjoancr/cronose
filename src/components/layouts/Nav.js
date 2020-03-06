@@ -32,6 +32,7 @@ function NavBar(props) {
 					id='navbarToggler'>
 					<ul id='ul-nav-hor' className='navbar-nav'>
 						{props.routes.map(function(route, index) {
+							if (route.show == false) return;
 							if (route.path === '/newoffer') return false;
 							if (route.path === '/userValidator') return false;
 							if (route.path === '/resetPassword') return false;
