@@ -56,7 +56,7 @@ export default [
 			},
 			{
 				title: 'My Works',
-				path: '/me/works',
+				path: '/my/works',
 				component: MyWorks,
 				icon: MdWork,
 			},
