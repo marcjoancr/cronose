@@ -6,7 +6,7 @@ export default function UserValidator() {
 			<h1>¡Enhorabuena te has registrado correctamente!</h1>
 			<p>
 				Haz click en el siguiente enlace para acceder a la
-				<a href='#'> pagina web.</a>
+				<a href='/login'> pagina web.</a>
 			</p>
 		</div>
 	);

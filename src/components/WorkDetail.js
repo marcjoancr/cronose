@@ -72,7 +72,6 @@ export default class WorkDetail extends React.Component {
 	render() {
 		const { work } = this.state;
 		if (!work) return <>Loading</>;
-		console.log(work);
 		return (
 			<section className='work'>
 				<div className='container mt-2'>
@@ -164,8 +163,7 @@ export default class WorkDetail extends React.Component {
 									height='50px'
 								/>
 								<h6 className='ml-2 my-auto'>
-									{work.user.name + work.user.surname + work.user.surname_2 ||
-										work.user.initials}
+									{work.user.full_name || work.user.initials}
 									<h6 className='d-inline text-muted'>#{work.user.tag}</h6>
 								</h6>
 							</div>

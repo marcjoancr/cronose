@@ -32,7 +32,7 @@ export default [
 			},
 			{
 				title: 'Work Details',
-				path: '/work/:initials/:tag/:specialization',
+				path: '/market/:initials/:tag/:specialization',
 				component: WorkDetail,
 				show: false,
 			},
@@ -57,7 +57,7 @@ export default [
 			},
 			{
 				title: 'My Works',
-				path: '/me/works',
+				path: '/my/works',
 				component: MyWorks,
 				icon: MdWork,
 			},
@@ -138,7 +138,7 @@ export default [
 			},
 			{
 				title: 'Work Details',
-				path: '/work/:initials/:tag/:specialization',
+				path: '/market/:initials/:tag/:specialization',
 				component: WorkDetail,
 				show: false,
 			},
