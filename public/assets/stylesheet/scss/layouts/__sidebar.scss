@@ -3,20 +3,27 @@
 	z-index: 1000;
 }
 
+#sidebar-toggle:checked ~ .sidebar-nav ul a p {
+	display: initial;
+}
+
+#sidebar-toggle:checked ~ .sidebar-nav ul li {
+	margin: 0px;
+}
+
+#sidebar-toggle:checked ~ .sidebar-nav ul li p {
+	color: var(--primary-color);
+	margin: 10px 0 0;
+	&:hover {
+		color: var(--secondary-color);
+		text-decoration: none;
+	}
+}
+
 #sidebar-toggle:checked ~ * {
 	--sidebar-width: 250px;
 }
 
-#sidebar-toggle:checked ~ * .sidebar-nav #nav-text {
-	display: inline;
-}
-
-#sidebar-toggle:checked ~ * .sidebar-nav i {
-	font-size: 30px;
-}
-#sidebar-toggle:checked ~ * .sidebar-nav img {
-	display: block;
-}
 #sidebar-toggle:checked ~ * .menu-icon .hamburger {
 	width: 100%;
 }
@@ -27,29 +34,14 @@
 	width: 100%;
 }
 
-// #sidebar-toggle:checked ~ * {
-// 	margin-left: var(--sidebar-width);
-// }
-
-/*** sidebar NAV ***/
-
 #app {
 	--sidebar-width: 100px;
 
 	width: 100%;
 }
 
-main {
-	&#homepage {
-		width: 100%;
-	}
-	height: 100%;
-	margin-left: var(--sidebar-width);
-	transition: all 250ms ease-in-out;
-}
-
 .sidebar-nav {
-	background-color: var(--primary-color);
+	background-color: var(--white);
 	position: fixed;
 	width: var(--sidebar-width);
 	height: 100%;
@@ -62,6 +54,12 @@ main {
 	margin-left: 10px;
 }
 
+.sidebar-nav .img-logo {
+	margin-top: 10px;
+	width: 50px;
+	height: 100px;
+}
+
 .sidebar-nav img {
 	margin-left: -16px;
 }
@@ -70,15 +68,52 @@ main {
 	font-size: 30px;
 }
 
-.sidebar-nav a {
-	text-align: left;
-	display: flex;
+.sidebar-nav ul {
+	width: 100%;
+	text-align: center;
+
+	li {
+		margin: auto;
+		font-size: 35px;
+		padding-top: 20px;
+	}
+	.icon {
+		margin-right: 5px;
+		color: var(--ternary-color);
+		opacity: 0.8;
+		font-size: 40px;
+	}
+
+	#iconDown {
+		color: #df2323;
+		font-size: 40px;
+	}
+
+	.icon:hover {
+		opacity: 1;
+		transition: opacity 250ms ease-in-out;
+	}
+	a {
+		display: flex;
+		margin: auto;
+		text-decoration: none;
+
+		p {
+			display: none;
+		}
+
+		&.active .icon {
+			opacity: 1;
+			color: var(--primary-color);
+		}
+	}
 }
 
 /*** MENU ICON ***/
 
 .menu-icon {
-	position: relative;
+	position: absolute;
+	top: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -100,7 +135,7 @@ main {
 	width: 85%;
 	height: 5px;
 	margin: 10px 0;
-	background-color: black;
+	background-color: var(--black);
 	transition: height 150ms ease-in-out;
 	transition: transform 250ms ease-in-out;
 	cursor: pointer;
@@ -130,8 +165,8 @@ main {
 	.menu-icon {
 		width: 35px;
 	}
-	#sidebar-toggle:checked ~ * .sidebar-nav {
-		transform: translateX((var(--sidebar-width)));
+	#sidebar-toggle:checked ~ .sidebar-nav {
+		transform: translateX(0);
 	}
 	#sidebar-toggle:checked ~ * .menu-bg {
 		position: absolute;

@@ -1,9 +1,14 @@
+.h-nav {
+	position: absolute;
+	right: 0;
+}
+
 .h-nav a {
-	color: #000;
+	color: var(--black);
 }
 .h-nav li:last-child a {
-	background-color: #f09a24;
-	color: #fff;
+	background-color: var(--secondary-color);
+	color: var(--white);
 	border-radius: 30px;
 }
 
@@ -14,4 +19,23 @@
 .img-logo {
 	width: 40px;
 	height: 60px;
+}
+
+#navbarToggler {
+	justify-content: end !important;
+}
+
+@media (max-width: 992px) {
+	.h-nav {
+		position: relative;
+		right: none;
+	}
+	#ul-nav-hor {
+		text-align: center;
+		padding: 10px;
+
+		.item {
+			margin: 8px;
+		}
+	}
 }

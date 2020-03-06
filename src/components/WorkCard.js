@@ -1,66 +1,69 @@
 import React from 'react';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
+import { Router, Route, NavLink } from 'react-router-dom';
 
 export default function WorkCard(props) {
 	const work = props.work;
-	console.log(work);
 
 	return (
-		<article className='work-card'>
-			<h3>{work.name}</h3>
-			<div id='job' className='text-white card'>
-				<div className='row'>
-					<div id='imgCol' className='col-md-3 col-12'>
-						<img
-							id='imgArticle'
-							className=''
-							src='https://i.picsum.photos/id/0/250/220.jpg'
-							alt='Card image'
-						/>
-					</div>
-					<div id='jobBody' className='col-md-9 col-12'>
-						<div className='row'>
-							<div className='col-8'>
-								<div className='pt-4'>
-									<h3 className='pt-2'>
-										<strong>TITULO</strong>
-									</h3>
-								</div>
-								<div>
-									<p className='pt-4'>DESCRIPCION</p>
-								</div>
-							</div>
-							<div id='barR' className='col-4'>
-								<div id='valJob' className='row'>
-									<div className='val col-6 text-center'>
-										<p className='align-middle'>
-											GV : <strong>AVG</strong>
-										</p>
-									</div>
-									<div className='val col-6 text-center'>
-										<p>
-											PV : <strong>PER</strong>
-										</p>
-									</div>
-								</div>
-								<div id='priceJob' className='align-middle'>
-									<h4>
-										Precio : <strong>PRECIO</strong>
-									</h4>
-								</div>
-								<div id='buttonDiv' className='text-center'>
-									<a
-										id='buttonJob'
-										href='#'
-										type='button'
-										className='btn pl-4 pr-4'>
-										Ver Trabajo
-									</a>
-								</div>
-							</div>
+		<article className='card work-card'>
+			<section className='info row'>
+				<figure className='col-lg-3'>
+					<img
+						className='card-img'
+						src='/assets/img/img-work.jpg'
+						alt='Card image cap'></img>
+				</figure>
+				<div className='col-lg-9'>
+					<section className='header card-header row'>
+						<p className='schedule col-2 text-muted my-auto d-none d-md-block'>
+							HORARIO
+						</p>
+						<div className='col-6 d-inline-flex'>
+							<ul className='list-group list-group-horizontal list-unstyled mb-4 my-auto'>
+								<li className='text-muted my-auto'>L</li>
+								<li className=''>M</li>
+								<li className=''>X</li>
+								<li className='text-muted my-auto'>J</li>
+								<li className=''>V</li>
+								<li className=''>S</li>
+								<li className=''>D</li>
+							</ul>
+							<p className='ml-4 my-auto'>
+								De: <b>10:00h</b> a <b>14:00h</b>
+							</p>
 						</div>
+						<div className='valuation col-4 text-right my-auto'>
+							<Rater
+								total={5}
+								rating={work.valoration_avg / 20}
+								interactive={false}
+							/>
+						</div>
+					</section>
+					<div className='card-body'>
+						<h4>
+							<b>{work.title || work.translations[0].title}</b>
+						</h4>
+						<small className='form-text text-muted'>{work.name}</small>
+						<hr></hr>
+						<p className='card-text'>
+							{work.description || work.translations[0].description}
+						</p>
+						<section className='text-right'>
+							<p className='price d-inline'>
+								<b>Precio: {work.coin_price}</b>
+							</p>
+							<NavLink
+								to={`/work/${work.initials}/${work.tag}/${work.specialization_id}`}
+								className='btn text-white'>
+								See Offer
+							</NavLink>
+						</section>
 					</div>
 				</div>
-			</div>
+			</section>
 		</article>
 	);
 }

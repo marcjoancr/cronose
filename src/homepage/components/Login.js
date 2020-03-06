@@ -1,29 +1,26 @@
 import React from 'react';
-import Axios from 'axios';
 import md5 from 'md5';
-import qs from 'qs';
+import { LoginContext } from '../../contexts/LoginContext';
 
-export default function Login() {
-	function sendLogin(e) {
+export default class Login extends React.Component {
+	static contextType = LoginContext;
+
+	constructor(props) {
+		super(props);
+
+		this.login = this.login.bind(this);
+	}
+
+	login(e) {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
 		formData.set('password', md5(formData.get('password')));
 		const data = Object.fromEntries(formData);
-		login(data);
+		this.context.login(data);
 	}
 
-	function login(data) {
-		Axios.post(`${process.env.REACT_APP_API_URL}/login`, qs.stringify(data))
-			.then(function(response) {
-				console.log(response);
-			})
-			.catch(function(error) {
-				console.log(error);
-			});
-	}
-
-	return (
-		<>
+	render() {
+		return (
 			<div className='card-login card text-center'>
 				<h3 className='card-title text-center'>LOGIN</h3>
 				<form
@@ -31,7 +28,7 @@ export default function Login() {
 					method='post'
 					target='_self'
 					className='form-signin'
-					onSubmit={sendLogin}>
+					onSubmit={this.login}>
 					<div className='form-label-group mt-4 text-left'>
 						<label htmlFor='email'>Email</label>
 						<input
@@ -63,13 +60,13 @@ export default function Login() {
 				</form>
 				<div className='card-footer'>
 					<div className='justify-content-center links'>
-						Don't have an account? <a href='#'> Sign Up</a>
+						Don't have an account? <a href='/register'> Sign Up</a>
 					</div>
 					<div className=' justify-content-center'>
 						<a href='#'>Forgot your password?</a>
 					</div>
 				</div>
 			</div>
-		</>
-	);
+		);
+	}
 }

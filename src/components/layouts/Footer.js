@@ -7,19 +7,16 @@ export default function Footer() {
 			<div className='links row text-center'>
 				<div className='col-md-6 text-md-left'>
 					<p>
-						<a href='#'>Home</a>
+						<a href='/home'>Home</a>
 					</p>
 					<p>
-						<a href='#'>About Us</a>
+						<a href='/home#about'>About Us</a>
 					</p>
 					<p>
-						<a href='#'>How it work</a>
+						<a href='/home#HowItWorks'>How it work</a>
 					</p>
 					<p>
-						<a href='#'>Contact</a>
-					</p>
-					<p>
-						<a href='#'>Market</a>
+						<a href='/home#contact'>Contact</a>
 					</p>
 				</div>
 				<div className='col-md-6 text-md-left'>
@@ -53,13 +50,13 @@ export default function Footer() {
 					</form>
 				</div>
 				<div className='social col-md-6 text-md-left'>
-					<a href='#'>
+					<a href='https://twitter.com/'>
 						<IoLogoTwitter />
 					</a>
-					<a href='#'>
+					<a href='https://es-es.facebook.com/'>
 						<IoLogoFacebook />
 					</a>
-					<a href='#'>
+					<a href='https://www.instagram.com/?hl=es'>
 						<IoLogoInstagram />
 					</a>
 				</div>

@@ -1,14 +1,10 @@
 footer {
-	&#homepage {
-		width: 100%;
-	}
 	margin-left: var(--sidebar-width);
-	background-color: #242633;
-	color: white;
+	background-color: rgba(255, 255, 255, 0.5);
 	transition: all 250ms ease-in-out;
 
 	a {
-		color: #f09a24;
+		color: var(--primary-color);
 	}
 
 	.col-md-6 {
@@ -16,13 +12,13 @@ footer {
 	}
 
 	.btn-submit {
-		background-color: #f09a24;
+		background-color: var(--primary-color);
 	}
 
 	.social a {
 		margin-right: 20px;
 		font-size: 50px;
-		color: #f09a24;
+		color: var(--primary-color);
 		border: 0;
 
 		&:hover {
@@ -36,5 +32,15 @@ footer {
 
 	.links {
 		padding-top: 10px;
+	}
+}
+
+@media (max-width: 575px) {
+	footer {
+		margin-left: 0px;
+	}
+
+	.footer-copyright {
+		color: black;
 	}
 }

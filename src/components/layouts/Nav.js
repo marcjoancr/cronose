@@ -1,30 +1,52 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
+import { FaPowerOff } from 'react-icons/fa';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { LoginContext } from '../../contexts/LoginContext';
 
 function NavBar(props) {
 	return (
 		<BrowserRouter basename={props.basename} forceRefresh={props.refresh}>
-			<nav className='navbar navbar-expand-md w-100'>
-				<img
-					className='img-logo'
-					src='https://cdn.discordapp.com/attachments/638666472427749385/664800639779471373/CronoseLogo.png'
-				/>
-				<a className='pl-3 navbar-brand' href='#'>
-					Cronose
-				</a>
-				<div className='h-nav collapse navbar-collapse d-flex flex-row-reverse mr-4 mt-2'>
-					<ul className='navbar-nav'>
-						{props.routes.map((route, index) => (
-							<li key={index} className='item'>
-								<NavLink
-									to={route.path}
-									exact={route.exact}
-									className='nav-item mr-2 px-3 py-2'
-									activeClassName='active'>
-									{route.title}
-								</NavLink>
-							</li>
-						))}
+			<nav className='navbar navbar-expand-lg w-100 container'>
+				<div>
+					<img className='img-logo' src='/assets/img/svg/logo.svg' />
+					<a className='pl-3 navbar-brand' href='/'>
+						Cronose
+					</a>
+				</div>
+
+				<button
+					className='navbar-toggler'
+					type='button'
+					data-toggle='collapse'
+					data-target='#navbarToggler'
+					aria-controls='navbarToggler'
+					aria-expanded='false'
+					aria-label='Toggle navigation'>
+					<span className='navbar-toggler-icon'>
+						<GiHamburgerMenu />
+					</span>
+				</button>
+				<div
+					className='h-nav collapse navbar-collapse text-left mr-4 mt-2'
+					id='navbarToggler'>
+					<ul id='ul-nav-hor' className='navbar-nav'>
+						{props.routes.map(function(route, index) {
+							if (route.path === '/newoffer') return false;
+							if (route.path === '/userValidator') return false;
+							if (route.path === '/resetPassword') return false;
+							return (
+								<li key={index} className='item'>
+									<NavLink
+										to={route.path}
+										exact={route.exact}
+										className='nav-item mr-2 px-3 py-2'
+										activeClassName='active'>
+										{route.title}
+									</NavLink>
+								</li>
+							);
+						})}
 					</ul>
 				</div>
 			</nav>
@@ -42,25 +64,47 @@ function SideBar(props) {
 					<label htmlFor='sidebar-toggle' className='menu-icon'>
 						<i className='hamburger'></i>
 					</label>
-					<ul className='nav flex-column mb-0'>
-						{props.routes.map((route, index) => (
-							<li key={index} className='nav-item pt-3'>
-								<NavLink
-									to={route.path}
-									exact={route.exact}
-									className='text-white'
-									activeClassName='active'>
-									{route.title}
-								</NavLink>
-							</li>
-						))}
+					<img
+						className='img-logo m-auto mt-4'
+						src='/assets/img/svg/logo.svg'
+					/>
+					<ul className='nav flex-column mb-0 mt-4'>
+						{props.routes.map(function(route, index) {
+							if (route.show == false) return;
+							if (route.path === '/newoffer') return false;
+							if (route.path === '/home') return false;
+							if (route.path === '/#about') return false;
+							if (route.path === '/#HowItWorks') return false;
+							if (route.path === '/#contact') return false;
+							if (route.path === '/userValidator') return false;
+							if (route.path === '/resetPassword') return false;
+							return (
+								<li key={index} className='nav-item'>
+									<NavLink
+										to={route.path}
+										exact={route.exact}
+										className=''
+										activeClassName='active'>
+										<i className='icon'>{route.icon ? <route.icon /> : null}</i>
+										<p>{route.title}</p>
+									</NavLink>
+								</li>
+							);
+						})}
+						<LoginContext.Consumer>
+							{(context) => (
+								<i
+									id='iconDown'
+									className='mt-5'
+									onClick={() => context.logout()}>
+									<FaPowerOff />
+								</i>
+							)}
+						</LoginContext.Consumer>
 					</ul>
 				</section>
 			</nav>
-			<main>
-				{SwitchRoutes(props.routes)}
-				<h1></h1>
-			</main>
+			<main>{SwitchRoutes(props.routes)}</main>
 		</BrowserRouter>
 	);
 }
