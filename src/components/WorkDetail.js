@@ -45,6 +45,7 @@ export default function WorkDetail(props) {
 			<div className='container mt-2'>
 				<div className='row'>
 					<h1>Profesor de guitarra (Nivel básico)</h1>
+          <h3 className="my-auto ml-4"> Precio: 1.2</h3>
 				</div>
 				<div className='row'>
 					<div className='col-12 col-md-8'>
