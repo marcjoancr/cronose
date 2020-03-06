@@ -46,7 +46,8 @@ export default function WorkCard(props) {
 						<h4>
 							<b>{work.title || work.translations[0].title}</b>
 						</h4>
-						<small className='form-text text-muted'>{work.name}</small>
+						<small className='d-inline form-text'>{work.initials}</small>
+						<small className='d-inline text-muted'>#{work.tag}</small>
 						<hr></hr>
 						<p className='card-text'>
 							{work.description || work.translations[0].description}
@@ -56,7 +57,7 @@ export default function WorkCard(props) {
 								<b>Precio: {work.coin_price}</b>
 							</p>
 							<NavLink
-								to={`/work/${work.initials}/${work.tag}/${work.specialization_id}`}
+								to={`/market/${work.initials}/${work.tag}/${work.specialization_id}`}
 								className='btn text-white'>
 								See Offer
 							</NavLink>

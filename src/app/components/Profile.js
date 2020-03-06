@@ -47,7 +47,10 @@ export default class Profile extends Component {
 												alt='...'
 												class=' rounded-circle shadow-sm'></img>
 											<h5>
-												{context.user.name} <b> #{context.user.tag}</b>
+												{context.user.name}
+												<p className='d-inline text-muted'>
+													#{context.user.tag}
+												</p>
 											</h5>
 										</div>
 									</div>
