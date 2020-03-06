@@ -32,7 +32,6 @@ function NavBar(props) {
 					id='navbarToggler'>
 					<ul id='ul-nav-hor' className='navbar-nav'>
 						{props.routes.map(function(route, index) {
-							if (route.path === '/work') return false;
 							if (route.path === '/newoffer') return false;
 							if (route.path === '/userValidator') return false;
 							if (route.path === '/resetPassword') return false;
@@ -71,7 +70,7 @@ function SideBar(props) {
 					/>
 					<ul className='nav flex-column mb-0 mt-4'>
 						{props.routes.map(function(route, index) {
-							if (route.path === '/work') return false;
+							if (route.show == false) return;
 							if (route.path === '/newoffer') return false;
 							if (route.path === '/home') return false;
 							if (route.path === '/#about') return false;

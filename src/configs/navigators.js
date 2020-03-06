@@ -32,8 +32,9 @@ export default [
 			},
 			{
 				title: 'Work Details',
-				path: '/work',
+				path: '/work/:initials/:tag/:specialization',
 				component: WorkDetail,
+				show: false,
 			},
 
 			{
@@ -130,8 +131,9 @@ export default [
 			},
 			{
 				title: 'Work Details',
-				path: '/work',
+				path: '/work/:initials/:tag/:specialization',
 				component: WorkDetail,
+				show: false,
 			},
 			{
 				title: 'Login',
