@@ -28,7 +28,7 @@ export default class Profile extends Component {
 			<LoginContext.Consumer>
 				{(context) => {
 					var srcImg =
-						'http://devapi.cronose.dawman.info/images/avatar/' +
+						`${process.env.REACT_APP_API_URL}/images/` +
 						context.user.avatar.url;
 					return (
 						<div className='profile'>
