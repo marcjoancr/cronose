@@ -32,14 +32,16 @@ export default [
 			},
 			{
 				title: 'Work Details',
-				path: '/work',
+				path: '/work/:initials/:tag/:specialization',
 				component: WorkDetail,
+				show: false,
 			},
 
 			{
 				title: 'New Offer',
 				path: '/newoffer',
 				component: NewOffer,
+				show: false,
 			},
 			{
 				title: 'Wallet',
@@ -55,7 +57,7 @@ export default [
 			},
 			{
 				title: 'My Works',
-				path: '/:user/works',
+				path: '/me/works',
 				component: MyWorks,
 				icon: MdWork,
 			},
@@ -70,31 +72,37 @@ export default [
 				path: '/home',
 				component: HomePage,
 				exact: true,
+				show: false,
 			},
 			{
 				title: 'About Us',
 				path: '/#about',
 				component: HomePage,
+				show: false,
 			},
 			{
 				title: 'How It Works',
 				path: '/#HowItWorks',
 				component: HomePage,
+				show: false,
 			},
 			{
 				title: 'Contact',
 				path: '/#contact',
 				component: HomePage,
+				show: false,
 			},
 			{
 				title: 'Reset Password',
 				path: '/resetPassword',
 				component: ResetPassword,
+				show: false,
 			},
 			{
 				title: 'User Validator',
 				path: '/userValidator',
 				component: UserValidator,
+				show: false,
 			},
 		],
 	},
@@ -130,8 +138,9 @@ export default [
 			},
 			{
 				title: 'Work Details',
-				path: '/work',
+				path: '/work/:initials/:tag/:specialization',
 				component: WorkDetail,
+				show: false,
 			},
 			{
 				title: 'Login',
@@ -147,11 +156,13 @@ export default [
 				title: 'Reset Password',
 				path: '/resetPassword',
 				component: ResetPassword,
+				show: false,
 			},
 			{
 				title: 'User Validator',
 				path: '/userValidator',
 				component: UserValidator,
+				show: false,
 			},
 		],
 	},

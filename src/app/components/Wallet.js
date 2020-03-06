@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import {
 	LineChart,
 	Line,
@@ -40,7 +40,7 @@ const data = [
 	},
 ];
 
-export default class Wallet extends PureComponent {
+export default class Wallet extends Component {
 	static contextType = LoginContext;
 
 	state = {

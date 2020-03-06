@@ -1,6 +1,7 @@
 import React from 'react';
 import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
+import { Router, Route, NavLink } from 'react-router-dom';
 
 export default function WorkCard(props) {
 	const work = props.work;
@@ -36,7 +37,7 @@ export default function WorkCard(props) {
 						<div className='valuation col-4 text-right my-auto'>
 							<Rater
 								total={5}
-								rating={work.valoration_avg / 10 / 2}
+								rating={work.valoration_avg / 20}
 								interactive={false}
 							/>
 						</div>
@@ -54,9 +55,11 @@ export default function WorkCard(props) {
 							<p className='price d-inline'>
 								<b>Precio: {work.coin_price}</b>
 							</p>
-							<a href='/work' className='btn text-white'>
+							<NavLink
+								to={`/work/${work.initials}/${work.tag}/${work.specialization_id}`}
+								className='btn text-white'>
 								See Offer
-							</a>
+							</NavLink>
 						</section>
 					</div>
 				</div>
