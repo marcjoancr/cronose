@@ -57,7 +57,7 @@ export default function WorkCard(props) {
 								<b>Precio: {work.coin_price}</b>
 							</p>
 							<NavLink
-								to={`/market/${work.initials}/${work.tag}/${work.specialization_id}`}
+								to={`/work/${work.initials}/${work.tag}/${work.specialization_id}`}
 								className='btn text-white'>
 								See Offer
 							</NavLink>
