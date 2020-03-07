@@ -1,6 +1,7 @@
 import React from 'react';
 import md5 from 'md5';
 import { LoginContext } from '../../contexts/LoginContext';
+import Reset from './Reset';
 
 export default class Login extends React.Component {
 	static contextType = LoginContext;
@@ -63,9 +64,12 @@ export default class Login extends React.Component {
 						Don't have an account? <a href='/register'> Sign Up</a>
 					</div>
 					<div className=' justify-content-center'>
-						<a href='#'>Forgot your password?</a>
+						<a href='#' data-toggle='modal' data-target='#reset_password'>
+							Forgot your password?
+						</a>
 					</div>
 				</div>
+				<Reset />
 			</div>
 		);
 	}

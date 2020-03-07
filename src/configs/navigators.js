@@ -11,6 +11,7 @@ import WorkDetail from '../components/WorkDetail';
 import NewOffer from '../app/components/NewOffer';
 import ResetPassword from '../components/ResetPassword';
 import UserValidator from '../components/UserValidator';
+import Reset from '../homepage/components/Reset';
 
 import { IoIosChatbubbles } from 'react-icons/io';
 import { FaStore } from 'react-icons/fa';
@@ -155,6 +156,12 @@ export default [
 				title: 'Reset Password',
 				path: '/resetPassword',
 				component: ResetPassword,
+				show: false,
+			},
+			{
+				title: 'reset',
+				path: '/reset',
+				component: Reset,
 				show: false,
 			},
 			{
